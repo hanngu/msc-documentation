@@ -1,0 +1,66 @@
+% (C) Anders Kofod-Petersen
+\documentclass[a4paper]{book}
+\usepackage[english]{babel}						% Correct English hyphenation
+\usepackage[latin1]{inputenc}						% Allow for non-English letters
+\usepackage{graphicx}							% To include graphics
+\usepackage{natbib}								% Correct citations
+%\usepackage{fancyheadings}						% Nice header and footer
+\usepackage[linktocpage,colorlinks]{hyperref}			% PDF hyperlink
+\usepackage{geometry} 							% Better geometry
+%\usepackage[center]					% For cropping documents
+
+% B5 (uncomment to convert to B5 format)
+%\geometry{b5paper}
+
+
+% Author
+% Fill in here, and use commands in the text. 
+\newcommand{\thesisAuthor}{Author Authorsen}
+\newcommand{\thesisTitle}{The best title in the world}
+\newcommand{\thesisType}{master project}
+\newcommand{\thesisDate}{spring 2014}
+
+%Fancy headings
+%\pagestyle{fancy}
+%\pagestyle{fancyplain}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+%\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\let\uppercase\relax\leftmark}}
+%\rhead[\fancyplain{}{\let\uppercase\relax\rightmark}]{\fancyplain{}{\thepage}}
+%\chead[\fancyplain{}{}]{\fancyplain{}{}}
+%\lfoot[\fancyplain{}{}]{\fancyplain{}{}}
+%\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
+%\rfoot[\fancyplain{}{}]{\fancyplain{}{}}
+
+\begin{document}
+
+%Title page (This is generate automatically from the commands above)
+\begin{titlepage}
+\noindent {\large \textbf{\thesisAuthor}}
+\vspace{2cm}
+
+\noindent {\Huge \thesisTitle}
+\vspace{2cm}
+
+\noindent \thesisType, \thesisDate 
+\vspace{2cm}
+
+\noindent Artificial Intelligence Group\\ Department of Computer and Information Science\\ Faculty of Information Technology, Mathematics and Electrical Engineering\\
+
+\vfill
+\begin{center}
+\includegraphics[width=3cm]{assets/logo_ntnu_eng.pdf}
+\end{center}
+\end{titlepage}
+
+\thispagestyle{empty}
+
+\cleardoublepage
+
+\frontmatter
+
+\listoftables
+\listoffigures
+\bibliographystyle{plain}
+\bibliography{bibl}
+\end{document}
