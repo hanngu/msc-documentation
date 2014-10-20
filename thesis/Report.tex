@@ -7,6 +7,7 @@
 %\usepackage{fancyheadings}						% Nice header and footer
 \usepackage[linktocpage,colorlinks]{hyperref}			% PDF hyperlink
 \usepackage{geometry} 							% Better geometry
+\usepackage{import}
 %\usepackage[center]					% For cropping documents
 
 % B5 (uncomment to convert to B5 format)
@@ -54,6 +55,29 @@
 \end{titlepage}
 
 \thispagestyle{empty}
+
+
+\chapter*{Abstract}
+\chapter*{Preface}
+\chapter*{Acknowledgements}
+
+
+\tableofcontents
+
+\chapter{Introduction}
+\input{chapters/introduction}
+\chapter{Related Work}
+\input{chapters/relatedwork}
+\chapter{The Model}
+\input{chapters/model}
+\chapter{Results}
+\input{chapters/results}
+\chapter{Analysis}
+\input{chapters/analysis}
+\chapter{Discussion}
+\input{chapters/discussion}
+
+
 
 \cleardoublepage
 
