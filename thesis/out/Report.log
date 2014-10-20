@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.30)  20 OCT 2014 12:43
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.30)  20 OCT 2014 13:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -375,7 +375,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 Chapter 1.
 (./chapters/introduction/introduction.tex
 (./chapters/introduction/motivation.tex)
-(./chapters/introduction/researchquestions.tex)
+(./chapters/introduction/researchquestions.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
+)
 (./chapters/introduction/reportoverview.tex)) [11] [12
 
 ]
@@ -397,7 +405,8 @@ Chapter 5.
 
 ]
 Chapter 6.
-(./chapters/discussion/discussion.tex) [21] [22
+(./chapters/discussion/discussion.tex (./chapters/discussion/futurework.tex))
+[21] [22
 
 ] (out//Report.lot)
 \tf@lot=\write5
@@ -408,12 +417,12 @@ Chapter 6.
 
 ] [2
 
-]
-(out//Report.lof)
+] (out//Report.lof)
 \tf@lof=\write6
 \openout6 = `Report.lof'.
 
- (out//Report.bbl [3] [4
+ (out//Report.bbl [3]
+[4
 
 ]
 
@@ -431,10 +440,10 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
  ) 
 Here is how much of TeX's memory you used:
- 6204 strings out of 493488
- 90909 string characters out of 3141326
- 180763 words of memory out of 3000000
- 9370 multiletter control sequences out of 15000+200000
+ 6221 strings out of 493488
+ 91283 string characters out of 3141326
+ 180794 words of memory out of 3000000
+ 9384 multiletter control sequences out of 15000+200000
  6723 words of font info for 24 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  29i,5n,28p,264b,356s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -442,11 +451,12 @@ Here is how much of TeX's memory you used:
 ></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
 usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
-Output written on out//Report.pdf (27 pages, 91974 bytes).
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on out//Report.pdf (27 pages, 100738 bytes).
 PDF statistics:
  237 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 198 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
  110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
