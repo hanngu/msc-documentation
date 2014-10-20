@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.30)  20 OCT 2014 12:07
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.30)  20 OCT 2014 12:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -341,7 +341,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-<assets/logo_ntnu_eng.pdf, id=48, 241.49622pt x 52.79524pt>
+<assets/logo_ntnu_eng.pdf, id=44, 241.49622pt x 52.79524pt>
 File: assets/logo_ntnu_eng.pdf Graphic file (type pdf)
 
 <use assets/logo_ntnu_eng.pdf>
@@ -351,9 +351,9 @@ Package pdftex.def Info: assets/logo_ntnu_eng.pdf used on input line 53.
 
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./asset
-s/logo_ntnu_eng.pdf>] [2] [3
+s/logo_ntnu_eng.pdf>] [2
 
-] [4
+] [3] [4
 
 ] [5] [6
 
@@ -373,27 +373,29 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 Chapter 1.
-(./chapters/introduction.tex) [11] [12
+(./chapters/introduction/introduction.tex
+(./chapters/introduction/motivation.tex)
+(./chapters/introduction/researchquestions.tex)) [11] [12
 
 ]
 Chapter 2.
-(./chapters/relatedwork.tex) [13] [14
+(./chapters/relatedwork/relatedwork.tex) [13] [14
 
 ]
 Chapter 3.
-(./chapters/model.tex) [15] [16
+(./chapters/model/model.tex) [15] [16
 
 ]
 Chapter 4.
-(./chapters/results.tex) [17] [18
+(./chapters/results/results.tex) [17] [18
 
 ]
 Chapter 5.
-(./chapters/analysis.tex) [19] [20
+(./chapters/analysis/analysis.tex) [19] [20
 
 ]
 Chapter 6.
-(./chapters/discussion.tex) [21] [22
+(./chapters/discussion/discussion.tex) [21] [22
 
 ] (out//Report.lot)
 \tf@lot=\write5
@@ -416,33 +418,33 @@ Chapter 6.
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 90.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
  [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 90.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
  (out//Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 90.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 90.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 87.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 90.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
  ) 
 Here is how much of TeX's memory you used:
- 6176 strings out of 493488
- 90136 string characters out of 3141326
- 179760 words of memory out of 3000000
- 9367 multiletter control sequences out of 15000+200000
+ 6185 strings out of 493488
+ 90523 string characters out of 3141326
+ 178760 words of memory out of 3000000
+ 9366 multiletter control sequences out of 15000+200000
  6723 words of font info for 24 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,5n,28p,264b,383s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,5n,28p,264b,356s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
 usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
-Output written on out//Report.pdf (27 pages, 90172 bytes).
+Output written on out//Report.pdf (27 pages, 89146 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 218 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
