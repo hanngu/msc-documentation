@@ -1,5 +1,5 @@
 % (C) Anders Kofod-Petersen
-\documentclass[a4paper]{book}
+\documentclass[11pt, a4paper]{report}
 \usepackage[english]{babel}						% Correct English hyphenation
 \usepackage[utf8]{inputenc}						% Allow for non-English letters
 \usepackage{graphicx}							% To include graphics
@@ -33,8 +33,10 @@
 %\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
 %\rfoot[\fancyplain{}{}]{\fancyplain{}{}}
 
-\begin{document}
 
+
+\begin{document}
+\pagenumbering{arabic}
 %Title page (This is generate automatically from the commands above)
 \begin{titlepage}
 \noindent {\large \textbf{\thesisAuthor}}
@@ -55,30 +57,38 @@
 \end{titlepage}
 
 %\thispagestyle{empty}
-
 \chapter*{Abstract}
 \chapter*{Acknowledgements}
 
 %content
- \tableofcontents
+\tableofcontents
 
 \chapter{Introduction}
 \input{chapters/introduction/introduction}
+\input{chapters/introduction/motivation}
+\input{chapters/introduction/researchquestions}
+\input{chapters/introduction/reportoverview}
+
 \chapter{Related Work}
 \input{chapters/relatedwork/relatedwork}
+
 \chapter{The Model}
 \input{chapters/model/model}
+
 \chapter{Results}
 \input{chapters/results/results}
+\input{chapters/results/statisticalresults}
+\input{chapters/results/individualruns}
+
 \chapter{Analysis}
 \input{chapters/analysis/analysis}
+
 \chapter{Discussion}
 \input{chapters/discussion/discussion}
+\input{chapters/discussion/futurework}
 
 
 \cleardoublepage
-
-\frontmatter
 
 \listoftables
 \listoffigures

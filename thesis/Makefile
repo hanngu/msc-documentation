@@ -11,7 +11,6 @@ clean:
 
 open: build
 	@open out/Report.pdf
-
 lint:
 	@chktex Report.tex
 
