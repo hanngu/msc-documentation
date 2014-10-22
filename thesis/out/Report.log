@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.30)  20 OCT 2014 13:25
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.30)  22 OCT 2014 10:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -569,9 +569,7 @@ s/logo_ntnu_eng.pdf>] [2
 ] [5] [6
 
 ]
-[7] [8
-
-] (out//Report.toc
+(out//Report.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -580,7 +578,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `Report.toc'.
 
- [9] [10
+ [7] [8
 
 ]
 Chapter 1.
@@ -600,29 +598,29 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
 )
 (./chapters/introduction/researchquestions.tex)
-(./chapters/introduction/reportoverview.tex)) [11] [12
+(./chapters/introduction/reportoverview.tex)) [9] [10
 
 ]
 Chapter 2.
-(./chapters/relatedwork/relatedwork.tex) [13] [14
+(./chapters/relatedwork/relatedwork.tex) [11] [12
 
 ]
 Chapter 3.
-(./chapters/model/model.tex) [15] [16
+(./chapters/model/model.tex) [13] [14
 
 ]
 Chapter 4.
 (./chapters/results/results.tex (./chapters/results/statisticalresults.tex)
-(./chapters/results/individualruns.tex)) [17] [18
+(./chapters/results/individualruns.tex)) [15] [16
 
 ]
 Chapter 5.
-(./chapters/analysis/analysis.tex) [19] [20
+(./chapters/analysis/analysis.tex) [17] [18
 
 ]
 Chapter 6.
 (./chapters/discussion/discussion.tex (./chapters/discussion/futurework.tex))
-[21] [22
+[19] [20
 
 ] (out//Report.lot)
 \tf@lot=\write5
@@ -656,8 +654,8 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
  ) 
 Here is how much of TeX's memory you used:
- 6388 strings out of 493488
- 92453 string characters out of 3141326
+ 6385 strings out of 493488
+ 92429 string characters out of 3141326
  182318 words of memory out of 3000000
  9542 multiletter control sequences out of 15000+200000
  6723 words of font info for 24 fonts, out of 3000000 for 9000
@@ -669,10 +667,10 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on out//Report.pdf (27 pages, 102188 bytes).
+Output written on out//Report.pdf (25 pages, 101623 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
  110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
