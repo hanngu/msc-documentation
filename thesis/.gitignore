@@ -6,3 +6,4 @@ Report.pdf
 *.toc
 *.tex~
 /out
+.DS_Store
