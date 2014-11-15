@@ -2,7 +2,7 @@
 \usepackage[english]{babel}						% Correct English hyphenation
 \usepackage[utf8]{inputenc}						% Allow for non-English letters
 \usepackage{graphicx}							% To include graphics
-\usepackage[square,sort,comma,numbers]{natbib}						% Correct citations
+\usepackage{natbib}	% Correct citations
 %\usepackage{fancyheadings}						% Nice header and footer
 \usepackage[linktocpage,colorlinks]{hyperref}			% PDF hyperlink
 \usepackage{geometry} 							% Better geometry
@@ -10,13 +10,18 @@
 \usepackage{todonotes}
 \usepackage{underscore}
 \usepackage{tabularx}
+\hypersetup{
+ colorlinks=false,
+ citecolor=black,
+ linkcolor=black,
+ urlcolor=black}
 
 
 \begin{document}
-\bibliographystyle{plain}
 \listoftables
 \input{chapters/protocol/finalprotocol}
 \input{chapters/protocol/searchenginesvol2}
+\bibliographystyle{apalike}
 \bibliography{bibl}
 
 \end{document}
