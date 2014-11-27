@@ -4,7 +4,6 @@
 %Ref: https://raw.githubusercontent.com/kenborge/slr-scbw/master/sections/protocol.tex
 \noindent
 \begin{table}[h]
-\label{table:searchterms}
 \begin{center}
 	{
 	\small
@@ -23,6 +22,7 @@
 \end{center}
 
 \caption{Matrix of search terms}
+\label{table:searchterms}
 
 \end{table}
 
@@ -62,7 +62,7 @@ One of the goals for the environment package for transportation in Trondheim, ``
 \item \textbf{P:} “Optimizing the bus routes in Trondheim using AI-methods. “ This problem can be characterized as a \textit{General Pickup and Delivery Problem (GPDP)} \citep[p.22-25]{vehiclerouting}.  
 \item \textbf{C:} 
     \begin{enumerate}
-        \item To optimize the bus routes in Trondheim we wanted to explore the possibility using methods from swarm intelligence. This idea came from an initial, non-structured literature review were we did a broad search among different artificial intelligence methods and route optimizing. %Todo: Kanskje skrive litt mer om dette? Evt. sitere noe papershit
+        \item To optimize the bus routes in Trondheim we wanted to explore the possibility using methods from swarm intelligence. This idea came from an initial, non-structured literature review were we did a broad search among different artificial intelligence methods and route optimizing. %Todo: Kanskje skrive litt mer om dette? Evt. sitere noe literatureshit
         \item We believe that a part of solving P is how we choose to represent the network of the bus routes in Trondheim. The chosen algorithms to optimize the routes with respect to minimize the number of resources used will use this representation. We have some experience with the graph database Neo4j. Neo4j has several benefits that we believe we can take advantage of when solving P, including a natural node-edge-structure and the possibility of saving information to both the nodes and edges. We envision that the nodes will represent bus stops, and the edges will represent the connectivity between the stops. 
     \end{enumerate}
 \end{itemize}
@@ -80,18 +80,19 @@ One of the goals for the environment package for transportation in Trondheim, ``
 %Todo: Skrive om Zotero
 
 \section{Inclusion Criteria}
-To exclude irrelevant papers, some inclusion criterias were decided to ensure a level of relevance to the very first pool. First of all, duplicate papers, book of chapters, book of abstracts, book of references, papers not written in english, and papers with cleary irrelevant titles (for example papers in different research areas) were removed based on title. After that, we decided to filter out relevant papers based on the abstracts. Because we had relatively many papers after the initial filtering (367 papers), we decided that we wanted the abstracts (or the keyword section) to explicitly mention swarm intelligence or algorithms associated with swarm intelligence, while it also described a problem connected to vehicle routing. For our literature review we decided to use the inclusion criterias solely on the title, abstract and keywords. After a discussion and reading a few abstracts we landed on the following inclusion criterias:
+To exclude irrelevant literature, some inclusion criterias were decided to ensure a level of relevance to the very first pool. First of all, duplicate literature, book of chapters, book of abstracts, book of references, literature not written in english, books, and literature with cleary irrelevant titles (for example literature from different research areas) were removed based on title. After that, we decided to filter out relevant literature based on the abstracts. Because we had relatively many sources to related literature after the initial filtering (367), we decided that we wanted the abstracts (or the keyword section) to explicitly mention swarm intelligence or algorithms associated with swarm intelligence, while it also described a problem connected to vehicle routing. For our literature review we decided to use the inclusion criterias solely on the title, abstract and keywords. After a discussion and reading a few abstracts we landed on the following inclusion criterias:
 \begin{itemize}
 \item The main concern is route optimization focusing on vehicles. 
 \item The study focuses on the use of swarm intelligence.
-\item The paper must contain an abstract. 
-\item The paper must still excist (some papers were removed from its original source).
-\item The paper must be free of charge.
+\item The literature must contain an abstract. 
+\item The literature must still excist (some literature were removed from its original source).
+\item The literature must be free of charge.
 \end{itemize}
 
-After the inclusion criteria filtering, we had 57 papers. \textbf{Omformuler}
+After the inclusion criteria filtering, we had 42 sources to related literature, including scientific papers and master theses. 
 
-\section{Quality Criteria}
+\section{Quality Criteria} 
+
 \begin{enumerate}
 \item How relevant is it?
 \begin{enumerate}
@@ -113,5 +114,35 @@ After the inclusion criteria filtering, we had 57 papers. \textbf{Omformuler}
 \end{enumerate}
 
 \subsection{Scoring}
-Point 1-13 given a score, with the granularity 0 (no), $\frac{1}{2}$ (partly), and 1 (yes).
-Because of the importance in point 1a and 1b these were weighted higher.
+Point 1-13 given a score, with the granularity 0 (no), $\frac{1}{2}$ (partly), and 1 (yes). For this structured literature review we wanted to emphasize on the quality criteria that covered the relevance. We read some literature that were quite good regarding to for example structure and composition, but who were not relevant for our thesis. Therefor, we chose to multiply the 1a and 1b quality criteria with 3.  
+
+\section{Selecting the final literature}
+When selecting the final literature we decided to do this solely based on the quality criteria scores. The average score of the read literature was 13.1 $\approx$ 13. We decided that literature given a score $\geq{1.5}$ above average were selected. After this sorting we ended up with 14 final literature. These 14 literature are going to create the foundation of our thesis. Table \ref{table:finalliterature} shows the selected literature. 
+
+\begin{table}[!htb]
+    \begin{center}
+    {
+    \small
+    \begin{tabular}[c]{| m{7cm} | m{7cm} |}
+        \hline
+        \textbf{Title} & \textbf{Author} \\ \hline
+        \textit{``Adapt-Traf: An adaptive multiagent road traffic management system based on hybrid ant-hierarchical fuzzy model''} & Kammoun et al. \\ \hline
+        \textit{``An ant based algorithm approach to vehicle navigation''} & Salehi-nezhad and Farrahi-Moghaddam \\ \hline
+        \textit{``An Ant Based Simulation Optimization for Vehicle Routing Problem with Stochastic Demands''} & Tripathi et al. \\ \hline
+        \textit{``An Ant System application to the Bus Network Design Problem: an algorithm and a case study ''} & Poorzahedy and Safari \\ \hline
+        \textit{``An improved Ant Colony algorithm for Urban Transit Network Optimization''} & Jiang et al. \\ \hline
+        \textit{``An Inverted Ant Colony Optimization approach to traffic''} & Dias et al. \\ \hline
+        \textit{``Ant colony optimization for best path planning''} & Hsiao et al. \\ \hline
+        \textit{``Ant dispersion routing for traffic optimization''} & Alves \\ \hline
+        \textit{``A parallel ant colony algorithm for bus network optimization''} & Yang et al. \\ \hline
+        \textit{``A simultaneous transit network design and frequency setting: Computing with bees''} & Nikolić and Teodorović \\ \hline
+        \textit{``Computing with bees: Attacking complex transportation engineering problems''} & Panta and Du San Teodorovi \\ \hline
+        \textit{``Dynamic Fuzzy Logic-Ant Colony System-Based Route Selection System''} & Salehinejad and Talebi \\ \hline
+        \textit{``Solving the open vehicle routing problem by a hybrid ant colony optimization''} & Sedighpour et al. \\ \hline
+        \textit{``Solving the Urban Transit Routing Problem using a particle swarm optimization based algorithm''} & Kechagiopoulos and Beligiannis \\ 
+        \hline
+    \end{tabular}
+    } 
+    \end{center}
+\caption{Final literature}\label{table:finalliterature}
+\end{table}
