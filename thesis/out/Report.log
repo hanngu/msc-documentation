@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.22)  21 JAN 2015 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.22)  21 JAN 2015 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -546,7 +546,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
-<assets/logo_ntnu_eng.pdf, id=4, 241.49622pt x 52.79524pt>
+<assets/logo_ntnu_eng.pdf, id=52, 241.49622pt x 52.79524pt>
 File: assets/logo_ntnu_eng.pdf Graphic file (type pdf)
 
 <use assets/logo_ntnu_eng.pdf>
@@ -626,11 +626,7 @@ Chapter 6.
 (./chapters/discussion/discussion.tex) (./chapters/discussion/futurework.tex)
 [12
 
-] (out//Report.bbl
-
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
-
-)
+] (out//Report.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
  [13
 
@@ -645,22 +641,23 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
  ) 
 Here is how much of TeX's memory you used:
- 6577 strings out of 493117
- 95632 string characters out of 6135432
- 191313 words of memory out of 5000000
- 9892 multiletter control sequences out of 15000+600000
- 9109 words of font info for 32 fonts, out of 8000000 for 9000
+ 6597 strings out of 493117
+ 95915 string characters out of 6135432
+ 191357 words of memory out of 5000000
+ 9910 multiletter control sequences out of 15000+600000
+ 9455 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,5n,28p,620b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,5n,28p,642b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on out//Report.pdf (14 pages, 87930 bytes).
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on out//Report.pdf (14 pages, 102494 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 
