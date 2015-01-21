@@ -1,4 +1,8 @@
 *.aux
+*.dvi
+*.blg
+*.out
+*.bbl
 *.lof
 *.log
 *.lot
@@ -6,5 +10,5 @@ Report.pdf
 *.toc
 *.pdf
 *.tex~
-../.DS_Store
 /out
+../.DS_Store
