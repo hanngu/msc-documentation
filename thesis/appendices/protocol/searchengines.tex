@@ -1,0 +1,340 @@
+\chapter{Search Engines and Search Strings}
+%TODO: Write about the different what kind of results the different search engines gave with differet search terms. (With and without graph database)
+%Ref: https://raw.githubusercontent.com/sandsmark/slr-scbw/master/sections/search_engines.tex
+
+
+
+
+
+%ACM library
+\section{ACM digital library}
+\textbf{Search strings used:}
+\begin{itemize}
+\item String 1 (the same string that gave the best result in IEEE Xplore): 
+\begin{itemize}
+\item (``path optimization'' OR ``scheduling optimization'' OR ``route optimization'') AND (transit OR traffic OR transportation OR vehicle OR train OR plane OR bus OR delivery) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco)
+\end{itemize} 
+\par Number of results: 31
+\par Date of search: 29.10.2014
+\item String 2 (switched the first AND with an OR to get a more general result): 
+\begin{itemize}
+\item (( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR transit OR traffic OR transportation OR vehicle OR train OR plane OR bus OR delivery) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco))
+\end{itemize}
+\par Number of results: 1,294
+\par Date of search: 29.10.2014
+\item String 3 (removed some less relevant word, such as schduling optimization, transit and plane): 
+\begin{itemize}
+\item ((``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco))
+\end{itemize}
+\par Number of results: 622
+\par Date of search: 29.10.2014
+\item String 4 (in addition a search was done were we added the terms ``neo4j'' and ``graph database'' for the search string that originial gave the most results. Non of the found papers were relevant): 
+\begin{itemize}
+\item (( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR transit OR traffic OR transportation OR vehicle OR train OR plane OR bus OR delivery) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) AND (neo4j OR ``graph database''))
+\end{itemize}
+\par Number of results: 4
+\par Date of search: 29.10.2014
+\end{itemize}
+
+%ScienceDirect
+\section{ScienceDirect}
+Qoute Sandsmark: ScienceDirect is an aggregator of articles and other sources for a wide range of domains, including finances and medicine, as well as computer science.
+\par Only searched in publications in the subject of computer science.
+Papers published between 1970 and now.
+\par
+\textbf{Search strings used:}
+\begin{itemize}
+\item String 1 
+\begin{itemize}
+\item ( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'') AND (transit OR traffic OR transportation OR vehicle OR train OR plane OR bus OR delivery) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR colony OR pso OR bso OR aco)
+\end{itemize}
+\par Number of results: 126
+\par Date of search: 29.10.2014
+\end{itemize}
+\begin{itemize}
+\item String 2 (Not enough results. Made it more general by removing AND’s and adding OR’s)
+\begin{itemize}
+\item (( ``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco))
+\end{itemize}
+\par Number of results: 2971
+\par Date of search: 29.10.2014
+\end{itemize}
+\begin{itemize}
+\item String 3 (Too general. Added ``artificial intelligence'' and AI)
+\begin{itemize}
+\item (( ``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco)) AND (``artificial intelligence'' OR ai)
+\end{itemize}
+\par Number of results: 1459
+\par Date of search: 29.10.2014
+\end{itemize}
+\begin{itemize}
+\item String 4 (Still too general. Added ``routing'')
+\begin{itemize}
+\item (( ``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco)) AND (``artificial intelligence'' OR ai) AND routing
+\end{itemize}
+\par Number of results: 535
+\par Date of search: 29.10.2014
+\end{itemize}
+\begin{itemize}
+\item String 5 (in addition a search was done were we added the terms ``neo4j'' and ``graph database'' for the search string that originial gave the most results. Non of the found papers were relevant or indicates that our idea has been done before)
+\begin{itemize}
+\item (( ``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) AND (neo4j OR ``graph database'')
+\end{itemize}
+\par Number of results: 4 
+\end{itemize}
+
+%CiteSeer
+\section{CiteSeer}
+\textbf{Search strings used:}
+\begin{itemize}
+\item String 1 (Used the query with the most results from the previous search engine.)
+\begin{itemize}
+\item text:((( ``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco)))
+\end{itemize}
+\par
+Number of results: 4533
+\par
+Date of search: 30.10.2014
+\end{itemize}
+\begin{itemize}
+\item String 2 (This query gave too many results, added (``artificial intelligence'' OR ``ai'') AND ``routing'')
+\begin{itemize}
+\item text:((( ``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco)) AND ("artificial intelligence" OR ai) AND routing)
+\end{itemize}
+\par
+Number of results: 327
+\par
+Date of search: 30.10.2014
+\end{itemize}
+\begin{itemize}
+\item String 3  (in addition a search was done were we added the terms ``neo4j'' and ``graph database'' for the search string that originial gave the most results. Non of the found papers were relevant or indicates that our idea has been done before)
+\begin{itemize}
+\item text:((( ``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) AND (neo4j OR ``graph database''))
+\end{itemize}
+\par
+Number of results: 4 
+\par
+Date of search: 30.10.2014
+\end{itemize}
+
+
+%SpringerLink
+\section{SpringerLink}
+\textbf{Search strings used:}
+\begin{itemize}
+\item String 1 (Used the best query from the previous search engine, and this gave a good result.)
+\begin{itemize}
+\item ( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'') AND (transit OR traffic OR transportation OR vehicle OR train OR plane OR bus OR delivery) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR colony OR pso OR bso OR aco)
+\end{itemize}
+\par
+Number of results: 403
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 2 (in addition a search was done were we added the terms ``neo4j'' and ``graph database'' for the search string that originial gave the most results. Non of the found papers were relevant or indicates that our idea has been done before)
+\begin{itemize}
+\item ( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'') AND (transit OR traffic OR transportation OR vehicle OR train OR plane OR bus OR delivery) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR colony OR pso OR bso OR aco) AND (neo4j OR ``graph database'')
+\end{itemize}
+\par
+Number of results: 0
+\par
+Date of search: 03.11.2014
+\end{itemize}
+
+
+%Google Scholar
+\section{Google Scholar}
+Google scholar does not accept long queries. The result is all the queries/results combined.
+\par\par
+\textbf{Search strings used:}
+\begin{itemize}
+\item String 1 (``bee colony optimization'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND (``bee colony optimization'' OR bco)
+\end{itemize}
+\par
+Number of results: 13
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 1 (with ``neo4J'' and ``graph database'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND (``bee colony optimization'' OR bco) AND (neo4j OR ``graph database'')
+\end{itemize}
+\par
+Number of results: 0
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 2 (``particle swarm optimization'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND (``particle swarm optimization'' or pso)
+\end{itemize}
+\par
+Number of results: 131
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 2 (with ``neo4J'' and ``graph database'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND (``particle swarm optimization'' or pso) AND (neo4j OR ``graph database'')
+\end{itemize}
+\par
+Number of results: 0
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 3 (``swarm intelligence'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND ``swarm intelligence'')
+\end{itemize}
+\par
+Number of results: 148
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 3 (with ``neo4J'' and ``graph database'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND ``swarm intelligence'' AND (neo4j OR ``graph database'')
+\end{itemize}
+\par
+Number of results: 0
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 4 (``ant colony optimization'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND (``ant colony optimization'' OR aco)
+\end{itemize}
+\par
+Number of results: 308
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 4 (with ``neo4J'' and ``graph database'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'') AND (transportation OR bus OR vehicle) AND (``artificial intelligence'' OR ai) AND routing AND (``ant colony optimization'' OR aco) AND (neo4j OR ``graph database'')
+\end{itemize}
+\par
+Number of results: 0
+\par
+Date of search: 03.11.2014
+\end{itemize}
+
+%Web of Knowledge
+\section{Web of Knowledge}
+In Web of Knowledge you cannot perform at full text search, and must choose to search in “Topic”, “Title”, “Author”, “Author Identifiers”, “Editor”, “Group Author”, “Publication Name”, “DOI” or “Year Published”. We decided to use “Topic”, “Title” and “Publication Name” because the seemed most relevant to our search terms. Non of our search terms gave any results when we searched for “Publication Name”. Only some of the search terms gave results when we searcher for “Title”. The fifth result is considered the best, and in this search we used the exact same search terms as in the forth search, but we chose to only search in articles from the research area “Computer Science”. 
+\newline
+\textbf{Search strings used:}
+\begin{itemize}
+\item String 1 (Used the best result from SpringerLink, but this gave too little results)
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) AND (``artificial intelligence'' OR ai) and routing
+\end{itemize}
+\par
+Number of results: 6 (topic) + 0 (title) + 0 (publication name)
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 2 (Made it more general, removed ``routing'')
+\begin{itemize}
+\item (``path optimization'' OR ``route optimization'' OR transportation OR vehicle OR bus ) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) AND (``artificial intelligence'' OR ai)
+\end{itemize}
+\par
+Number of results: 33 (topic) + 0 (title) + 0 (publication name)
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 3 (Removed OR's)
+\begin{itemize}
+\item ( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'') AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) 
+\end{itemize}
+\par
+Number of results: 92 (Topic) + 14 (Title) + 0 (publication name)
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 4 (Added ``planning'')
+\begin{itemize}
+\item ( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR planning) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) 
+\end{itemize}
+\par
+Number of results: 1583 (Topic) + 328 (Title) + 0 (publication name)
+\par
+Date of search: 03.11.2014
+\end{itemize}
+When we searched for the exact same terms, but chose articles just from the research area “computer science” the results was much better.
+\begin{itemize}
+\item String 5 
+\begin{itemize}
+\item ( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR planning) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) 
+\end{itemize}
+\par
+Number of results: 597 (Topic) + 149 (Title) + 0 (publication name)
+\par
+Date of search: 03.11.2014
+\end{itemize}
+\begin{itemize}
+\item String 6 (in addition a search was done were we added the terms ``neo4j'' and ``graph database'' for the search string that originial gave the most results. Non of the found papers were relevant or indicates that our idea has been done before)
+\begin{itemize}
+\item ( ``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR planning) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aco) AND (neo4j OR ``graph database'')
+\end{itemize}
+\par
+Number of results:  0 (Topic) + 0 (Title) + 0 (publication name)
+\par
+Date of search: 03.11.2014
+\end{itemize}
+
+%IEEExplore
+\section{IEEE Xplore}
+IEEE Xplore allows the option to search for either full text or metadata only. After reviewing the results, we see tat the retrieved papers from full text includes alot more than just research papers, e.g conference proceedings. When searching for metadata only instead (which searches within abstract, title and indexing terms), the results become more relevant. IEEE Xplore allows a maximum of 15 search terms, so we had to be selective with the terms and therefore only include the terms we think is the most relevant for out thesis. In addition, IEEE Xplore only retrieve papers from 2000 to 2014.
+\newline
+\textbf{Search strings used:}
+\begin{itemize}
+\item String 1 (Searching within full text)
+\begin{itemize}
+\item(``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR transit OR transportation OR traffic OR vehicle) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aso)  AND ("artificial intelligence" OR ai)
+\end{itemize}
+\par Number of results: 4300
+\par Date of search: 29.10.2014
+\item String 2 (within metadata only):
+\begin{itemize}
+\item(``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR bus OR transportation) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aso)  AND ("artificial intelligence" OR ai) 
+\end{itemize}
+\par Number of results: 99
+\par Date of search: 06.11.2014
+\item String 2 (removing artificial intelligence and ai):
+\item(``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR transit OR transportation OR traffic OR vehicle) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aso)
+\par Number of results: 1526
+\par Date of search: 06.11.2014
+\item String 3 (removed transit and vehicle, added bus):
+\begin{itemize}
+\item(``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR bus OR transportation) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aso)
+\end{itemize}
+\par Number of results: 1378
+\par Date of search: 06.11.2014
+\item String 4 (removed scheduling optimization, added vehicle, ai and artificial intelligence):
+\begin{itemize}
+\item(``path optimization''  OR ``route optimization'' OR bus OR transportation OR vehicle) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aso)  AND ("artificial intelligence" OR ai) 
+\end{itemize}
+\par Number of results: 133
+\par Date of search: 06.11.2014
+\item The string with most results with neo4J and graph database
+\begin{itemize}
+\item((``path optimization'' OR ``scheduling optimization'' OR ``route optimization'') OR (transit OR transportation OR traffic OR vehicle)) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR pso OR bso OR aso) AND (neo4j OR ``graph database'')
+\end{itemize}
+\par Number of results: 0
+\par Date of search: 06.11.2014
+\end{itemize}
+
