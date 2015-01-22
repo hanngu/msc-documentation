@@ -8,6 +8,11 @@
 \usepackage[linktocpage,colorlinks]{hyperref}			% PDF hyperlink
 \usepackage{geometry} 							% Better geometry
 \usepackage{import}
+\usepackage[toc,page]{appendix}
+%\usepackage{underscore}
+\usepackage{tabularx}
+\usepackage{mathtools}
+\usepackage{amsmath}
 %\usepackage[center]					% For cropping documents
 
 % B5 (uncomment to convert to B5 format)
@@ -51,9 +56,13 @@
 \noindent Artificial Intelligence Group\\ Department of Computer and Information Science\\ Faculty of Information Technology, Mathematics and Electrical Engineering\\
 
 \vfill
+
 \begin{center}
+
 \includegraphics[width=3cm]{assets/logo_ntnu_eng.pdf}
+
 \end{center}
+
 \end{titlepage}
 
 %\thispagestyle{empty}
@@ -92,7 +101,16 @@
 
 \cleardoublepage
 
-
 \bibliographystyle{apalike}
 \bibliography{bibl}
+
+
+\clearpage
+
+\begin{appendices}
+\input{appendices/protocol/finalprotocol}
+\input{appendices/protocol/searchenginesvol2}
+\end{appendices}
+
+
 \end{document}
