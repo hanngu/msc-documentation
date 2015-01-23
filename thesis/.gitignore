@@ -10,5 +10,5 @@ Report.pdf
 *.toc
 *.pdf
 *.tex~
-/thesis/out
+/out
 ../.DS_Store
