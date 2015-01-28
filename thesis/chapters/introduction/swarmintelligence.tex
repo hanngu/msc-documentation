@@ -1,15 +1,35 @@
 \section{Swarm Intelligence}
 
-Swarm behavior is found in many different species in nature, including fish schools and flocks of birds. Many of the species that practice swarm behavior does this because of a biological need to stay together. An example of this is that predators usually attacks one individual, and not an entire flock. This swarm behavior is also found in social insects like ants, wasps, bees and termites. They collaborate on tasks including building nests, gather food and organizing production. These social insect colonies have shown us that simple organisms can perform complex tasks by interacting with each other. The colonies are highly distributed and self-organized, and they adapts well to changes in the environment. Swarm intelligence \citep{beni89} is a branch of artificial intelligence that is strongly influenced by the swarm behavior found i nature, and it tries to adapt these characteristics in intelligent computer systems.
+Swarm behavior is found in many different species in nature, including fish schools and flocks of birds. Many of the species that practice swarm behavior does this because of a biological need to stay together. An example of this is that predators usually attacks one individual, and not an entire flock. This swarm behavior is also found in social insects like ants, wasps, bees and termites. They collaborate on tasks including building nests, gather food and organizing production. These social insect colonies have shown us that simple organisms can perform complex tasks by interacting with each other. The colonies are highly distributed and self-organized, and they adapt well to changes in the environment. Swarm intelligence \citep{beni89} is a branch of artificial intelligence that is strongly influenced by the swarm behavior found i nature, and it tries to adapt these characteristics in intelligent computer systems.
 
 \subsection{Ant Colony Optimization}
 In nature ants have proven to be extremely capable of finding an optimal or close to optimal route from the nest to a food source \citep{deneubourg90}. Ants communicate by leaving a pheromone trail that other ants are capable of smelling and follow by a certain probability. Most ant species leave a pheromone trail when retuning to the nest from an important food source, and the ants who decides to follow the same path also leave behind a pheromone trail. The more pheromone units on the trail (i.e. the more ants who choose the given path), the greater the probability the other ants will chose it. Because pheromone disappear over time, shorter paths will be favored over longer paths simply because shorter paths (usually) takes shorter time, and thus will have more pheromone units. 
 
-Ant Colony Optimization (ACO) is a class of algorithms, and the first description of an ACO algorithm, called Ant System (AS), was initially proposed by \citet{dorigo96}. The AS strategy developed by Dorigo tries to simulate the behavior of real ants, but he adds several artificial characteristics including visibility, memory and discrete time. The literature describes many different algorithms that can be classified as ACO algorithms \citep{salehi-nezhad07,tripathi09,jiang10, dias14}. \citet{nanda11} described a generic implementation of the algorithm as follows:
+Ant Colony Optimization (ACO) is a class of algorithms, and the first description of an ACO algorithm, called Ant System (AS), was initially proposed by \citet{dorigo96}. The AS strategy developed by Dorigo tries to simulate the behavior of real ants, but he adds several artificial characteristics including visibility, memory and discrete time. The literature describes many different algorithms that can be classified as ACO algorithms \citep{salehi-nezhad07,tripathi09,jiang10, dias14}. \citet{nanda11} described a generic implementation of the algorithm as follows \\:
 
-%FORTSETT HER MED ALGORITMEN FRA DIAS14. FØLG DENNE GUIDEN http://en.wikibooks.org/wiki/LaTeX/Algorithms
+%FØLG DENNE GUIDEN http://en.wikibooks.org/wiki/LaTeX/Algorithms
 
-
+\begin{algorithm}[H]
+ initialize\;
+ \While{stop criteria are not met}{
+  \ForAll{ants a in A}{
+   position a in StartNode
+  }
+  \Repeat{every ant has a solution}{
+   \ForAll{ants a in A}{
+    choose nextNode\\* 
+    $pheromone_{(currentNode,nextNode)}+=update$
+   }
+  }
+  \ForAll{edges e in B}{
+   $pheromone_e += deposit$
+  }
+  \ForAll{edges e in E}{
+   $pheromone_e -= evaporation$
+  }
+ }
+ \caption{Generic Ant Colony Optimization Algorithm}
+\end{algorithm}
 
 
 \subsection{Particle Swarm Optimization}
