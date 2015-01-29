@@ -5,9 +5,7 @@ Swarm behavior is found in many different species in nature, including fish scho
 \subsection{Ant Colony Optimization}
 In nature ants have proven to be extremely capable of finding an optimal or close to optimal route from the nest to a food source \citep{deneubourg90}. Ants communicate by leaving a pheromone trail that other ants are capable of smelling and follow by a certain probability. Most ant species leave a pheromone trail when retuning to the nest from an important food source, and the ants who decides to follow the same path also leave behind a pheromone trail. The more pheromone units on the trail (i.e. the more ants who choose the given path), the greater the probability the other ants will chose it. Because pheromone disappear over time, shorter paths will be favored over longer paths simply because shorter paths (usually) takes shorter time, and thus will have more pheromone units. 
 
-Ant Colony Optimization (ACO) is a class of algorithms, and the first description of an ACO algorithm, called Ant System (AS), was initially proposed by \citet{dorigo96}. The AS strategy developed by Dorigo tries to simulate the behavior of real ants, but he adds several artificial characteristics including visibility, memory and discrete time. The literature describes many different algorithms that can be classified as ACO algorithms \citep{salehi-nezhad07,tripathi09,jiang10, dias14}. \citet{nanda11} described a generic implementation of the algorithm as follows: \\
-
-%FØLG DENNE GUIDEN http://en.wikibooks.org/wiki/LaTeX/Algorithms
+Ant Colony Optimization (ACO) is a class of algorithms, and the first description of an ACO algorithm, called Ant System (AS), was initially proposed by \citet{dorigo96}. The AS strategy developed by Dorigo tries to simulate the behavior of real ants, but he adds several artificial characteristics including visibility, memory and discrete time. \citet{nanda11} described a generic implementation of the algorithm as follows: \\
 
 \begin{algorithm}[H]
  initialize\;
@@ -31,11 +29,10 @@ Ant Colony Optimization (ACO) is a class of algorithms, and the first descriptio
  \caption{Generic Ant Colony Optimization Algorithm}
 \end{algorithm}
 
-
-\subsection{Particle Swarm Optimization}
-%[TODO]: Skrive om PSO
-
+The idea of ACO algorithms is to create a decentralized system with multiple agents. The agents influence each others decisions using pheromones. In the beginning, before any distinct pheromone trail is laid, the ants choices are random and thus they perform a broad search in the environment. This randomness will decrease over time as the pheromone trails becomes more distinct. The literature describes many different algorithms that can be classified as ACO algorithms \citep{salehi-nezhad07,tripathi09,jiang10, dias14}, and most of authors describes artificial ants with additional features to those found in nature, including vision and memory. The addition of features is typically done to increase the performance of the algorithm and reduce some of the randomness in the beginning.  
 
 \subsection{Bee Colony Optimization}
 %[TODO]: Skrive om BCO
 
+\subsection{Particle Swarm Optimization}
+%[TODO]: Skrive om PSO
