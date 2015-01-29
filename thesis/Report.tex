@@ -65,9 +65,14 @@
 
 \end{titlepage}
 
-%\thispagestyle{empty}
-\chapter*{Abstract}
-\chapter*{Acknowledgements}
+\cleardoublepage
+
+\section*{Abstract}
+\input{chapters/abstract}
+\clearpage
+\section*{Preface}
+\input{chapters/preface}
+\clearpage
 
 %content
 \listoftables
@@ -76,27 +81,31 @@
 
 \chapter{Introduction}
 \input{chapters/introduction/introduction}
-\input{chapters/introduction/motivation}
-\input{chapters/introduction/vehicleroutingproblem}
-\input{chapters/introduction/swarmintelligence}
-\input{chapters/introduction/relatedwork}
-\input{chapters/introduction/researchquestions}
-\input{chapters/introduction/reportoverview}
+\input{chapters/introduction/backgroundAndMotivation}
+\input{chapters/introduction/goalsAndResearchQuestions}
+\input{chapters/introduction/researchMethod}
+\input{chapters/introduction/thesisOverview}
+
+\chapter{Background and Motivation}
+\input{chapters/backgroundTheoryAndMotivation/backgroundTheoryAndMotivation}
+\input{chapters/backgroundTheoryAndMotivation/vehicleRoutingProblem}
+\input{chapters/backgroundTheoryAndMotivation/swarmIntelligence}
+\input{chapters/backgroundTheoryAndMotivation/motivation}
 
 \chapter{The Model}
 \input{chapters/model/model}
 
-\chapter{Results}
-\input{chapters/results/results}
-\input{chapters/results/statisticalresults}
-\input{chapters/results/individualruns}
+\chapter{Experiments and Results}
+\input{chapters/experimentsAndResults/experimentsAndResults}
+\input{chapters/experimentsAndResults/experimentalPlan}
+\input{chapters/experimentsAndResults/experimentalSetup}
+\input{chapters/experimentsAndResults/experimentalResults}
 
-\chapter{Analysis}
-\input{chapters/analysis/analysis}
-
-\chapter{Discussion}
-\input{chapters/discussion/discussion}
-\input{chapters/discussion/futurework}
+\chapter{Evaluation and Conclusion}
+\input{chapters/evaluationAndConclusion/evaluation}
+\input{chapters/evaluationAndConclusion/discussion}
+\input{chapters/evaluationAndConclusion/contributions}
+\input{chapters/evaluationAndConclusion/futurework}
 
 
 \cleardoublepage
