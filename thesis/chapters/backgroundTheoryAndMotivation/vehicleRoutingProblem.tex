@@ -15,13 +15,16 @@ The Vehicle Routing Problem (VRP) was first introduced by \citet{dantzig59} and 
 
 \subsection{Urban Transit Network Design Problem (UTNDP)}
 
+%TODO: Skrive mer detalj om UTRP og UTSP side 6-10 i fan09
+
+The urban transit network problem(UTNDP) is an example of the broader optimization problem VRP, and is the problem of designing urban transit routes and schedules. The two major components of the UTNDP are the urban transit routing problem(UTRP) and the urban transit scheduling problem (UTSP). \citep{fan09}. UTRP involves the development of efficient transit routes on an existing transit network, with predefined pick-up/drop-off point (e.g bus routes), and UTSP is assigning the schedules for the passengers carrying vehicles. In practice, the two phases are usually implemented sequentially, with the routes determined in advance of the schedules. 
 
 The urban transit network design problem is an underclass of the vehicle routing problem, and is the problem of designing urban transit routes and schedules which deal with practical constraints.
 
 UTNDP is concerned with the determination of a set of routes with corresponding schedules for an urban public transport system. Its two main components are the Urban Transit Routing Problem (UTRP) and the Urban Transit Scheduling Problem(UTSP). 
 \begin{itemize}
-\item UTRP: development of efficient and effective transit routes taking into account existing road networks and predefined pick-up / drop off points. (UTRP aims to develop a set of vehicle routes for an existing urban transit network while satisfying specific constraints. )
-\item UTSP: Involves the assignment of schedules to all vehicles that are used to carry passengers on a road network. 
+\item Urban Transit Routing Problem: development of efficient and effective transit routes taking into account existing road networks and predefined pick-up / drop off points. (UTRP aims to develop a set of vehicle routes for an existing urban transit network while satisfying specific constraints. )
+\item Urban Transit Scheduling Problem: Involves the assignment of schedules to all vehicles that are used to carry passengers on a road network. 
 \end{itemize}
 UTRP and UTSP are solved sequentially because the development of routes should be completed before the development of schedules starts.
 \citep{kechagiopoulos14}
