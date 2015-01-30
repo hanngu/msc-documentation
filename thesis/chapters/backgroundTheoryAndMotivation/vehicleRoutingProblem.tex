@@ -1,31 +1,30 @@
-\section{Vehicle Routing Problem}
-
-The number of journal publications on Vehicle Routing Problems has steadily increased over the years. This is because of the progress in computational resources has opened new possibilities for modeling more complex routing problems. New arising real-world applications provide inspiration for developing new approaches for coordinating complex transportation processes.  \citep{vehiclerouting}
-
-The Vehicle Routing Problem (VRP) was first introduced by \citet{dantzig59}, and can be described as designing the optimal set of routes for a fleet of vehicles, in order to serve a given set of customers. The objective is to deliver a set of customers with known demands on minimum-cost vehicle routes originating and terminating at a depot.
-
+\section{Vehicle Routing Problem (VRP)}
+The Vehicle Routing Problem (VRP) was first introduced by \citet{dantzig59} and is a generic name given to a broad class of optimization problems. It can be described as the task of designing the optimal set of routes for a fleet of vehicles, in order to serve a given set of customers. The problem involves making deliveries to a set of customers with known demands on routes originating and terminating at one or more depots, and the objective is to minimize the total route cost. The VRP is NP-hard and many variations exists:
 \begin{itemize}
-\item Capacitated VRP: Minimize the vehicle fleet and the sum of travel time, and the total demand of commodities for each route may not exceed the capacity of the vehicle which serves that route
-\item VRP with time windows: Minimize the vehicle fleet and the sum of travel time and waiting time to supply all customers in their required hours.
-\item Multiple Depot VRP
-\item Periodic VRP ++ 
+\item The capacitated vehicle routing problem is like VRP with the additional constraint that every vehicles must have uniform capacity of a single commodity.
+\item Multiple Depot VRP is when the vendor uses many depots to supply the customers.
+\item Periodic VRP is when the classical VRP is generalized by extending the planning period to M days.
+\item Split Delivery VRP is a relaxation of the VRP wherein it is allowed that the same customer can be served by different vehicles if it reduces overall costs. 
+\item Stochastic VRP are VRPs where one or several components of the problem are random.
+\item VRP with Backhauls is a VRP in which customers can demand or return some commodities.
+\item VRP with Pick-Up and Delivering is a VRP in which the possibility that customers return some commodities is contemplated.
+\item VRP with Satellite Facilities is the use of satellite facilities to replenish vehicles during a route.
+\item VRP with Time Windows is the same problem that VRP with the additional restriction that in VRPTW a time window is associated with each customer
 \end{itemize}
+\citep{website:neo}
 
-\subsection{The Urban Transit Network Design Problem(UTNDP)}
-VRP is a generic name given to a broad class of optimization problems, and The Urban Transit Network Design Problem(UTNDP) belongs to this class. UTNDP is concerned with the determination of a set of routes with corresponding schedules for an urban public transport system. Its two main components are the Urban Transit Routing Problem (UTRP) and the Urban Transit Scheduling Problem(UTSP). 
+\subsection{Urban Transit Network Design Problem (UTNDP)}
+
+
+The urban transit network design problem is an underclass of the vehicle routing problem, and is the problem of designing urban transit routes and schedules which deal with practical constraints.
+
+UTNDP is concerned with the determination of a set of routes with corresponding schedules for an urban public transport system. Its two main components are the Urban Transit Routing Problem (UTRP) and the Urban Transit Scheduling Problem(UTSP). 
 \begin{itemize}
 \item UTRP: development of efficient and effective transit routes taking into account existing road networks and predefined pick-up / drop off points. (UTRP aims to develop a set of vehicle routes for an existing urban transit network while satisfying specific constraints. )
 \item UTSP: Involves the assignment of schedules to all vehicles that are used to carry passengers on a road network. 
 \end{itemize}
 UTRP and UTSP are solved sequentially because the development of routes should be completed before the development of schedules starts.
 \citep{kechagiopoulos14}
-
-\subsection{The Swiss road network - denne kan heller plasseres i Experiments and Results}
-In order to demonstrate the efficiency and the effectiveness of our algorithm... the Swiss road network introduced by Mandl is used. This road network has been already used as a benchmark problem by many researchers in the literature. \citep{kechagiopoulos14}
-The results will be compared with the results published by Mandl, og flere her....
-
-Tue road network to be used as input was firstly presented by Mandl and is a real Swiss road network which comprised of 15 nodes and 21 connections between them. This road network har been widely examined bu many optimization approaches such as \citep{kechagiopoulos14}
-
 
 
 
