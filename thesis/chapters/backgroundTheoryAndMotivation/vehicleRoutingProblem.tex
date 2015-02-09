@@ -1,46 +1,35 @@
-\section{Vehicle Routing Problem}
-The Vehicle Routing Problem (VRP) was first introduced by \citet{dantzig59} and is a generic name given to a broad class of optimization problems. It can be described as the task of designing the optimal set of routes for a fleet of vehicles, in order to serve a given set of customers. The problem involves making deliveries to a set of customers with known demands on routes originating and terminating at one or more depots, and the objective is to minimize the total route cost. The VRP is NP-hard and many variations exists:
-\begin{itemize}
-\item The capacitated vehicle routing problem has the additional constraint that every vehicles must have a uniform capacity of a single commodity.
-\item Multiple Depot VRP is when the vendor uses many depots to supply the customers.
-\item Periodic VRP is when the classical VRP is generalized by extending the planning period to M days.
-\item Split Delivery VRP is a relaxation of the VRP wherein it is allowed that the same customer can be served by different vehicles if it reduces overall costs. 
-\item Stochastic VRP are VRPs where one or several components of the problem are random.
-\item VRP with Backhauls is a VRP in which customers can demand or return some commodities.
-\item VRP with Pick-Up and Delivering is a VRP in which the possibility that customers return some commodities is contemplated.
-\item VRP with Satellite Facilities is the use of satellite facilities to replenish vehicles during a route.
-\item VRP with Time Windows is the same problem that VRP with the additional restriction that in VRPTW a time window is associated with each customer
-\end{itemize}
-\citep{website:neo}
+\section{Vehicle Routing Problem }
+%ToDO: Skal denne være med?
+Routing problems are represented by relevant locations in a graph. This graph consist of a set of nodes and a set of edges, and is formulated as follows; G = (V,E). They can be distinguished according to the type of requests that need to be serviced, that is either arc-based and node-based routing problems. The vehicle routing problem (VRP) is a node based routing problem, as these problems arise if customers are located at nodes so that vehicles remain at the same position while servicing a customer request\citep{vehiclerouting}.
 
-%TODO: In this thesis, we are concentrating on (which variant of VRP?)
+The Vehicle Routing Problem (VRP) was first introduced by \citet{dantzig59} and is a generic name given to a broad class of optimization problems. It can be described as the task of designing the optimal set of routes for a fleet of vehicles, in order to serve a given set of customers. The problem involves making deliveries to a set of customers with known demands on routes originating and terminating at one or more depots, and the objective is to minimize the total route cost. 
 
 \subsection{Urban Transit Network Design Problem}
 
 The problem of designing urban transit routes and schedules is called the urban transit network problem (UTNDP), and is a sub-problem of the vehicle routing problem. The aim is to design efficient urban transit routes and schedules on an existing transit network with predefined pick-up and drop-off points, such as bus routes. The two major components of UTNDP is called the urban transit routing problem (UTRP) and the urban transit scheduling problem (UTSP).
 
 \begin{itemize}
-%TODO: skrive om
-\item UTRP involves developing a set of routes on an existing urban transit network, following certain constraints. It can be defined as the \textit{physical} design of the UTNDP. In a transit network, adjacent nodes (bus stops) are linked by an arc or edge, and a route will consist of several nodes connected by edges to form a path. One or more such routes can be combined to form a route set, and when all the routes in a route set are superimposed, this will a form a route network. A route network should contain all the nodes, but may not contain all the edges present in the original transit network - i.e., the route network is a subgraph of the original transit network.  Accurate estimates of travel demand are essential, and a good route set will ensure that travel requirements with a heavy demand are satisfied, with short travel and few vehicle transfers. (Future work: Travel demand can be estimated by examining ticket sales, carrying out a survey, or undertaking analysis. Difficult in practice, because demand is dynamical and highly sensitive to factors such as pricing and quality of service. In addition to satisfying customer demand, design guidelines are determined by many additional factors, including the street environment and management policies by the local government)
+\item UTRP is the task of developing a set of routes on an existing urban transit network, following certain constraints. It can be defined as the \textit{physical} design of the UTNDP \citep{fan09}. 
+ 
+In a transit network, neighboring nodes (bus stops) are linked by an arc or edge. In the tour planning process a set of (requests / nodes ) needs to be assigned to a set of resources. Performing the assignment and sequencing tasks results in a tour for each vehicle. Each step in a tour, traveling from one request / node to the next, is called a route. A tour plan consists of several routes; several nodes connected by edges. When all the routes in a tour plan are superimposed / layered, this will a form a route network, and is also denoted as the solution of the considered problem. The generation of a tour plan is defined by the objective function, and assigns a specific objective function value to each solution. The goal is to find the optimal solution; the ones with the best objective function among all feasible solutions. \citep{vehiclerouting}. A route network should contain all the nodes, but may not contain all the edges present in the original transit network.
+
+(Accurate estimates of travel demand are essential, and a good tour plan will ensure that travel requirements with a heavy demand are satisfied, with short travel and few vehicle transfers. (Future work: Travel demand can be estimated by examining ticket sales, carrying out a survey, or undertaking analysis. This is difficult in practice, because demand is dynamical and highly sensitive to factors such as pricing and quality of service. In addition to satisfying customer demand, design guidelines are determined by many additional factors, including the street environment and management policies by the local government).)
+
 %TODO: skrive om 
-\item UTSP aims to develop schedules for public vehicles, to travel along predefined routes. More specifically, it involves defining arrival times and departure times at each node on each route in the route set. It can also be defined as the \textit{operational} design of the UTNDP. A good schedule will minimize the time that a passenger has to wait at each node (bus stop) withing the operating resource and service constraints. The total waiting time accumulated over all passengers has two components: sum of waiting time at their points of origin and the sum of transferring time. The resource and service constraints may include: limited fleet size, limited bus capacity and/or max and min stopping time. In addition, transfers pay a significant role in the transit operations. Transit route transfer coordination forms part of the transit scheduling problem in the daily transit system. 
+\item UTSP involves the development of schedules, arrival and department times, for the public vehicles, to travel along predefined routes. It can also be defined as the \textit{operational} design of the UTNDP \citep{fan09}. 
+The contents of the schedule involves minimizing the time a passenger has to wait at each node (bus sop), within certain constraints, such as limited fleet size and bus capacity.  The total waiting time includes the waiting time at their origin and the sum of transferring time. 
 
 \end{itemize}
 
-In practice, the two phases are usually implemented sequentially, with the routes determined in advance of the schedules
-UTRP and UTSP are solved sequentially because the development of routes should be completed before the development of schedules starts.\citep{kechagiopoulos14}
+UTRP and UTSP are usually implemented sequentially, because the development of routes should be completed before the development of schedules. 
 
 \subsubsection{Difficulties in Solving the UTNDP}
 %TODO: flette dette inn i motivation? Skrive om.
-\begin{itemize}
-\item Due to the need to search for optimal solutions from a large number of possible solutions, the UTNDP is an NP-hard problem ( a class of problems informally ``at least as hard as the hardest problems in NP'').
-\item  There are many variants of the UTNDP, and no commonly agrees ``standard models''. 
-\item Constrains can be difficult to model and satisfy (the feasibility of the route set needs to be ensured, which can involve considerable computations).
-\item Different parts of the solutions are highly independent (the performance of a route is dependent on the other routes in the route set). 
-\item Many important tradeoffs among conflicting objectives need to be addressed ( e.g minimization of operator costs, maximization of coverage transit service area and service hours) . 
-\item Accurate data for designing route sets can be difficult to obtain (particularly travel demand), and for this reason, designs will be seriously flawed if the data is of poor quality (In reality, the demand is different at every hour of the day, and this can make the problem enormously complex.
-\item In addition passengers can become confused and dissatisfied with too  many changes to tracvel routes at different times of day). 
-\end{itemize}
-Ideally one would like to solve the UTNDP in one go, and produce a route network and an associated set of vehicle frequencies simultaneously. In practice, the nature of a route network means that, once established, it is much more stable and difficult to change than a vehicle schedule. As mentioned above, travel demand varies considerably at different times of the day, and it is relatively easy to schedule more buses at busy times. According to [referanse], the level of service requirements is highly sensitive to factors such as passenger flow, weather and road conditions, and needs to be adjusted in accordance with the different situations. Therefore, the quality of the network design may be adversely influenced if transit rote network and frequencies are simultaneously optimized. 
+There are some difficulties in solving the UTNDP. First of all, the UTNDP is an NP-hard problem due to the need to search for optimal solutions from a large number of possible solutions. Some of the constraints can be difficult to model and satisfy, as the feasibility of the tour plan needs to be ensured, which can involve a significant number of computations. Parts of the solutions are independent, because a performance of a route is dependent on the other routes in the tour plan. Travel demand can be difficult to get hold of and can be different at every hour of the day, and designs will therefore be flawed if the data is of poor quality. In addition, passengers can become confused or dissatisfied if there are to many changes to travel routes different times of day, AtB says. 
+
+%ToDo: skrive om
+The ideal situation would be to solve UTNDP in one go, and produce a route network and an associated set of vehicle frequencies simultaneously. But in practice, the nature of a route network means that, once established, it is much more stable and difficult to change than a vehicle schedule. Since travel demand varies, it is easy to schedule more buses at busy times. The level of service requirements is sensitive factors (passenger flow, weather and road conditions), and needs to be adjusted to different situations. Therefore, the quality of the network design may be adversely influenced if transit route network and frequencies are simultaneously optimized. 
+
+
 
 
