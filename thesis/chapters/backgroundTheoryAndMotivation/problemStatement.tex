@@ -1,19 +1,18 @@
 \subsection{Problem Statement}
 %TODO: skrive hva vi skal gjøre
-Through our review of research, we note that no researchers have focused on the aim to combine attributes from different swarm intelligence methods to improve the optimization process. For this reason, we will in this thesis investigate the possibility to combine some of the best attributes from ACO and BCO in order to achieve better results.
+Through our review of research, we note that there have been no research that aims to combine attributes from different swarm intelligence methods to improve the optimization process. For this reason, we will in this thesis investigate the possibility to combine some of the best attributes from ACO and BCO in order to achieve better results regarding route optimization.
 
-After a meeting with AtB we learned that AtB does not have accurate data about the travel demand, and that there has not been done any attempts to optimize their transit network with computational resources. Accurate estimates of travel demand are essential, and a good tour plan will ensure that travel requirements with a heavy demand are satisfied, with short travel and few vehicle transfers. Future work?: Travel demand can be estimated by examining ticket sales, carrying out a survey, or undertaking analysis. This is difficult in practice, because demand is dynamical and highly sensitive to factors such as pricing and quality of service. In addition to satisfying customer demand, design guidelines are determined by many additional factors, including the street environment and management policies by the local government.
+After a meeting with AtB we learned that AtB does not have accurate data about the travel demand, and that there has not been done any attempts to optimize their transit network with computational resources. Accurate estimates of travel demand are essential as they are an important factor for the algorithm. A good tour plan will ensure that travel requirements with a heavy demand are satisfied, with short travel times and few vehicle transfers. 
 
-Mandls benchmark problem includes 
-
-We are highly motivated on the development of an algorithm and we want to focus our research on the development of the algorithm, and in order to demonstrate the efficiency and the effectiveness of our algorithm we will compare our results with Mandls benchmark data. As mentioned, this road network has been already used as a benchmark problem by many researchers in the literature. Our aim is to create a general solution, where we hope to achieve better results than the ones we are comparing it with, and that this in the future can be used to optimize AtBs transit network. 
+We are highly motivated on the development of an algorithm and we want to focus our research on the development of a new algorithm, rather than on gathering data to determine the travel demands of the bus network of Trondheim. In order to demonstrate the efficiency and the effectiveness of our algorithm we will compare our results with Mandls benchmark data. Mandls benchmark problem includes %TODO: FYLL INN SUS%
+As mentioned, this road network has already been used as a benchmark problem by many researchers in the literature. We believe that a comparison of our algorithm to others described in literature, will be important to establish both the efficiency and the effectiveness of our algorithm. This comparison will be enabled using Mandls network. Our aim is to create a general solution, where we hope to achieve better results than the ones we are comparing it with, and that this in the future can be used to optimize AtBs transit network. 
 
 We will focus our research on the urban transit routing problem, to make the routes more convenient both concerning customers and operators. The objectives we want to focus on is satisfying the customers and in addition keeping the operator costs in check. Trough our research we have found that 
 \begin{itemize}
 \item Minimum number of transfers
 \item Minimum in-vehicle time
 \end{itemize}
-is important factors for determine the customers satisfaction. There has also been done a lot of research on these areas, and therefore data is available so we can compare our results against this. This factors will also lead to minimum total travel time. 
+is important factors for determine the customers satisfaction ({\citet{kechagiopoulos14}; \citet{dias14}, \citet{yang07} }). There has also been done a lot of research on these areas, and therefore data is available so we can compare our results against this. This factors will also lead to minimum total travel time. 
 \par
 Minimum fleet size and better departures will implicitly ..
 \par
