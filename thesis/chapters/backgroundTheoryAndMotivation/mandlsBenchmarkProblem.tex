@@ -1,13 +1,27 @@
-\subsection{Mandls Benchmark Problem}
+\subsection{Mandl's Benchmark Problem}
 %TODO: kjøpe/leie Mandl boka
 %TODO: skrive om 
-%Since there is not done any op
-In the current research on the VRPs and SI, there are some benchmark data that are available for researchers to use for comparison.... However (as mentioned in RW), for the UTNDP problem, Mandls network seems to be the only benchmark instance used by researchers. The road network is a real Swiss road network comprising of 15 nodes and 21 connections between them. And has been thoroughly examined by many optimization approaches such as \citep{kechagiopoulos14}, \citep{fan09}, \citep{nikolic14}. %This makes it easy to measure the performance of your solution. 
 
+In the current research on the VRPs and SI, there are some benchmark data that are available for researchers to use for comparison, however, for the UTNDP problem, Mandl's network seems to be the only benchmark instance used by researchers.  
+
+%Todo: skrives om
+These problem has been well documented with detailed descriptions of street network input data, OD matrix input data and, most importantly, transit route network results and the corresponding objective function values, which can be used for comparison in this study. Methodologies developed by these authors and the corresponding numerical results seem to be well acknowledged in the transit planning research community. These benchmark problems are real, practical problems, although with some simplification assumptions, making them appropriate for use as benchmark problems to evaluate results from this study. It needs to be emphasized that the comparison between our results and Mandl's results is merely to validate the methodology developed in this study. 
+
+%ToDo: skrive om 
+Mandl's method:
+Mandl developed a heuristic algorithm for urban transit network design. The method was applied to a coarse transit network design problem based on a real network in Switzerland. Mandl's problem was a small and dense network of 15 nodes with the total demand of 15,570 trips per day, a relatively high demand density for a small network. The travel time between the to farthest nodes in the network was 33 minutes along the shortest path. The network connectivity of Mandl's problem: each transit node is labeled by an integer, and the in-vehicle travel time in minutes is between adjacent connected node pair is indicated next to the corresponding street segment. The transit demand matrix for the 15 transit nodes: shows the average number of passenger trips per day between each transit node pair. Final solution network: Important measures of Mandl's solution network includes, for example, 100\% service coverage, 69,4\% of the trips involving no transfers, 29,93\% of the trips involving one transfer, and only 0,13\% of the trips needing more than one transfer. Mandl's work has been widely cited by researchers. 
+
+Mandl's transit network design approach consist of two stages. During the first stage, a feasible initial route network is generated. The emphases are service coverage and directness. The solution procedures at this stage may be summarized below:
+\begin{itemize}
+\item Find the shortest paths between all connected transit nodes to form a possible solution space. This is achieved via a mathematical optimization algorithm
+\item For each transit node pairs, select the one shortest path from all possible shortest paths, which my be more than one, following heuristic guidelines.
+\item Create initial transit routes / lines by connecting selected transit node or terminal pairs following heuristic guidelines
+\item Check service coverage, and add unserved nodes (nodes that are not connected to a transit route) to appropriate existing routes or create new routes with the unserved nodes as route terminals.
+\end{itemize}
+
+The second stage of Mandl's method tries to minimize an objective function of total travel time, including in-vehicle time and waiting times, following a hierarchical, iterative procedure. The limitation of Mandl's method is the lack of consideration of the demand pattern during the route construction stage.
+
+\citep{zhao03}
+\par
 %TODO: skrive om 
 Christoph Mandl[] concentrated mainly on the UTRP, and developed a solution in two stages. First, a feasible set of routes was generated, and then heuristics were applied to improve the quality of the initial route set / tour plan. The route generation phase involved computing the shortest path between all sets of vertices's using Dijkstras[], and then producing the route set with the shortest paths that contained the most nodes, respecting the positions of any nodes selected as terminals. Nodes not selected, were iteratively included into routes, or new routes were created with unserved nodes as route terminals. In the first phase, Mandl only considered in-vehicle travel costs when accessing route quality. He then suggested an initial route set, and used these in the second phase. The second phase included obtaining the new routes at an intersection node, including a node that was close to a route (if travel demand between this node and the node on the route was high), and excluded a node from a route set that was already served by another rote (if the travel demand between this node and the other nodes in the route was low). Waiting costs were also considered in the second phase, in addition to in-vehicle travel costs. Waiting times were fixed as constant values, according to specified vehicle frequencies. 
-
-%IFylles inn i results: in order to demonstrate the efficiency and the effectiveness of our algorithm... the Swiss road network introduced by Mandl is used. This road network has been already used as a benchmark problem by many researchers in the literature. \citep{kechagiopoulos14}
-
-
-
