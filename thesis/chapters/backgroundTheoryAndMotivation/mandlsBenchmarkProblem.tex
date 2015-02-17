@@ -1,22 +1,40 @@
 \subsection{Mandl's Benchmark Problem}
 %TODO: kjøpe/leie Mandl boka
 %TODO: skrive om 
-
-In the current research on the vehicle routing problems and swarm intelligence, there are some benchmark data available for researchers to use for comparison[referanser]. However, for the urban transit routing problem, Mandl's network seems to be the only benchmark instance used and acknowledged by researchers.  
+In the current research on the vehicle routing problems and swarm intelligence, there are some benchmark data available for researchers to use for comparison[referanser]. However, for the urban transit routing problem, Mandl's network seems to be the only benchmark instance used and acknowledged by researchers, and his work has also widely cited by researchers.  
  
-Christpoh Mandl developed a heuristic algorithm for the urban transit network problem[]. This method was applied and based on a real network in Switzerland, the Swiss road network[referanse]. Mandl's problem was a small and dense network of 15 nodes with the total demand of 15,570 trips per day, a relatively high demand density for a small network. The travel time between the to farthest nodes in the network was 33 minutes along the shortest path. The network connectivity of Mandl's problem: each transit node is labeled by an integer, and the in-vehicle travel time in minutes is between adjacent connected node pair is indicated next to the corresponding street segment. The transit demand matrix for the 15 transit nodes: shows the average number of passenger trips per day between each transit node pair. Final solution network: Important measures of Mandl's solution network includes, for example, 100\% service coverage, 69,4\% of the trips involving no transfers, 29,93\% of the trips involving one transfer, and only 0,13\% of the trips needing more than one transfer. Mandl's work has been widely cited by researchers. 
+Christoph Mandl developed a heuristic algorithm for the urban transit network problem. This method was applied and based on a real network in Switzerland, the Swiss road network[referanse]. The data includes a small and dense network of 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge. The total demand is 15,570 trips per day, which is a relatively high demand for a small network. The travel time between the to farthest nodes in the network is 22 minutes along the shortest path. 
 
-Mandl's transit network design approach consist of two stages. During the first stage, a feasible initial route network is generated. The emphases are service coverage and directness. The solution procedures at this stage may be summarized below:
+Mandl developed a solution in two stages / phases. 
 \begin{itemize}
-\item Find the shortest paths between all connected transit nodes to form a possible solution space. This is achieved via a mathematical optimization algorithm
-\item For each transit node pairs, select the one shortest path from all possible shortest paths, which my be more than one, following heuristic guidelines.
-\item Create initial transit routes / lines by connecting selected transit node or terminal pairs following heuristic guidelines
-\item Check service coverage, and add unserved nodes (nodes that are not connected to a transit route) to appropriate existing routes or create new routes with the unserved nodes as route terminals.
+\item First, a feasible initial route network / set of routes was generated. The solution procedures; 1. Route generation phase: find the shortest path between all connected transit nodes, using Dijkstras, to form a possible solution set. For each transit node pairs, the shortest path from all possible shortest paths, with the highest number of nodes, is selected, following heuristic guidelines. Then initial transit routes are selected, by connecting selected transit node or terminal pairs, following heuristic guidelines. Checking service coverage, nodes not selected, were iteratively included into appropriate existing routes, or new routes were created with the unserved nodes as route terminals. In this first stage, only the in-vehicle travel cost were considered when accessing route quality. He then suggested an initial route set, and used these in the second stage. 
+\item The second stage tries to minimize an objective function of total travel time, including in-vehicle time and waiting time. This stage included obtaining new routes at an intersection route, including a node that was close to a route (if the travel demand was high), and excluded a node from a route set that was already served by another route (if travel demand was low). phase included obtaining the new routes at an intersection node, including a node that was close to a route (if travel demand between this node and the node on the route was high), and excluded a node from a route set that was already served by another rote (if the travel demand between this node and the other nodes in the route was low). Waiting times were fixed as constant values, according to specific vehicle frequencies.  The 
 \end{itemize}
 
-The second stage of Mandl's method tries to minimize an objective function of total travel time, including in-vehicle time and waiting times, following a hierarchical, iterative procedure. The limitation of Mandl's method is the lack of consideration of the demand pattern during the route construction stage.
+Some important measures of Mandl's solution network includes, for example, 100\% service coverage, 69,4\% of the trips involving no transfers, 29,93\% of the trips involving one transfer, and only 0,13\% of the trips needing more than one transfer. The limitation of Mandl's method is the lack of consideration of the demand pattern during the route construction stage.\citep{zhao03}
 
-\citep{zhao03}
-\par
-%TODO: skrive om 
-Christoph Mandl[] concentrated mainly on the UTRP, and developed a solution in two stages. First, a feasible set of routes was generated, and then heuristics were applied to improve the quality of the initial route set / tour plan. The route generation phase involved computing the shortest path between all sets of vertices's using Dijkstras[], and then producing the route set with the shortest paths that contained the most nodes, respecting the positions of any nodes selected as terminals. Nodes not selected, were iteratively included into routes, or new routes were created with unserved nodes as route terminals. In the first phase, Mandl only considered in-vehicle travel costs when accessing route quality. He then suggested an initial route set, and used these in the second phase. The second phase included obtaining the new routes at an intersection node, including a node that was close to a route (if travel demand between this node and the node on the route was high), and excluded a node from a route set that was already served by another rote (if the travel demand between this node and the other nodes in the route was low). Waiting costs were also considered in the second phase, in addition to in-vehicle travel costs. Waiting times were fixed as constant values, according to specified vehicle frequencies. 
+\subsubsection {Input Data}
+\begin{itemize}
+\item \textbf{MandlCoords.txt} - This file includes 15 lines, with the (x,y) coordinated of the 15 nodes. These coordinated was not supplied in Mandl's literature, so these are copied from \citet{fan09} and are approximate for the picture to be drawn.
+
+\begingroup
+\obeyspaces\obeylines
+\input{assets/instances/MandlCoords.txt}%
+\endgroup%
+
+\item \textbf{MandlTravelTimes.txt} - The travel times matrix gives the travel times in takes in minutes between the nodes. This matrix is symmetrical, travel times between each node and itself are zero, and ``Inf'' indicates that there is no direct link between the nodes. 
+
+\begingroup
+\obeyspaces\obeylines
+\input{assets/Instances/MandlTravelTimes.txt}%
+\endgroup%
+
+\item \textbf{MandlDemand.txt} - The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day.. This matrix is also symmetrical. (These in no demand either to or from node 15, but it is always included in the route sets because the rules that are used insist on every node being included(?)) For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s. 
+
+\begingroup
+\obeyspaces\obeylines
+\input{assets/Instances/MandlDemand.txt}%
+\endgroup%
+
+\end{itemize}
+
