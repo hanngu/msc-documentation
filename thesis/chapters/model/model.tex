@@ -7,6 +7,43 @@ In Mandl's demand matrix we changed the numbers in the main diagonal (from to le
 Explain the system in a way the reader understands it.
 Include diagrams and the algorithms used.}
 
-\par
+\subsection{Research question 2}
+Using Mandl, the constraints and evaluation criteria defined under, we will manage to answer research question number 2: Is it efficient to combine attributes from different swarm intelligence methods to optimize a transit network? This is because we facilitate the comparison with other algorithms results mentioned in the literature. 
+
+\textbf{Initialization}
+\begin{itemize}
+\item The route size is predefined. The algorithm / routes shall not exceed the minimum or maximum limit of nodes.
+\end{itemize}
+
+\textbf{Constraints}
+\begin{itemize}
+\item A passenger should be able to travel between any two nodes in the route network. In other words, it should be a connected graph. 
+\item No cycles (or backtracks) in the graph is allowed.
+
+\end{itemize}
+
+\textbf{Evaluation criteria}
+\begin{itemize}
+\item Total travel time (should be as low as possible)
+\item Number of transfers
+\begin{itemize}
+\item Number of direct travelers (should be as high as possible)
+\item Travelers with one transfer
+\item Travelers with two transfers
+\end{itemize}
+\item Number of unsatisfied customers (should be as low as possible)
+\item The nodes with high demand should be as high as possible (have higher priority)
+\end{itemize}
+
+
+\textbf{Algorithm}
+\begin{itemize}
+\item Stop criteria: a number of iterations. 
+\item Start node: random? (find out what is done and what is best)
+\item For all ants in A until every ant has a solution
+\item for all edges in B, give higher pheromone based on evaluation criteria. 
+\item for all edges in E, evaporation over time. 
+\item 
+\end{itemize}
 
 
