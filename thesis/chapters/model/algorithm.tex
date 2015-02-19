@@ -1,0 +1,32 @@
+\section{Algorithm}
+
+We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter 2.
+
+\begin{itemize}
+\item Stop criteria: a number of iterations. 
+\item Start node: random? (find out what is done and what is best) Maybe we should give nodes pheromones as well, so that possible hot spots may be detected, and that this can be used as a start node. 
+\item For all ants in A until every ant has a solution
+\begin{itemize}
+\item Select next node based on demand, travel time and pheromones. The ants are smarter than the nature because they have included features about demand and distance(total travel time)
+\item Highest pheromones, highest demand and lowest travel time. But also a random function, for them to explore new routes as well.
+\item Calculate the probability for each next node to be selected. This probability is calculated as follows:
+\item Probability of demand + probability of pheromone - probability of total travel time (because the lower the prob of TT the better the TT is)
+\item Pk = (D/TD) + (P/TP) (TTT is not yet included)
+\item After we have given each edge a probability, we add these to a range starting from 2.0 increasing with the probability for each edge. The edge with the highest probability will therefore be in a larger range than the others
+\item We then use a math.random generator picking a random number between 2 and 0. 
+\item The edges with a higher probability will have a higher change of getting picked (because of the bigger range)
+\item Example probability range: [2.0, 1.333, 0.99, 0.3]. 
+\end{itemize}
+\item Select best ants with best route set
+\begin{itemize}
+\item Pick out a number of best ants with their complete route set (And because we want the complete route set, not just best routes.) based on the constraint: The ants must have included all nodes. 
+\item Pick out the ones who has included all the nodes. Easier to evaluate after, because it will be to complex to evaluate during the route generation. (May happen naturally when cycles are not allowed.? )
+\end{itemize}
+\item for all edges in B, give higher pheromone based on all the evaluation criteria. (Total travel time, number of transits, higher demand: higher priority)
+\begin{itemize}
+\item After we have selected the best route sets, we reward the edges in the routes by giving these more pheromone.
+\end{itemize}
+\item for all edges in E, evaporation over time. 
+\item 
+\end{itemize}
+

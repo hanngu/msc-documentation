@@ -20,28 +20,6 @@ In this first stage, only the in-vehicle travel cost were considered when access
 
 Some important measures of Mandl's solution network includes, for example, 100\% service coverage, 69,4\% of the trips involving no transfers, 29,93\% of the trips involving one transfer, and only 0,13\% of the trips needing more than one transfer. The limitation of Mandl's method is the lack of consideration of the demand pattern during the route construction stage.\citep{zhao03}
 
-\subsubsection {Input Data}
-\begin{itemize}
-\item \textbf{MandlCoords.txt} - This file includes 15 lines, with the (x,y) coordinated of the 15 nodes. These coordinated was not supplied in Mandl's literature, so these are copied from \citet{fan09} and are approximate for the picture to be drawn.
 
-\begingroup
-\obeyspaces\obeylines
-\input{assets/instances/MandlCoords.txt}%
-\endgroup%
 
-\item \textbf{MandlTravelTimes.txt} - The travel times matrix gives the travel times in takes in minutes between the nodes. This matrix is symmetrical, travel times between each node and itself are zero, and ``Inf'' indicates that there is no direct link between the nodes. 
-
-\begingroup
-\obeyspaces\obeylines
-\input{assets/Instances/MandlTravelTimes.txt}%
-\endgroup%
-
-\item \textbf{MandlDemand.txt} - The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day.. This matrix is also symmetrical. (These in no demand either to or from node 15, but it is always included in the route sets because the rules that are used insist on every node being included(?)) For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s. 
-
-\begingroup
-\obeyspaces\obeylines
-\input{assets/Instances/MandlDemand.txt}%
-\endgroup%
-
-\end{itemize}
 
