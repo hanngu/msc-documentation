@@ -2,7 +2,8 @@
 
 %TODO: Referanser til hvor vi lastet ned dataen
 
-We have designed and implemented a method(?) to produce a realistic transit network based on the data from Mandl. 
+We have designed and implemented a method(?) to produce a realistic transit network based on the data from Mandl. The transportation time on each edge is given. The transportation demand is assumed to be known and constant. 
+
 To do this we have constructed edges and nodes based on the data set, which consist of text files:
 
 \begin{itemize}
@@ -32,3 +33,10 @@ To do this we have constructed edges and nodes based on the data set, which cons
 The nodes we create (Node.java) includes (a x,y position) their coordinates, and a number to distinguish the ants from each other. Ant(number, x, y).
 The edges we create (Edge.java) includes the travel time between and the demand between two nodes. We have made edges based on the demand for each node, even though there is no direct link (travel time) between these two nodes. %TODO: skrive om hvordan vi gjør det når maurene skal velge kanter basert på travel time. 
 In addition to travel time and demand, each edge includes a pheromone value to be updated after the algorithm is executed.
+
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=4in]{assets/mandlnetwork.png}
+  \caption[Transit Network]
+   {The Transit Network, including 15 nodes and 21 edges. The graph is not directed because most lines use same arcs in both directions.}
+\end{figure}

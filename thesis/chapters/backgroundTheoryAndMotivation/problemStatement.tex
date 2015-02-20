@@ -1,5 +1,6 @@
 \subsection{Problem Statement}
 %TODO: skrive hva vi skal gjøre
+
 Through our review of research, we note that there have been no research that aims to combine attributes from different swarm intelligence methods to improve the optimization process. For this reason, we will in this thesis investigate the possibility to combine some of the best attributes from ACO and BCO in order to achieve better results regarding route optimization.
 
 After a meeting with AtB we learned that AtB does not have accurate data about the travel demand, and that there has not been done any attempts to optimize their transit network with computational resources. Accurate estimates of travel demand are essential as they are an important factor for the algorithm. A good tour plan will ensure that travel requirements with a heavy demand are satisfied, with short travel times and few vehicle transfers. 
@@ -10,13 +11,17 @@ Mandl's benchmark problem has been well documented in detail, with descriptions 
 
 We believe that a comparison of our algorithm to others described in literature, will be important to establish both the efficiency and the effectiveness of our algorithm. This comparison will be enabled using Mandls network. Our aim is to create a general solution, where we hope to achieve better results than the ones we are comparing it with, and that this in the future can be used to optimize AtBs transit network. 
 
-We will focus our research on the urban transit routing problem, to make the routes more convenient both concerning customers and operators. The objectives we want to focus on is satisfying the customers and in addition keeping the operator costs in check. Trough our research we have found that 
+We will focus our research on the urban transit routing problem, to make the routes more convenient both concerning customers and operators. The objectives we want to focus on is satisfying the customers and in addition keeping the operator costs in check. Service level can easily be measured by the total transportation time of the passenger as found by a suitable descriptive assignment; service level is good if total transportation time is low. For measuring the operator costs: number of buses used at the same time to travel along the lines. This makes sense, because the fixed and variable costs of all the buses together represent the largest part of the total operator cost. %Skrive om 
+
+Trough our research we have found that, as mentioned in the motivation, that private transportation has a lot of advances compared to the public transportation system. The public transportation systems contains less nodes than the private ones, resulting in longer travel distances between two nodes and longer walking distances. In addition, the increased waiting times when they have to change vehicles when the number of transits are big. All of this results in a larger total travel time. The objective in this thesis will therefore be to minimize the total travel time in the public transportation, by decreasing the number of transfers. \citep{mandl79} 
+%skrive om litt
 \begin{itemize}
 \item Minimum number of transfers
 \item Minimum in-vehicle time
 \end{itemize}
 is important factors for determine the customers satisfaction ({\citet{kechagiopoulos14}; \citet{dias14}, \citet{yang07} }). There has also been done a lot of research on these areas, and therefore data is available so we can compare our results against this. This factors will also lead to minimum total travel time. 
+If the number of routes and their lengths is decreased, the time interval between two nodes will decrease.?
+\textbf{In other words our goal is to develop an algorithm which computes routes, such that the sum of all transportation times of all passengers is minimized}  (the number of available vehicles, the set of nods to be served and the number of trips between all pairs of nodes is given.) %Skrive om litt
+
 \par
-Minimum fleet size and better departures will implicitly ..
-\par
-Based on these new routes, we can hopefully draw conclusions....
+Based on these new routes, we can hopefully draw conclusions.... towards optimizing AtBs route network.

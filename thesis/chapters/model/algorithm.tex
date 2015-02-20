@@ -1,7 +1,13 @@
 \section{Algorithm}
 
-We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter 2.
+%TODO: skrive om, og gjøre?
+The number of buses is restricted by some number M. Then, a feasible set of edges is to be found, such that the total transportation time according to some descriptive assignment (with waiting times defined by the number of buses M) is minimized. Since the problem is so complex, only a heuristic algorithm seems appropriate. 
+\begin{itemize}
+ \item Each node will not be served by each bus, but each stop must be served by at least one route ( each node must belong to at least one route. ) Because a passenger must be able to reach a stop from any other stop by using a sequence of routes. But even though all nodes is reachable, many cases people will have to change lines to reach their destination, and this means they have to wait for the next vehicle. Therefore the travel time is the sum of transportation time along the lines plus the sum of waiting. (To include waiting time, means that a node is split into as many nodes as there are lines passing through this node, and if the original node belongs to these new nodes, they are connected by arcs denoting the average travel time. )
+ \item Because changing lines is not only time consuming but also inconvenient for the passengers, many people want to find the one with the least changes necessary. This minimum change path can be found in exactly the same way as the shortest path; instead of assigning the real waiting time for each arc denoting a possible change, one assigns a high value to those arcs, such that a is much greater than the transportation time.
+\end{itemize}
 
+We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter 2.
 \begin{itemize}
 \item Stop criteria: a number of iterations. 
 \item Start node: random? (find out what is done and what is best) Maybe we should give nodes pheromones as well, so that possible hot spots may be detected, and that this can be used as a start node. 
