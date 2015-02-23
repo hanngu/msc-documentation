@@ -1,38 +1,87 @@
 \section{Algorithm}
 
-%TODO: skrive om, og gjøre?
-The number of buses is restricted by some number M. Then, a feasible set of edges is to be found, such that the total transportation time according to some descriptive assignment (with waiting times defined by the number of buses M) is minimized. Since the problem is so complex, only a heuristic algorithm seems appropriate. 
-\begin{itemize}
- \item Each node will not be served by each bus, but each stop must be served by at least one route ( each node must belong to at least one route. ) Because a passenger must be able to reach a stop from any other stop by using a sequence of routes. But even though all nodes is reachable, many cases people will have to change lines to reach their destination, and this means they have to wait for the next vehicle. Therefore the travel time is the sum of transportation time along the lines plus the sum of waiting. (To include waiting time, means that a node is split into as many nodes as there are lines passing through this node, and if the original node belongs to these new nodes, they are connected by arcs denoting the average travel time. )
- \item Because changing lines is not only time consuming but also inconvenient for the passengers, many people want to find the one with the least changes necessary. This minimum change path can be found in exactly the same way as the shortest path; instead of assigning the real waiting time for each arc denoting a possible change, one assigns a high value to those arcs, such that a is much greater than the transportation time.
-\end{itemize}
-
 We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter 2.
-\begin{itemize}
-\item Stop criteria: a number of iterations. 
-\item Start node: random? (find out what is done and what is best) Maybe we should give nodes pheromones as well, so that possible hot spots may be detected, and that this can be used as a start node. 
-\item For all ants in A until every ant has a solution
+
+\subsection{Initialization}
+%TODO:
+
+\subsection{Stop criteria:}
+
+Stop criteria: a number of iterations. 
+
+\subsection{For all ants in A - position ants in start node}
+%Selecting the first node: 
+Start node: random? (find out what is done and what is best) Maybe we should give nodes pheromones as well, so that possible hot spots may be detected, and that this can be used as a start node. 
+
+
+\subsection{For all ants in A - choose next node, update pheromone }
 \begin{itemize}
 \item Select next node based on demand, travel time and pheromones. The ants are smarter than the nature because they have included features about demand and distance(total travel time)
 \item Highest pheromones, highest demand and lowest travel time. But also a random function, for them to explore new routes as well.
-\item Calculate the probability for each next node to be selected. This probability is calculated as follows:
-\item Probability of demand + probability of pheromone - probability of total travel time (because the lower the prob of TT the better the TT is)
+\end{itemize}
+\begin{itemize}
+\item Then we have to calculate the probability for each next node to be selected. This probability is calculated as follows:
+\item Probability of demand + probability of pheromone 
 \item Pk = (D/TD) + (P/TP) (TTT is not yet included)
 \item After we have given each edge a probability, we add these to a range starting from 2.0 increasing with the probability for each edge. The edge with the highest probability will therefore be in a larger range than the others
 \item We then use a math.random generator picking a random number between 2 and 0. 
 \item The edges with a higher probability will have a higher change of getting picked (because of the bigger range)
 \item Example probability range: [2.0, 1.333, 0.99, 0.3]. 
 \end{itemize}
-\item Select best ants with best route set
+\begin{itemize}
+\item (probability of total travel time (the lower the prob of TT the better the TT is)) %TODO:
+\end{itemize}
+
+
+
+\subsection{For all ants in A until every ant has a solution}
+
+\subsection{Route set evaluation}
+Select best ants with best route set - route set evaluation - These best route sets is then added to the bestroutes...
+Evaluation a route itself as no sense, since its path depends on the rest of the members of the same route set. As a result, all members of a route set should be evaluated as a whole. This evaluation is based on the evaluation criteria stated in previous section.
 \begin{itemize}
 \item Pick out a number of best ants with their complete route set (And because we want the complete route set, not just best routes.) based on the constraint: The ants must have included all nodes. 
 \item Pick out the ones who has included all the nodes. Easier to evaluate after, because it will be to complex to evaluate during the route generation. (May happen naturally when cycles are not allowed.? )
+\item Pick out ants based on the fitness of each route set
+\item In order to evaluate the fitness of each route set r, a value (TOTFIT(r)) is calculated. 
+\item TOTTFIR(r) = w1F1(r) + w2F2(r) + w3F3(3) \citep{kechagiopoulos14}
 \end{itemize}
-\item for all edges in B, give higher pheromone based on all the evaluation criteria. (Total travel time, number of transits, higher demand: higher priority)
+
+\subsubsection{Calculating F1}
+F1(r) : score obtained by evaluating the route set r using criteria: the total in-vehicle time. 
+%Skrives om 
+
+If all nodes contains a list of all the other nodes including their travel time, 
+
+In other words, it reflects the average time spent by each passenger when traveling sing a specific route set. Its value it small if the respective average traveling time is big and big is traveling time is small. In order to estimate F1(r), not only the average traveling time has to be calculated, but one also determine whether this value should be considered big or small. 
 \begin{itemize}
+\item calculate smallest travel time
+\item calculate travel time based on nodes
+\end{itemize}
+
+\subsubsection{Calculating F2}
+F2(r) : score obtained by evaluating the route set using criteria: direct traveler, one transfer, two transfers
+\subsubsection{Calculating F3}
+F3(r) : score obtained by evaluating the route set using criteria: more than two transfers
+
+
+\subsection{For all edge E in B}
+\begin{itemize}
+\item for all edges in B, give higher pheromone based on all the evaluation criteria. (Total travel time, number of transits, higher demand: higher priority)
 \item After we have selected the best route sets, we reward the edges in the routes by giving these more pheromone.
 \end{itemize}
+
+\subsection{For all edges E in E}
+\begin{itemize}
 \item for all edges in E, evaporation over time. 
-\item 
 \end{itemize}
+
+%TODO: skrive om, og gjøre?
+%The number of buses is restricted by some number M. Then, a feasible set of edges is to be found, such that the total transportation time according to some descriptive assignment (with waiting times defined by the number of buses M) is minimized. Since the problem is so complex, only a heuristic algorithm seems appropriate. 
+%\begin{itemize}
+ %\item Each node will not be served by each bus, but each stop must be served by at least one route ( each node must belong to at least one route. ) Because a passenger must be able to reach a stop from any other stop by using a sequence of routes. But even though all nodes is reachable, many cases people will have to change lines to reach their destination, and this means they have to wait for the next vehicle. Therefore the travel time is the sum of transportation time along the lines plus the sum of waiting. (To include waiting time, means that a node is split into as many nodes as there are lines passing through this node, and if the original node belongs to these new nodes, they are connected by arcs denoting the average travel time. )
+ %\item Because changing lines is not only time consuming but also inconvenient for the passengers, many people want to find the one with the least changes necessary. This minimum change path can be found in exactly the same way as the shortest path; instead of assigning the real waiting time for each arc denoting a possible change, one assigns a high value to those arcs, such that a is much greater than the transportation time.
+%\end{itemize}
+
+
 
