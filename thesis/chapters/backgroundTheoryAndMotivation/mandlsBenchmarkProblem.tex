@@ -1,7 +1,7 @@
 \subsection{Mandl's Benchmark Problem}
 %TODO: skrive om 
 
-In the current research on the vehicle routing problems and swarm intelligence, there are some benchmark data available for researchers to use for comparison. However, for UTNDP and the urban transit routing problem, Mandl's network seems to be the only benchmark instance used and acknowledged by researchers. His work has also widely cited by researchers. %Referanser
+In the current research on the vehicle routing problems and swarm intelligence, there are some benchmark data available for researchers to use for comparison. However, for the urban transit network design problem (UTNDP), Mandl's network seems to be the only benchmark instance used and acknowledged by researchers, and his work has been widely cited. %Referanser
 
 Christoph Mandl developed a heuristic algorithm for the urban transit network problem. This method was applied and based on a real network in Switzerland, the Swiss transit network \citep{mandl79} . The data includes a small and dense network of 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge. The total demand is 15,570 trips per day, which is a relatively high demand for a small network. The travel time between the to farthest nodes in the network is 22 minutes along the shortest path. 
 
@@ -13,14 +13,14 @@ Mandl developed a solution in two phases.
 \item This was done by first generating routes by finding the shortest paths between all the connected nodes, to form a possible solution set. %Mandl used Dijkstras algorithm to first find the shortest distances and routes between all pairs of nodes.  
 \item For each transit node pairs, the shortest path from all possible shortest paths, with the highest number of nodes, was selected, following heuristic guidelines. 
 \item Nodes not selected, were iteratively included into appropriate existing routes, or new routes were created with the unserved nodes as route terminals. 
-In this first stage, only the in-vehicle travel cost were considered. He then suggested an initial route set, by connecting selected transit node or terminal pairs following heuristic guidelines, and used these in the second stage. 
+In this first stage, only the in-vehicle travel cost were considered. He then suggested an initial route set, by connecting selected transit node or terminal pairs following heuristic guidelines, and used these in the second phase. 
 \end{itemize}
-\item In the second phase, he tries to minimize an objective function of total travel time, including in-vehicle time and waiting time. This stage included obtaining new routes at an intersection route, including a node that was close to a route (if the travel demand was high), and excluded a node from a route set that was already served by another route (if travel demand was low). Waiting times were fixed as constant values, according to specific vehicle frequencies.  
+\item In the second phase, he tried to minimize an objective function of total travel time, including in-vehicle time and waiting time. This stage included obtaining new routes at an intersection route, including a node that was close to a route (if the travel demand was high), and excluded a node from a route set that was already served by another route (if travel demand was low). Waiting times were fixed as constant values, according to specific vehicle frequencies.  
 \end{enumerate}
 
 %&(His algorithm had certain advantages, as it proceeded to find a feasible set of lines and then iteratively changing while reducing the total transportation time in each step. Therefore the algorithm produces a number of feasible set compared by the transportation planner.)
 
-Some important measures of Mandl's solution network includes, for example, 100\% service coverage, 69,4\% of the trips involving no transfers, 29,93\% of the trips involving one transfer, and only 0,13\% of the trips needing more than one transfer. The limitation of Mandl's method is the lack of consideration of the demand pattern during the route construction stage.\citep{zhao03}
+Some important measures of Mandl's solution network includes, for example, 100\% service coverage, 69,4\% of the trips involving no transfers, 29,93\% of the trips involving one transfer, and only 0,13\% of the trips needing more than one transfer. The limitation of Mandl's method is the lack of consideration of the demand pattern during the route construction stage \citep{zhao03}.
 
 
 

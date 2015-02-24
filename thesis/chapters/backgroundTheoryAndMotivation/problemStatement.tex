@@ -1,12 +1,32 @@
 \subsection{Problem Statement}
 %TODO: skrive hva vi skal gjøre
-In this thesis, we are highly motivated in the development of an ant colony inspired optimization algorithm for the urban transit network design problem. Through our review of research, we note that there has not been done any research that aims to combine attributes from different swarm intelligence methods to improve the optimization process. For this reason, we will in this thesis investigate the possibility to combine some of the best attributes from ACO and BCO in order to achieve better results regarding route optimization. Travel demand is a key variable, because accurate estimates of travel demand are essential as they are an important factor for the algorithm. After a meeting with AtB we learned that AtB does not have accurate data about the travel demand. Detailed investigations into measuring and predicting travel demand is an complex research problem, and beyond the scope of this thesis. Demand values are all provided for Mandl's instance, so we will use Mandl's benchmark problem \citep{mandl79} for the input data, the corresponding objective function values, and for comparison in this study. Methodologies developed by Mandl and the corresponding results seems to be well acknowledged in the transit planning research community. These benchmark problems are real, practical problems, and with some simplification assumptions, we will make them appropriate to use to validate the methodology developed in this study, demonstrate the efficiency and effectiveness of our algorithm and to evaluate and compare results. 
+In this thesis, we are highly motivated in the development of an ant colony inspired optimization algorithm for the urban transit network design problem (UTNDP). Through our review of research, we note that there has not been done any research that aims to combine attributes from different swarm intelligence methods to improve the optimization process. For this reason, we will in this thesis investigate the possibility to combine some of the best attributes from the discussed swarm intelligence algorithms in order to achieve better results regarding route optimization. Travel demand is a key variable, because accurate estimates of travel demand are essential as they are an important factor for the algorithm. After a meeting with AtB we learned that AtB does not have accurate data about the travel demand. Detailed investigations into measuring and predicting travel demand is an complex research problem, and beyond the scope of this thesis. Demand values are all provided for Mandl's instance, we will therefore use Mandl's benchmark problem \citep{mandl79} for the input data, the corresponding objective function values, and for comparison in this study. Methodologies developed by Mandl and the corresponding results seems to be well acknowledged in the transit planning research community. These benchmark problems are real, practical problems, and with some simplification assumptions, we will make them appropriate to use to validate the methodology developed in this study, demonstrate the efficiency and effectiveness of our algorithm, and evaluate and compare our results. 
 
-We will focus our research on making the routes more convenient both concerning customers and operators. The objectives we want to focus on is satisfying the customers and keeping the operator costs at minimum. 
+We will focus our research on making the routes more convenient both concerning customers (and operators). The objectives we want to focus on is satisfying the customers (and keeping the operator costs at minimum). 
 
 As mentioned in the motivation, %private transportation has a lot of advances for the citizens compared to the public transportation system. The public transportation system contains less nodes (stops), resulting in longer travel distances between two nodes, in addition to a longer walking distance. 
-the current solution of AtB consist of an experience based route network, meaning the routes has not been properly optimized concerning the travel demand. When a route network is not optimized, there will be more transfers, resulting in a longer total travel time. A minimum number of transfers and a minimum in-vehicle time are important factors for determining the customers satisfaction, AtB experiences. The objective in this thesis will therefore be to minimize the total travel time in the public transportation, by decreasing the number of transfers. %\citep{mandl79}
-Our goal is to create a general solution, by developing an ant colony inspired algorithm that computes better routes than the once were comparing it with, concerning travel demand and travel time, and that this in the future can be used to optimize AtBs transit network. 
+the current solution of AtB consist of an experience based route network, meaning the routes has not been properly, computationally optimized concerning the travel demand and travel time. When a route network is not properly optimized, there will be a large number of transfers for customers when they are traveling from a to b, resulting in a long total travel time. A minimum number of transfers and a minimum in-vehicle time are important factors for determining the customers satisfaction, AtB experiences. The objective in this thesis will therefore be to minimize the total travel time in the public transportation system, by decreasing the number of transfers. 
+
+The algorithm will be evaluated by the following evaluation criteria, which is inspired by \citep{kechagiopoulos14}, \citep{mandl80}, \citep{nikolic14} and \citep{fan09}.
+\begin{itemize}
+\item Total travel time (should be as low as possible)
+\item Number of transfers (should be as low as possible)
+\begin{itemize}
+\item Number of direct travelers 
+\item Travelers with one transfer
+\item Travelers with two transfers
+\end{itemize}
+\item Number of unsatisfied customers - more than two transfers (should be zero)
+\end{itemize}
+
+ %\citep{mandl79}
+Our goal is to create a general solution, by developing an ant colony inspired algorithm that computes better routes than the once were comparing it with, concerning travel demand and travel time, and that this in the future can be used to optimize AtBs transit network. %This gives us our research question:
+%\begin{enumerate}
+%\item Is it efficient to combine attributes from different swarm intelligence-methods to optimize a transit network?
+%    \begin{enumerate}
+%    \item If so, is it possible to apply the algorithm to the urban transit networks to cities like Trondheim?
+%  \end{enumerate}
+%\end{enumerate}
 
 Throughout our research we will evaluate our work against the following criteria: \textit{In progress....}
 \begin{itemize}
@@ -14,5 +34,7 @@ Throughout our research we will evaluate our work against the following criteria
 \item Efficiency - we will record our run times
 \item Robustness - To demonstrate reliability, we will carry out 20 replicate runs per experiment, recording average, best and standard deviation. 
 \end{itemize}
+
+
 
 
