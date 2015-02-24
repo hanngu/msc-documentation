@@ -9,13 +9,13 @@ Mandl developed a solution in two phases.
 
 \begin{enumerate}
 \item First, a feasible set of routes was created. 
-\begin{enumerate}
+\begin{itemize}
 \item This was done by first generating routes by finding the shortest paths between all the connected nodes, to form a possible solution set. %Mandl used Dijkstras algorithm to first find the shortest distances and routes between all pairs of nodes.  
 \item For each transit node pairs, the shortest path from all possible shortest paths, with the highest number of nodes, was selected, following heuristic guidelines. 
 \item Nodes not selected, were iteratively included into appropriate existing routes, or new routes were created with the unserved nodes as route terminals. 
 In this first stage, only the in-vehicle travel cost were considered. He then suggested an initial route set, by connecting selected transit node or terminal pairs following heuristic guidelines, and used these in the second stage. 
-\end{enumerate}
-\item The second stage tried to minimize an objective function of total travel time, including in-vehicle time and waiting time. This stage included obtaining new routes at an intersection route, including a node that was close to a route (if the travel demand was high), and excluded a node from a route set that was already served by another route (if travel demand was low). Waiting times were fixed as constant values, according to specific vehicle frequencies.  
+\end{itemize}
+\item In the second phase, he tries to minimize an objective function of total travel time, including in-vehicle time and waiting time. This stage included obtaining new routes at an intersection route, including a node that was close to a route (if the travel demand was high), and excluded a node from a route set that was already served by another route (if travel demand was low). Waiting times were fixed as constant values, according to specific vehicle frequencies.  
 \end{enumerate}
 
 %&(His algorithm had certain advantages, as it proceeded to find a feasible set of lines and then iteratively changing while reducing the total transportation time in each step. Therefore the algorithm produces a number of feasible set compared by the transportation planner.)
