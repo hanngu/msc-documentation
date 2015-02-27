@@ -66,14 +66,34 @@ citet{fan09}, which consist of text files:
     \textit{MandlTravelTimes.txt The travel times matrix gives the travel times it takes in minutes between the nodes. This matrix is symmetrical, travel times between each node and itself are zero, and ``Inf'' indicates that there is no direct link between the nodes.}
 \end{table}
 
+\begin{table}[h!]
 
+    \begin{tabular}{|l|lllllllllllllll|}
+    \hline
+    ~ & 1       & 2        &  3    &   4     &  5     &  6      & 7      &  8     & 9      & 10      & 11     & 12         &  13     & 14       &  15  \\
+    \hline
+    1 & a   & 400 & 200 & 60  & 80  & 150 & 75  & 75  & 30  & 160 & 30  & 25  & 35  & 0   & 0 \\
+    2 & 400 & a   & 50  & 120 & 20  & 180 & 90  & 90  & 15  & 130 & 20  & 10  & 10  & 5   & 0 \\
+    3 & 200 & 50  & a   & 40  & 60  & 180 & 90  & 90  & 15  & 45  & 20  & 10  & 10  & 5   & 0 \\
+    4 & 60  & 120 & 40  & a   & 50  & 100 & 50  & 50  & 15  & 240 & 40  & 25  & 10  & 5   & 0 \\
+    5 & 80  & 20  & 60  & 50  & a   & 50  & 25  & 25  & 10  & 120 & 20  & 15  & 5   & 0   & 0 \\
+    6 & 150 & 180 & 180 & 100 & 50  & a   & 100 & 100 & 30  & 880 & 60  & 15  & 15  & 10  & 0 \\
+    7 & 75  & 90  & 90  & 50  & 25  & 100 & a   & 50  & 15  & 440 & 35  & 10  & 10  & 5   & 0 \\
+    8 & 75  & 90  & 90  & 50  & 25  & 100 & 50  & a   & 15  & 440 & 35  & 10  & 10  & 5   & 0 \\
+    9 & 30  & 15  & 15  & 15  & 10  & 30  & 15  & 15  & a   & 140 & 20  & 5   & 0   & 0   & 0 \\
+    10 & 160 & 130 & 45  & 240 & 120 & 880 & 440 & 440 & 140 & a   & 600 & 250 & 500 & 200 & 0 \\
+    11 & 30  & 20  & 20  & 40  & 20  & 60  & 35  & 35  & 20  & 600 & a   & 75  & 95  & 15  & 0 \\
+    12 & 25  & 10  & 10  & 25  & 15  & 15  & 10  & 10  & 5   & 250 & 75  & a   & 70  & 0   & 0 \\
+    13 & 35  & 10  & 10  & 10  & 5   & 15  & 10  & 10  & 0   & 500 & 95  & 70  & a   & 45  & 0 \\
+    14 & 0   & 5   & 5   & 5   & 0   & 10  & 5   & 5   & 0   & 200 & 15  & 0   & 45  & a   & 0 \\
+    15 & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & a \\ 
+    \hline
+    \end{tabular}
+ 
+ 	\caption {Mandl Demand}
+ 	\textit{MandlDemand.txt - The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. (These is no demand either to or from node 15, but it there is demand to node 9, which is only connected to node 15). For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s.}
 
-\textbf{MandlDemand.txt} - The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. (These is no demand either to or from node 15, but it is always included in the route sets because the rules that are used insist on every node being included \citep{fan09}. For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s. 
-
-
-
-
-
+\end{table}
 
 \subsection{Route set representation}
 
@@ -83,9 +103,10 @@ The edges we create includes the travel time between and the demand between two 
 The travel time indicates whether there is a direct link. %TODO: skrive mer her.  
 In addition to travel time and demand, each edge includes a pheromone value to be updated after the algorithm is executed.
 
-\begin{figure}[hb]
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=4in]{assets/mandlnetwork.png}
+  \includegraphics[width=4in]{assets/mandlnetwork_crop.png}
   \caption[Transit Network]
-   {The Transit Network, including 15 nodes and 21 edges. The graph is not directed because most lines use same arcs in both directions. Coordinates are correct based on the file from \citep{fan09}}
+   {Mandl Transit Network} 
+   \textit{The transit network is including the 15 nodes and 21 edges. The graph is undirected, because most lines use same arcs in both directions. Coordinates are correct based on the mandlCoord.txt file from \citep{fan09}}
 \end{figure}
