@@ -31,6 +31,7 @@ Then, select the first K nodes from the list, which comprise the initial node se
 Start node for the next ants: Possible hot spots may be detected, and that this can be used as a start node for the next ants. 
 
 \subsection{Selecting the next nodes}
+
 \begin{algorithm}[H]
   \Repeat{every ant has a solution}{
    \ForAll{ants a in A}{
@@ -40,34 +41,38 @@ Start node for the next ants: Possible hot spots may be detected, and that this 
   }
 \end{algorithm}
 
-The next nodes is selected based on the demand, the pheromone and the attractiveness for the edges. As mentioned, only the edges connected by travel time is possible to select. The route exploring stops if it reaches more than 10 nodes, and if it is stuck meaning it is not allowed to select a node twice. It then begins the next route exploring. The number of routes it is generating is a value you can set (for now: 4).
-This is done by calculating the probability for next node to be selected. This probability is calculated by the pheromone(P), demand(D) and an attractive value(A), and divided by the total demand (TD), total pheromone (TP) and total attractiveness(TA).
+The next nodes is selected based on the demand, the pheromone and the attractiveness for the edges. As mentioned, only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes. The selection is done by calculating the probability for the next node to be selected. This probability is calculated by the pheromone(P), demand(D) and an attractive value(A), and divided by the total demand (TD), total pheromone (TP) and total attractiveness(TA).
 
 Nodes only connected with one other node in the network, provoke premature termination of a route if selected at the initialization stage, given that no direction reversals are allowed. \citep{kechagiopoulos14}. As a result the attractive value means a route with only one edge has lower attractiveness (0.5) and nodes with more than one edge has higher attractivenesses value. As soon as the node is selected as part of a route, its value is divided by 10, in order to bias toward the selection of other nodes which have not been selected already. The choice aims to have all nodes participating to each route set since a major characteristic of a good route set is to fulfill all transfer demands. %TODO: denne må leses mer gjennom.
+
 The probability for for each node \textit{k} to be selected is calculated as follows:
 $$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{A}{TA}$$ 
 
-After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability for each edge. A value between 3 and 0 is then picked, giving the edges with highest probability a large range than the others, resulting in a larger probability for this edge to be selected. 
+After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability for each edge. A value between 3 and 0 is then random selected, giving the edges with highest probability a larger range than the others, resulting in a larger probability for this edge to be selected. 
 
 Travel time is not taken into account in the node selection stage, because this is done when we are evaluating the route set, and the best routes is given more pheromone for next iteration. %TODO: give higher score if there is direct routes between node couples with high demand.
+
+The route exploring phase stops if it reaches more than 10 nodes, constraint \ref{itm:constraintRouteSize} specifies that the route size is predefined, and that the routes shall not exceed the minimum or maximum limit of nodes. It also stops if it is stuck, because it is not allowed to select a node twice, according to constraint \ref{itm:constraintCycles}, no cycles (or backtracks) in the graph is allowed. The ant then begins the next route exploring. The number of routes is set, as specified in constraint \ref{itm:constraintRouteSet}, there are exactly r routes in the route set. The value of r is 4, 6, 7 and 8, for comparison with \citep{kechagiopoulos14} + div.
 
 The routes are added to a route set, for evaluation.
 
 
 \subsection{Route set evaluation}
-In this stage the ants with their complete route set are selected for evaluation, and the others are discarded. This is because we want the complete route set, not just best routes; based on the constraint: The ants must have included all nodes, which is an important constraint because a passenger should be allowed to travel from every node to every other node. 
-This ants are then added to the best route set. The reason this evaluation is done after is because it too complex to evaluate this during the route generation stage. 
+In this stage the ants with their complete route set, with all nodes included, are selected for evaluation, and the others are discarded. This is because we want the complete route set, not just best routes, based on evaluation criteria \ref{itm:criteriaConnectedGraph}, it should be a connected graph. This important because a passenger should be allowed to travel from every node to every other node. The reason this evaluation is done after is because it too complex to evaluate this during the route generation stage. 
 
+This ants are then added to the best route set for evaluation. 
 The route sets are added to the Neo4J database, which includes Dijkstras algorithm for finding the shortest paths. 
 The route sets are then evaluated by a fitness function, TOTFIT(r) inspired by \citep{kechagiopoulos14}.
 This fitness value is calculated as follows:
 $$ TOTFIT(r) = w_{1}F_{1}(r) + w_{2}F_{2}(r) + w_{3}F_{3}(r)$$
 
 %Evaluation a route itself as no sense, since its path depends on the rest of the members of the same route set. As a result, all members of a route set should be evaluated as a whole. This evaluation is based on the evaluation criteria stated in previous section.
-$ F_{1}(r)$ means score obtained by evaluating the route set by the total in-vehicle time
+$ F_{1}(r)$ means score obtained by evaluating the route set by the total in-vehicle time, evaluation criteria \ref{itm:criteriaTotalTravelTime}
+\newline
 $ F_{2}(r)$ mean score obtained by evaluating the route set using criteria: direct traveler, one transfer, two transfers
+\newline
 $ F_{3}(r)$ means score obtained by evaluating the route set using criteria: more than two transfers 
-
+\newline
 $ w_{1}, w_{2}$, and$ w_{3}$ are user specified weights for scores $ F_{1}(r), F_{2}(r),$ and $ F_{3}(r)$, respectively. \textit{: TODO}
 
 \subsubsection{Calculating F1}
@@ -78,11 +83,11 @@ Score is obtained by evaluating the route set by the total in-vehicle time, by c
 \end{itemize}
 
 Calculating the smallest travel time is done by Neo4J - Dijkstras. 
-And the traveltime based on nodes, means the travel time it takes between nodes using the route with the edges made by the ant.This is done by calculating the difference between the selected route and the shortest path:
-$$ DIFF = PathWeight(r) - NodeCoupleMinTotalTravelTime$$
-$ PathWeight(r)$ : The traveltime between two nodes using the route with edges made by the ant
-\par 
-$ NodeCoupleMinTotalTravelTime$: the actual shortest path between the two nodes, Dijkstras
+And the traveltime based on nodes, means the travel time it takes between nodes using the route with the edges made by the ant.This is done by calculating the difference, DIF, between the selected route and the minimum shortest path:
+$$ DIF = PathWeight(r) - MinTotalTravelTime(k_{1},k_{2})$$
+$ PathWeight(r)$ : The traveltime between two nodes using the included nodes in the route with edges made by the ant
+\newline
+$ MinTotalTravelTime(k_{1},k_{2})$: the actual shortest path between the two nodes, $k_{1}$ and $k_{2}$, using Dijkstras.
 
 % F1(r) : score obtained by evaluating the route set r using criteria: the total in-vehicle time. 
 % %Skrives om 
@@ -96,23 +101,25 @@ $ NodeCoupleMinTotalTravelTime$: the actual shortest path between the two nodes,
 % \end{itemize}
 
 \subsubsection{Calculating F2}
+%TODO: skrive om dette
 % F2(r) : score obtained by evaluating the route set using criteria: direct traveler, one transfer, two transfers
 \subsubsection{Calculating F3}
+%TODO: skrive om dette
 % F3(r) : score obtained by evaluating the route set using criteria: more than two transfers 
 
 \subsection{Update pheromone value}
+
 \begin{algorithm}[H]
   \ForAll{edges e in B}{
    $pheromone_e += deposit$
   }
 \end{algorithm}
 
-\begin{itemize}
-\item for all edges in B, give higher pheromone based on all the evaluation criteria. (Total travel time, number of transits, higher demand: higher priority)
-\item After we have selected the best route sets, we reward the edges in the routes by giving these more pheromone.
-\end{itemize}
+After we have selected the best route sets, TODO: evaluation criteria, we reward the edges in the routes by giving these more pheromone.
+
 
 \subsection{Evaporation}
+
 \begin{algorithm}[H]
   \ForAll{edges e in E}{
    $pheromone_e -= evaporation$
