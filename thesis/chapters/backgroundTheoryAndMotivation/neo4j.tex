@@ -1,17 +1,31 @@
-\subsection{Graph Database}
-\textit{Denne er foreløpig kopiert fra Wikipedia}
-%Skrives om
-\par
-A graph database is a database that uses graph structures for semantic queries with nodes, edges, and properties to represent and store data. A graph database is any storage system that provides index-free adjacency.This means that every element contains a direct pointer to its adjacent elements and no index lookups are necessary. General graph databases that can store any graph are distinct from specialized graph databases such as triplestores and network databases.
-%Skrives om
-Graph databases are based on graph theory. Graph databases employ nodes, properties, and edges. Nodes represent entities such as people, businesses, accounts, or any other item you might want to keep track of. Properties are pertinent information that relate to nodes. Edges are the lines that connect nodes to nodes or nodes to properties and they represent the relationship between the two. Most of the important information is really stored in the edges. Meaningful patterns emerge when one examines the connections and interconnections of nodes, properties, and edges.
+\section{Graph Database}
 
+
+A graph database is a database based on graph theory. Graphs are one of the most efficient and natural way of working with data. Graph databases consists of nodes, edges, and properties to represent and store data. Nodes represent entities, such as people, accounts and bus stops, properties are relevant information that relate to the nodes, and edges are the lines that connect nodes to other nodes, and they represent the relationship between the node couple. Most of the information is stored in the edges, for instance the travel time or travel demand between to nodes. It and uses graph structures for semantic queries. It is a storage system where every element contains a direct pointer to its neighbor elements and no index lookups are necessary. 
+
+\par %Skrives om litt
+Compared to relational databases, are graph databases often faster for associative data sets[Wikipedia:P], and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require extensive join operations. As they depend less on a inflexible schema, they are more suitable to manage changing data with evolving schema's. 
+
+\par
+Graph databases are a powerful tool for graph-like queries, for instance computing the shortest path between to nodes in the graph!!! Other graph-like queries can be performed over a graph database in a natural way (for example graph's diameter computations or community detection).
+
+\par
+
+\textit{Denne er foreløpig kopiert fra Wikipedia: }%Skrives om 
 Compared with relational databases, graph databases are often faster for associative data sets[citation needed], and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require expensive join operations. As they depend less on a rigid schema, they are more suitable to manage ad hoc and changing data with evolving schema's. Conversely, relational databases are typically faster at performing the same operation on large numbers of data elements.
 Graph databases are a powerful tool for graph-like queries, for example computing the shortest path between two nodes in the graph. Other graph-like queries can be performed over a graph database in a natural way (for example graph's diameter computations or community detection).
 
-\subsubsection{Neo4J}
-Neo4J is a native graph database, and is a success way to store a transport graph [Reference]. It is known for extremely fast traversals of relationships. Neo4J can be easily constructed to a transit network. It is fast finding shortest path (by Dijkstra's algorithm), and it is easy to change the database via the REST API. 
+\subsection{Neo4j}
+Neo4J \citep{website:neo4j} is a native graph database, and is a success way to store a transport graph. It is known for extremely fast traversals of relationships. Neo4J can be easily constructed to a transit network. It is fast finding shortest path (by Dijkstra's algorithm), and it is easy to change the database via the REST API. 
 Neo4J is a highly scalable open source graph database that supports ACID, has high-availability clustering for enterprise deployments, and comes with a web-based administration tool that includes full transaction support and visual node-link graph explorer. Neo4j is accessible from most programming languages using its built-in REST web API interface. Neo4j is the most popular graph database in use today.[10]
+
+Advantages:
+\begin{itemize} 
+\item Flexibility: model, develop and visualize the world as you experience it. Its simply nodes and relationships. 
+\item Performance: Hyper-connectivity at speed. 
+\item Scalability: Scales up and out, supporting tens of billions of nodes and relationships, and hundred of thousands of ACID transactions per seconds. 
+\item Speed: Able to search trough millions of connections per second, with real time queries that stay fast even as your database grows. 
+\end{itemize}
 
 
 %\begin{itemize}
