@@ -1,13 +1,23 @@
-\section{Graph Database}
+\section{Graph Databases}
 
+Graphs are one of the most efficient and natural way of working with data, and a graph database is a database based on graph theory. Graph theory is a mature and well-understood field of study concerning the nature of
+networks (or from our point of view, connected data)\citep{neo13}. 
 
-A graph database is a database based on graph theory. Graphs are one of the most efficient and natural way of working with data. Graph databases consists of nodes, edges, and properties to represent and store data. Nodes represent entities, such as people, accounts and bus stops, properties are relevant information that relate to the nodes, and edges are the lines that connect nodes to other nodes, and they represent the relationship between the node couple. Most of the information is stored in the edges, for instance the travel time or travel demand between to nodes. It and uses graph structures for semantic queries. It is a storage system where every element contains a direct pointer to its neighbor elements and no index lookups are necessary. 
+Graph databases consists of nodes, edges, and properties to represent and store data. Nodes represent entities, such as people, accounts and bus stops,(each node knows its adjacent nodes) properties are relevant information that relate to the nodes, and edges are the lines that connect the nodes and properties, defining the relationship between them. Most of the information is stored in the edges, for instance the travel time or travel demand between to nodes. 
+
+A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, and Delete (CRUD) methods that expose a graph data model. 
+
+It uses graph structures for semantic queries. It is a storage system where every element contains a direct pointer to its neighbor elements and no index lookups are necessary. 
 
 \par %Skrives om litt
-Compared to relational databases, are graph databases often faster for associative data sets[Wikipedia:P], and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require extensive join operations. As they depend less on a inflexible schema, they are more suitable to manage changing data with evolving schema's. 
+
+Relational and NOSQL databases lack relationships \citep{neo13}. Compared to relational databases, are graph databases often faster for associative data sets[Wikipedia:P], and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require extensive join operations. As they depend less on a inflexible schema, they are more suitable to manage changing data with evolving schema's.
 
 \par
 Graph databases are a powerful tool for graph-like queries, for instance computing the shortest path between to nodes in the graph!!! Other graph-like queries can be performed over a graph database in a natural way (for example graph's diameter computations or community detection).
+
+%Geospatial is the original graph use case: Euler solved the Seven Bridges of Königsberg problem by positing a mathematical theorem that later came to form the basis of graph theory. Geospatial applications of graph databases range from calculating routes between locations in an abstract network such as a road or rail network, airspace network, or logistical network to spatial operations such as find all points of interest in a bounded area, find the center of a region, and calculate the intersection between two or more regions. \citep{neo13}
+%Geospatial operations depend upon specific data structures, ranging from simple weighted and directed relationships, through to spatial indexes, such as R-Trees, which represent multidimensional properties using tree data structures. As indexes, these data structures naturally take the form of a graph, typically hierarchical in form, and as such they are a good fit for a graph database. Because of the schema-free nature of graph databases, geospatial data can reside in the database beside other kinds of data—social network data, for example—allowing for complex multidimensional querying across several domains. Geospatial applications of graph databases are particularly relevant in the areas of telecommunications, logistics, travel, timetabling, and route planning \citep{neo13}
 
 \par
 
@@ -16,7 +26,11 @@ Compared with relational databases, graph databases are often faster for associa
 Graph databases are a powerful tool for graph-like queries, for example computing the shortest path between two nodes in the graph. Other graph-like queries can be performed over a graph database in a natural way (for example graph's diameter computations or community detection).
 
 \subsection{Neo4j}
-Neo4J \citep{website:neo4j} is a native graph database, and is a success way to store a transport graph. It is known for extremely fast traversals of relationships. Neo4J can be easily constructed to a transit network. It is fast finding shortest path (by Dijkstra's algorithm), and it is easy to change the database via the REST API. 
+Neo4J \citep{website:neo4j} is a native graph database, native graph storage that is optimized and designed for
+storing and managing graphs.
+
+and is a success way to store a transport graph. It is known for extremely fast traversals of relationships. Neo4J can be easily constructed to a transit network. It is fast finding shortest path (by Dijkstra's algorithm), and it is easy to change the database via the REST API. 
+
 Neo4J is a highly scalable open source graph database that supports ACID, has high-availability clustering for enterprise deployments, and comes with a web-based administration tool that includes full transaction support and visual node-link graph explorer. Neo4j is accessible from most programming languages using its built-in REST web API interface. Neo4j is the most popular graph database in use today.[10]
 
 Advantages:
@@ -26,6 +40,16 @@ Advantages:
 \item Scalability: Scales up and out, supporting tens of billions of nodes and relationships, and hundred of thousands of ACID transactions per seconds. 
 \item Speed: Able to search trough millions of connections per second, with real time queries that stay fast even as your database grows. 
 \end{itemize}
+
+\subsubsection{Dijkstra's algorithm}
+Dijkstra  is used  by Neo4j to find the shortest path between two nodes in the graph. Dijkstra’s algorithm is mature, having been published in 1956, and thereafter widely studied and optimized by computer scientists.\citep{neo13}. Dijkstra’s algorithm is quite efficient because it computes only the lengths of a relatively small subset of the possible paths through the graph. Dijkstra is often used to find real-world shortest paths (e.g., for navigation). It behaves as follows:
+\begin{enumerate}
+\item Pick the start and end nodes, and add the start node to the set of solved nodes (that is, the set of nodes with known shortest path from the start node) with value 0 (the start node is by definition 0 path length away from itself).
+\item From the starting node, traverse breadth-first to the nearest neighbors and record the path length against each neighbor node.
+\item Take the shortest path to one of these neighbors (picking arbitrarily in the case of ties) and mark that node as solved, because we now know the shortest path from the start node to this neighbor.
+\item From the set of solved nodes, visit the nearest neighbors (notice the breath-first progression) and record the path lengths from the start node against these new neighbors. Don’t visit any neighboring nodes that have already been solved, because we know the shortest paths to them already.
+\item Repeat steps 3 and 4 until the destination node has been marked solved.
+\end{enumerate}
 
 
 %\begin{itemize}
