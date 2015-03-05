@@ -40,7 +40,9 @@ To do this we have constructed a transit network, including edges and nodes, bas
 \end{table}
 
 
-\begin{table}[h!]
+\begin{table}[h]
+\resizebox{12.5cm}{!} {
+ 
     \begin{tabular}{|l|lllllllllllllll|}
     \hline
     ~ & 1       & 2        &  3    &   4     &  5     &  6      & 7      &  8     & 9      & 10      & 11     & 12         &  13     & 14       &  15  \\
@@ -63,12 +65,15 @@ To do this we have constructed a transit network, including edges and nodes, bas
      Inf         &  Inf     & Inf       &  0    \\
      \hline
     \end{tabular}
+}
     \caption {Mandl Travel Times}
     \label{table:MandlTravelTimes}
     \textit{MandlTravelTimes.txt The travel times matrix gives the travel times it takes in minutes between the nodes. This matrix is symmetrical, travel times between each node and itself are zero, and ``Inf'' indicates that there is no direct link between the nodes.}
 \end{table}
 
 \begin{table}[h!]
+\resizebox{12.5cm}{!} {
+ 
 
     \begin{tabular}{|l|lllllllllllllll|}
     \hline
@@ -91,6 +96,7 @@ To do this we have constructed a transit network, including edges and nodes, bas
     15 & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & 0   & a \\ 
     \hline
     \end{tabular}
+    }
  	\caption {Mandl Demand}
  	\label{table:MandlDemand}
  	\textit{MandlDemand.txt - The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. (These is no demand either to or from node 15, but it there is demand to node 9, which is only connected to node 15). For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s.}
