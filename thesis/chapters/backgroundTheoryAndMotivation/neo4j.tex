@@ -1,7 +1,38 @@
 \section{Graph Databases}
 
-Graphs are one of the most efficient and natural way of working with data, and a graph database is a database based on graph theory. Graph theory is a mature and well-understood field of study concerning the nature of
-networks (or from our point of view, connected data)\citep{neo13}. 
+Graphs are one of the most efficient and natural way of working with data. Formally speaking a graph is just a collection of vertices and edges. The term \textit{graph theory} been used in centuries, and was first introduced by the Swiss mathematician Leonard Euler (1707-1783) when he in 1736 proved that there does not exist a closed walk that crossed exactly once each of the seven bridges of the river Pregel in Köningsberg, now called Kaliningrad\citep{alexanderson06}. Figure \ref{fig:7bridgesEuler} shows Eulers original drawings from his paper written in 1736 \citep{euler1741} of the bridges in Köningsberg. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4in]{assets/7bridges-euler.png}
+  \caption{Eulers original drawing of the Seven Bridges of Köningsberg} 
+  \label{fig:7bridgesEuler}
+\end{figure}
+
+Based on the solution of the ``Seven Bridges of Köningsberg''-problem, Euler presented a theorem that states that if the graph is planar and connected, and if \textit{v} is the number of vertices, \textit{e} is the number of edges and \textit{f} is the number of faces (regions between edges of a plane graph that does not have any edges in it), then 
+\newline
+\newline
+\centerline{$v-e+f=2$}
+\newline
+\newline
+This means, with respect to the ``Seven Bridges of Köningsberg''-problem, that if it does not exists a path in the graph that lets you visit every node using every edge exactly once, the sum will not be 2. We have illustrated the bridges in Köningsberg as a graph in figure \ref{fig:7bridgesIllustration} and simplified the illustration in figure \ref{fig:7bridgesSimplification}. We see that the graph consists of 4 vertices, 7 edges and 4 faces. The faces are specified with numbers 1-4 in figure \ref{fig:7bridgesSimplification}. If we use the theorem described above we see that $4-7+4\neq2$, which is consistent with Eulers proof from 1736. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4in]{assets/7bridges.pdf}
+  \caption{Illustration of the Seven Bridges of Köningsberg as a graph} 
+  \label{fig:7bridgesIllustration}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2in]{assets/7bridges2.pdf}
+  \caption{The simplified graph of the Seven Bridges of Köningsberg} 
+  \label{fig:7bridgesSimplification}
+\end{figure}
+
+%Graph theory is a mature and well-understood field of study concerning the nature of
+%networks (or from our point of view, connected data)\citep{robinson13}. 
 
 Graph databases consists of nodes, edges, and properties to represent and store data. Nodes represent entities, such as people, accounts and bus stops,(each node knows its adjacent nodes) properties are relevant information that relate to the nodes, and edges are the lines that connect the nodes and properties, defining the relationship between them. Most of the information is stored in the edges, for instance the travel time or travel demand between to nodes. 
 
@@ -11,7 +42,7 @@ It uses graph structures for semantic queries. It is a storage system where ever
 
 \par %Skrives om litt
 
-Relational and NOSQL databases lack relationships \citep{neo13}. Compared to relational databases, are graph databases often faster for associative data sets[Wikipedia:P], and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require extensive join operations. As they depend less on a inflexible schema, they are more suitable to manage changing data with evolving schema's.
+Relational and NOSQL databases lack relationships \citep{robinson13}. Compared to relational databases, are graph databases often faster for associative data sets[Wikipedia:P], and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require extensive join operations. As they depend less on a inflexible schema, they are more suitable to manage changing data with evolving schema's.
 
 \par
 Graph databases are a powerful tool for graph-like queries, for instance computing the shortest path between to nodes in the graph!!! Other graph-like queries can be performed over a graph database in a natural way (for example graph's diameter computations or community detection).
