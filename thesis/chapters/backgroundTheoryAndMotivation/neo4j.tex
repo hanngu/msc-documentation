@@ -1,6 +1,6 @@
 \section{Graph Databases}
 A graph database management system (graph database) \citep{robinson13} is an online database management system %with Create, Read, Update, and Delete (CRUD) methods, and is 
-based on graph theory. Graphs are one of the most efficient and natural way of working with data. Formally speaking a graph is just a collection of vertices and edges. The term \textit{graph theory} been used in centuries, and was first introduced by the Swiss mathematician Leonard Euler (1707-1783) when he in 1736 proved that there does not exist a closed walk that crossed exactly once each of the seven bridges of the river Pregel in Köningsberg, now called Kaliningrad\citep{alexanderson06}. Figure \ref{fig:7bridgesEuler} shows Eulers original drawings from his paper written in 1736 \citep{euler1741} of the bridges in Köningsberg. 
+based on graph theory. Graphs are one of the most efficient and natural way of working with data, and formally speaking a graph is just a collection of vertices and edges. The term graph theory has been used in centuries, and was first introduced by the Swiss mathematician Leonard Euler (1707-1783) when he in 1736 proved that there does not exist a closed walk that crossed exactly once each of the seven bridges of the river Pregel in Köningsberg, now called Kaliningrad\citep{alexanderson06}. Figure \ref{fig:7bridgesEuler} shows Eulers original drawings from his paper written in 1736 \citep{euler1741} of the bridges in Köningsberg. 
 
 \begin{figure}[H]
   \centering
@@ -32,15 +32,15 @@ This means, with respect to the ``Seven Bridges of Köningsberg''-problem, that 
 \end{figure}
 
 Graph databases uses graph structures for semantic queries with nodes, edges, and properties to represent and store data.
-Nodes represent entities, such as people, accounts, or bus stops, properties are relevant information that relate to the nodes, and edges are the lines that connect the nodes and properties, defining the relationship between them. Most of the information is stored in the edges, for instance the travel time or travel demand between to bus stops. 
+Nodes represent entities, such as people, accounts, or bus stops, properties are relevant information that relate to the nodes and edges, and edges are the lines that connect the nodes and properties, defining the relationship between them. Most of the information is stored in the edges, for instance the travel time or travel demand between to bus stops. 
 
 %Må omformuleres
-A graph database is any storage system that provides index-free adjacency, meaning every element contains a direct pointer to its adjacent elements and no index lookups are necessary. Graph databases are a powerful tool for graph-like queries, and applications of graph databases can include calculating routes and finding the shortest path between locations in a network such as a road or rail network, airspace network, or logistical network, finding the center of a region, and calculate the intersection between two or more regions \citep{robinson13}.
+A graph database is any storage system that provides index-free adjacency, meaning every element contains a direct pointer to its adjacent elements and no index lookups are necessary. Graph databases are a powerful tool for graph-like queries. Applications of graph databases can include calculating routes and finding the shortest path between locations in a network such as a road or rail network, airspace network, or logistical network, finding the center of a region, and calculate the intersection between two or more regions \citep{robinson13}.
 
 %A graph database management system (henceforth, a graph database) is an online database management system with Create, Read, Update, and Delete (CRUD) methods that expose a graph data model. 
 
 %Må omformuleres
-Relational databases lack relationships \citep{robinson13}. Compared to relational databases, are graph databases often faster for associative data sets, and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require extensive join operations. As they depend less on an inflexible schema, they are more suitable to manage changing data with evolving schema's on large numbers of data elements.
+Relational databases lack relationships \citep{robinson13}. Compared to relational databases, are graph databases often faster for associative data sets, and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require extensive join operations. As they depend less on an inflexible schema, they are more suitable to manage changing data with evolving schema's on large numbers of data elements. A drawback to graph databases is the inertia of finding all objects of a specific type. 
 
 Neo4j \citep{website:neo4j} is an open-source graph database, implemented in Java, and is ranked the most popular graph database \citep{website:graphdbranking}. It is a native graph database optimized and designed for storing and managing graphs, and is a success way to store a transport graph. It is known for extremely fast traversals of relationship, and it can find shortest paths via built-in methods like Dijkstra's \citep{robinson13}. 
 
