@@ -1,5 +1,9 @@
 \section{Algorithm}
 
+ 
+
+
+
 \textit{Under construction....}
 \newline
 We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
@@ -32,6 +36,9 @@ Start node for the next ants: Possible hot spots may be detected, and that this 
 
 \subsection{Selecting the next nodes}
 
+
+
+
 \begin{algorithm}[H]
   \Repeat{every ant has a solution}{
    \ForAll{ants a in A}{
@@ -41,9 +48,11 @@ Start node for the next ants: Possible hot spots may be detected, and that this 
   }
 \end{algorithm}
 
-The next nodes is selected based on the demand, the pheromone and the attractiveness for the edges. As mentioned, only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes. The selection is done by calculating the probability for the next node to be selected. This probability is calculated by the pheromone(P), demand(D) and an attractive value(A), and divided by the total demand (TD), total pheromone (TP) and total attractiveness(TA).
+The next nodes is selected based on the demand, the pheromone and the visited status for the edges. As mentioned, only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes. The selection is done by calculating the probability for the next node to be selected. This probability is calculated by the pheromone(P), demand(D) and an visited value (V), and divided by the total demand (TD), total pheromone (TP) and TODO: visit status / number of connected edges (TV).
 
-Nodes only connected with one other node in the network, provoke premature termination of a route if selected at the initialization stage, given that no direction reversals are allowed. \citep{kechagiopoulos14}. As a result the attractive value means a route with only one edge has lower attractiveness (0.5) and nodes with more than one edge has higher attractivenesses value. As soon as the node is selected as part of a route, its value is divided by 10, in order to bias toward the selection of other nodes which have not been selected already. The choice aims to have all nodes participating to each route set since a major characteristic of a good route set is to fulfill all transfer demands. %TODO: denne må leses mer gjennom.
+We have given the ants a conditional feature; memory. When the ant is selecting a new node, it checks the status of each node it is connected to. If a node is visited in an earlier route (within same route set) its value is 0, if it is not visited before the value is given 1. The probability of selecting the node is then either 1 or 0 / number of routes, giving the unvisited nodes a higher probability of being selected. This may give the ants a better route set concerning producing a complete graph.
+
+%Nodes only connected with one other node in the network, provoke premature termination of a route if selected at the initialization stage, given that no direction reversals are allowed. \citep{kechagiopoulos14}. As a result the attractive value means a route with only one edge has lower attractiveness (0.5) and nodes with more than one edge has higher attractivenesses value. As soon as the node is selected as part of a route, its value is divided by 10, in order to bias toward the selection of other nodes which have not been selected already. The choice aims to have all nodes participating to each route set since a major characteristic of a good route set is to fulfill all transfer demands. %TODO: denne må leses mer gjennom.
 
 The probability for for each node \textit{k} to be selected is calculated as follows:
 $$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{A}{TA}$$ 
@@ -74,6 +83,7 @@ $ F_{2}(r)$ mean score obtained by evaluating the route set using criteria: dire
 $ F_{3}(r)$ means score obtained by evaluating the route set using criteria: more than two transfers 
 \newline
 $ w_{1}, w_{2}$, and$ w_{3}$ are user specified weights for scores $ F_{1}(r), F_{2}(r),$ and $ F_{3}(r)$, respectively. \textit{: TODO}
+To find w, we will calculate an average with ratio, and give weights from that, and theese weights sum is 1.  
 
 \subsubsection{Calculating F1}
 Score is obtained by evaluating the route set by the total in-vehicle time, by calculating the smallest travel time and the travel time based on the nodes.
