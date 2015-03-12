@@ -1,9 +1,5 @@
 \section{Algorithm}
 
- 
-
-
-
 \textit{Under construction....}
 \newline
 We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
@@ -48,20 +44,24 @@ Start node for the next ants: Possible hot spots may be detected, and that this 
   }
 \end{algorithm}
 
-The next nodes is selected based on the demand, the pheromone and the visited status for the edges. As mentioned, only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes. The selection is done by calculating the probability for the next node to be selected. This probability is calculated by the pheromone(P), demand(D) and an visited value (V), and divided by the total demand (TD), total pheromone (TP) and TODO: visit status / number of connected edges (TV).
+The next nodes is selected based on the demand, the pheromone and the visited status for the edges. As mentioned, only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes. The selection is done by calculating the probability for the next node to be selected. This probability is calculated by the pheromone(P), demand(D) and an visited value (V), and divided by the total demand (TD), total pheromone (TP) and visit status on the edge (E) / number of connected edges, total edges, (TE).
 
 We have given the ants a conditional feature; memory. When the ant is selecting a new node, it checks the status of each node it is connected to. If a node is visited in an earlier route (within same route set) its value is 0, if it is not visited before the value is given 1. The probability of selecting the node is then either 1 or 0 / number of routes, giving the unvisited nodes a higher probability of being selected. This may give the ants a better route set concerning producing a complete graph.
 
 %Nodes only connected with one other node in the network, provoke premature termination of a route if selected at the initialization stage, given that no direction reversals are allowed. \citep{kechagiopoulos14}. As a result the attractive value means a route with only one edge has lower attractiveness (0.5) and nodes with more than one edge has higher attractivenesses value. As soon as the node is selected as part of a route, its value is divided by 10, in order to bias toward the selection of other nodes which have not been selected already. The choice aims to have all nodes participating to each route set since a major characteristic of a good route set is to fulfill all transfer demands. %TODO: denne må leses mer gjennom.
 
 The probability for for each node \textit{k} to be selected is calculated as follows:
-$$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{A}{TA}$$ 
+$$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{E}{TE}$$ 
 
 After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability for each edge. A value between 3 and 0 is then random selected, giving the edges with highest probability a larger range than the others, resulting in a larger probability for this edge to be selected. 
 
 Travel time is not taken into account in the node selection stage, because this is done when we are evaluating the route set, and the best routes is given more pheromone for next iteration. %TODO: give higher score if there is direct routes between node couples with high demand.
 
+After an node is selected, the edge is given the pheromone value 0.5. TODO: why 0.5 ?
+
 The route exploring phase stops if it reaches more than 10 nodes, constraint \ref{itm:constraintRouteSize} specifies that the route size is predefined, and that the routes shall not exceed the minimum or maximum limit of nodes. It also stops if it is stuck, because it is not allowed to select a node twice, according to constraint \ref{itm:constraintCycles}, no cycles (or backtracks) in the graph is allowed. The ant then begins the next route exploring. The number of routes is set, as specified in constraint \ref{itm:constraintRouteSet}, there are exactly r routes in the route set. The value of r is 4, 6, 7 and 8, for comparison with \citep{kechagiopoulos14} + div.
+
+
 
 The routes are added to a route set, for evaluation.
 
@@ -112,20 +112,31 @@ $ MinTotalTravelTime(k_{1},k_{2})$: the actual shortest path between the two nod
 
 \subsubsection{Calculating F2}
 %TODO: skrive om dette
-% F2(r) : score obtained by evaluating the route set using criteria: direct traveler, one transfer, two transfers
+Score obtained by evaluating the route set using criteria \ref{itm:f2} : direct traveler, one transfer, two transfers
+
+Score obtained by evaluationg the route set.
+ 
+list with finds direct couples*(-3), one transfer*(-2) and two transfer couples*(-3).
+
+
 \subsubsection{Calculating F3}
 %TODO: skrive om dette
-% F3(r) : score obtained by evaluating the route set using criteria: more than two transfers 
+% F3(r) : score obtained by evaluating the route set using criteria: more than two transfers
 
-\subsection{Update pheromone value}
+
+
+\subsection{Update pheromone value on final best ants}
 
 \begin{algorithm}[H]
-  \ForAll{edges e in B}{
+  \ForAll{edges e in FBA}{
    $pheromone_e += deposit$
   }
 \end{algorithm}
 
-After we have selected the best route sets, TODO: evaluation criteria, we reward the edges in the routes by giving these more pheromone.
+50\% of the best ants are added to the final best ants set, and we reward the edges in the routes by giving these more pheromone.
+TODO: why 50\%?
+
+The edges in the final best ant sets are given the pheromone value: ??. TODO: kjøre gjennom flere ganger og finne det beste tallet. Samme med increase pheromone.
 
 
 \subsection{Evaporation}
@@ -135,6 +146,9 @@ After we have selected the best route sets, TODO: evaluation criteria, we reward
    $pheromone_e -= evaporation$
   }
 \end{algorithm}
+
+Edges evaporate over time, meaning the pheromone on each edge decrease by 1 after each iteration. TODO: why 1?
+This is inspired by the real life, that a scent decrease over time.
 
 
 %TODO: skrive om, og gjøre?
