@@ -1,4 +1,8 @@
-\section{Motivation} 
+\section{Motivation, Related Work and the Problem Statement} 
+
+This section includes the motivation behind our thesis, the related work including the state of the art, and our problem statement. 
+
+\subsection{Motivation}
 
 Trondheim and neighboring municipalities are among the areas with the greatest population growth in Norway \citep{website:miljopakken}. More people means more traffic, and without action will congestion and environmental problems in these urban areas continue to increase every year. 
 
@@ -8,21 +12,19 @@ Having efficient public transportation systems can substantially reduce negative
 
 \citet{website:atb} is responsible for planning the public transport throughout Sør-Trøndelag County, and bus services comprise the major component of the public transportation system here. Bus services also has specific attractive features, such as flexible routes, low cost, easy implementation, flexible fleet size, and use of existing facilities. 
 AtB's current solution of AtB consists of an experience based route network, where transport planners has constructed reasonable bus route networks and schedules entirely manually, following guidelines and exploiting local knowledge. As a result, the efficiency of the resulting networks is dependent of the designers experience and his / hers existing knowledge of constraints and transportation demands. 
-
 %The problem of designing the optimal set of routes for a fleet of vehicles, in order to serve a given set of customers, is referred to the vehicle routing problem (VRP). The urban transit network problem(UTNDP) is an example of this broader optimization problem, and is the problem of designing urban transit routes and schedules. The two major components of the UTNDP are the urban transit routing problem(UTRP) and the urban transit scheduling problem (UTSP). UTRP involves the development of efficient transit routes on an existing transit network, with predefined pick-up / drop-off point (e.g bus routes), and UTSP is assigning the schedules for the vehicles. In practice, the two phases are usually implemented sequentially, with the routes determined in advance of the schedules.%Skal denne være med her?
-
-Satisfying all customer needs and in addition keeping all operator costs in check, can be difficult to achieve. Operator costs can include the total number of buses, total bus running distance and the total operating hours. AtB experiences that a minimum trip time, amount of transitions, and a not too crowded bus, are among the most important factors that determine the passengers choice of public transit. 
+Satisfying all customer needs and in addition keeping all operator costs in check, can be difficult to achieve. Operator costs can include the total number of buses, total bus running distance and the total operating hours. AtB experiences that a minimum trip time, amount of transitions, and a not too crowded bus, are among the most important factors that determine the passengers choice of public transit.
 
 In the past, transit planners have done reasonable job designing transit networks and schedules without the assistance of scientific tools or systematic procedures, by using their experience and judgment and following established guidelines. Nevertheless, for a large network it is almost impossible to design an efficient transit route network and bus schedules relying only on past experience and guidelines, because in a large urban area the number of bus routes and bus stops are extremely large. The manual attempts to provide an acceptable solution to the vehicle routing problems are not able to solve these large network problems optimally. In order to overcome this problem, the number of journal publications on vehicle routing problems have increased in recent decades, with the researchers efforts to contribute to the problem.  The increase in researching on these areas is also due to the progress in computational resources, and this has opened new possibilities for modeling more complex routing problems. %These new arising real-world applications provide inspiration for developing new approaches for coordinating complex transportation processes. %Skrives om litt
 %In recent years network optimization has become an important field in operational research. Shortest paths, network flows, traffic equilibrium, tsp, vrp, as well as design of an optimal network. Reasons for great interest in network optimization: broad applicability to problemts in pricate entrerprise as well as those in public systems. Networks: changing demands: leads to regurlarly adapted or expanded to meet changing nemands; leads to decision problems than can be supported by network optimization. \citep{mandl79}
 %TODO: skrive litt til
 
-Based on the paper \citet{dorigo97}, we see that swarm intelligence algorithms is applicable in solving vehicle routing problems. \citet{dorigo97} and \citet{lucic03} are two of the first published papers that describes methods using swarm intelligence to solve highly complex route optimization problems. 
+%Based on the paper \citet{dorigo97}, we see that swarm intelligence algorithms is applicable in solving vehicle routing problems. \citet{dorigo97} and \citet{lucic03} are two of the first published papers that describes methods using swarm intelligence to solve highly complex route optimization problems. 
 
-To represent our data, we will investigate the usefulness of the graph database Neo4j \citep{website:neo4j}. Since Neo4j is based on graph theory, we believe it has several benefits that we can take advantage of when solving our problem / goal [\ref{itm:goal}], including a natural node-edge-structure and the possibility of saving information to both the nodes and edges. We envision that the nodes will represent bus stops, and the edges will represent the connectivity between the stops.
-
-\input{chapters/backgroundTheoryAndMotivation/relatedWork}
-\input{chapters/backgroundTheoryAndMotivation/mandlsBenchmarkProblem}
+%To represent our data, we will investigate the usefulness of the graph database Neo4j \citep{website:neo4j}. Since Neo4j is based on graph theory, we believe it has several benefits that we can take advantage of when solving our problem / goal [\ref{itm:goal}], including a natural node-edge-structure and the possibility of saving information to both the nodes and edges. We envision that the nodes will represent bus stops, and the edges will represent the connectivity between the stops.
+\input{chapters/backgroundTheoryAndMotivation/relatedWorkVol2}
+%\input{chapters/backgroundTheoryAndMotivation/relatedWork}
+%\input{chapters/backgroundTheoryAndMotivation/mandlsBenchmarkProblem}
 \input{chapters/backgroundTheoryAndMotivation/problemStatement}
 
   
