@@ -1,0 +1,10 @@
+1. Evaporation is now percent based. 10% of the edge's pheromone is removed during evaporation.
+2. When the best edges are given more pheromones, this is also percent based. An edge in a good ant's route set is given 10% more pheromones. 
+
+3. 13.03.15 we are struggling with the fact that few ants generates complete routes (route sets that contains every node), and I (Hanne) believe that we will get better results with more ants that generates complete routes. Less than 10% of the ants in the swarm generates complete route sets (testing done in java). To do this I want to make the ants favor nodes that are not yet in the route set. Todays solution makes the ants chose the next node based on three equal factors, namely amount of pheromone on the connecting edge, the demand between the two nodes in question and whether or not the node exists in the ant's route set. I will try a solution where the ant MUST chose one of the unexplored nodes, if there exists one.
+
+Results: The number of ants with complete route sets increased from less than 10 % to 80 %! This is probably a path we want to follow. 
+
+4. The results described above chooses an unexplored node at random. I will now try a solution where the unexplored node that is chosen is determined by the amount of pheromones and demand. 
+
+Okey. There are some issues. Some paths seems to null in neo4jhandler, even though they shouldn't be. This seems to only be a problem when we favor unexplored nodes. This needs to be investigated more. 
