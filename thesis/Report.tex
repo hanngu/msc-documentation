@@ -1,5 +1,5 @@
 % (C) Anders Kofod-Petersen
-
+\raggedbottom
 \documentclass[b5paper, twoside, titlepage, 10pt]{report}
 \usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}
 %\documentclass[11pt, b5paper]{report}
@@ -18,8 +18,20 @@
 %\usepackage{amsmath}
 \usepackage[]{algorithm2e}
 %\usepackage[center]					% For cropping documents
+\usepackage{titlesec}
+
 \usepackage{float}
 \setcitestyle{square}
+
+% spacing: how to read {12pt plus 4pt minus 2pt}
+%           12pt is what we would like the spacing to be
+%           plus 4pt means that TeX can stretch it by at most 4pt
+%           minus 2pt means that TeX can shrink it by at most 2pt
+%       This is one example of the concept of, 'glue', in TeX
+
+\titlespacing\section{0pt}{10pt plus 4pt minus 2pt}{10pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{8pt plus 4pt minus 2pt}{8pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
 
 % B5 (uncomment to convert to B5 format)
 %\geometry{b5paper}
@@ -96,10 +108,14 @@
 \chapter{Background and Motivation}
 \label{backgroundAndMotivation}
 \input{chapters/backgroundTheoryAndMotivation/backgroundTheoryAndMotivation}
+\input{chapters/backgroundTheoryAndMotivation/backgroundTheory}
 \input{chapters/backgroundTheoryAndMotivation/vehicleRoutingProblem}
 \input{chapters/backgroundTheoryAndMotivation/swarmIntelligence}
 \input{chapters/backgroundTheoryAndMotivation/neo4j}
 \input{chapters/backgroundTheoryAndMotivation/motivation}
+\input{chapters/backgroundTheoryAndMotivation/relatedWorkVol2}
+\input{chapters/backgroundTheoryAndMotivation/problemStatement}
+
 
 \chapter{The Model}
 \label{theModel}
