@@ -1,0 +1,20 @@
+\subsection{Algorithm Parameters}
+
+\begin{itemize}
+\item An amount of 100 ants are created. 
+\item Transfer penalty: 5 min
+\item 4 routes in the route set.
+\item Maximum number of routes: 8
+\item Total iterations: 100
+\item Minimum number of nodes: 3 (TODO)
+\item Pheromone increase value (0.5. TODO: why 0.5 ?)
+\item Pheromone decrease value: 1
+\end{itemize}
+
+Objective function values. TOTFIT = f1 + f2 + f3
+\begin{itemize}
+\item f1 eqauls the total dif between an ants route and the shortest possible route. Ideally it should be 0, i.e. each route found by the ant is equal shortest possible route
+\item f2 reflectes how many of the routes (nodecouples) are direct, with one transfer and with two transfers. Ideally every route should be direct. (-3*nodeCoupleSize)
+\item f3 reflectes how many of the routes that are unsatisfied (not possible to travel direct, with 1 transfer or with 2 transfers). Ideally this should be 0
+\end{itemize}
+Optimal solution: -315.

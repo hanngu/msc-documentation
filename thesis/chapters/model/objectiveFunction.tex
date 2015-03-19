@@ -1,19 +1,18 @@
-\section{Objective function(?)}
-\textbf{Reserach Question 2: }
-Using Mandl, the constraints and evaluation criteria defined under, we will manage to answer research question number 2: Is it efficient to combine attributes from different swarm intelligence methods to optimize a transit network? This is because we facilitate the comparison with other algorithms results mentioned in the literature. 
+\section{Constraints and evaluation criteria}
+%\textbf{Reserach Question 2: }
+%Using Mandl, the constraints and evaluation criteria defined under, we will manage to answer research question number 2: Is it efficient to combine attributes from different swarm intelligence methods to optimize a transit network? This is because we facilitate the comparison with other algorithms results mentioned in the literature. 
 
-\textbf{Constraints}
+\subsection{Constraints}
 \begin{enumerate}
 \item \label{itm:constraintCycles} No cycles (or backtracks) in the graph is allowed.
 \item \label{itm:constraintRouteSize} The route size is predefined. The algorithm / routes shall not exceed the minimum or maximum limit of nodes.
 \item \label{itm:constraintRouteSet} To simplify the problem, there are exactly r routes in the route set.
 \end{enumerate}
 
-\textbf{Evaluation criteria}
-\par
-These arcs/edges will be given higher pheromone
+\subsection{Evaluation criteria}
+Objective Function: TOTFIT
 \begin{enumerate}
-\item \label{itm:criteriaConnectedGraph} It should be a connected graph. (A passenger should be able to travel between any two nodes in the route network. In other words, it should be a connected graph.) 
+\item \label{itm:criteriaConnectedGraph} It must be a connected graph. (A passenger should be able to travel between any two nodes in the route network.) 
 \item \label{itm:criteriaTotalTravelTime} Total travel time (should be as low as possible)
 \item \label{itm:f2} Number of transfers
 \begin{itemize}
@@ -22,6 +21,6 @@ These arcs/edges will be given higher pheromone
 \item Travelers with two transfers
 \end{itemize}
 \item \label{itm:TODO} Number of unsatisfied customers (should be as low as possible)
-\item \label{itm:TODO} The nodes with high demand should have higher priority for direct routes.
 \end{enumerate}
+%(The nodes with high demand should have higher priority for direct routes.)
 
