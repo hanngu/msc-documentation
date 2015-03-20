@@ -4,32 +4,18 @@
 
 %The plan should include what experiments or series of experiments are planned and what question the individual or set of experiments aim to answer. Such questions should be connected to your research questions so that in the evaluation of your results you can discuss the results wrt to the research questions.  
 
-%We will evaluate our work against the following criteria: 
-%\begin{itemize}
-%	\item Solution quality - comparing our results with Mandl.
-%	\item Efficiency -  Record our run times
-%	\item Robustness - To demonstrate reliability, we will carry out 20 replicate runs per experiment, recording average, best and standard deviation. 
-%\end{itemize}
-
-
-\subsection{Experiments}
 What experiments or series of experiments are planned
 
 \begin{enumerate}
-\item Test results from ACO
-First we will test the results from the ACO implementation and compare these results with Mumford etc. 
+\item First we will test the results from the ACO implementation on Mandl's network, and compare with Mandl. 
+The aim with this is to test the solution quality and check if we need to change the algorithm / add features from other SI algorithms in order to improve the results, in order to answer research question 2.
 
-What we till test
-\begin{itemize}
-\item $d_0 (\%)$ - number of direct travelers
-\item $d_1 (\%)$ - number of transfers are 1
-\item $d_2 (\%)$ - number of transfers are 2
-\item $d_unsat$ (\%) - number of unsatisfied travelers (more than 2 transfers)
-\item ATT  - average travel time between each node couples.  
-\end{itemize}
+\item If we need to change the algorithm and add features from PSO / BSO, we will check whether it is efficient to combine different swarm intelligence methods' attributes to get better results concerning the vehicle routing problem, in order to answer the research question 2 a.
 
-\textbf{Aim:} To prove that we need to change the algorithm, and add features from other SI algorithms in order to improve the results.
-\item lala
+\item Record our run times - test the efficiency of our algorithm - The aim is to find the what takes time - And to test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
+
 \end{enumerate}
+
+We will also test the robustness of our algorithm(s), to demonstrate reliability, we will carry out 20(?) replicate runs per experiment, recording average, best and standard deviation. 
 
 
