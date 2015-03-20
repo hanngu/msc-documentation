@@ -77,14 +77,15 @@ $ F_{3}(r)$ : score obtained by evaluating the route set using criteria: unsatis
 
 \subsubsection{Calculating $F_{1}$}
 
-This score is obtained by calculating the difference, $DIF$, between the the travel time using the edges included in the route set and the minimum travel time (shortest path). Calculating the minimum travel time is done by the Neo4JHandler, which includes a built-in Dijkstra's[] algorithm for finding the shortest path. 
+This score is obtained by calculating the difference, $DIF$, between the the travel time using the edges included in the route set and the minimum travel time (shortest path). Calculating the minimum travel time is done by the Neo4JHandler, which includes a built-in algorithms for finding the shortest path. The selection of which algorithm is used is described in the experiments and results chapter. 
+\emph{\color{red} TODO}
 
 $$ DIF = PathWeight(r) - MinTotalTravelTime(k_{1},k_{2})$$
 
 $ PathWeight(r)$ : travel time using the edges included in the route set
 \newline
-$ MinTotalTravelTime(k_{1},k_{2})$: the shortest path between the two nodes, $k_{1}$ and $k_{2}$, using Dijkstras.
-
+$ MinTotalTravelTime(k_{1},k_{2})$: the shortest path between the two nodes, $k_{1}$ and $k_{2}$..
+ 
 % In other words, it reflects the average time spent by each passenger when traveling along a specific route set. Its value is small if the respective average traveling time is big and big is traveling time is small. In order to estimate F1(r), not only the average traveling time has to be calculated, but one also determine whether this value should be considered big or small. 
 
 \subsubsection{Calculating $F_{2}$}
