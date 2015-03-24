@@ -19,3 +19,4 @@ Known issues:
 
 "Every route should contain at least 3 nodes"
 This is now (20.03) practically solved, by not allowing a start node of a new route to be a node that connects to a node with only one edge. Ref. Mandl-network node 2 and 15. This will result in that each route has at least three nodes, because it will not get stuck on node number 2. This added feature did not seem to increase the run time. 
+
