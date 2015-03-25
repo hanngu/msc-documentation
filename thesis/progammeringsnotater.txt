@@ -20,6 +20,15 @@ Known issues:
 "Every route should contain at least 3 nodes"
 This is now (20.03) practically solved, by not allowing a start node of a new route to be a node that connects to a node with only one edge. Ref. Mandl-network node 2 and 15. This will result in that each route has at least three nodes, because it will not get stuck on node number 2. This added feature did not seem to increase the run time. 
 
+
+25.03: We are now only concerned about the demand between connecting nodes. Maybe we could credit ants that satisfy not connecting nodes with high demand directly? 
+
+
+
+
+
+
+
 Dijkstra is guaranteed to be correct (ref. Algdatbok s.659-661) if the algorithm is ran on a weigthed, directed graph G = (V,E) with non-negative weight function w and source s. 
 
 A* is complete and optimal, provided that H(n) is admissible (it never over estimates the cost to reach the goal) or consistent (the estimated cost of reaching the goal from node n is no greater than the step cost of getting to the successor n' + estimated cost of reaching the goal of n'). (ai-boka side 109, 94-95)
