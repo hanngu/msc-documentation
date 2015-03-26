@@ -1,3 +1,31 @@
 
 %In the first iteration of a standard ACO as described in \citet{nanda11}, 3 out of 4 ants includes all the nodes in the route set. 
 %TODO: kjøre algis et visst antall ganger og ta median og gjennomsnitt og divv divv for å finne div
+
+%Trying and failing is a major part of research. However, to have a chance of success you need a plan driving the experimental research, just as you need a plan for your literature search. Further, plans are made to be revised and this revision ensures that any further decisions made are in line with the work already completed.  
+
+%The plan should include what experiments or series of experiments are planned and what question the individual or set of experiments aim to answer. Such questions should be connected to your research questions so that in the evaluation of your results you can discuss the results wrt to the research questions.
+
+\textbf{Part 1: Evaluating method implementations}
+If your programs requires programming to understand why it works, we must build a program that supports experiments.
+\begin{enumerate}
+\item How demonstrative is the program?
+\item Is is specially tuned for a particular example? (Test with more than Mandl's network)
+\item How well does the program implement the method? Limitations? 
+\item Performance predictable?
+\end{enumerate}
+
+\textbf{Part 2: Evaluating experiment design}
+Cohen, design experiments with the implemented system. 
+Evaluate whether experiments with the systems will be informative. 
+\begin{enumerate}
+\item How many examples can be demonstrated? Are they qualitatively different? Do these examples illustrate all the capabilities that are claimed? Do they illustrate limitations? ( \textit{1: Encourage to test our program with many, qualitatively, different examples, that illustrate both the abilities and limitations of our program.) }
+\item Should program performance be compared to some standard? other programs? performance? outcomes?
+\item What are the criteria for good performance? Who defines the criteria? (\textit{ 2, 3: Ask whether our programs should be compared with a standard, and what specific comparison will be made. })
+\item If the program purports (claim) to be general, can it be tested on several domains? Are the domains qualitatively different? Do they represent the class of domains? Should performance in the initial domain be compared to performance in other domains? Is the set of domains sufficient to justify inductive generalization? (\textit{4: Ask whether our experiments provide enough evidence to claim that a program is general.})
+\item If a series of related programs is being evaluated, can you determine how differences in the programs are manifested as differences in behavior? If the method was implemented differently in each program in the series, how were these differences related to the generalizations? Were difficulties encountered in implementing the method in other programs? (\textit{5: suggests criteria for comparing programs})
+\end{enumerate}
+
+Comparison studies: Select on ore more \textit{measures} of a programs performance. Then both the program and a standard solve a set of problems. And finally the solutions are compared on the measures. 
+
+The purpose of evaluation at this stage is to convince the researcher and the community that studies of a program - independent of their results - are well-designed and complete. Experiment schema's would offer researchers a shorthand to describe their studies.

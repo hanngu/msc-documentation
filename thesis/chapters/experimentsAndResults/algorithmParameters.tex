@@ -13,13 +13,3 @@
 \item Pheromone decrease value: 1.0
 \end{itemize}
 Reasons for these numbers: \emph{\color{red} TODO}
-
-\subsection{Objective Function Values}
-$$TOTFIT_{r} = F_{1} + F_{2} + F_{3}$$
-\begin{itemize}
-\item $F_{1}(r)$ equals the total difference between an ants route and the shortest possible route. Ideally it should be 0, i.e. each route found by the ant is equal to the shortest possible route.
-\item $F_{2}(r)$ reflects how many of the routes (node couples) are direct, with one transfer and with two transfers. Ideally every route should be direct: (-3) * node Couple Size. 
-\item $F—{3}(r)$ reflects how many of the routes that are unsatisfied (not possible to travel direct, with 1 transfer or with 2 transfers). Ideally this should be 0.
-\end{itemize}
-
-Optimal solution (if all routes are direct - not possible to achieve): -315.
