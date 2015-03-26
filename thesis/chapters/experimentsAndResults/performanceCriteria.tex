@@ -1,0 +1,11 @@
+\section{Performance Criteria}
+Who defines the criteria?\emph{\color{red} TODO}
+The criteria for good performance:
+$$TOTFIT_{r} = F_{1} + F_{2} + F_{3}$$
+\begin{itemize}
+\item $F_{1}(r)$ should ideally be 0 -  the total difference between an ants route and the shortest possible route. i.e. each route found by the ant is equal to the shortest possible route.
+\item $F_{2}(r)$ ideally should every route be direct: (-3) * node couple size - reflects how many of the routes (node couples) are direct, with one transfer and with two transfers.  
+\item $F—{3}(r)$ ideally should be 0 - reflects how many of the routes that are unsatisfied (not possible to travel direct, with 1 transfer or with 2 transfers). 
+\end{itemize}
+
+The optimal solution, meaning all routes are direct, which is not possible to achieve): -315.
