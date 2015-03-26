@@ -6,9 +6,13 @@ We started out with implementing the basic ACO algorithm by \citet{nanda11} as d
 
 \subsection{Initialization}
 
-The initialization process creates the network. In this process, a Neo4J database is created, the nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
-\par
-The ants include an ant number to distinguish the ants from each other, in addition to holding its start node / current node. The ants are able to selecting next node, creating routes, and adding these routes to a route set. As mentioned in constraints, the route size is predefined, so the algorithm / routes shall not exceed the minimum and maximum limit of \textit{k} nodes. To simplify the problem there are exactly \textit{r} routes in the route set.
+The network is created and initialized.
+
+In this process, a Neo4J database is created, the nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges with the amount of demand are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
+
+Neo4J includes built-in methods for calculating the shortest path. 
+
+The ants include an ant number to distinguish the ants from each other, in addition to holding its start node or current node. The ants are capable of selecting the next node, creating routes, and adding these routes to a route set. As mentioned in constraints, the route size is predefined, so the algorithm / routes shall not exceed the minimum and maximum limit of \textit{k} nodes. To simplify the problem there are exactly \textit{r} routes in the route set.
 
 \subsection{Stop criteria}
 
@@ -24,7 +28,7 @@ The ants include an ant number to distinguish the ants from each other, in addit
  
 \end{algorithm}
 
-To select the start node, yhe demand value for each node is estimated, which is the sum of each line in the Mandl Demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. After this, the nodes is sorted in descending order based on the demand value of each node. Then, the first k nodes from the list is selected, which comprise the initial node set (INS). Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. Then a random node is selected based on the values of probabilities. %TODO: skrive mer her
+To select the start node, the demand value for each node is estimated, which is the sum of each line in the Mandl Demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. After this, the nodes is sorted in descending order based on the demand value of each node. Then, the first k nodes from the list is selected, which comprise the initial node set (INS). Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. Then a random node is selected based on the values of probabilities. %TODO: skrive mer her
 To prevent a route from having less than the minimum number of nodes, constraint \ref{itm:constraintRouteSize}, it is not possible to select a node with a connected node that only has one edge connected to it. TODO
 
 %Start node for the next ants: Possible hot spots may be detected, and that this can be used as a start node for the next ants. 
@@ -62,7 +66,7 @@ Only the ants with a route set that is connected is selected for evaluation. Thi
 
 This ants are then added to the ``best route set'' for evaluation. Evaluation a route itself as no sense, since its path depends on the rest of the members of the same route set. As a result, all routes of a route set should be evaluated as a whole. This evaluation is based on the evaluation criteria stated in previous section.
 
-The route sets are added to the Neo4J database (which includes Dijkstras algorithm for finding the shortest paths), and evaluated by a fitness function, TOTFIT(r), where r is the route set, inspired by \citep{kechagiopoulos14}.
+The route sets are added to the Neo4J database, and evaluated by a fitness function, TOTFIT(r), where r is the route set, inspired by \citep{kechagiopoulos14}.
 This fitness value is calculated as follows:
 $$ TOTFIT(r) = F_{1}(r) + F_{2}(r) + F_{3}(r)$$. 
 
