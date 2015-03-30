@@ -1,10 +1,13 @@
 \subsection{Input Data}
 
-In the current research on the vehicle routing problems and swarm intelligence, there are some benchmark data available for researchers to use for comparison. However, for the urban transit network design problem (UTNDP), Mandl's network seems to be the only benchmark instance used and acknowledged by researchers, and his work has been widely cited, including \citep{fan09}, \citep{kechagiopoulos14}, \citep{nikolic14}. %Referanser
 
-Christoph Mandl \citep{mandl79} developed a heuristic algorithm for the urban transit network problem. This method was applied and based on a real network in Switzerland, the Swiss transit network\citep{mandl80}. The data includes a small and dense network of 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge. The total demand is 15570 trips per day, which is a relatively high demand for a small network. The travel time between the to farthest nodes in the network is 22 minutes along the shortest path. Mandl developed a solution in two phases, where a feasible set of routes were created in the first phase and in the second phase he tried to minimize the the total travel time, including in-vehicle time and waiting time, by reducing the number of transfers. Some important measures of Mandl's solution network includes, for example, 100\% service coverage, 69.4\% of the trips involving no transfers, 29.93\% of the trips involving one transfer, and only 0.13\% of the trips needing more than one transfer.
 
-We have designed and implemented a method to produce a realistic transit network based on the data from Mandl \citep{mandl79}.The transportation time on each edge is given, and the transportation demand is assumed to be known and constant.  
+
+We have designed and implemented a method to produce a realistic transit network based on the data from Mandl \citep{mandl79}.
+
+
+
+The transportation time on each edge is given, and the transportation demand is assumed to be known and constant.  
 The data set is downloaded from \citet{mumford13}, which consist of three text files:
 
 
