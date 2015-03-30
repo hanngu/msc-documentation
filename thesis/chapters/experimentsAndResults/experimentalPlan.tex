@@ -1,31 +1,35 @@
 \section{Experimental Plan}
 
-What experiments or series of experiments are planned. Test the program with many different examples. 
+What experiments or series of experiments are planned. Test the program with many different examples.
+
+TODO: THE ACO and SuperSwarm algorithm is coded in Java programming language, reasons: , and executed on a MAC with a xx processor running at xxx.
+The robustness of our algorithm(s) is tested. To demonstrate reliability, we will carry out 20(?) replicate runs per experiment, recording average, best and standard deviation. Because the proposed algorithm is a metaheuristic algorithms, the results are reported for 10? independent runs and the best solution for all instances is reported. 
 %\emph{\color{red} TODO: }
 
 \subsection{Stage 1 - Parameter Settings}
 
 In order to study the effect of the variation of the parameters on the objective function values / measures, we conducted a series of experiments to find the most optimal algorithm parameters. The values of these parameters affect directly or indirectly on the final solution quality. The goal is to find some robust parameters which allow the algorithm to find high quality solutions for a wide range of problem instances with different features. 
 
-\subsection{Stage 2 - Performance comparison}
+\subsection{Stage 2 - Performance Comparison}
 
 After we have found the optimal algorithm parameters, we will test the system's performance, comparing it with the respective results;
 
 \begin{enumerate}
 
-\item Evaluate results with only the ACO implementation, on Mandl's network and comparing it with the results from other ACO implementations. The aim with this is to test 
+\item 
 
-solution quality and check if we need to change the algorithm / add features from other SI algorithms in order to improve the results, in order to answer research question 2. \emph{\color{red} TODO: Known limitations of ACO. Stuck on local optima, time complexity.}
+\item Evaluate results with only the ACO implementation, on Mandl's network and comparing it with the results from other ACO implementations. The aim with this is to test solution quality and check if we need to change the algorithm / add features from other SI algorithms in order to improve the results, in order to answer research question 2. \emph{\color{red} TODO: Known limitations of ACO. Stuck on local optima, time complexity.}
 
 \item After adding SI features from PSO / BSO, we will check whether it is efficient to combine different swarm intelligence methods' attributes to get better results concerning the vehicle routing problem, in order to answer the research question 2 a.
 
-\item Record our run times - test the efficiency of our algorithm - The aim is to find the what takes time - And to test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
-
-\item In order to test whether the method is general and not tuned in to run on a single example, we will run the algorithm on other, larger, networks. Mumford included larger networks. Here we will test the time and space complexity.
-%The programs are rarely informative if they are designed to run on a single example - Therefore we will test algorithm on other networks, to check whether it is general and not just optimized for Mandl. (Mumford)
+\item And to test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
 
 \end{enumerate}
 
-We will also test the robustness of our algorithm(s), to demonstrate reliability, we will carry out 20(?) replicate runs per experiment, recording average, best and standard deviation. 
+\subsection{Stage 3 - Time and Space Complexity}
+
+In order to test whether the method is general and not tuned in to run on a single example, we will run the algorithm on other, larger, networks. Mumford included larger networks. Here we will test the time and space complexity.
+%The programs are rarely informative if they are designed to run on a single example - Therefore we will test algorithm on other networks, to check whether it is general and not just optimized for Mandl. (Mumford)
+Record our run times - test the efficiency of our algorithm.
 
 
