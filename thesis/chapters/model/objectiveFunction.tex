@@ -1,17 +1,28 @@
-\section{Constraints and evaluation criteria}
+\section{Usikker på hva denne skal hete foreløpig}
 %\textbf{Reserach Question 2: }
 %Using Mandl, the constraints and evaluation criteria defined under, we will manage to answer research question number 2: Is it efficient to combine attributes from different swarm intelligence methods to optimize a transit network? This is because we facilitate the comparison with other algorithms results mentioned in the literature. 
 
+\subsection{Input Data}
+The UTRP input data (from Mandl) used is described as follows:
+\begin{itemize}
+\item data concerning the structure of the road network (nodes with coordinates)
+\item data concerning the travel times between the nodes 
+\item data concerning the travel demand between each two nodes
+\end{itemize}
+It is described thoroughly in the experiments and results chapter.
+
 \subsection{Constraints}
+Some real world constraints should be satisfied:
 \begin{enumerate}
 \item \label{itm:constraintCycles} No cycles (or backtracks) in the graph is allowed.
 \item \label{itm:constraintRouteSize} The route size is predefined. The algorithm / routes shall not exceed the minimum or maximum limit of nodes.
-\item \label{itm:constraintRouteSet} To simplify the problem, there are exactly r routes in the route set.
+\item \label{itm:constraintRouteSet} To simplify the problem, there are exactly r routes in the route set. (This is usually done by the service provided due to cost limitations.)
+\item \label{itm:criteriaConnectedGraph} It must be a connected graph. (A passenger should be able to travel between any two nodes in the route network.) 
 \end{enumerate}
 
-\subsection{Evaluation criteria}
+\subsection{Evaluation / Performance Criteria} 
+The aim of designing a route network is to optimize specific criteria that define its efficiency and quality. This evaluation is done during the execution of the algorithm and is based on the following evaluation criteria:
 \begin{enumerate}
-\item \label{itm:criteriaConnectedGraph} It must be a connected graph. (A passenger should be able to travel between any two nodes in the route network.) 
 \item \label{itm:criteriaTotalTravelTime} Total travel time (should be as low as possible)
 \item \label{itm:f2} Number of transfers
 \begin{itemize}
@@ -22,4 +33,6 @@
 \item \label{itm:TODO} Number of unsatisfied customers (should be as low as possible)
 \end{enumerate}
 %(The nodes with high demand should have higher priority for direct routes.)
+
+
 
