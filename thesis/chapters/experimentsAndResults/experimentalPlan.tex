@@ -3,8 +3,26 @@
 What experiments or series of experiments are planned. Test the program with many different examples.
 
 TODO: THE ACO and SuperSwarm algorithm is coded in Java programming language, reasons: , and executed on a MAC with a xx processor running at xxx.
-The robustness of our algorithm(s) is tested. To demonstrate reliability, we will carry out 20(?) replicate runs per experiment, recording average, best and standard deviation. Because the proposed algorithm is a metaheuristic algorithms, the results are reported for 10? independent runs and the best solution for all instances is reported. 
+The robustness of our algorithm(s) is tested. To demonstrate reliability, we will carry out 10 replicate runs per experiment, recording average, max and min.  
 %\emph{\color{red} TODO: }
+
+
+\begin{algorithm}[H]
+
+  \eIf{ (\% $ d_0 $ $ \geq $ \% ATT) }{
+   select lowest ATT
+  }
+  {
+  		select highest $ d_0 $
+  }
+ \caption{Selecting max}
+\end{algorithm}
+
+
+
+
+
+
 
 \subsection{Stage 1 - Parameter Settings}
 
@@ -26,7 +44,7 @@ After we have found the optimal algorithm parameters, we will test the system's 
 
 \end{enumerate}
 
-\subsection{Stage 3 - Time and Space Complexity}
+\subsection{Stage 3 - Time and Space Complexity / Scalability Experiments}
 
 In order to test whether the method is general and not tuned in to run on a single example, we will run the algorithm on other, larger, networks. Mumford included larger networks. Here we will test the time and space complexity.
 %The programs are rarely informative if they are designed to run on a single example - Therefore we will test algorithm on other networks, to check whether it is general and not just optimized for Mandl. (Mumford)

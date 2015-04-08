@@ -3,3 +3,49 @@
 The experimental setup should include all data - parameters etc, that would allow a person to repeat your experiments. 
   
 
+\subsection{Stage 1 - Parameter Settings}
+
+Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is selected. For achieving this goal, several values for each parameter are tested while the other are hold constant. For determining these parameters each one of the instance will run 10 times while the others are held constant, and the ones which are selected is the ones that produce best computational results concerning the quality of the solution (objective function values) needed to achieve this result. 
+
+\begin{enumerate}
+\item Ants colony size
+\item Total iterations
+
+The total iterations will be tested from when it converges. Start: 200
+
+\item Pheromone increase value on edge when selecting next node.
+Pheromone trail update rule:
+$$ \sum_{k=1}^{m} \Delta \tau^k_{ij}$$
+
+where $ \Delta \tau^k_{ij} $ is the amount of pheromone laid on route (i,j) by the $k^{th}$ ant and is given by
+
+$$ \Delta \tau^k_{ij} =\{ Q / f_k else 0$$
+
+
+Q: 0.9
+fk: cost value (which is the travel time on the edge)
+\item Pheromone increase value on all edges in best route set each iteration.
+\item Pheromone decrease value. remove 10\%
+\end{enumerate}
+
+
+\subsection{Stage 2 - Performance Comparison}
+
+\subsubsection{Algorithm Parameters}
+\emph{\color{red} After running test case 1 (TODO), finding the optimal algorithm parameters, these are the final results :}
+
+\begin{itemize}
+\item Ants colony size: 100.
+\item Transfer penalty: 5 min - This is the value used in the other papers.
+\item Routes in the route set: 4
+\item Maximum number of nodes in routes: 8
+\item Total iterations: 100
+\item Minimum number of nodes in routes: 3. To avoid having less than 3 nodes in the route, it is not possible to select an edge that has a connected edge with only one edge connected to it.
+\item Maximum route length in minutes: \emph{\color{red} TODO}
+\item Pheromone increase value on edge when selecting next node: 0.1
+\item Pheromone increase value on all edges in best route set each iteration: 0.5
+\item Pheromone decrease value: 1.0
+\end{itemize}
+
+\subsection{Stage 3 - Time and Space Complexity / Scalability Experiments}
+
