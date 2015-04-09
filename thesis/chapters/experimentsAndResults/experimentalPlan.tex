@@ -2,26 +2,53 @@
 
 What experiments or series of experiments are planned. Test the program with many different examples.
 
-TODO: THE ACO and SuperSwarm algorithm is coded in Java programming language, reasons: , and executed on a MAC with a xx processor running at xxx.
-The robustness of our algorithm(s) is tested. To demonstrate reliability, we will carry out 10 replicate runs per experiment, recording average, max and min.  
+
+\subsection{Plan}
+The robustness of our algorithm(s) will be tested. To demonstrate reliability, we will carry out 10 replicate runs per experiment, recording average, max and min.  
 %\emph{\color{red} TODO: }
 
+\emph{\color{red} Because of reasons }we believe that ATT and $d_0$ is the most important parameters, therefore the selection of MAX and MIN will be compared to these parameters.
+
+\subsubsection{Selecting MAX Ant}
 
 \begin{algorithm}[H]
-
-  \eIf{ (\% $ d_0 $ $ \geq $ \% ATT) }{
-   select lowest ATT
-  }
-  {
-  		select highest $ d_0 $
-  }
- \caption{Selecting max}
+$Ant_{highestd_0}$ = ant with highest $d_0$\;
+$Ant_{lowestATT}$ = ant with lowest ATT\;
+\eIf{($Ant_{highestd_0}$ = $Ant_{lowestATT}$)}{
+	Select this ant
+}
+{
+	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
+	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
+	\eIf{ ($ d_0(\%) $ $ \geq $ ATT(\%)) }{
+		select $Ant_{lowestATT}$
+	}
+	{
+		select $Ant_{highestd_0}$
+	}
+}
+ \caption{Selecting MAX Ant}
 \end{algorithm}
 
-
-
-
-
+\subsubsection{Selecting MIN Ant}
+\begin{algorithm}[H]
+$Ant_{lowestd_0}$ = ant with lowest $d_0$\;
+$Ant_{highestATT}$ = ant with highest ATT\;
+\eIf{($Ant_{lowestd_0}$ = $Ant_{highestATT}$)}{
+	Select this ant
+}
+{
+	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
+	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
+	\eIf{ ($ d_0(\%) $ $ \leq $ ATT(\%)) }{
+		select $Ant_{highestATT}$
+	}
+	{
+		select $Ant_{lowestd_0}$
+	}
+}
+ \caption{Selecting MIN Ant}
+\end{algorithm}
 
 
 \subsection{Stage 1 - Parameter Settings}
@@ -30,11 +57,11 @@ In order to study the effect of the variation of the parameters on the objective
 
 \subsection{Stage 2 - Performance Comparison}
 
-After we have found the optimal algorithm parameters, we will test the system's performance, comparing it with the respective results;
+After we have found the optimal algorithm parameters, we will add features from PSO and test the system's performance, comparing it with the respective results;
 
 \begin{enumerate}
 
-\item 
+\item Add features from PSO - inertial weight, more random in the start and accepting more solutions, knowledge about the best global solution for every iteration, keep the best current solution.
 
 \item Evaluate results with only the ACO implementation, on Mandl's network and comparing it with the results from other ACO implementations. The aim with this is to test solution quality and check if we need to change the algorithm / add features from other SI algorithms in order to improve the results, in order to answer research question 2. \emph{\color{red} TODO: Known limitations of ACO. Stuck on local optima, time complexity.}
 
