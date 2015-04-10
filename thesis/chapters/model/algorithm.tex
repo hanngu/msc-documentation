@@ -4,9 +4,7 @@
 \newline
 We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
 
-
 \subsection{Route set representation}
-
 For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
 
 \begin{table}[H]
@@ -22,56 +20,43 @@ For the route set representation, a two dimensional array is selected. In the ro
     \end{center}
     \caption {Route set representation}
     \label{table:routeSetRepr}
-    
 \end{table}
 
 \subsection{Initialization}
+The network is created. Må komme tilbake til denne,.
+Initial values for algorithm parameters is set, such as ant colony size, number of iterations (which is the stop criteria), number of routes in the route set, and maximum and minimum number of nodes in the routes. A Neo4j database is created, for div and calculating the shortest path.Nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges with the amount of demand are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
+The ants include an ant number to distinguish the ants from each other, in addition to holding its start node / current node. The ants are capable of selecting the next node, creating routes, and adding these routes to a route set.  
 
-The network is created and initialized.
-
-In this process, a Neo4J database is created, the nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges with the amount of demand are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
-
-The ants include an ant number to distinguish the ants from each other, in addition to holding its start node or current node. The ants are capable of selecting the next node, creating routes, and adding these routes to a route set. As mentioned in constraints, the route size is predefined, so the algorithm / routes shall not exceed the minimum and maximum limit of \textit{k} nodes. To simplify the problem there are exactly \textit{r} routes in the route set.
-
-It consist of initial values for algorithm parameters, such as number of ants, iterations, etc. ..
-
-\subsection{Stop criteria}
-
-\textit{A number of iterations.}
-
-\subsection{Selecting start node}
+\subsection{Selecting the start node}
+The specific steps executed to select the start node of each route are the following:
 %Selecting the first node: 
 \begin{itemize}
-\item[Step 1] To select the start node, the demand value for each node is estimated, which is the sum of each line in the Mandl Demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. 
+\item[Step 1] The demand value for each node is estimated, which is the sum of each line in the demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. 
 \item[Step 2] The nodes is sorted in descending order based on the demand value of each node.
-\item[Step 3] The first k nodes from the list is selected, which comprise the initial node set (INS). Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. Then a random node is selected based on the values of probabilities. %TODO: skrive mer her
-To prevent a route from having less than the minimum number of nodes, constraint \ref{itm:constraintRouteSize}, it is not possible to select a node with a connected node that only has one edge connected to it. 
+\item[Step 3] The first k nodes from the list is selected, which comprise the initial node set (INS). 
+\item[Step 4] Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. 
+\item[Step 5] A random node is selected based on the values of probabilities. (To prevent a route from having less than the minimum number of nodes, constraint \ref{itm:constraintRouteSize}, it is not possible to select a node with a connected node that only has one edge connected to it.)
 \end{itemize}
-
 %Start node for the next ants: Possible hot spots may be detected, and that this can be used as a start node for the next ants. 
+
 \subsection{Selecting the next nodes}
-
-The next nodes is selected based on the demand value, the pheromone value and the visited status value for the edges. Only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes. The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected. 
-
-The selection is done by calculating the probability for the next node to be selected. This probability is calculated by adding the pheromone(P), demand(D) and an visited value value (V), and dividing it by the total demand (TD), total pheromone (TP) and the total value for all the connected edges to the node (TV).
-
-The probability for for each node \textit{k} to be selected is calculated as follows:
+The next nodes is selected based on the demand value, the pheromone value and the visited status value for the edges. Only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes, but the travel time is not taken into account when selecting the next nodes, because it is done when in the evaluation set, and the best routes is given then given more pheromone for next iteration. %TODO: give higher score if there is direct routes between node couples with high demand. 
+The specific steps executed to select the next nodes of each route are the following:
+\begin{itemize}
+\item[Step 1] The probability, $P_k$, for the next node to be selected is calculated by adding the pheromone(P), demand(D) and an visited value value (V), and dividing it by the total demand (TD), total pheromone (TP) and the total value for all the connected edges to the node (TV). The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected.
 $$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{V}{TV}$$ 
 
-After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability value for each edge. A value between 3 and 0 is then random selected, giving the edges with highest probability a larger range than the others, resulting in a larger probability for this edge to be selected. 
-
-\textit{Travel time is not taken into account in the node selection stage, because this is done when we are evaluating the route set, and the best routes is given more pheromone for next iteration.} %TODO: give higher score if there is direct routes between node couples with high demand.
-
-After an node is selected, the pheromone value for this edge increases 
+\item[Step 2] After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability value for each edge. 
+\item[Step 3] A value between 3 and 0 is then random selected, giving the edges with highest probability a larger range than the others, resulting in a larger probability for this edge to be selected. 
+\item[Step 4] After an node is selected, the pheromone value for this edge increases 
+\end{itemize}
 
 \subsection{Creating the route set}
-
 The node selecting phase stops if it exceeds k nodes, constraint \ref{itm:constraintRouteSize} specifies that the route size is predefined, and that the routes shall not exceed the maximum limit of nodes. It also stops if it is stuck, because it is not allowed to select a node twice, according to constraint \ref{itm:constraintCycles}, no cycles (or backtracks) in the graph is allowed. The ant then begins the next route exploring, the route exploring stops when it exceeds the maximum number of routes; as specified in constraint \ref{itm:constraintRouteSet}, there are exactly r routes in the route set. 
 
 The routes are added to a route set, for evaluation.
 
 \subsection{Route set evaluation}
-
 Only the ants with a route set that is connected is selected for evaluation. This is because we want a connected graph, not just the best routes, based on constraint \ref{itm:criteriaConnectedGraph}. This important because a passenger should be allowed to travel from every node to every other node within the route set. In an undirected graph two vertices u and v are called connected if G contains a path from u to v. An ants route set can have included all nodes, but still be disconnected. So the ants with a route set that is disconnected, is excluded from the best ants. The reason this evaluation is done after is because it too complex to evaluate this during the route generation stage. 
 
 This ants are then added to the ``best route set'' for evaluation. Evaluation a route itself as no sense, since its path depends on the rest of the members of the same route set. As a result, all routes of a route set should be evaluated as a whole. This evaluation is based on the evaluation criteria stated in previous section.
