@@ -4,15 +4,36 @@
 \newline
 We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
 
+
+\subsection{Route set representation}
+
+For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|l| l l l l l l l l|}
+      \hline
+        Route 1: & 14 & 13 & 11 & 12 & 4 & 6 & 15 & 9 \\
+        Route 2: & 1 & 2 & 5 & 4 & 12 & 11 & 10 & 8 \\
+        Route 3: & 9 & 15 & 7 & 10 & 8 & 6 & 3 & 2 \\
+        Route 4: & 7 & 10 & 14 & 13 & 11 & 12 & 4 & 5 \\
+      \hline
+        \end{tabular}
+    \end{center}
+    \caption {Route set representation}
+    \label{table:routeSetRepr}
+    
+\end{table}
+
 \subsection{Initialization}
 
 The network is created and initialized.
 
 In this process, a Neo4J database is created, the nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges with the amount of demand are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
 
-Neo4J includes built-in methods for calculating the shortest path. 
-
 The ants include an ant number to distinguish the ants from each other, in addition to holding its start node or current node. The ants are capable of selecting the next node, creating routes, and adding these routes to a route set. As mentioned in constraints, the route size is predefined, so the algorithm / routes shall not exceed the minimum and maximum limit of \textit{k} nodes. To simplify the problem there are exactly \textit{r} routes in the route set.
+
+It consist of initial values for algorithm parameters, such as number of ants, iterations, etc. ..
 
 \subsection{Stop criteria}
 
@@ -20,28 +41,15 @@ The ants include an ant number to distinguish the ants from each other, in addit
 
 \subsection{Selecting start node}
 %Selecting the first node: 
-\begin{algorithm}[H]
-
-  \ForAll{ants a in A}{
-   position a in StartNode
-  }
- 
-\end{algorithm}
-Step 1, 2 etc. 
-To select the start node, the demand value for each node is estimated, which is the sum of each line in the Mandl Demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. After this, the nodes is sorted in descending order based on the demand value of each node. Then, the first k nodes from the list is selected, which comprise the initial node set (INS). Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. Then a random node is selected based on the values of probabilities. %TODO: skrive mer her
-To prevent a route from having less than the minimum number of nodes, constraint \ref{itm:constraintRouteSize}, it is not possible to select a node with a connected node that only has one edge connected to it. TODO
+\begin{itemize}
+\item[Step 1] To select the start node, the demand value for each node is estimated, which is the sum of each line in the Mandl Demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. 
+\item[Step 2] The nodes is sorted in descending order based on the demand value of each node.
+\item[Step 3] The first k nodes from the list is selected, which comprise the initial node set (INS). Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. Then a random node is selected based on the values of probabilities. %TODO: skrive mer her
+To prevent a route from having less than the minimum number of nodes, constraint \ref{itm:constraintRouteSize}, it is not possible to select a node with a connected node that only has one edge connected to it. 
+\end{itemize}
 
 %Start node for the next ants: Possible hot spots may be detected, and that this can be used as a start node for the next ants. 
 \subsection{Selecting the next nodes}
-
-\begin{algorithm}[H]
-  \Repeat{every ant has a solution}{
-   \ForAll{ants a in A}{
-    choose nextNode\\* 
-    $pheromone_{(currentNode,nextNode)}+=update$
-   }
-  }
-\end{algorithm}
 
 The next nodes is selected based on the demand value, the pheromone value and the visited status value for the edges. Only the edges connected by travel time is possible to select, because this indicates whether it is a direct link between the two nodes. The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected. 
 
@@ -55,6 +63,8 @@ After each edge is given a probability, these are added in a range starting from
 \textit{Travel time is not taken into account in the node selection stage, because this is done when we are evaluating the route set, and the best routes is given more pheromone for next iteration.} %TODO: give higher score if there is direct routes between node couples with high demand.
 
 After an node is selected, the pheromone value for this edge increases 
+
+\subsection{Creating the route set}
 
 The node selecting phase stops if it exceeds k nodes, constraint \ref{itm:constraintRouteSize} specifies that the route size is predefined, and that the routes shall not exceed the maximum limit of nodes. It also stops if it is stuck, because it is not allowed to select a node twice, according to constraint \ref{itm:constraintCycles}, no cycles (or backtracks) in the graph is allowed. The ant then begins the next route exploring, the route exploring stops when it exceeds the maximum number of routes; as specified in constraint \ref{itm:constraintRouteSet}, there are exactly r routes in the route set. 
 
@@ -89,33 +99,33 @@ $ PathWeight(r)$ : travel time using the edges included in the route set
 \newline
 $ MinTotalTravelTime(k_{1},k_{2})$: the shortest path between the two nodes, $k_{1}$ and $k_{2}$..
 
-Calculating the minimum travel time is done by Neo4j, and the selection of the algorithm used is described under.
+Calculating the minimum travel time (shortest path) is done by Neo4j, and the selection of the algorithm used is described under.
 
-\paragraph{Calculating the shortest path}\mbox{}\\ 
+\paragraph{Calculating the Minimum Travel Time}\mbox{}\\ 
 
-Neo4j[] includes two built-in algorithms for finding the shortest path, including A* search\citep{russel10}  and Dijkstra's\citep{cormen09}. 
+Neo4j includes two built-in algorithms for finding the shortest path, including A* search\citep{russel10}  and Dijkstra's algorithm\citep{cormen09}. 
 
-The most widely known form of best-first search is called A* search\cite[p.93-94]{russel10}. It evaluates nodes by combining $g(n)$, the cost to reach the node, and $h(n)$, the cost to get from the node to the goal.
+A* search\cite[p.93-94]{russel10} evaluates nodes by combining $g(n)$, the cost to reach the node, and $h(n)$, the cost to get from the node to the goal.
 
 $$ f(n) = g(n) + h(n).$$
 Since g(n) gives the path cost from the start node to node $n$, and $h(n)$ is the estimated cost of the cheapest path from $n$ to the goal, we have
-$$f(n) = \text{estimated cost of the cheapest solution through n} $$ 
+$$f(n) = \text{estimated cost of the cheapest solution through $n$} $$ 
 
-A* search is both optimal and complete, provided that $h(n)$ is admissible\footnote{An admissible heuristic is one that never overestimates the cost to reach the goal.} or consistent\footnote{A consistent (or monotone) heuristic function is a function that estimates the distance of a given state to a goal state, and that is always at most equal to the estimated distance from any neighboring vertex plus the step cost of reaching that neighbor.}. 
+A* search is both optimal and complete, provided that $h(n)$ is admissible\footnote{It never overestimates the cost to reach the goal.} or consistent\footnote{When estimating the distance of a given state to a goal state, it is always at most equal to the estimated distance from any neighboring vertex plus the step cost of reaching that neighbor.}. 
 
-$$ \text{Run time: } O(E) = O(b^d)$$
+$$ \text{A* search running time: } O(E) = O(b^d)$$
 \textit{where $b$ is the branching factor (average number of successors per state)}
 
-Dijkstra's algorithm \cite[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{The process of relaxing an edge $(u,v)$ consist of testing whether we can improve the shortest path to $v$ found so far by going trough$u$ and, if so, updating $v.d$ and $v.\pi$ } all edges leaving $u$. 
+Dijkstra's algorithm \cite[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{Making a change that reduces constraints.} all edges leaving $u$.
 
 Dijkstra's algorithm is guaranteed to find the shortest path\cite[p.~661]{cormen09}.
-$$\text{Run time: } O((V + E)lg V)$$
+$$\text{Dijkstra's algorithm running time: } O((V + E)lg V)$$
 
 \begin{table}[H]
     \begin{center}
         \begin{tabular}{|l|l|l|}
       \hline
-      ~ & A* $(sec)$ & Dijkstra's $(sec)$ \\
+      ~ & A* search & Dijkstra's algorithm\\
       \hline
         min & 14 & 17 \\
         avg & 14.95 & 17.8 \\
@@ -123,12 +133,11 @@ $$\text{Run time: } O((V + E)lg V)$$
       \hline
         \end{tabular}
     \end{center}
-    \caption {Run times of A* Search vs. Dijkstra's algorithm}
+    \caption {A* Search vs. Dijkstra's algorithm}
     \label{table:astarvsdijkstras}
-    20 runs, 10 iterations, 100 ants, 4 routes, max 8 nodes in each route (ran on windows machine)
 \end{table}
 
-As seen in table \ref{table:astarvsdijkstras},
+Table \ref{table:astarvsdijkstras} presents the results in seconds, after 20 runs, with 10 iterations, 100 ants, 4 routes, max 8 nodes in each route. A* search is faster, \emph{\color{red} because blabla}, and this method is chosen.
  
 % In other words, it reflects the average time spent by each passenger when traveling along a specific route set. Its value is small if the respective average traveling time is big and big is traveling time is small. In order to estimate F1(r), not only the average traveling time has to be calculated, but one also determine whether this value should be considered big or small. 
 
@@ -152,21 +161,12 @@ it checks if the the node couple is withing more than 3 routes
 
 \subsection{Update pheromone value on final best ants}
 
-\begin{algorithm}[H]
-  \ForAll{edges e in FBA}{
-   $pheromone_e += deposit$
-  }
-\end{algorithm}
-
+For all edges in FBA;
 50\% of the best ants are added to the final best ants set, and we reward the edges in the routes by giving these more pheromone.
 
 \subsection{Evaporation}
 
-\begin{algorithm}[H]
-  \ForAll{edges e in E}{
-   $pheromone_e -= evaporation$
-  }
-\end{algorithm}
+For all edges;
 
 Edges evaporate over time, meaning the pheromone on each edge decrease after each iteration. This is inspired by the real life, that a scent decrease over time.
 
