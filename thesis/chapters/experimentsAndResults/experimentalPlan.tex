@@ -3,7 +3,7 @@
 What experiments or series of experiments are planned. Test the program with many different examples.
 
 
-\subsection{Plan}
+\subsection{Plan (endre navn)}
 The robustness of our algorithm(s) will be tested. To demonstrate reliability, we will carry out 10 replicate runs per experiment, recording average, max and min.  
 %\emph{\color{red} TODO: }
 
@@ -12,44 +12,46 @@ The robustness of our algorithm(s) will be tested. To demonstrate reliability, w
 \subsubsection{Selecting MAX Ant}
 
 \begin{algorithm}[H]
-$Ant_{highestd_0}$ = ant with highest $d_0$\;
-$Ant_{lowestATT}$ = ant with lowest ATT\;
-\eIf{($Ant_{highestd_0}$ = $Ant_{lowestATT}$)}{
+$Ant_{i}$ = ant with highest $d_0$\;
+$Ant_{j}$ = ant with lowest ATT\;
+\eIf{($Ant_{i}$ = $Ant_{j}$)}{
 	Select this ant
 }
 {
 	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
 	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
 	\eIf{ ($ d_0(\%) $ $ \geq $ ATT(\%)) }{
-		select $Ant_{lowestATT}$
+		select $Ant_{j}$
 	}
 	{
-		select $Ant_{highestd_0}$
+		select $Ant_{i}$
 	}
 }
  \caption{Selecting MAX Ant}
 \end{algorithm}
 
+\emph{\color{red} Kort forklaring }
+
 \subsubsection{Selecting MIN Ant}
 \begin{algorithm}[H]
-$Ant_{lowestd_0}$ = ant with lowest $d_0$\;
-$Ant_{highestATT}$ = ant with highest ATT\;
-\eIf{($Ant_{lowestd_0}$ = $Ant_{highestATT}$)}{
+$Ant_{i}$ = ant with lowest $d_0$\;
+$Ant_{j}$ = ant with highest ATT\;
+\eIf{($Ant_{i}$ = $Ant_{j}$)}{
 	Select this ant
 }
 {
 	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
 	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
 	\eIf{ ($ d_0(\%) $ $ \leq $ ATT(\%)) }{
-		select $Ant_{highestATT}$
+		select $Ant_{j}$
 	}
 	{
-		select $Ant_{lowestd_0}$
+		select $Ant_{i}$
 	}
 }
  \caption{Selecting MIN Ant}
 \end{algorithm}
-
+\emph{\color{red} Kort forklaring }
 
 \subsection{Stage 1 - Parameter Settings}
 
