@@ -2,21 +2,36 @@
 
 What experiments or series of experiments are planned. Test the program with many different examples.
 
+\subsection{Structured Literature Review}
+The process of finding related work is performed by thoroughly considering what we believe are the most important key words for collecting the most relevant literature, concerning our goal and research questions. The conducted process is entirely explained in the appendix[\ref{appendixA}][\ref{appendixB}].
+
+\begin{itemize}
+\item[Step 1] To conduct a structured literature review it is vital to decide the problem to be solved, referred to as P, and the constraints used to guide the search, referred to as C, these can be found in appendix \ref{appendixA}, section A.3. 
+\item[Step 2] For consistency, some key search terms must be decided, and assembled into a complete search term. 
+\item[Step 3] To exclude irrelevant literature, some inclusion criteria must be decided to ensure a level of relevance to the very first pool. 
+\item[Step 4] Quality criteria must be decided to select the most relevant papers for our thesis, and to ensure quality in the final papers. 
+\item[Step 5] Scoring
+\item[Step 6] Selecting the final literature
+\end{itemize}
+
+
 \subsection{Stage 1 - Parameter Settings}
 
 In order to study the effect of the variation of the parameters on the objective function values / measures, we conducted a series of experiments to find the most optimal algorithm parameters. The values of these parameters affect directly or indirectly on the final solution quality. The goal is to find some robust parameters which allow the algorithm to find high quality solutions for a wide range of problem instances with different features. 
 
 \subsection{Stage 2 - Performance Comparison}
+\emph{\color{red}Deennne må gjøres ordentlig}
+\begin{itemize}
+\item[Step 1] First we will evaluate results with only the ACO implementation, on Mandl's network and comparing it with the results from other ACO implementations. The aim with this is to test solution quality.
 
-First we will evaluate results with only the ACO implementation, on Mandl's network and comparing it with the results from other ACO implementations. The aim with this is to test solution quality.
-
-After we have found the optimal algorithm parameters, we will add features from PSO and test the system's performance, comparing it with the respective results. \emph{\color{red}ACO has a known limitation of being stuck on local optima, and the time/space(?) complexity is high.} We will therefore 
+\item[Step 2]After we have found the optimal algorithm parameters, we will add features from PSO and test the system's performance, comparing it with the respective results. \emph{\color{red}ACO has a known limitation of being stuck on local optima, and the time/space(?) complexity is high.} We will therefore 
 add features from PSO - inertial weight, more random in the start and accepting more solutions, knowledge about the best global solution for every iteration, keep the best current solution. After adding SI features from PSO / BSO, we will check whether it is efficient to combine different swarm intelligence methods' attributes to get better results concerning the vehicle routing problem, in order to answer the research question 2 a.
 
 We will test the results comparing it with the performance criteria from section 4.3.
 
-To test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
+\item[Step 3]To test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
 
+\end{itemize}
 
 %\begin{enumerate}
 
