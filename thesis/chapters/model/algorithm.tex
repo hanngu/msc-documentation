@@ -24,8 +24,8 @@ For the route set representation, a two dimensional array is selected. In the ro
 
 \subsection{Initialization}
 \emph{\color{red}The network is created. Må komme tilbake til denne,.}
-Initial values for algorithm parameters is set, such as ant colony size, number of iterations (which is the stop criteria), number of routes in the route set, and maximum and minimum number of nodes in the routes. A Neo4j database is created, for div and calculating the shortest path.Nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges with the amount of demand are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. (In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
-The ants include an ant number to distinguish the ants from each other, in addition to holding its start node / current node. The ants are capable of selecting the next node, creating routes, and adding these routes to a route set.)
+Initial values for algorithm parameters is set, such as ant colony size, number of iterations (which is the stop criteria), number of routes in the route set, and maximum and minimum number of nodes in the routes. A Neo4j database is created, for div and calculating the shortest path.Nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges with the amount of demand are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. \textit{(In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
+The ants include an ant number to distinguish the ants from each other, in addition to holding its start node / current node. The ants are capable of selecting the next node, creating routes, and adding these routes to a route set.)}
 
 \subsection{Selecting the start node}
 The specific steps executed to select the start node of each route are the following:
@@ -121,10 +121,10 @@ Table \ref{table:astarvsdijkstras} presents the running times for the different 
 
 \subsubsection{Calculating $F_{2}(r)$}
 %TODO: skrive om dette
-$F_{2}(r)$ score reflects the percentage of passengers traveling from their origin to their destination either directly, making a single transfer, or transferring twice. Calculating $F_{2}$ is done using the following equation \emph{\color{red} sjekk hva kechapocholus har gjort..}:
+$F_{2}(r)$ score reflects the percentage of passengers traveling from their origin to their destination either directly, making a single transfer, or transferring twice. Calculating $F_{2}$ is done using the following equation \emph{\color{red} -  kechapocholus har gjort noe mer her, sjekk ut dette..}:
 $$F_2(r) = 3xd_0(r)+ 2xd_1(r)+ xd_2(r) $$
 
-where  $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers traveling from their origin to their destination making a single transfer, and $d_2(r)$ is the percentage of passengers traveling from their origin to their destination transferring twice. \emph{\color{red}$x=-1$, and represents the importance of the ways in which the demand should be satisfied in a route set, for example, trying to have a low percentage of intermediate transfers may lead to a large average travel time kechapocholos..}. The reason the number is negative is \emph{\color{red}coding reasons. } 
+where  $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers traveling from their origin to their destination making a single transfer, and $d_2(r)$ is the percentage of passengers traveling from their origin to their destination transferring twice. \emph{\color{red}$x=-1$, and represents? Her må det forklares hvorfor $d_0$ ganges med et høyere tall osv.}. The reason the number is negative is \emph{\color{red}coding reasons. } 
 
 %\begin{itemize}
 %\item it checks for the node couple in a route, if the route contains both the nodes, then it is a direct traveler
@@ -140,7 +140,7 @@ $F_3(r)$ is a score which reflects the percentage of unsatisfied passengers, mea
 $$\emph{\color{red}hannee?}$$
 
 \subsection{Pheromone}
-\emph{\color{red} TODO}
+\emph{\color{red} Denne blir vel hetende noe annet, og mer må fylles inn}
 50\% of the best ants are added to the final best ants set, and we reward the edges in these routes by giving them more pheromone $p$.
 \par
 The pheromone on each edge decrease by $p\%$ after each iteration. 
