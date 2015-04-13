@@ -31,4 +31,5 @@ This is now (20.03) practically solved, by not allowing a start node of a new ro
 
 Dijkstra is guaranteed to be correct (ref. Algdatbok s.659-661) if the algorithm is ran on a weigthed, directed graph G = (V,E) with non-negative weight function w and source s. 
 
-A* is complete and optimal, provided that H(n) is admissible (it never over estimates the cost to reach the goal) or consistent (the estimated cost of reaching the goal from node n is no greater than the step cost of getting to the successor n' + estimated cost of reaching the goal of n'). (ai-boka side 109, 94-95)
+A* is complete and optimal, provided that H(n) is admissible (it never over estimates the cost to reach the goal) or consistent (the estimated cost of reaching the goal from node n is no greater than the step cost of getting to the successor n' + estimated cost of reaching the goal of n'). (ai-boka side 109, 94-9
+
