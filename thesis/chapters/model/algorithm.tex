@@ -71,11 +71,11 @@ where $ F_{1}(r)$ is the score obtained by evaluating the route set by the total
 
 \subsubsection{Calculating $F_{1}(r)$}
 
-This score is obtained by calculating the difference ($DIF$) in travel time between to nodes, $k_1$ and $k_2$,  using the edges included in the route set, and the minimum travel time (shortest path), and is calculated as following:
+This score is obtained by evaluating how good the path between two nodes, $k_1$ and $k_2$, in the route set is. The score is calculated by finding the difference ($DIF$) in travel time between the edges included in the route set, and the actual minimum travel time (shortest path):
 
-$$ DIF = PW(k_{1},k_{2}) - MTT(k_{1},k_{2})$$
+$$ DIF = TT(k_{1},k_{2}) - MTT(k_{1},k_{2})$$
 
-where $ PW(k_{1},k_{2})$ is the travel time using the edges included in the route set, and $ MTT(k_{1},k_{2})$ is the minimum travel time (shortest path) between the two nodes. Calculating the minimum travel time (shortest path) is done by Neo4j, and the selection of which algorithm used is described under.
+where $ TT(k_{1},k_{2})$ is the travel time using the edges included in the route set, and $ MTT(k_{1},k_{2})$ is the actual minimum travel time (shortest path) between the two nodes, regardless of the edges included in the route set. Calculating the minimum travel time (shortest path) is done by Neo4j, and the selection of which algorithm used is described under.
 
 \paragraph{Calculating the Minimum Travel Time}\mbox{}\\ 
 
@@ -103,9 +103,9 @@ $$\text{Dijkstra's algorithm running time: } O((V + E)lg V)$$
       \hline
       ~ & A* search & Dijkstra's algorithm\\
       \hline
-        min & 14 & 17 \\
-        avg & 14.95 & 17.8 \\
-        max & 15 & 18 \\
+        MIN & 291 & 569 \\
+        AVG & 328 & 589 \\
+        MAX & 301 & 610 \\
       \hline
         \end{tabular}
     \end{center}
@@ -113,17 +113,18 @@ $$\text{Dijkstra's algorithm running time: } O((V + E)lg V)$$
     \label{table:astarvsdijkstras}
 \end{table}
 
-Table \ref{table:astarvsdijkstras} presents the results in seconds, after 20 runs, with 10 iterations, 100 ants, 4 routes, max 8 nodes in each route. A* search is faster, \emph{\color{red} because blabla}, and this method is chosen.
-20 runs, 100 iterations, 100 ants, 4 routes, max 8 nodes in each route (ran on windows machine)
+Table \ref{table:astarvsdijkstras} presents the running times for the different algorithms, in seconds, after 20 runs, with 100 iterations, 100 ants, 4 routes,  and max 8 nodes in each route. Observations shows that A* search is faster, \emph{\color{red} because blabla}, and this method is therefore chosen for finding the shortest path in $F_1(r)$.
+
+
  
 % In other words, it reflects the average time spent by each passenger when traveling along a specific route set. Its value is small if the respective average traveling time is big and big is traveling time is small. In order to estimate F1(r), not only the average traveling time has to be calculated, but one also determine whether this value should be considered big or small. 
 
 \subsubsection{Calculating $F_{2}(r)$}
 %TODO: skrive om dette
-Score which reflects the percentage of passengers traveling from their origin to their destination either directly  by a single transfer, or by transferring twice. Calculating $F_{2}$ is done using the following equation \emph{\color{red} sjekk hva kechapocholus har gjort..}:
+$F_{2}(r)$ score reflects the percentage of passengers traveling from their origin to their destination either directly, making a single transfer, or transferring twice. Calculating $F_{2}$ is done using the following equation \emph{\color{red} sjekk hva kechapocholus har gjort..}:
 $$F_2(r) = 3xd_0(r)+ 2xd_1(r)+ xd_2(r) $$
 
-where  $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers traveling from their origin to their destination making a single transfer, and $d_2(r)$ is the percentage of passengers traveling from their origin to their destination transferring twice. \emph{\color{red}$x=-1$, and x represents the importance of the ways in which the demand should be satisfied n a route set, for example, trying to have a low percentage of intermediate transfers may lead to a large average travel time..}. The reason the number is negative is \emph{\color{red}coding reasons. } 
+where  $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers traveling from their origin to their destination making a single transfer, and $d_2(r)$ is the percentage of passengers traveling from their origin to their destination transferring twice. \emph{\color{red}$x=-1$, and represents the importance of the ways in which the demand should be satisfied in a route set, for example, trying to have a low percentage of intermediate transfers may lead to a large average travel time kechapocholos..}. The reason the number is negative is \emph{\color{red}coding reasons. } 
 
 %\begin{itemize}
 %\item it checks for the node couple in a route, if the route contains both the nodes, then it is a direct traveler
@@ -139,6 +140,7 @@ $F_3(r)$ is a score which reflects the percentage of unsatisfied passengers, mea
 $$\emph{\color{red}hannee?}$$
 
 \subsection{Pheromone}
+\emph{\color{red} TODO}
 50\% of the best ants are added to the final best ants set, and we reward the edges in these routes by giving them more pheromone $p$.
 \par
 The pheromone on each edge decrease by $p\%$ after each iteration. 
