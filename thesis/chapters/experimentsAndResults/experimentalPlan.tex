@@ -2,57 +2,6 @@
 
 What experiments or series of experiments are planned. Test the program with many different examples.
 
-
-\subsection{Plan (endre navn)}
-The robustness of our algorithm(s) will be tested. To demonstrate reliability, we will carry out 10 replicate runs per experiment, recording average, max and min.  
-%\emph{\color{red} TODO: }
-
-\emph{\color{red} Because of reasons }we believe that ATT and $d_0$ is the most important parameters, therefore the selection of MAX and MIN will be compared to these parameters.
-
-\subsubsection{Selecting MAX Ant}
-
-\begin{algorithm}[H]
-$Ant_{i}$ = ant with highest $d_0$\;
-$Ant_{j}$ = ant with lowest ATT\;
-\eIf{($Ant_{i}$ = $Ant_{j}$)}{
-	Select this ant
-}
-{
-	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
-	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
-	\eIf{ ($ d_0(\%) $ $ \geq $ ATT(\%)) }{
-		select $Ant_{j}$
-	}
-	{
-		select $Ant_{i}$
-	}
-}
- \caption{Selecting MAX Ant}
-\end{algorithm}
-
-\emph{\color{red} Kort forklaring }
-
-\subsubsection{Selecting MIN Ant}
-\begin{algorithm}[H]
-$Ant_{i}$ = ant with lowest $d_0$\;
-$Ant_{j}$ = ant with highest ATT\;
-\eIf{($Ant_{i}$ = $Ant_{j}$)}{
-	Select this ant
-}
-{
-	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
-	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
-	\eIf{ ($ d_0(\%) $ $ \leq $ ATT(\%)) }{
-		select $Ant_{j}$
-	}
-	{
-		select $Ant_{i}$
-	}
-}
- \caption{Selecting MIN Ant}
-\end{algorithm}
-\emph{\color{red} Kort forklaring }
-
 \subsection{Stage 1 - Parameter Settings}
 
 In order to study the effect of the variation of the parameters on the objective function values / measures, we conducted a series of experiments to find the most optimal algorithm parameters. The values of these parameters affect directly or indirectly on the final solution quality. The goal is to find some robust parameters which allow the algorithm to find high quality solutions for a wide range of problem instances with different features. 
@@ -81,8 +30,8 @@ To test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concernin
 
 %\end{enumerate}
 
-\subsection{Stage 3 - Time and Space Complexity / Scalability Experiments}
-
+\subsection{Stage 3 - Scalability Experiments}
+Time and Space Complexity
 In order to test whether the method is general and not tuned in to run on a single example, we will run the algorithm on other, larger, networks. Mumford included larger networks. Here we will test the time and space complexity.
 %The programs are rarely informative if they are designed to run on a single example - Therefore we will test algorithm on other networks, to check whether it is general and not just optimized for Mandl. (Mumford)
 Record our run times - test the efficiency of our algorithm.

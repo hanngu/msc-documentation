@@ -14,6 +14,55 @@ These measures were adopted from \citet{kechagiopoulos14}.
 \item $ATT$  - the average travel times in minutes per transit user, which should be as low as possible
 \end{itemize}
 
+To demonstrate reliability, we will carry out 10 replicate runs per experiment, recording the average(AVG), maximum(MAX) and minimum(MIN) running time in seconds.  
+%\emph{\color{red} TODO: }
+
+\emph{\color{red} Because of reasons }we believe that ATT and $d_0$ is the most important parameters, therefore the selection of MAX and MIN will be compared on these parameters.
+
+\subsection{Selecting MAX Ant}
+
+\begin{algorithm}[H]
+$Ant_{i}$ = ant with highest $d_0$\;
+$Ant_{j}$ = ant with lowest ATT\;
+\eIf{($Ant_{i}$ = $Ant_{j}$)}{
+	Select this ant
+}
+{
+	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
+	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
+	\eIf{ ($ d_0(\%) $ $ \geq $ ATT(\%)) }{
+		select $Ant_{j}$
+	}
+	{
+		select $Ant_{i}$
+	}
+}
+ \caption{Selecting MAX Ant}
+\end{algorithm}
+
+\emph{\color{red} Kort forklaring }
+
+\subsection{Selecting MIN Ant}
+\begin{algorithm}[H]
+$Ant_{i}$ = ant with lowest $d_0$\;
+$Ant_{j}$ = ant with highest ATT\;
+\eIf{($Ant_{i}$ = $Ant_{j}$)}{
+	Select this ant
+}
+{
+	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
+	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
+	\eIf{ ($ d_0(\%) $ $ \leq $ ATT(\%)) }{
+		select $Ant_{j}$
+	}
+	{
+		select $Ant_{i}$
+	}
+}
+ \caption{Selecting MIN Ant}
+\end{algorithm}
+\emph{\color{red} Kort forklaring }
+
 
 
 
