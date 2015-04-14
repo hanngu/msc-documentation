@@ -32,6 +32,9 @@ Urban Transit Network Design Problem (UTRP), a subproblem of VRP, considers othe
 %Parameterne er nevnt, men ikke begrunnet. Sammenligner med relevante algoritmer. 
 \citet{jiang10} describes an improved ACO (IACO) algorithm to solve the Urban Transit Network Optimization which is described as a typical nonlinear combinatorial optimization problem. The specific improvement made to the algorithm is the implementation of a stagnation counter to determine whether the algorithm has fallen into stagnation. When there is no better solution found after an iteration, the stagnation will increase by 1. When the stagnation counter reaches a certain threshold, the pheromone levels associated with each edge is reinitialized. This improvement is done to compensate for the classical ACOs shortcomings of easily falling into stagnation and therefore obtain a local optimal solution. The IACO algorithm is, like the algorithm described by \citet{yang07}, compared to the classical MMAS algorithm. The results shows significant improvement to the convergence speed compared to MMAS. The also found that ACO also performed better both regarding average number of iterations and average path distance. 
 
+\emph{\color{red}Under her er ikke alt ferdig}
+
+
 %Parameterne er nevnt, diskutert og begrunnet. Sammenligner for så vidt med relevante algoritme (GA).
 \citet{poorzahedy11} proposed an Ant System application for solving the bus network design problem. The bus network design problem is a problem that is usually decomposed into two problems, respectively network configuration and bus frequency determination. Like the FLACS algorithm proposed by \citet{salehinejad10}, the proposed AS algorithm also employs a tabu list for each ant where visited nodes are added. Each ant chooses as many lines as
 %HER ER DU
