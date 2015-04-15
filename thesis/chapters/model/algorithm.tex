@@ -4,28 +4,21 @@
 \newline
 We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
 
-\subsection{Route set representation}
-For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
-
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}{|l| l l l l l l l l|}
-      \hline
-        Route 1: & 14 & 13 & 11 & 12 & 4 & 6 & 15 & 9 \\
-        Route 2: & 1 & 2 & 5 & 4 & 12 & 11 & 10 & 8 \\
-        Route 3: & 9 & 15 & 7 & 10 & 8 & 6 & 3 & 2 \\
-        Route 4: & 7 & 10 & 14 & 13 & 11 & 12 & 4 & 5 \\
-      \hline
-        \end{tabular}
-    \end{center}
-    \caption {Route set representation}
-    \label{table:routeSetRepr}
-\end{table}
-
 \subsection{Initialization}
-\emph{\color{red}The network is created. Må komme tilbake til denne,.}
-Initial values for algorithm parameters is set, such as ant colony size, number of iterations (which is the stop criteria), number of routes in the route set, and maximum and minimum number of nodes in the routes. A Neo4j database is created, for div and calculating the shortest path.Nodes are created from the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords}, the edges with the amount of demand are created from the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}, and the travel times between each node couples with direct links are added from the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. \textit{(In addition to travel time and demand, each edge includes a pheromone value to be updated on each edge.
-The ants include an ant number to distinguish the ants from each other, in addition to holding its start node / current node. The ants are capable of selecting the next node, creating routes, and adding these routes to a route set.)}
+Initial values for algorithm parameters are set to a numeric value. The parameters to be set for this algorithm are:
+\begin{enumerate}
+\item The ant colony size. 
+\item The numbers of iterations (which is the stop criteria).
+\item The evaporation constant, $pheromone_{evaporation}$, to determine how much pheromone to be removed at each edge at each iteration.
+\item The pheromone constant, $pheromone_{visited}$, to determine how much pheromone to be added to each edge as it is visited by ants.
+\item The pheromone constant, $pheromone_{bestRoutes}$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
+\item The percentage of complete route sets to be granted extra pheromone.
+\item Number of routes in a complete route set. 
+\item The maximum and minimum number of nodes in the routes.
+\end{enumerate}
+The value of parameters 1-6 are determined by a conducted experiment described in \ref{subsec:parameterSettings_plan}, \ref{subsec:parameterSettings_setup}, and \ref{subsec:parameterSettings_results} on the pages \pageref{subsec:parameterSettings_plan}, \pageref{subsec:parameterSettings_setup}, and \pageref{subsec:parameterSettings_results}. The value of parameters 7-8 will be the same as the corresponding parameters in \citet{kechagiopoulos14} and \citet{nikolic14} for comparison reasons. 
+
+Further, a network is generated consisting of nodes from the data in the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords} and edges from the data in the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. Travel times are added to the generated edges based on the data in the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. As one can see in table \ref{table:MandlTravelTimes}, some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. Edges with an ``Inf'' travel time are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly. \emph{\color{red}Dette gjør per 15.04 altså ikke, men det må den.}. After this, the generated network is used to create a Neo4j graph database. As stated in research question \ref{itm:3a}, we want to explore the possible advantages and/or disadvantages of using Neo4j in our implementation. 
 
 \subsection{Selecting the start node}
 The specific steps executed to select the start node of each route are the following:
@@ -144,6 +137,24 @@ $$\emph{\color{red}hannee?}$$
 50\% of the best ants are added to the final best ants set, and we reward the edges in these routes by giving them more pheromone $p$.
 \par
 The pheromone on each edge decrease by $p\%$ after each iteration. 
+
+
+\subsection{Route set representation}
+For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|l| l l l l l l l l|}
+      \hline
+        Route 1: & 14 & 13 & 11 & 12 & 4 & 6 & 15 & 9 \\
+        Route 2: & 1 & 2 & 5 & 4 & 12 & 11 & 10 & 8 \\
+        Route 3: & 9 & 15 & 7 & 10 & 8 & 6 & 3 & 2 \\
+        Route 4: & 7 & 10 & 14 & 13 & 11 & 12 & 4 & 5 \\
+      \hline
+        \end{tabular}
+    \end{center}
+    \caption {Route set representation}
+    \label{table:routeSetRepr}
+\end{table}
 
 
 %TODO: skrive om, og gjøre?
