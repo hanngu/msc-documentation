@@ -1,20 +1,18 @@
-Changes: Notion of global best ant when selecting nextEdge
+Changes: Notion of global best ant when selecting nextEdge. Made some ants follow other ants
 _______________________________
 * 10 runs
-* 10 iterations
+* 50 iterations
 * 100 ants
 * 4 routes in each route set
 * max 8 nodes in a route
+* run on Windows machine
 _______________________________
 ACO:
-AvgTotfit: 289.6
-AvgATT: 14.75
+AvgTotfit: 
+AvgATT: 
 _______________________________
 SuperSwarm:
-AvgTotfit: 292.8
-AvgATT: 14.6
+AvgTotfit: 
+AvgATT: 
 ________________________________
 ********************************
-________________________________
-Changes:
-________________________________
