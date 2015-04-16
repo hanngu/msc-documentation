@@ -18,7 +18,9 @@ Initial values for algorithm parameters are set to a numeric value. The paramete
 \end{enumerate}
 The value of parameters 1-6 are determined by a conducted experiment described in \ref{subsec:parameterSettings_plan}, \ref{subsec:parameterSettings_setup}, and \ref{subsec:parameterSettings_results} on the pages \pageref{subsec:parameterSettings_plan}, \pageref{subsec:parameterSettings_setup}, and \pageref{subsec:parameterSettings_results}. The value of parameters 7-8 will be the same as the corresponding parameters in \citet{kechagiopoulos14} and \citet{nikolic14} for comparison reasons. 
 
-Further, a network is generated consisting of nodes from the data in the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords} and edges from the data in the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. Travel times are added to the generated edges based on the data in the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. As one can see in table \ref{table:MandlTravelTimes}, some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. Edges with an ``Inf'' travel time are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly. \emph{\color{red}Dette gjør per 15.04 altså ikke, men det må den.}. After this, the generated network is used to create a Neo4j graph database. As stated in research question \ref{itm:3a}, we want to explore the possible advantages and/or disadvantages of using Neo4j in our implementation. 
+Further, a network is generated consisting of nodes from the data in the MandlCoordinates file shown in table \ref{table:MandlCoords} on page \pageref{table:MandlCoords} and edges from the data in the MandlDemand file shown in table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. Travel times are added to the generated edges based on the data in the MandlTravelTimes file shown in table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. As one can see in table \ref{table:MandlTravelTimes}, some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. Edges with an ``Inf'' travel time are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly. After this, the generated network is used to create a Neo4j graph database. As stated in research question \ref{itm:3a}, we want to explore the possible advantages and/or disadvantages of using Neo4j in our implementation.
+
+
 
 \subsection{Selecting the start node}
 The specific steps executed to select the start node of each route are the following:
@@ -48,10 +50,12 @@ $$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{V}{TV}$$
 The node selecting phase stops if it exceeds $k$ nodes, as constraint \ref{itm:constraintRouteSize} specifies; the route size is predefined, so the routes shall not exceed the maximum limit of nodes. It also stops if it is ``stuck'', because it is should not be possible to select the same node twice, according to constraint \ref{itm:constraintCycles}; no cycles (or backtracks) in the graph is allowed. The ant then begins the next route exploring. The route exploring stops when it exceeds the maximum number of routes, as specified in constraint \ref{itm:constraintRouteSet}; there are exactly $r$ routes in the route set. The routes are then added to the ant's route set for evaluation.
 
 \subsection{Route set evaluation}
+
+
 \begin{itemize}
 \item[Step 1] Only the ants with a connected route set is selected for evaluation. This is important because based on constraint \ref{itm:criteriaConnectedGraph}, a passenger should be allowed to travel from every node to every other node within the route set. In an undirected graph $G$ two vertices $u$ and $v$ are called connected if G contains a path from $u$ to $v$. An ants route set can have included all nodes, but still be disconnected. The ants with a route set that is disconnected is therefore removed from the best ants. The complexity of evaluating this during the route generation stage is the reason this is evaluated after. 
 
-\item[Step 2] This ants are added to the ``best route set'' for evaluation. Evaluation a route itself as no sense, since its path depends on the rest of the members of the same route set. As a result, all routes of a route set should be evaluated as a whole. This evaluation is based on the evaluation criteria stated in previous section.
+\item[Step 2] This ants are added to the ``best route set'' for evaluation. (Evaluation a route itself as no sense, since its path depends on the rest of the members of the same route set. As a result, all routes of a route set should be evaluated as a whole. This evaluation is based on the evaluation criteria stated in previous section.)
 
 \item [Step 3] The route sets are added to the Neo4J database, and evaluated by a fitness function, TOTFIT(r), where $r$ is the route set, inspired by \citep{kechagiopoulos14}.
 This fitness value is calculated as follows:
@@ -107,8 +111,6 @@ $$\text{Dijkstra's algorithm running time: } O((V + E)lg V)$$
 \end{table}
 
 Table \ref{table:astarvsdijkstras} presents the running times for the different algorithms, in seconds, after 20 runs, with 100 iterations, 100 ants, 4 routes,  and max 8 nodes in each route. Observations shows that A* search is faster, \emph{\color{red} because blabla}, and this method is therefore chosen for finding the shortest path in $F_1(r)$.
-
-
  
 % In other words, it reflects the average time spent by each passenger when traveling along a specific route set. Its value is small if the respective average traveling time is big and big is traveling time is small. In order to estimate F1(r), not only the average traveling time has to be calculated, but one also determine whether this value should be considered big or small. 
 
@@ -132,10 +134,14 @@ where  $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is 
 $F_3(r)$ is a score which reflects the percentage of unsatisfied passengers, meaning passengers traveling from their origin to their destination where the number of transfers is more than 3, using route set $r$. It is calculated using the following formula:
 $$\emph{\color{red}hannee?}$$
 
-\subsection{Pheromone}
-\emph{\color{red} Denne blir vel hetende noe annet, og mer må fylles inn}
-50\% of the best ants are added to the final best ants set, and we reward the edges in these routes by giving them more pheromone $p$.
-\par
+\begin{itemize}
+\item[Step 5] 50\% of the best ants are added to the final best ants set.
+\item[Step 6] The algorithm awards sets that satisfy node couples with high demand directly. Demand value to consideration.
+\item[Step 7] Reward the edges in these routes by giving them more pheromone $p$.
+\end{itemize}
+
+\subsection{Pheromone Evaporation}
+
 The pheromone on each edge decrease by $p\%$ after each iteration. 
 
 
