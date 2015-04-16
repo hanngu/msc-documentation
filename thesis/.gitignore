@@ -1,4 +1,4 @@
-*.aux
+out/*.aux
 *.dvi
 *.blg
 *.out
