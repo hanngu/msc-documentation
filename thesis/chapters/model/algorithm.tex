@@ -1,8 +1,16 @@
-\section{The Proposed Algorithm (Preliminary ACO) }
+\section{The Proposed Algorithm}
 
-\textit{Under construction....}
-\newline
 We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
+
+To overcome some of the known limitations of ACO, and to answer our research question: is it efficient to combine attributes from different swarm intelligence algorithms to solve the vehicle routing problem, we have added some features to the basic ACO
+
+\begin{itemize}
+\item \textbf{Inertia weight(IW) from PSO}. CrazyAnts: picking a random edge, not based on the pheromone value on the edge. IW his high in the start; more CrazyAnts, but decreases over time (each iteration) resulting in less and less CrazyAnts. This is done to overcome the known limitation of ACO: getting stuck on local optima.
+\item \textbf{Global best solution from PSO}. Each iteration, the best ant is retained - and when the next ant is selecting the next edge, the edge of current best ant is added to the probability for this edge to be selected again, resulting in an even greater chance for this edge to be selected.
+\item \textbf{Followers from BSO}. 10\% of the ants selects the same routes as the final best ants, and the pheromone value for the edges in these route sets decreases.
+\end{itemize}
+
+: SuperSwarm
 
 \subsection{Initialization}
 Initial values for algorithm parameters are set to a numeric value. The parameters to be set for this algorithm are:
