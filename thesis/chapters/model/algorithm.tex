@@ -145,7 +145,23 @@ $$\emph{\color{red}hannee?}$$
 \begin{itemize}
 \item[Step 5] 50\% of the best ants are added to the final best ants set.
 \item[Step 6] The algorithm awards sets that satisfy node couples with high demand directly. Demand value to consideration.
-\item[Step 7] Reward the edges in these routes by giving them more pheromone $p$.
+\item[Step 7] Reward the edges in these routes by giving them more pheromone, and is given by:
+
+$$ \tau_{ij} = \sum_{k=1}^{m} \Delta \tau^k_{ij}$$
+
+where $ \Delta \tau^k_{ij} $ is the amount of pheromone laid on route (i,j) by the $k^{th}$ ant and is given by
+
+$$
+\Delta \tau^k_{ij} = \Bigg\{
+\begin{array}{l l}
+\underline{Q} &  \quad \text{if route (i,j) be traversed by}\\
+f_k, &  \quad \text{the $k^{th}$ ant (at the current cycle) , }\\
+0 &  \quad \text{otherwise}
+\end{array}
+$$
+
+Q is a number, tested in parameter setting experiments, and $f_k$: the travel time on the edge.
+
 \end{itemize}
 
 \subsection{Pheromone Evaporation}
