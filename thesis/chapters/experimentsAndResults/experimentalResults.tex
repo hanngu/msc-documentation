@@ -5,34 +5,31 @@ Results should be clearly displayed and should provide a suitable representation
 \subsection{Stage 1 - Parameter Settings}
 \label{subsec:parameterSettings_results}
 
-	\begin{table}[H]
+\begin{table}[H]
 	\centering
-	\tiny
-    \begin{tabular}{|l|l|l|l|l|l|l|l|l||l|l|}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
  	\hline
- 	$m$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $\delta$ & $IW$ & $FA$ & $CA$ &  $ATT(min,avg,max)$ &  $TOTFIT(min,avg,max)$ \\
+ 	$s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$  & $IW$ & $FA$ & $CA$  \\
  	\hline
-    50 & 50 & 10\% & \textbf{0.1} & 0.5 & 10\% & 1.0 & 10\% & 10\% & ~ & ~  \\
-    50 & 50 & 10\% & \textbf{0.5} & 0.5 & 10\% & 1.0 & 10\% & 10\% & ~ & ~  \\
+    50 & 50 & 10\% & 0.5 & 0.5 & 10\% & 10\% & 1.0 & 10\%  \\
 	\hline
     \end{tabular}
-    \caption {Parameter settings experiments}
-    \label{table:parameterSettings}
+    \caption {Start Values}
+    \label{table:parameter_startvalues}
 	\end{table}
-
 
 	\begin{table}[H]
 	\centering
     \begin{tabular}{|c|c||c|}
  	\hline
- 	Parameters & Candidate Value & The best value\\
+ 	Parameters & Candidate values & The best value\\
  	\hline
-    $m$ & ~ & ~ \\
+    $s$ & ~ & ~ \\
     $i$ & ~ & ~ \\
-    $p_{e}$ & ~ & ~ \\
-    $p_{v}$ & 0.1 & ~ \\
+    $p_{e}$ & 1\%, 10\%, 90\% & ~ \\
+    $p_{v}$ & ~ & ~ \\
     $p_{b}$ & ~ & ~ \\
-    $\delta$ & ~ & ~ \\
+    $BR$ & ~ & ~ \\
     $IW$ & ~ & ~ \\
     $FA$ & ~ & ~ \\
     $CA$ & ~ & ~ \\
