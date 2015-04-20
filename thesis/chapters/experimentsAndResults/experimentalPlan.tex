@@ -11,18 +11,10 @@ In order to study the effect of the variation of the parameters on the objective
 
 \subsection{Stage 2 - Performance Comparison}
 \emph{\color{red}Deennne må gjøres ordentlig}
-\begin{itemize}
-\item[Step 1] First we will evaluate results with only the ACO implementation, on Mandl's network and comparing it with the results from other ACO implementations. The aim with this is to test solution quality.
 
-\item[Step 2]After we have found the optimal algorithm parameters, we will add features from PSO and test the system's performance, comparing it with the respective results. \emph{\color{red}ACO has a known limitation of being stuck on local optima, and the time/space(?) complexity is high.} We will therefore 
-add features from PSO - inertial weight, more random in the start and accepting more solutions, knowledge about the best global solution for every iteration, keep the best current solution. After adding SI features from PSO / BSO, we will check whether it is efficient to combine different swarm intelligence methods' attributes to get better results concerning the vehicle routing problem, in order to answer the research question 2 a.
-
-We will test the results comparing it with the performance criteria from section 4.3.
-
-\item[Step 3]To test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
-
-\end{itemize}
-
+Features are added from PSO/BSO, and the optimal algorithm parameters are found. We will in this stage test the system's performance, comparing it with the respective results, concerning the performance criteria from section 4.3. %\emph{\color{red}ACO has a known limitation of being stuck on local optima, and the time/space(?) complexity is high.} We will therefore 
+%add features from PSO - inertial weight, more random in the start and accepting more solutions, knowledge about the best global solution for every iteration, keep the best current solution. After adding SI features from PSO / BSO, 
+The aim with this test is to check whether it is efficient to combine different swarm intelligence methods' attributes to get better results concerning the vehicle routing problem, in order to answer the research question 2 a.
 %\begin{enumerate}
 
 %\item Add features from PSO - inertial weight, more random in the start and accepting more solutions, knowledge about the best global solution for every iteration, keep the best current solution.
@@ -33,6 +25,9 @@ We will test the results comparing it with the performance criteria from section
 
 %\item And to test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
 
+The algorithm will be tested with different number of routes.
+
+
 %\end{enumerate}
 
 \subsection{Stage 3 - Scalability Experiments}
@@ -40,4 +35,7 @@ Time and Space Complexity
 In order to test whether the method is general and not tuned in to run on a single example, we will run the algorithm on other, larger, networks. Mumford included larger networks. Here we will test the time and space complexity.
 %The programs are rarely informative if they are designed to run on a single example - Therefore we will test algorithm on other networks, to check whether it is general and not just optimized for Mandl. (Mumford)
 Record our run times - test the efficiency of our algorithm.
+
+
+
 
