@@ -1,0 +1,32 @@
+\section{Description}
+
+We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
+
+To overcome some of the known limitations of ACO, and to answer our research question: is it efficient to combine attributes from different swarm intelligence algorithms to solve the vehicle routing problem, we have added some features to the basic ACO
+
+\begin{itemize}
+\item \textbf{Inertia weight(IW) from PSO}. CrazyAnts: picking a random edge, not based on the pheromone value on the edge. IW his high in the start; more CrazyAnts, but decreases over time (each iteration) resulting in less and less CrazyAnts. This is done to overcome the known limitation of ACO: getting stuck on local optima.
+\item \textbf{Global best solution from PSO}. Each iteration, the best ant is retained - and when the next ant is selecting the next edge, the edge of current best ant is added to the probability for this edge to be selected again, resulting in an even greater chance for this edge to be selected.
+\item \textbf{Followers from BSO}. 10\% of the ants selects the same routes as the final best ants, and the pheromone value for the edges in these route sets decreases.
+\end{itemize}
+
+: SuperSwarm
+
+\input{chapters/model/objectiveFunction}
+
+\subsection{Route set representation}
+For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|l| l l l l l l l l|}
+      \hline
+        Route 1: & 14 & 13 & 11 & 12 & 4 & 6 & 15 & 9 \\
+        Route 2: & 1 & 2 & 5 & 4 & 12 & 11 & 10 & 8 \\
+        Route 3: & 9 & 15 & 7 & 10 & 8 & 6 & 3 & 2 \\
+        Route 4: & 7 & 10 & 14 & 13 & 11 & 12 & 4 & 5 \\
+      \hline
+        \end{tabular}
+    \end{center}
+    \caption {Route set representation}
+    \label{table:routeSetRepr}
+\end{table}
