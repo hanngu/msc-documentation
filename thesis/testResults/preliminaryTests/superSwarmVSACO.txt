@@ -8,11 +8,11 @@ _______________________________
 * run on Windows machine
 _______________________________
 ACO:
-AvgTotfit: 
-AvgATT: 
+AvgTotfit: 293.7
+AvgATT: 14.6
 _______________________________
 SuperSwarm:
-AvgTotfit: 
-AvgATT: 
+AvgTotfit: 293.6
+AvgATT: 14.6
 ________________________________
 ********************************
