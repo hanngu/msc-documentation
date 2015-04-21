@@ -31,7 +31,7 @@ The input data used[\ref{sec:inputData}] is described as follows:
 A network is generated consisting of nodes from the data in the MandlCoordinates file shown in Table \ref{table:MandlCoords} on page \pageref{table:MandlCoords} and edges from the data in the MandlDemand file shown in Table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. Travel times are added to the generated edges based on the data in the MandlTravelTimes file shown in Table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. As one can see in Table \ref{table:MandlTravelTimes}, some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. Edges with an ``Inf'' travel time are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly. After this, the generated network is used to create a Neo4j graph database. As stated in Research Question \ref{itm:3a}, we want to explore the possible advantages and/or disadvantages of using Neo4j in our implementation.
 
 
-\section{Selecting the start node}
+\section{Selecting Start Node}
 The specific steps executed to select the start node of each route are the following:
 %Selecting the first node: 
 \begin{itemize}
@@ -43,7 +43,7 @@ The specific steps executed to select the start node of each route are the follo
 \end{itemize}
 %Start node for the next ants: Possible hot spots may be detected, and that this can be used as a start node for the next ants. 
 
-\section{Selecting the next nodes}
+\section{Selecting Next Nodes}
 The next nodes is selected based on the demand value, the pheromone value and the visited status value for the edges. \emph{\color{red} A good route network will ensure that routes having the most traveling demands are satisfied with short paths and few vehicle transfers as stated in the problem statement.} The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected. It is only possible to select edges connected by travel time when this indicates whether it is a direct link between the two nodes, but the travel time value is not taken into account before the evaluation phase \emph{\color{red} because..}.  %TODO: give higher score if there is direct routes between node couples with high demand. 
 The specific steps executed to select the next nodes of each route are the following:
 \begin{itemize}
@@ -70,10 +70,10 @@ $$
 $p_e$ is a value determined in the parameter setting experiments, and $f_k$ is the travel time on the edge. 
 \end{itemize}
 
-\section{Creating the route set}
+\section{Creating Route Set}
 The node selecting phase stops if it exceeds $k$ nodes, as constraint \ref{itm:constraintRouteSize} specifies; the route size is predefined, so the routes shall not exceed the maximum limit of nodes. It also stops if it is ``stuck'', because it is should not be possible to select the same node twice, according to constraint \ref{itm:constraintCycles}; no cycles (or backtracks) in the graph is allowed. The ant then begins the next route exploring. The route exploring stops when it exceeds the maximum number of routes, as specified in constraint \ref{itm:constraintRouteSet}; there are exactly $r$ routes in the route set. The routes are then added to the ant's route set for evaluation.
 
-\section{Route set evaluation}
+\section{Route Set Evaluation}
 
 
 \begin{itemize}
@@ -98,7 +98,7 @@ $$ DIF = TT(k_{1},k_{2}) - MTT(k_{1},k_{2})$$
 
 where $ TT(k_{1},k_{2})$ is the travel time using the edges included in the route set, and $ MTT(k_{1},k_{2})$ is the actual minimum travel time (shortest path) between the two nodes, regardless of the edges included in the route set. Calculating the minimum travel time (shortest path) is done by Neo4j, and the selection of which algorithm used is described under.
 
-\subsubsection{Calculating the Minimum Travel Time}\mbox{}\\ 
+\subsubsection{Calculating Minimum Travel Time}\mbox{}\\ 
 
 Neo4j includes two built-in algorithms for finding the shortest path, including A* search\citep{russel10}  and Dijkstra's algorithm\citep{cormen09}. 
 
@@ -184,7 +184,7 @@ $p_b$ is a value determined in the parameter setting experiments, and $f_k$ is t
 
 The pheromone on each edge decrease by $p\%$ after each iteration. 
 
-\section{Route set representation}
+\section{Route Set Representation}
 For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
 \begin{table}[H]
     \begin{center}
