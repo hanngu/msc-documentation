@@ -5,7 +5,7 @@ The experimental setup should include all data - parameters etc, that would allo
 \subsection{Stage 1 - Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is selected. For achieving this goal, several values for each parameter are tested while the other are hold constant. For determining these parameters each one of the instance will run 10 times while the others are held constant, and the ones which are selected is the ones that produce best computational results concerning the quality of the solution (objective function values) needed to achieve this result. The following are the parameters that will be tested:
+Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested For achieving this goal, several values for each parameter are tested while the other are hold constant. For determining these parameters each one of the instance will run 10 times while the others are held constant, and the ones which are selected is the ones that produce best computational results concerning the $ATT$ and $TOTFIT$. The following are the parameters that will be tested:
 
 \begin{itemize}
 \item The Ant colony size, $s$.
@@ -18,6 +18,8 @@ Because there is no way of defining the most effective values of the parameters,
 \item The percentage of ants to be followed, $FA$.
 \item The percentage of Crazy Ants, $CA$.
 \end{itemize}
+
+When a parameter value is selected, this parameter will be changed and held constant for the next parameter setting experiments. The tests are performed in the following order; $p_{e}$, 
 
 \subsection{Stage 2 - Performance Comparison}
 
