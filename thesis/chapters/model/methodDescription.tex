@@ -1,18 +1,11 @@
-\section{SuperSwarm Algorithm}
+\section{The SuperSwarm Algorithm}
 
-We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}. The basic ACO algorithm have some limitations[ref]. To overcome some of the known limitations of ACO, and to answer our research question: is it efficient to combine attributes from different swarm intelligence algorithms to solve the vehicle routing problem, we have added some features to the basic ACO implementation.
+We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}. The basic ACO algorithm have some limitations[ref]. To overcome some of these known limitations, and to answer our research question 2a) (is it efficient to combine attributes from different swarm intelligence algorithms to solve the vehicle routing problem,) we have added some features from PSO and BSO to the basic ACO implementation.
 
-First, Inertia Weight(IW) from PSO is added to the algorithm. Inertia weight means:.... To do this we have implemented a feature called CrazyAnts(CA). A given amount of the ants to be generated become crazy. A CA picks does not select edges based on the pheromone value, but picks instead a random edge. The IW is big in the start, denoting a higher amount of crazy ants, and when this value decreases (for each iteration), the amount of CA decreases. What we hope to achieve with this is overcoming the ACO limitation of getting stuck on local optima.
+First, Inertia Weight(IW) from PSO is added to the algorithm. Inertia weight means:.... To do this we have implemented a feature called CrazyAnts(CA). A given amount of the ants to be generated become crazy; A CA does not select edges based on the pheromone value, but instead it selects a random edge for the next node. The IW value is high in the start, denoting a higher amount of crazy ants, and when this value decreases (for each iteration), the amount of CA decreases. Second, the awareness of the global best solution is given the ants. After each iteration, the best ants results is retained. The edge of current best ant is added to the probability for this edge to be selected again, and when the ants are selecting the next edge (given that it is not the first ant), chance for this best edge to be selected is greater. What we hope to achieve with this is overcoming the ACO limitation of getting stuck on local optima.
 
-Second, the awareness of the glob
+Third, the \textit{following} feature from BSO is added to the algorithm. An amount of the ants will not generate new route sets, but instead select the same routes as the final best ants, resulting in a higher pheromone value for the edges in these route sets. This is done because:....
 
-\begin{itemize}
-\item \textbf{Inertia weight(IW) from PSO}. CrazyAnts: picking a random edge, not based on the pheromone value on the edge. IW his high in the start; more CrazyAnts, but decreases over time (each iteration) resulting in less and less CrazyAnts. This is done to overcome the known limitation of ACO: getting stuck on local optima.
-\item \textbf{Global best solution from PSO}. Each iteration, the best ant is retained - and when the next ant is selecting the next edge, the edge of current best ant is added to the probability for this edge to be selected again, resulting in an even greater chance for this edge to be selected.
-\item \textbf{Followers from BSO}. 10\% of the ants selects the same routes as the final best ants, and the pheromone value for the edges in these route sets decreases.
-\end{itemize}
-
-: SuperSwarm
 
 
 
