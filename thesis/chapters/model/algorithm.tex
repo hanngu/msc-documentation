@@ -1,19 +1,4 @@
-\section{Route set representation}
-For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}{|l| l l l l l l l l|}
-      \hline
-        Route 1: & 14 & 13 & 11 & 12 & 4 & 6 & 15 & 9 \\
-        Route 2: & 1 & 2 & 5 & 4 & 12 & 11 & 10 & 8 \\
-        Route 3: & 9 & 15 & 7 & 10 & 8 & 6 & 3 & 2 \\
-        Route 4: & 7 & 10 & 14 & 13 & 11 & 12 & 4 & 5 \\
-      \hline
-        \end{tabular}
-    \end{center}
-    \caption {Route set representation}
-    \label{table:routeSetRepr}
-\end{table}
+
 
 \section{Initialization}
 \subsection{Parameters}
@@ -67,7 +52,22 @@ $$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{V}{TV}$$
 
 \item[Step 2] After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability value for each edge. 
 \item[Step 3] A value between 3 and 0 is then random selected, giving the edges with highest probability a larger range than the others, resulting in a larger probability for this edge to be selected. 
-\item[Step 4] After an node is selected, the pheromone value for this edge increases 
+\item[Step 4] After an node is selected, the pheromone value for this edge increases, and is given by:
+
+$$ \tau_{ij} = \sum_{k=1}^{m} \Delta \tau^k_{ij}$$
+
+where $ \Delta \tau^k_{ij} $ is the amount of pheromone laid on route (i,j) by the $k^{th}$ ant and is given by
+
+$$
+\Delta \tau^k_{ij} = \Bigg\{
+\begin{array}{l l}
+\underline{P_{e}} &  \quad \text{if route (i,j) be traversed by}\\
+f_k, &  \quad \text{the $k^{th}$ ant (at the current cycle) , }\\
+0 &  \quad \text{otherwise}
+\end{array}
+$$
+
+$p_e$ is a value determined in the parameter setting experiments, and $f_k$ is the travel time on the edge. 
 \end{itemize}
 
 \section{Creating the route set}
@@ -170,13 +170,13 @@ where $ \Delta \tau^k_{ij} $ is the amount of pheromone laid on route (i,j) by t
 $$
 \Delta \tau^k_{ij} = \Bigg\{
 \begin{array}{l l}
-\underline{Q} &  \quad \text{if route (i,j) be traversed by}\\
+\underline{P_{b}} &  \quad \text{if route (i,j) be traversed by}\\
 f_k, &  \quad \text{the $k^{th}$ ant (at the current cycle) , }\\
 0 &  \quad \text{otherwise}
 \end{array}
 $$
 
-Q is a number, tested in parameter setting experiments, and $f_k$: the travel time on the edge.
+$p_b$ is a value determined in the parameter setting experiments, and $f_k$ is the travel time on the edge.
 
 \end{itemize}
 
@@ -184,7 +184,22 @@ Q is a number, tested in parameter setting experiments, and $f_k$: the travel ti
 
 The pheromone on each edge decrease by $p\%$ after each iteration. 
 
-
+\section{Route set representation}
+For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|l| l l l l l l l l|}
+      \hline
+        Route 1: & 14 & 13 & 11 & 12 & 4 & 6 & 15 & 9 \\
+        Route 2: & 1 & 2 & 5 & 4 & 12 & 11 & 10 & 8 \\
+        Route 3: & 9 & 15 & 7 & 10 & 8 & 6 & 3 & 2 \\
+        Route 4: & 7 & 10 & 14 & 13 & 11 & 12 & 4 & 5 \\
+      \hline
+        \end{tabular}
+    \end{center}
+    \caption {Route set representation}
+    \label{table:routeSetRepr}
+\end{table}
 
 
 

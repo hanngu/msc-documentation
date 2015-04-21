@@ -1,8 +1,10 @@
-\section{Description}
+\section{SuperSwarm Algorithm}
 
-We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}.
+We started out with implementing the basic ACO algorithm by \citet{nanda11} as described in chapter \ref{backgroundAndMotivation}. The basic ACO algorithm have some limitations[ref]. To overcome some of the known limitations of ACO, and to answer our research question: is it efficient to combine attributes from different swarm intelligence algorithms to solve the vehicle routing problem, we have added some features to the basic ACO implementation.
 
-To overcome some of the known limitations of ACO, and to answer our research question: is it efficient to combine attributes from different swarm intelligence algorithms to solve the vehicle routing problem, we have added some features to the basic ACO
+First, Inertia Weight(IW) from PSO is added to the algorithm. Inertia weight means:.... To do this we have implemented a feature called CrazyAnts(CA). A given amount of the ants to be generated become crazy. A CA picks does not select edges based on the pheromone value, but picks instead a random edge. The IW is big in the start, denoting a higher amount of crazy ants, and when this value decreases (for each iteration), the amount of CA decreases. What we hope to achieve with this is overcoming the ACO limitation of getting stuck on local optima.
+
+Second, the awareness of the glob
 
 \begin{itemize}
 \item \textbf{Inertia weight(IW) from PSO}. CrazyAnts: picking a random edge, not based on the pheromone value on the edge. IW his high in the start; more CrazyAnts, but decreases over time (each iteration) resulting in less and less CrazyAnts. This is done to overcome the known limitation of ACO: getting stuck on local optima.
@@ -12,5 +14,5 @@ To overcome some of the known limitations of ACO, and to answer our research que
 
 : SuperSwarm
 
-\input{chapters/model/objectiveFunction}
+
 
