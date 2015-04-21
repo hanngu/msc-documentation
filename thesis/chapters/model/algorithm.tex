@@ -1,5 +1,23 @@
+\section{Route set representation}
+For the route set representation, a two dimensional array is selected. In the route set representation presented in table \ref{table:routeSetRepr}, route 1 starts from node 14, continues to node 13, and so on. The routes comprise of 8 nodes, as stated before, the total number of routes is specific, set by the bus company due to cost limitations, while the maximum length is usually defines by the user before the execution of the algorithm \citep{kechagiopoulos14}.
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|l| l l l l l l l l|}
+      \hline
+        Route 1: & 14 & 13 & 11 & 12 & 4 & 6 & 15 & 9 \\
+        Route 2: & 1 & 2 & 5 & 4 & 12 & 11 & 10 & 8 \\
+        Route 3: & 9 & 15 & 7 & 10 & 8 & 6 & 3 & 2 \\
+        Route 4: & 7 & 10 & 14 & 13 & 11 & 12 & 4 & 5 \\
+      \hline
+        \end{tabular}
+    \end{center}
+    \caption {Route set representation}
+    \label{table:routeSetRepr}
+\end{table}
+
 \section{Initialization}
-Initial values for algorithm parameters are set to a numeric value. The parameters to be set for this algorithm are:
+\subsection{Parameters}
+Initial values for the algorithm parameters are set to a numeric value. The parameters to be set for this algorithm are:
 \begin{enumerate}
 \item The ant colony size, $s$. 
 \item The numbers of iterations (which is the stop criteria), $i$.
@@ -16,6 +34,7 @@ Initial values for algorithm parameters are set to a numeric value. The paramete
 \end{enumerate}
 The value of parameters 1-9 are determined by a conducted experiment described in \ref{subsec:parameterSettings_plan}, \ref{subsec:parameterSettings_setup}, and \ref{subsec:parameterSettings_results} on the pages \pageref{subsec:parameterSettings_plan}, \pageref{subsec:parameterSettings_setup}, and \pageref{subsec:parameterSettings_results}. The value of parameters 10-11 will be the same as the corresponding parameters in \citet{kechagiopoulos14} and \citet{nikolic14} for comparison reasons. 
 
+\subsection{Input Data}
 The input data used[\ref{sec:inputData}] is described as follows:
 \begin{itemize}
 \item data concerning the structure of the road network (nodes with coordinates)
@@ -23,8 +42,8 @@ The input data used[\ref{sec:inputData}] is described as follows:
 \item data concerning the travel demand between each two nodes
 \end{itemize}
 
+\subsection{Network Generation}
 A network is generated consisting of nodes from the data in the MandlCoordinates file shown in Table \ref{table:MandlCoords} on page \pageref{table:MandlCoords} and edges from the data in the MandlDemand file shown in Table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. Travel times are added to the generated edges based on the data in the MandlTravelTimes file shown in Table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. As one can see in Table \ref{table:MandlTravelTimes}, some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. Edges with an ``Inf'' travel time are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly. After this, the generated network is used to create a Neo4j graph database. As stated in Research Question \ref{itm:3a}, we want to explore the possible advantages and/or disadvantages of using Neo4j in our implementation.
-
 
 
 \section{Selecting the start node}
