@@ -2,10 +2,10 @@
 
 The experimental setup should include all data - parameters etc, that would allow a person to repeat your experiments. 
  
-\subsection{Stage 1 - Parameter Settings}
+\subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times while the others are held constant. The ones selected is the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ results produced. $p_{v}$ and $p_{b}$ will be tested together \emph{\color{red}because ... }. The parameters that will be tested are the following:
+Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times. \textit{The most optimal amount of iterations would have been 100 iterations. It takes approximately 30 minutes to run one test with 10 iterations on the machine we have been assigned. Because of a limited amount of time on this master thesis, we will just not have the available time to test the parameters with 100 iterations.} The parameter values selected is the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ results produced. $p_{v}$ and $p_{b}$ will be tested together \emph{\color{red}because ... }. The parameters that will be tested are the following:
 
 \begin{itemize}
 \item The Ant colony size, $s$.
@@ -14,25 +14,24 @@ Because there is no way of defining the most effective values of the parameters,
 \item The pheromone constant, $p_{v}$, to determine how much pheromone to be added to each edge as it is visited by ants. 
 \item The pheromone constant, $p_{b}$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
 \item The percentage of complete route sets to be granted extra pheromone, the best route sets, $BR$.
-\item The Inertia Weight, $IW$.
 \item The percentage of ants to be followed, $FA$.
-\item The percentage of Crazy Ants, $CA$.
+\item The percentage of Crazy Ants, $CA$.The Inertia Weight value, $IW$, is 1.
 \end{itemize}
 
-When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next parameter setting experiments. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, 
+When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next parameter settings. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $FA$, $s$ and $i$.
 
-\subsection{Stage 2 - Performance Comparison}
+\subsection{Performance Comparison}
 
 \subsubsection{Algorithm Parameters}
 After running test stage 1, (finding the optimal algorithm parameters), these are the final parameters which will be used in stage 2.
 
 \begin{table}[H]
 	\centering
-    \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|}
  	\hline
- 	$s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$  & $IW$ & $FA$ & $CA$  \\
+ 	$s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $FA$ & $CA$  \\
  	\hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~  & ~  \\
+    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~  \\
 	\hline
     \end{tabular}
     \caption {Final Parameters from Table \ref{table:parameterSettings2}}
@@ -42,5 +41,5 @@ After running test stage 1, (finding the optimal algorithm parameters), these ar
 \subsubsection{Route Set Sizes}
 4,6,7 and 8 routes per set.
 
-\subsection{Stage 3 -  Scalability Experiments}
+\subsection{Scalability Experiments}
 Time and Space Complexity
