@@ -14,12 +14,11 @@ Because there is no way of defining the most effective values of the parameters,
 \item The pheromone constant, $p_{v}$, to determine how much pheromone to be added to each edge as it is visited by ants. 
 \item The pheromone constant, $p_{b}$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
 \item The percentage of complete route sets to be granted extra pheromone, the best route sets, $BR$.
-\item The Inertia Weight, $IW$.
 \item The percentage of ants to be followed, $FA$.
-\item The percentage of Crazy Ants, $CA$.
+\item The percentage of Crazy Ants, $CA$.The Inertia Weight value, $IW$, is 1.
 \end{itemize}
 
-When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next parameter settings. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $IW$, $FA$, $s$ and $i$.
+When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next parameter settings. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $FA$, $s$ and $i$.
 
 \subsection{Performance Comparison}
 
@@ -28,11 +27,11 @@ After running test stage 1, (finding the optimal algorithm parameters), these ar
 
 \begin{table}[H]
 	\centering
-    \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|}
  	\hline
- 	$s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$  & $IW$ & $FA$ & $CA$  \\
+ 	$s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $FA$ & $CA$  \\
  	\hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~  & ~  \\
+    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~  \\
 	\hline
     \end{tabular}
     \caption {Final Parameters from Table \ref{table:parameterSettings2}}
