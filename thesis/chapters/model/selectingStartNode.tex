@@ -1,0 +1,11 @@
+\section{Selecting Start Node}
+The specific steps executed to select the start node of each route are the following:
+%Selecting the first node: 
+\begin{itemize}
+\item[Step 1] The demand value for each node is estimated, which is the sum of each line in the demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. 
+\item[Step 2] The nodes is sorted in descending order based on the demand value of each node.
+\item[Step 3] The first k nodes from the list is selected, which comprise the initial node set (INS). 
+\item[Step 4] Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. 
+\item[Step 5] A random node is selected based on the values of probabilities. (To prevent a route from having less than the minimum number of nodes, constraint \ref{itm:constraintRouteSize}, it is not possible to select a node with a connected node that only has one edge connected to it.)
+\end{itemize}
+%Start node for the next ants: Possible hot spots may be detected, and that this can be used as a start node for the next ants. 

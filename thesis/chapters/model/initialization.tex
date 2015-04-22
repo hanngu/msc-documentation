@@ -1,0 +1,29 @@
+\section{Initialization}
+\subsection{Parameters}
+Initial values for the algorithm parameters are set to a numeric value. The parameters to be set for this algorithm are:
+\begin{enumerate}
+\item The ant colony size, $s$. 
+\item The numbers of iterations (which is the stop criteria), $i$.
+\item The evaporation constant, $p_e$, to determine how much pheromone to be removed at each edge at each iteration.
+\item The pheromone constant, $p_v$, to determine how much pheromone to be added to each edge as it is visited by ants.
+\item The pheromone constant, $p_b$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
+\item The percentage of complete route sets to be granted extra pheromone, $BR$.
+\item Initial value for the inertia Weight, $IW$.
+\item The percentage of ants to be followed, $FA$.
+\item The percentage of ants to be declared as ``crazy'', $CA$.
+\item Number of routes in a complete route set, $NR$. 
+\item The maximum number of nodes in a route, $R_{max}$.
+\item The minimum number of nodes in a route, $R_{min}$.
+\end{enumerate}
+The value of parameters 1-9 are determined by a conducted experiment described in \ref{subsec:parameterSettings_plan}, \ref{subsec:parameterSettings_setup}, and \ref{subsec:parameterSettings_results} on the pages \pageref{subsec:parameterSettings_plan}, \pageref{subsec:parameterSettings_setup}, and \pageref{subsec:parameterSettings_results}. The value of parameters 10-11 will be the same as the corresponding parameters in \citet{kechagiopoulos14} and \citet{nikolic14} for comparison reasons. 
+
+\subsection{Input Data}
+The input data used[\ref{sec:inputData}] is described as follows:
+\begin{itemize}
+\item data concerning the structure of the road network (nodes with coordinates)
+\item data concerning the travel times between the nodes 
+\item data concerning the travel demand between each two nodes
+\end{itemize}
+
+\subsection{Network Generation}
+A network is generated consisting of nodes from the data in the MandlCoordinates file shown in Table \ref{table:MandlCoords} on page \pageref{table:MandlCoords} and edges from the data in the MandlDemand file shown in Table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. Travel times are added to the generated edges based on the data in the MandlTravelTimes file shown in Table \ref{table:MandlTravelTimes} on page \pageref{table:MandlTravelTimes}. As one can see in Table \ref{table:MandlTravelTimes}, some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. Edges with an ``Inf'' travel time are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly. After this, the generated network is used to create a Neo4j graph database. As stated in Research Question \ref{itm:3a}, we want to explore the possible advantages and/or disadvantages of using Neo4j in our implementation.

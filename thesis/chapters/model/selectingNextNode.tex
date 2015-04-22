@@ -1,0 +1,26 @@
+\section{Selecting Next Nodes}
+The next nodes is selected based on the demand value, the pheromone value and the visited status value for the edges. \emph{\color{red} A good route network will ensure that routes having the most traveling demands are satisfied with short paths and few vehicle transfers as stated in the problem statement.} The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected. It is only possible to select edges connected by travel time when this indicates whether it is a direct link between the two nodes, but the travel time value is not taken into account before the evaluation phase \emph{\color{red} because..}.  %TODO: give higher score if there is direct routes between node couples with high demand. 
+The specific steps executed to select the next nodes of each route are the following:
+\begin{itemize}
+\item[Step 1] The probability, $P_k$, for the next node to be selected is calculated by adding the pheromone(P), demand(D) and an visited status value (V), and dividing it by the total demand (TD), total pheromone (TP) and the total visited status value for all the connected edges to the node (TV):
+$$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{V}{TV}$$ 
+
+\item[Step 2] After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability value for each edge. 
+\item[Step 3] A value between 3 and 0 is then random selected, giving the edges with highest probability a larger range than the others, resulting in a larger probability for this edge to be selected. 
+\item[Step 4] After an node is selected, the pheromone value for this edge increases, and is given by:
+
+$$ \tau_{ij} = \sum_{k=1}^{m} \Delta \tau^k_{ij}$$
+
+where $ \Delta \tau^k_{ij} $ is the amount of pheromone laid on route (i,j) by the $k^{th}$ ant and is given by
+
+$$
+\Delta \tau^k_{ij} = \Bigg\{
+\begin{array}{l l}
+\underline{P_{e}} &  \quad \text{if route (i,j) be traversed by}\\
+f_k, &  \quad \text{the $k^{th}$ ant (at the current cycle) , }\\
+0 &  \quad \text{otherwise}
+\end{array}
+$$
+
+$p_e$ is a value determined in the parameter setting experiments, and $f_k$ is the travel time on the edge. 
+\end{itemize}
