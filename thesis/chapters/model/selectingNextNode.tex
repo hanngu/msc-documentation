@@ -1,5 +1,16 @@
 \section{Selecting Next Nodes}
-The next nodes is selected based on the demand value, the pheromone value and the visited status value for the edges. \emph{\color{red} A good route network will ensure that routes having the most traveling demands are satisfied with short paths and few vehicle transfers as stated in the problem statement.} The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected. It is only possible to select edges connected by travel time when this indicates whether it is a direct link between the two nodes, but the travel time value is not taken into account before the evaluation phase \emph{\color{red} because..}.  %TODO: give higher score if there is direct routes between node couples with high demand. 
+
+Selecting the next node an ant's route set is dependent on which type of ant it is. If the ant is ``crazy'', the next node is chosen at random from the possible nodes, without considering any parameters. By possible nodes we mean nodes that are connected to the current node and not yet visited in the current route.
+
+If the ant is a ``normal'' ant the next node is based on the connecting edges demand value, pheromone value, the current best ant's choice and the visited status value for the connecting nodes. 
+
+The next nodes is selected based on the demand value, the pheromone value and the visited status value for the edges.
+
+
+
+
+
+ \emph{\color{red} A good route network will ensure that routes having the most traveling demands are satisfied with short paths and few vehicle transfers as stated in the problem statement.} The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected. It is only possible to select edges connected by travel time when this indicates whether it is a direct link between the two nodes, but the travel time value is not taken into account before the evaluation phase \emph{\color{red} because..}.  %TODO: give higher score if there is direct routes between node couples with high demand. 
 The specific steps executed to select the next nodes of each route are the following:
 \begin{itemize}
 \item[Step 1] The probability, $P_k$, for the next node to be selected is calculated by adding the pheromone(P), demand(D) and an visited status value (V), and dividing it by the total demand (TD), total pheromone (TP) and the total visited status value for all the connected edges to the node (TV):
