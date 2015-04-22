@@ -8,5 +8,14 @@
  %\item Because changing lines is not only time consuming but also inconvenient for the passengers, many people want to find the one with the least changes necessary. This minimum change path can be found in exactly the same way as the shortest path; instead of assigning the real waiting time for each arc denoting a possible change, one assigns a high value to those arcs, such that a is much greater than the transportation time.
 %\end{itemize}
 
+Artifacts:
+\begin{enumerate}
+\item The ants have memory. It can remember whether or not it has visited a node in the creation of the route set.
+\item The ants have a notion of the global best ant. The ant will favor the edge chosen by the global best ant. (PSO)
+\item The ants can be ``crazy''. A crazy ant chooses next nodes at random given possible nodes, not considering the edge values. This is to compensate for ACO getting stuck at local optima.
+\item An inertia weight is used. The inertia weight is used to calculate the number of crazy ants. At the beginning the number of crazy ants is larger (exploring). The inertia weight is decreased by each iteration, and therefore the number of crazy ants is decreased (exploiting). PSO.  \emph{\color{red} Check if inertia weight is mentioned in the PSO-section. If not write about it and refer to http://www.softcomputing.net/nabic11_7.pdf}
+\item After the first run, some ants are initialized as ``uncommitted followers''. They follow the $n$ best ants from the previous iteration without doubt. (BCO)
+\end{enumerate}
+
 
 
