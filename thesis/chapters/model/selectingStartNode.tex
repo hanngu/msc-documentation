@@ -1,11 +1,3 @@
 \section{Selecting Start Node}
-The specific steps executed to select the start node of each route are the following:
-%Selecting the first node: 
-\begin{itemize}
-\item[Step 1] The demand value for each node is estimated, which is the sum of each line in the demand table \ref{table:MandlDemand} on page \pageref{table:MandlDemand}. 
-\item[Step 2] The nodes is sorted in descending order based on the demand value of each node.
-\item[Step 3] The first k nodes from the list is selected, which comprise the initial node set (INS). 
-\item[Step 4] Based on the demand value belonging to INS, a probability is assigned to each node, which reflects the probability of each node to be selected as the first node of the route. 
-\item[Step 5] A random node is selected based on the values of probabilities. (To prevent a route from having less than the minimum number of nodes, constraint \ref{itm:constraintRouteSize}, it is not possible to select a node with a connected node that only has one edge connected to it.)
-\end{itemize}
-%Start node for the next ants: Possible hot spots may be detected, and that this can be used as a start node for the next ants. 
+
+At the creation of each route in each ant's route set a start node is chosen. This start node is chosen at random to allow for a variation in the routes created. We experienced, however, that if the start node selected was connected to another node that only connected to one edge, the ant would often get stuck with only two nodes in the route set. Because we do not allow backtracking, a node connected to only one edge will always be a start or an end node in a route. To achieve better results by preventing routes containing only two nodes, we therefor said that nodes connected to a node with only one connecting edge could not be start nodes. Examples of such tabu nodes are node 2 and node 15 in Mandl's Transit Network (Figure \ref{fig:MandlNetwork} on page \pageref{fig:MandlNetwork}). They are respectively connected node 1 and node 9, which are again only connected to one edge. 
