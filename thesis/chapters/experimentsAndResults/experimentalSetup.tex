@@ -2,7 +2,7 @@
 
 The experimental setup should include all data - parameters etc, that would allow a person to repeat your experiments. 
  
-\subsection{Stage 1 - Parameter Settings}
+\subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
 Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times while the others are held constant. The ones selected is the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ results produced. $p_{v}$ and $p_{b}$ will be tested together \emph{\color{red}because ... }. The parameters that will be tested are the following:
@@ -19,9 +19,9 @@ Because there is no way of defining the most effective values of the parameters,
 \item The percentage of Crazy Ants, $CA$.
 \end{itemize}
 
-When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next parameter setting experiments. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, 
+When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next parameter settings. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $IW$, $FA$, $s$ and $i$.
 
-\subsection{Stage 2 - Performance Comparison}
+\subsection{Performance Comparison}
 
 \subsubsection{Algorithm Parameters}
 After running test stage 1, (finding the optimal algorithm parameters), these are the final parameters which will be used in stage 2.
@@ -42,5 +42,5 @@ After running test stage 1, (finding the optimal algorithm parameters), these ar
 \subsubsection{Route Set Sizes}
 4,6,7 and 8 routes per set.
 
-\subsection{Stage 3 -  Scalability Experiments}
+\subsection{Scalability Experiments}
 Time and Space Complexity
