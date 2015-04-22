@@ -5,7 +5,7 @@
 
 \item[Step 2] This ants are added to the ``best route set'' for evaluation. (Evaluation a route itself as no sense, since its path depends on the rest of the members of the same route set. As a result, all routes of a route set should be evaluated as a whole. This evaluation is based on the evaluation criteria stated in previous section.)
 
-\item [Step 3] The route sets are added to the Neo4J database, and evaluated by a fitness function, TOTFIT(r), where $r$ is the route set, inspired by \citep{kechagiopoulos14}.
+\item [Step 3]\label{itm:TOTFIT} The route sets are added to the Neo4J database, and evaluated by a fitness function, TOTFIT(r), where $r$ is the route set, inspired by \citep{kechagiopoulos14}.
 This fitness value is calculated as follows:
 $$ TOTFIT(r) = F_{1}(r) + F_{2}(r) + F_{3}(r), $$
 

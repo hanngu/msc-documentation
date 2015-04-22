@@ -1,0 +1,27 @@
+\section{Algorithm Assessments}
+
+\subsection{Constraints}
+Some real world constraints should be satisfied:
+\begin{enumerate}
+\item \label{itm:constraintCycles} No cycles (or backtracks) in the graph is allowed.
+\item \label{itm:constraintRouteSize} The route size is predefined. The algorithm / routes shall not exceed the minimum or maximum limit of nodes.
+\item \label{itm:constraintRouteSet} To simplify the problem, there are exactly r routes in the route set. (This is usually done by the service provided due to cost limitations.)
+\item \label{itm:criteriaConnectedGraph} It must be a connected graph. (A passenger should be able to travel between any two nodes in the route network.) 
+\end{enumerate}
+
+\subsection{Evaluation Criteria} 
+The aim of designing a route network is to optimize specific criteria that define its efficiency and quality. This evaluation is done during the execution of the algorithm and is based on the following evaluation criteria ($TOTFIT(r)$[\ref{itm:TOTFIT}]):
+\begin{enumerate}
+\item \label{itm:criteriaTotalTravelTime} Total travel time, referred to as $F_1(r)$.
+\item \label{itm:f2} Number of transfers, referred to as $F_2(r)$.
+\begin{itemize}
+\item Number of direct travelers
+\item Travelers with one transfer.
+\item Travelers with two transfers.
+\end{itemize}
+\item \label{itm:TODO} Number of unsatisfied customers, referred to as $F_3(r)$. 
+\end{enumerate}
+%(The nodes with high demand should have higher priority for direct routes.)
+
+
+
