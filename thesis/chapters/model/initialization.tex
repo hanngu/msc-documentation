@@ -1,21 +1,22 @@
 \section{Initialization}
+\label{sec:algoInitialization}
 \subsection{Parameters}
 Initial values for the algorithm parameters are set to a numeric value. The parameters to be set for this algorithm are:
 \begin{enumerate}
-\item The ant colony size, $s$. 
+\item The SuperSwarm colony size, $s$. 
 \item The numbers of iterations (which is the stop criteria), $i$.
 \item The evaporation constant, $p_e$, to determine how much pheromone to be removed at each edge at each iteration.
 \item The pheromone constant, $p_v$, to determine how much pheromone to be added to each edge as it is visited by ants.
 \item The pheromone constant, $p_b$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
 \item The percentage of complete route sets to be granted extra pheromone, $BR$.
 \item The percentage of ants to be followed, $FA$.
-\item The percentage of ants to be declared as ``crazy'', $CA$.
+\item The probability that $ant_i$ is declared ``crazy'', $CA$.
 \item Number of routes in a complete route set, $RS_{max}$. 
 \item The maximum number of nodes in a route, $R_{max}$.
 \item The minimum number of nodes in a route, $R_{min}$.
 \item Initial value for the inertia Weight, $IW$.
 \end{enumerate}
-The value of parameters 1-8 is determined by a conducted experiment described in sections \vref{subsec:parameterSettings_plan}, \vref{subsec:parameterSettings_setup}, and \vref{subsec:parameterSettings_results}. The value of parameters 9-11 will be the same as the corresponding parameters in \citet{mandl79}, \citet{kechagiopoulos14}, and \citet{nikolic14} for comparison reasons. The value of parameter 12 is sat to be 1.0 at the beginning of each run. The initialization of parameter 12 is constant, because it directly affects parameter 8 and because implementation of different inertia weight strategies is beyond the scope of our research.   
+The value of parameters 1-8 is determined by a conducted experiment described in sections \vref{subsec:parameterSettings_plan}, \vref{subsec:parameterSettings_setup}, and \vref{subsec:parameterSettings_results}. The value of parameters 9-11 will be the same as the corresponding parameters in \citet{mandl79}, \citet{kechagiopoulos14}, and \citet{nikolic14} for comparison reasons. The value of parameter 12 is sat to be 1.0 at the beginning of each run. The initialization of parameter 12 is constant because it directly affects parameter 8 and because implementation of different inertia weight strategies is beyond the scope of our research.   
 
 \subsection{Input Data}
 The input data used is described in \vref{sec:inputData}, and can summarized as follows:

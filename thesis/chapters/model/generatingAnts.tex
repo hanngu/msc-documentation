@@ -1,2 +1,11 @@
 \section{Generating SuperSwarm Colony}
-Ants
+After the initialization of the network, a SuperSwarm colony is generated. In the proposed algorithm a colony consists of three types of individuals:
+\begin{itemize}
+\item \textit{Normal Ants} - these ant chooses next nodes based on probability of each of the possible edges. This process is entirely explained in section \vref{sec:selectingNextNode}.
+\item \textit{Following Ants} - these ants follow one of the best ants, $ba_i$ from the previous iteration unconditionally by choosing exactly the same path as $ba_i$.
+\item \textit{Crazy Ants} - by a probability, $p$, a normal ant is declared ``crazy''. A crazy ant chooses next edge at random, given the possible edges.  
+\end{itemize}
+
+
+
+ The size of the colony is, as mentioned in \vref{sec:algoInitialization}, a predefined parameter selected after excessive testing to establish which value that results in the minimum average travel time and best total fit. 
