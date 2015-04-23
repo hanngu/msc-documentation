@@ -4,18 +4,18 @@ Selecting the next node an ant's route set is dependent on which type of ant it 
 
 If ant $a$ is a ``normal'' ant the next node is based on an evaluated edge value for each of the possible edges. Given constraint \vref{itm:constraintCycles} which specifies that no cycles or backtracks are allowed, possible edges are defined as edges that are connected to the current node and not yet visited in the given route. If no such edge exists, $a$ is stuck and the given tour is terminated. Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}. This constraint states that the number of routes in a route set should not exceed a given limit. 
 
-The edge value is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. The edge value is calculated as follows: 
+The edge value of edge $e$ is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. The edge value is calculated as follows: 
 \newline
 $$EdgeValue(e) = \frac{d_e}{\sum\limits^{n}_{i=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
 \newline
-Where $e$ is the edge, $d$ is the demand value and $p$ is the pheromone value, and $n$ is number of possible edges. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is 0. $\beta$ is a value sat to 1 if the edge is the choice of the best ant so far, or else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
+Where $d$ is the demand value and $p$ is the pheromone value, and $n$ is number of possible edges. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is 0. $\beta$ is a value sat to 1 if $e$ is the choice of the best ant so far, or else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
 
-The calculated edge value is used to calculate the probability of the connecting node to be chosen. The probability is calculated as follows:
+The edge value is used to calculate the probability of edge $e$ to be chosen, leading to the connecting node to be selected as next node: 
 \newline
 $$Probability(e) = \frac{ev_e}{\sum\limits^{n}_{i=1}ev_i}$$
 \newline
-Where $e$ is the edge, $ev$ is the edge value and n is the number of possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose; the edge with the random number in the range is chosen and the connecting node to that edge is chosen as next node. Further the pheromone value of the chosen edge is updated by this formula:
+Here $ev$ is the edge value and $n$ is the number of possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose; the edge with that holds the random number in the range is chosen and the connecting node of that edge is chosen as next node. Further the pheromone value of the chosen edge $ch$ is updated by this formula:
 \newline
-$$\Delta \tau_{e} = \frac{Q}{T_e}$$ 
+$$\Delta \tau_{ch} = \frac{Q}{T_{ch}}$$ 
 \newline
-Where $e$ is the edge, $Q$ is a predefined pheromone value and $T$ is the travel time of the edge. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, i.e. lower travel time in this case. 
+Where$Q$ is a predefined pheromone value and $T$ is the travel time of the edge. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, i.e. lower travel times in this case. 
