@@ -29,7 +29,7 @@ The data set is downloaded from \citet{mumford13}, which consist of text files:
     	\hline
         \end{tabular}
     \end{center}
-    \caption {MandlCoordinates.txt}
+    \caption {Coordinates for Mandl's transit network}
     \label{table:MandlCoords}
     This file includes 15 lines, with the (x,y) coordinates of the 15 nodes. These coordinates was not supplied in Mandl's literature, so these are copied from \citet{mumford13} and are approximate for the picture to be drawn.
 \end{table}
@@ -60,7 +60,7 @@ The data set is downloaded from \citet{mumford13}, which consist of text files:
      \hline
     \end{tabular}
 }
-    \caption {MandlTravelTimes.txt}
+    \caption {Travel times for Mandl's transit network}
     \label{table:MandlTravelTimes}
     The travel times matrix gives the travel times it takes in minutes between the nodes. This matrix is symmetrical, travel times between each node and itself are zero, and ``Inf'' indicates that there is no direct link between the nodes.
 \end{table}
@@ -91,7 +91,7 @@ The data set is downloaded from \citet{mumford13}, which consist of text files:
     \hline
     \end{tabular}
     }
- 	\caption {MandlDemand.txt}
+ 	\caption {Demand for Mandl's transit network}
  	\label{table:MandlDemand}
  	The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. (These is no demand either to or from node 15, but it there is demand to node 9, which is only connected to node 15). For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s.
 
