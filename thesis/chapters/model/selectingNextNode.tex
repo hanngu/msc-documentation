@@ -1,43 +1,21 @@
 \section{Selecting Next Nodes}
 
-Selecting the next node an ant's route set is dependent on which type of ant it is. If the ant is ``crazy'', the next node is chosen at random from the possible nodes, without considering any parameters. By possible nodes we mean nodes that are connected to the current node and not yet visited in the current route.
+Selecting the next node an ant's route set is dependent on which type of ant it is. If ant $a$ is ``crazy'', the next node is chosen at random from the possible nodes, without considering any parameters. By possible nodes we mean nodes that are connected to the current node and not yet visited in the current route.
 
-If the ant is a ``normal'' ant the next node is based on an evaluated edge value for each of the possible edges. This edge value is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. The edge value is calculated as follows: 
+If ant $a$ is a ``normal'' ant the next node is based on an evaluated edge value for each of the possible edges. By possible edges we mean edges that are connected to the current node and not yet visited in the given route. If no such edge exists, $a$ is stuck and the given tour is terminated and the route is added to the route set of $a$. 
+
+The edge value is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. The edge value is calculated as follows: 
 \newline
-$$EdgeValue_{e} = \frac{d_e}{d_{total}} + \frac{p_e}{p_{total}} + \alpha + \beta$$
+$$EdgeValue(e) = \frac{d_e}{\sum\limits^{n}_{i=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
 \newline
-Where $e$ is the edge, $d$ is the demand value and $p$ is the pheromone value. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is 0. $\beta$ is a value sat to 1 if the edge is the choice of the best ant so far, else it is 0. $d_{total}$ is the sum of the demand value of all possible edges, and $p_{total}$ is the sum of the pheromone value of all possible edges. The $\alpha$ variable is used to favor nodes not yet visited by the ant in the ant's current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
+Where $e$ is the edge, $d$ is the demand value and $p$ is the pheromone value, and $n$ is number of possible edges. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is 0. $\beta$ is a value sat to 1 if the edge is the choice of the best ant so far, or else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
 
 The calculated edge value is used to calculate the probability of the connecting node to be chosen. The probability is calculated as follows:
 \newline
-$$Probability_e = \frac{ev_e}{ev_{total}}$$
+$$Probability(e) = \frac{ev_e}{\sum\limits^{n}_{i=1}ev_i}$$
 \newline
-Where $e$ is the edge, $ev$ is the edge value and $ev_{total}$ is a summation of the edge value for all possible edges. 
-Each edge is given a range between 0 to 1 based on the calculated probability. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose; the edge with the random number in the range is chosen. 
-
-
- \emph{\color{red} A good route network will ensure that routes having the most traveling demands are satisfied with short paths and few vehicle transfers as stated in the problem statement.} The visited status value checks if the node is visited in an earlier route within the same route set. Its value is 0 if it is unvisited, else 1, giving the unvisited nodes a higher probability of being selected. It is only possible to select edges connected by travel time when this indicates whether it is a direct link between the two nodes, but the travel time value is not taken into account before the evaluation phase \emph{\color{red} because..}.  %TODO: give higher score if there is direct routes between node couples with high demand. 
-The specific steps executed to select the next nodes of each route are the following:
-\begin{itemize}
-\item[Step 1] The probability, $P_k$, for the next node to be selected is calculated by adding the pheromone(P), demand(D) and an visited status value (V), and dividing it by the total demand (TD), total pheromone (TP) and the total visited status value for all the connected edges to the node (TV):
-$$ P_{k} = \frac{D}{TD} + \frac{P}{TP} + \frac{V}{TV}$$ 
-
-\item[Step 2] After each edge is given a probability, these are added in a range starting from 3, decreasing with the probability value for each edge. 
-\item[Step 3] A value between 3 and 0 is then random selected, giving the edges with highest probability a larger range than the others, resulting in a larger probability for this edge to be selected. 
-\item[Step 4] After an node is selected, the pheromone value for this edge increases, and is given by:
-
-$$ \tau_{ij} = \sum_{k=1}^{m} \Delta \tau^k_{ij}$$
-
-where $ \Delta \tau^k_{ij} $ is the amount of pheromone laid on route (i,j) by the $k^{th}$ ant and is given by
-
-$$
-\Delta \tau^k_{ij} = \Bigg\{
-\begin{array}{l l}
-\underline{P_{e}} &  \quad \text{if route (i,j) be traversed by}\\
-f_k, &  \quad \text{the $k^{th}$ ant (at the current cycle) , }\\
-0 &  \quad \text{otherwise}
-\end{array}
-$$
-
-$p_e$ is a value determined in the parameter setting experiments, and $f_k$ is the travel time on the edge. 
-\end{itemize}
+Where $e$ is the edge, $ev$ is the edge value and n is the number of possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose; the edge with the random number in the range is chosen and the connecting node to that edge is chosen as next node. Further the pheromone value of the chosen edge is updated by this formula:
+\newline
+$$\Delta \tau_{e} = \frac{Q}{T_e}$$ 
+\newline
+Where $e$ is the edge, $Q$ is a predefined pheromone value and $T$ is the travel time of the edge. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, i.e. lower travel time in this case. 
