@@ -2,7 +2,7 @@
 
 Selecting the next node an ant's route set is dependent on which type of ant it is. If ant $a$ is ``crazy'', the next node is chosen at random from the possible nodes, without considering any parameters. By possible nodes we mean nodes that are connected to the current node and not yet visited in the current route.
 
-If ant $a$ is a ``normal'' ant the next node is based on an evaluated edge value for each of the possible edges. By possible edges we mean edges that are connected to the current node and not yet visited in the given route. If no such edge exists, $a$ is stuck and the given tour is terminated and the route is added to the route set of $a$. 
+If ant $a$ is a ``normal'' ant the next node is based on an evaluated edge value for each of the possible edges. Given constraint \vref{itm:constraintCycles} which specifies that no cycles or backtracks are allowed, possible edges are defined as edges that are connected to the current node and not yet visited in the given route. If no such edge exists, $a$ is stuck and the given tour is terminated. Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}. This constraint states that the number of routes in a route set should not exceed a given limit. 
 
 The edge value is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. The edge value is calculated as follows: 
 \newline

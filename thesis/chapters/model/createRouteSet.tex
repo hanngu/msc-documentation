@@ -1,10 +1,10 @@
 \section{Creating the Route Set}
 
-When next node is selected, ant $a$ adds the current node to the current route and declares the selected next node as current node. As constraint \vref{itm:constraintRouteSize} specifies, the route set is predefined, and a route should not exceed the maximum limit of nodes. 
+When a next node is selected, ant $a$ adds the current node to the current route and declares the selected next node as current node. As constraint \vref{itm:constraintRouteSize} specifies, the route set is predefined, and a route should not exceed the maximum limit of nodes. If the current route reached its maximum number, $R_{max}$, of nodes by adding the old current node, the current route is added to the route set and a new route is initialized. As constraint \vref{itm:constraintRouteSetSize} specifies, the route set size is also predefined. If the route set has reached its maximum limit, $RS_{max}$, no new route will be created. If the maximum number of routes is reached, $a$ is finished with its tour and ready for evaluation. 
 
 
 
-Furthermore, the current node is added to the current route of ant $a$ and the next node is defined as the new current node. If the current route reached its maximum number, $R_{max}$, of nodes by adding the new node, the route is added to the route set and a new route, with a new start node, is created. If the route set has reached its maximum limit, $RS_{max}$, $a$ is finished and ready for evaluation. 
+Furthermore, the current node is added to the current route of ant $a$ and the next node is defined as the new current node. If the current route reached its maximum number, $R_{max}$, of nodes by adding the new node, the route is added to the route set and a new route, with a new start node, is created. 
 
 
 The node selecting phase stops if it exceeds $k$ nodes, as constraint \ref{itm:constraintRouteSize} specifies; the route size is predefined, so the routes shall not exceed the maximum limit of nodes. It also stops if it is ``stuck'', because it is should not be possible to select the same node twice, according to constraint \ref{itm:constraintCycles}; no cycles (or backtracks) in the graph is allowed. The ant then begins the next route exploring. The route exploring stops when it exceeds the maximum number of routes, as specified in constraint \ref{itm:constraintRouteSet}; there are exactly $r$ routes in the route set. The routes are then added to the ant's route set for evaluation.
