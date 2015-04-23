@@ -24,6 +24,9 @@
 \usepackage{float}
 \usepackage{enumitem}
 \usepackage{tabto}
+\usepackage{enumitem} % For abbrecations
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
 \usepackage[figuresright]{rotating} %For rotating tables
 \setcitestyle{square}
 \newcommand{\pluseq}{\mathrel{+}=}
