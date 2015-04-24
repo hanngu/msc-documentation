@@ -7,9 +7,10 @@ Remember:
 \begin{itemize}
 \item $p_v$, $p_b$: giving these values a higher number, results in awarding the local best ants edges by giving them more pheromone, which we observed gave worse results, \emph{\color{red}because get stuck at local optima? blabla}
 \item with 100\% crazy ants, the ants did not manage to find a solution \emph{\color{red}because...}. 
-\item 0\% crazy ants gave worse results than both 5\% and 10\% CA, where we can conclude that some crazy ants is better than none. 
-\item Our start values - 10\% on $p_e$, BR, and CA, was actually the best values. We could have set these to bad values in the beginning, giving increasing results concerning $TOTFIT$ and $ATT$, but \emph{\color{red} we set the start values to be what we though was best, because???}
-\item ant colony size pm testing will be optimized for mandl network only.
+\item 0\% crazy ants gave worse results than both 5\% and 10\% CA, where we can conclude that some crazy ants is better than none. But, as we see in the results, more than 10\% CA gives worse results than 0\% CA, so we can conclude that it does not mean the more crazy ants, the better results regarding the final results. But some CA is good for the colony:)
+\item Our start values - 10\% on $p_e$, $BR$, $FA$, and $CA$, was actually the best values all along. We could have set these to have worse values in the beginning of the test experiment, and receiving increasing results concerning $TOTFIT$ and $ATT$, but \emph{\color{red} we set the start values to be what we though was best, because???, and with this conclude that our instinct regarding these values was the best.}
+\item 100\% and 50\% FA was better than having 0\% following ants; can we conclude that it is better to have following ants, than not have following ants ?
+\item Ant colony size ,$s$, parameter testing will be optimized for Mandl network only.
 \end{itemize}
 
 \subsection{Neo4j}
