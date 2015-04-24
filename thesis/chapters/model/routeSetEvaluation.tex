@@ -2,7 +2,8 @@
 \label{sec:algoEvaluation}
 After each ant in the SuperSwarm colony has created a complete route set, the ants are evaluated. The results of the evaluation determines which routes that are granted extra pheromone and which ants to be followed in the next iteration. In addition the best ant so far is updated, if the given iteration has produced an ant with a better total fit. In this evaluation, the route sets are evaluated as a whole, because the connectivity and the paths chosen are dependent of the entire route set. 
 
-\subsection{Removing ants that did not fulfill the constraints}
+\subsection{Removing Ants that did not Fulfill the Constraints}
+\label{sec:algoRemoval}
 The first step of evaluation is the removal of ants that have generated route sets which corresponds to a disconnected graph. This is because constraint \vref{itm:criteriaConnectedGraph} states that a passenger should be able to travel from every node to every other node within the route set. For an undirected graph $G$ to be classified as connected, there must be a path between every pair of nodes. 
 
 \subsection{Calculating Total Fit}
@@ -37,10 +38,22 @@ $F_3(r)$ is a score which reflects the percentage of unsatisfied passengers. By 
 $$F_3(r) = 100 - d_0(r) - d_1(r) - d_2(r)$$
 \newline
 where, as described above, $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers making a single transfer, and $d_2(r)$ is the percentage of passengers transferring twice, using route set $r$.The number $100$ represent 100\%. The theoretical best value of $F_3(r)$ is 0, meaning that no passenger is unsatisfied. 
-\begin{itemize}
-\item[Step 5] 50\% of the best ants are added to the final best ants set.
-\item[Step 6] The algorithm awards sets that satisfy node couples with high demand directly. Demand value to consideration.
-\item[Step 7] Reward the edges in these routes by giving them more pheromone, and is given by:
+
+$F_{1}(r)$, $F_{2}(r)$, and $F_{3}(r)$ are, as described above summed and the sum corresponds to the total fit of the route set $r$ of ant $a$. The lower the value of $TOTFIT(r)$, the better the route set $r$. 
+
+\section{Selecting Ants to be Followed}
+\label{sec:selctingAntsToBeFollowed}
+After the total fit of ant $a$ is calculated as described in Section \vref{sec:totfit}, the list of ants are sorted with respect to the total fit so that the ant with the best total fit is placed on position 0. The number of ants to be followed, $NAF$, is calculated as follows:
+\newline
+$$NAF = ants_{size} * FA$$
+\newline 
+where $ants_{size}$ is the number of ants that satisfied the constraints (described in Section \vref{sec:algoRemoval}) and $FA$ is the percentage of ants to be followed. As mentioned in \vref{sec:algoInitialization}, $FA$ is a parameter selected after excessive testing to establish which value that results in the minimum average travel time and best total fit. Because the list is now sorted with respect to total fit, the $n$ first ants in the list are now the $n$ best ants with respect to total fit. Therefor, the $NAF$ first ants in the list are chosen to get a follower in the next iteration.
+
+\section{Selecting Route Sets that are Granted More Pheromone}
+
+
+
+[Step 7] Reward the edges in these routes by giving them more pheromone, and is given by:
 
 $$ \tau_{ij} = \sum_{k=1}^{m} \Delta \tau^k_{ij}$$
 
@@ -56,9 +69,3 @@ f_k, &  \quad \text{the $k^{th}$ ant (at the current cycle) , }\\
 $$
 
 $p_b$ is a value determined in the parameter setting experiments, and $f_k$ is the travel time on the edge.
-
-\end{itemize}
-
-\section{Pheromone Evaporation}
-
-The pheromone on each edge decrease by $p\%$ after each iteration. 
