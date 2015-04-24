@@ -1,19 +1,19 @@
 \section{Evaluation}
 \label{sec:algoEvaluation}
-After each ant in the SuperSwarm colony has created a complete route set, the ants are evaluated. The results of the evaluation determines which routes that are granted extra pheromone and which ants to be followed in the next iteration. In addition the best ant so far is updated, if the given iteration has produced an ant with a better total fit. In this evaluation, the route sets are evaluated as a whole, because the connectivity and the paths chosen are dependent of the entire route set. The evaluation is conducted in x steps:
-\begin{itemize}
-\item[Step 1] Ants that have generated route sets which corresponds to a disconnected graph are removed from the set of ants to be evaluated. This is because constraint \vref{itm:criteriaConnectedGraph} states that a passenger should be able to travel from every node to every other node within the route set. For an undirected graph $G$ to be classified as connected, there must be a path between every pair of nodes. 
+After each ant in the SuperSwarm colony has created a complete route set, the ants are evaluated. The results of the evaluation determines which routes that are granted extra pheromone and which ants to be followed in the next iteration. In addition the best ant so far is updated, if the given iteration has produced an ant with a better total fit. In this evaluation, the route sets are evaluated as a whole, because the connectivity and the paths chosen are dependent of the entire route set. 
 
-\item[Step 2] 
+\subsection{Removing of nts that did not fulfill the constraints}
+The first step of evaluation is the removal of ants that have generated route sets which corresponds to a disconnected graph. This is because constraint \vref{itm:criteriaConnectedGraph} states that a passenger should be able to travel from every node to every other node within the route set. For an undirected graph $G$ to be classified as connected, there must be a path between every pair of nodes. 
 
-\item [Step 3]\label{itm:TOTFIT} The route sets are added to the Neo4J database, and evaluated by a fitness function, TOTFIT(r), where $r$ is the route set, inspired by \citep{kechagiopoulos14}.
-This fitness value is calculated as follows:
-$$ TOTFIT(r) = F_{1}(r) + F_{2}(r) + F_{3}(r), $$
-
-where $ F_{1}(r)$ is the score obtained by evaluating the route set by the total in-vehicle time, $ F_{2}(r)$ is the score obtained by evaluating the route set using evaluation criteria direct traveler, one transfer, two transfers, and $ F_{3}(r)$ is the score obtained by evaluating the route set using the criteria unsatisfied customers (more than two transfers). 
-%$ w_{1}, w_{2}$, and$ w_{3}$ are user specified weights for scores $ F_{1}(r), F_{2}(r),$ and $ F_{3}(r)$, respectively. 
-%To find w, we will calculate an average with ratio, and give weights from that, and theese weights sum is 1.  
-\end{itemize}
+\subsection{Calculating Total Fit}
+After the removal of ants that did not satisfy the constraint mentioned above, the Total Fit $TOTFIT(r)$ for the route sets of the remaining ants are calculated. The calculation of $TOTFIT(r)$ is inspired by \citep{kechagiopoulos14} and is described as the sum $F_{1}(r)$, $F_{2}(r)$ and $F_{3}(r)$: 
+\newline
+$$ TOTFIT(r) = F_{1}(r) + F_{2}(r) + F_{3}(r)$$
+\newline
+$F_{1}(r)$ is related to the total in-vehicle time for each passenger in the network. The demands described in Table \vref{tbl:mandlDemand} corresponds to how many passengers that travels between each node couple $[i,j]$ each day. $F_{1}(r)$ is the sum of the difference between the shortest path possible given the route set, $sp_r$, and the shortest path possible in the network, $sp_n$, for every passenger $p$:
+\newline
+$$F_{1}(r) = \sum\limits^{p}_{p=1}sp_r-sp_n$$
+\newline
 
 \subsection{Calculating $F_{1}(r)$}
 

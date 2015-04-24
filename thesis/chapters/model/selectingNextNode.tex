@@ -7,7 +7,7 @@ If ant $a$ is a ``normal'' ant the next node is based on an evaluated edge value
 
 The edge value of edge $e$ is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. The edge value is calculated as follows: 
 \newline
-$$EdgeValue(e) = \frac{d_e}{\sum\limits^{n}_{i=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
+$$EdgeValue(e) = \frac{d_e}{\sum\limits^{n}_{n=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
 \newline
 Where $d$ is the demand value and $p$ is the pheromone value, and $n$ is number of possible edges. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is 0. $\beta$ is a value sat to 1 if $e$ is the choice of the best ant so far, or else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
 
