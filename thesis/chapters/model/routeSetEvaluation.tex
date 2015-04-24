@@ -14,11 +14,11 @@ $F_{1}(r)$ is related to the total travel time for each passenger in the network
 \newline
 $$F_{1}(r) = \sum\limits^{p}_{p=1}sp_r-sp_n$$
 \newline
-Both $sp_r$ and $sp_n$ are calculated using the built-in Dijkstra algorithm in Neo4j. Dijkstra's algorithm \cite[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{Making a change that reduces constraints.} all edges leaving $u$. The running time of Dijkstra's algorithm is $O((V + E)lg V)$ and it is guaranteed to find the shortest path.\cite[p.~661]{cormen09}. In \citep{mandl79}, the author proposes two different methods for calculating the shortest path between to nodes in a transit network, given a specific route set. \texit{Method 1} chooses the path with the shortest traveling time, not considering transfer penalties. \texit{Method 2} chooses the path with shortest traveling time, including the transfer penalties. To achieve the most accurate and realistic results this method uses \textit{Method 2}. This gives us the following equation for calculating the travel time $TT$ between two nodes: 
+Both $sp_r$ and $sp_n$ are calculated using the built-in Dijkstra algorithm in Neo4j. Dijkstra's algorithm \cite[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{Making a change that reduces constraints.} all edges leaving $u$. The running time of Dijkstra's algorithm is $O((V + E)lg V)$ and it is guaranteed to find the shortest path\cite[p.~661]{cormen09}. In \citep{mandl79}, the author proposes two different methods for calculating the shortest path between to nodes in a transit network, given a specific route set. \textit{Method 1} chooses the path with the shortest traveling time, not considering transfer penalties. \textit{Method 2} chooses the path with shortest traveling time, including the transfer penalties. To achieve the most accurate and realistic results this method uses \textit{Method 2}. This gives us the following equation for calculating the travel time $TT$ between two nodes: 
 \newline
-$$TT = IVT + (\Gamma*NT)$$
+$$TT = IVT + (\gamma*NT)$$
 \newline
-Where $IVT$ is the in-vehicle time, $\Gamma$ is the transfer penalty and $NT$ is the number of transfers. For comparison reasons $\Gamma$ is set to 5 minutes. 
+Where $IVT$ is the in-vehicle travel time, $\gamma$ is the transfer penalty and $NT$ is the number of transfers. For comparison reasons $\gamma$ is set to 5 minutes. 
 
 \subsection{Calculating $F_{1}(r)$}
 
@@ -27,46 +27,6 @@ This score is obtained by evaluating how good the path between two nodes, $k_1$ 
 $$ DIF = TT(k_{1},k_{2}) - MTT(k_{1},k_{2})$$
 
 where $ TT(k_{1},k_{2})$ is the travel time using the edges included in the route set, and $ MTT(k_{1},k_{2})$ is the actual minimum travel time (shortest path) between the two nodes, regardless of the edges included in the route set. Calculating the minimum travel time (shortest path) is done by Neo4j, and the selection of which algorithm used is described under.
-
-\subsubsection{Calculating Minimum Travel Time}
-
-Neo4j includes two built-in algorithms for finding the shortest path, including A* search\citep{russel10}  and Dijkstra's algorithm\citep{cormen09}. 
-
-A* search\cite[p.93-94]{russel10} evaluates nodes by combining $g(n)$, the cost to reach the node, and $h(n)$, the cost to get from the node to the goal.
-
-$$ f(n) = g(n) + h(n).$$
-Since g(n) gives the path cost from the start node to node $n$, and $h(n)$ is the estimated cost of the cheapest path from $n$ to the goal, we have
-$$f(n) = \text{estimated cost of the cheapest solution through $n$} $$ 
-
-A* search is both optimal and complete, provided that $h(n)$ is admissible\footnote{It never overestimates the cost to reach the goal.} or consistent\footnote{When estimating the distance of a given state to a goal state, it is always at most equal to the estimated distance from any neighboring vertex plus the step cost of reaching that neighbor.}. 
-
-$$ \text{A* search running time: } O(E) = O(b^d)$$
-\textit{where $b$ is the branching factor (average number of successors per state)}
-
-Dijkstra's algorithm \cite[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{Making a change that reduces constraints.} all edges leaving $u$.
-
-Dijkstra's algorithm is guaranteed to find the shortest path\cite[p.~661]{cormen09}.
-$$\text{Dijkstra's algorithm running time: } O((V + E)lg V)$$
-
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}{|l|l|l|}
-      \hline
-      ~ & A* search & Dijkstra's algorithm\\
-      \hline
-        MIN & 291 & 569 \\
-        AVG & 328 & 589 \\
-        MAX & 301 & 610 \\
-      \hline
-        \end{tabular}
-    \end{center}
-    \caption {A* Search vs. Dijkstra's algorithm}
-    \label{table:astarvsdijkstras}
-\end{table}
-
-Table \ref{table:astarvsdijkstras} presents the running times for the different algorithms, in seconds, after 20 runs, with 100 iterations, 100 ants, 4 routes,  and max 8 nodes in each route. Observations shows that A* search is faster, \emph{\color{red} because blabla}, and this method is therefore chosen for finding the shortest path in $F_1(r)$.
- 
-% In other words, it reflects the average time spent by each passenger when traveling along a specific route set. Its value is small if the respective average traveling time is big and big is traveling time is small. In order to estimate F1(r), not only the average traveling time has to be calculated, but one also determine whether this value should be considered big or small. 
 
 \subsection{Calculating $F_{2}(r)$}
 %TODO: skrive om dette
