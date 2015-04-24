@@ -10,5 +10,8 @@ The size of the colony and the percentage of Following Ants are predefined param
 \newline
 $$CA = CA*IW$$
 \newline
-where IW is the is the inertia weight. %Begynn her! 
-The inertia weight decreases at each iteration, resulting in a smaller probability that $a$ is declared crazy. The type \textit{Following Ant} is inspired by the way BCO initialize some bees to be followers in the search for the best food source. The type \textit{Crazy Ant} is created in order to compensate for the original ACO algorithm weakness of sometimes getting stuck at a local optima. This combined with the inertia weight is inspired by the inertia weight of PSO. The implementation of the inertia weight results in more exploring in the early iterations, and more exploiting in the later. 
+where IW is the is the inertia weight. The inertia weight decreases at each iteration, resulting in a smaller probability that $a$ is declared crazy. The rate in which the inertia weight decreases is dependent on the total of number of iterations, $TI$, the algorithm is runs:
+\newline
+$$IW = IW - \frac{IW}{TI}$$
+\newline
+The type \textit{Following Ant} is inspired by the way BCO initialize some bees to be followers in the search for the best food source. The type \textit{Crazy Ant} is created in order to compensate for the original ACO algorithm weakness of sometimes getting stuck at a local optima. This combined with the inertia weight is inspired by the inertia weight of PSO. The implementation of the inertia weight results in more exploring in the early iterations, and more exploiting in the later. 
