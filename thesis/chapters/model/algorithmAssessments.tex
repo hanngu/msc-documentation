@@ -10,17 +10,18 @@ Some real world constraints should be satisfied:
 \end{enumerate}
 
 \subsection{Evaluation Criteria} 
-The aim of designing a route network is to optimize specific criteria that define its efficiency and quality. This evaluation is done during the execution of the algorithm and is based on the following evaluation criteria ($TOTFIT(r)$ [\ref{itm:TOTFIT}]):
+The aim of designing a route network is to optimize specific criteria that define its efficiency and quality. This evaluation is done during the execution of the algorithm and is based on the following evaluation criteria:
 \begin{enumerate}
 \item \label{itm:criteriaTotalTravelTime} Total travel time, referred to as $F_1(r)$.
 \item \label{itm:f2} Number of transfers, referred to as $F_2(r)$.
 \begin{itemize}
-\item Number of direct travelers
-\item Travelers with one transfer.
-\item Travelers with two transfers.
+\item Number of direct travelers, $d_0$
+\item Travelers with one transfer, $d_1$
+\item Travelers with two transfers, $d_2$
 \end{itemize}
-\item \label{itm:TODO} Number of unsatisfied customers, referred to as $F_3(r)$. 
+\item Number of unsatisfied customers, referred to as $F_3(r)$. 
 \end{enumerate}
+These evaluation criteria are used to calculate the total fit of route set $r$. This process is explained in Section \vref{sec:totfit}.
 %(The nodes with high demand should have higher priority for direct routes.)
 
 
