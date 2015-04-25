@@ -15,8 +15,8 @@ The edge value is used to calculate the probability of edge $e$ to be chosen, le
 \newline
 $$Probability(e) = \frac{ev_e}{\sum\limits^{n}_{i=1}ev_i}$$
 \newline
-Here $ev$ is the edge value and $n$ is the number of possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose; the edge with that holds the random number in the range is chosen and the connecting node of that edge is chosen as next node. Further the pheromone value of the chosen edge $ch$ is updated by this formula:
+Here $ev$ is the edge value and $n$ is the number of possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose; the edge with that holds the random number in the range is chosen and the connecting node of that edge is chosen as next node. Further the pheromone value of the chosen edge $e_p$ is updated by this formula:
 \newline
-$$\Delta \tau_{ch} = \frac{Q}{T_{ch}}$$ 
+$$e_p \pluseq \frac{p_v}{T_e}$$ 
 \newline
-Where$Q$ is a predefined pheromone value and $T$ is the travel time of the edge. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, i.e. lower travel times in this case. 
+Where $p_v$ is a predefined pheromone constant selected after selected after excessive testing, as described in Section \vref{sec:algoInitialization}, and $T$ is the travel time of the edge. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, i.e. lower travel times in this case. 
