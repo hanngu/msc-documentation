@@ -5,10 +5,11 @@ When evaluating your results, avoid drawing grand conclusions, beyond that which
 \subsection{Parameter Settings}
 Remember:
 \begin{itemize}
+\item As mentioned in the experimental setup section, some of the results can have been to some extent, random, because the tests only ran 10 times, and not 100, which would have been the optimal amount. But because of a limited amount of time on this thesis, and because the parameter setting experiments not are the main experiment for our research, \emph{\color{red} lalalala}. 
 \item $p_v$, $p_b$: giving these values a higher number, results in awarding the local best ants edges by giving them more pheromone, which we observed gave worse results, \emph{\color{red}because get stuck at local optima? blabla}
 \item with 100\% crazy ants, the ants did not manage to find a solution \emph{\color{red}because...}. 
 \item 0\% crazy ants gave worse results than both 5\% and 10\% CA, where we can conclude that some crazy ants is better than none. But, as we see in the results, more than 10\% CA gives worse results than 0\% CA, so we can conclude that it does not mean the more crazy ants, the better results regarding the final results. But some CA is good for the colony:)
-\item Our start values - 10\% on $p_e$, $BR$, $FA$, and $CA$, was actually the best values all along. We could have set these to have worse values in the beginning of the test experiment, and receiving increasing results concerning $TOTFIT$ and $ATT$, but \emph{\color{red} we set the start values to be what we though was best, because???, and with this conclude that our instinct regarding these values was the best.}
+\item Our start values - 10\% on $p_e$, $BR$, $FA$, and $CA$, was actually the best values all along. We could have set these to have worse values in the beginning of the test experiment, and receiving increasing results concerning $TOTFIT$ and $ATT$, but \emph{\color{red} we set the start values to be what we though was best, because???, and with this conclude that our instinct regarding these values was the best.} (Vi har ikke kjørt testene på nytt med se samme verdiene, bare hentet verdien fra den første som gav så bra resultater.. Selvom det kanskje var litt tilfeldig at den gav så bra resultater, viser det jo bare at med de verdiene kan den gi såpass bra resultater, det er derfor vi ikke har testet de på nytt.. ehe) - Og her må vi begrunne HVORFOR vi mener 10\% er de beste resultene, så det er også grunnen til at vi ikke endret de, og gikk for de verdiene.
 \item 100\% and 50\% FA was better than having 0\% following ants; can we conclude that it is better to have following ants, than not have following ants ?
 \item Ant colony size ,$s$, parameter testing will be optimized for Mandl network only.
 \end{itemize}
@@ -16,3 +17,9 @@ Remember:
 \subsection{Neo4j}
 
 Whether Neo4J is suited. Advantages / disadvantages of using a graph database in our implementation (research question 3a)
+
+Remember:
+\begin{itemize}
+\item Advantages: built-in-method for finding shortest path.
+\item We used A* first, which we also tested and showed that it was a lot more faster than Dijkstra's. But the implementation of A* could not find all paths, only one, so we had to use Dijkstra's for the evaluation.. Disadvantage of using the Neo4j package? Maybe easier to have made our own implementation?
+\end{itemize}
