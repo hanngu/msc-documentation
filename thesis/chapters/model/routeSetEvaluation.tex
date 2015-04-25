@@ -54,25 +54,8 @@ To boost the performance of our algorithm, we want to grant the edges in the $m$
 \newline
 $$NBRS = ants_{size} * BR$$
 \newline
-Because the list of ants is now sorted, as described in Section \vref{sec:selctingAntsToBeFollowed}, the $NBRS$ first ants are also the $NBRS$ best ants. The reader remembers from Section \vref{sec:algoCreatingRouteSet} that every ant contains exactly one route set. Because the ants are evaluated based on its route sets, the route sets of the $NBRS$ best ants are therefor the $NBRS$ best route sets. Further, the edges of the $NBRS$ best route sets are selected to be granted extra pheromone. The formula for updating pheromone value of edge $e$, $e_p$ is as follows:
+Because the list of ants is now sorted, as described in Section \vref{sec:selctingAntsToBeFollowed}, the $NBRS$ first ants are also the $NBRS$ best ants. The reader remembers from Section \vref{sec:algoCreatingRouteSet} that every ant contains exactly one route set. Because the ants are evaluated based on its route sets, the route sets of the $NBRS$ best ants are therefor the $NBRS$ best route sets. Further, the edges of the $NBRS$ best route sets are selected and granted extra pheromone. The formula for updating pheromone value of edge $e$, $e_p$ is as follows:
 \newline
-$$e_p \pluseq \frac{p_b}{T_e}$$ 
+$$e_p \pluseq \tau*(\frac{p_b}{T_e})$$ 
 \newline
-where $T_e$ is the travel time of edge $e$. As described in Section \vref{sec:selectingNextNode}
-
-[Step 7] Reward the edges in these routes by giving them more pheromone, and is given by:
-
-$$ \tau_{ij} = \sum_{k=1}^{m} \Delta \tau^k_{ij}$$
-
-where $ \Delta \tau^k_{ij} $ is the amount of pheromone laid on route (i,j) by the $k^{th}$ ant and is given by
-
-$$
-\Delta \tau^k_{ij} = \Bigg\{
-\begin{array}{l l}
-\underline{P_{b}} &  \quad \text{if route (i,j) be traversed by}\\
-f_k, &  \quad \text{the $k^{th}$ ant (at the current cycle) , }\\
-0 &  \quad \text{otherwise}
-\end{array}
-$$
-
-$p_b$ is a value determined in the parameter setting experiments, and $f_k$ is the travel time on the edge.
+where $T_e$ is the travel time of edge $e$, and $\tau$ is the number of route sets the edge appeared in. As described in Section \vref{sec:selectingNextNode}, the pheromone value is divided on the travel time to benefit edges with smaller travel time. 
