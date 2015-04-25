@@ -7,10 +7,16 @@ To measure the efficiency and the quality of our algorithm, the experimental res
 %These measures were adopted from \citet{kechagiopoulos14}.
 
 \begin{itemize}
-\item $d_0 (\%)$ - the percentage of demand satisfied without any transfers, \emph{\color{red}and is calculated as followed:}
-\item $d_1 (\%)$ - percentage of total transfer demands where the number of transfers are 1, \emph{\color{red}and is calculated as followed:}
-\item $d_2 (\%)$ - percentage of total transfer demands where the number of transfers are 2, \emph{\color{red}and is calculated as followed:}
-\item $d_{unsat}$ (\%) - the percentage of demand unsatisfied, which should be equal to zero, \emph{\color{red}and is calculated as followed:}
-\item $ATT$  - the average travel times in minutes per transit user (mpu). This incorporates transfer waiting times, \emph{\color{red}and is calculated as followed:}
+\item $d_0 (\%)$ - the percentage of demand satisfied without any transfers. $d_0$ is calculated as follows:
+$$ d_0 = \frac{DirectTravelers}{TotalTravelers}*100$$
+\item $d_1 (\%)$ - percentage of total transfer demands where the number of transfers are 1. $d_1$ is calculated as follows:
+$$ d_1 = \frac{OneTransferTravelers}{TotalTravelers}*100$$
+\item $d_2 (\%)$ - percentage of total transfer demands where the number of transfers are 2. $d_2$ is calculated as follows:
+$$ d_2 = \frac{TwoTransfersTravelers}{TotalTravelers}*100$$
+\item $d_{unsat}$ (\%) - the percentage of unsatisfied travelers. An unsatisfied traveler is described as a traveler with 3 or more transfers and $d_{unsat}$ is calculated as follows:
+$$ d_{unsat} = 100 - d_0 - d_1 - d_2$$
+\item $ATT$  - the average travel time in minutes per transit user (mpu). The travel times incorporates a transfer penalty, which is sat to be 5 minutes per transfer for comparison reasons. $ATT$ is calculated as follows:
+$$ATT = \frac{\sum\limits^{p}_{p=1}TT}{p_{size}}$$
+where $p_{size}$ is the number of passengers and $TT$ is the travel time used by passenger $p$. 
 \end{itemize}
 
