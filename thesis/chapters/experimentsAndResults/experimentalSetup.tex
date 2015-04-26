@@ -5,7 +5,7 @@ The experimental setup should include all data - parameters etc, that would allo
 \subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times. The most optimal would have been to run the algorithm 100 times. It takes approximately 20 minutes to run \textit{one} test case 10 times on the machine we have been assigned. Because of a limited amount of time on our thesis, we do not have the available time to test the each one of the instances 100 times. The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ values produced. If the parameter values...\emph{\color{red} her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  The parameters that will be tested are the following:
+Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times. The most optimal would have been to run the algorithm 100 times. It takes approximately 20 minutes to run \textit{one} test case 10 times on the machine we have been assigned. Because of a limited amount of time on our thesis, we do not have the available time to test the each one of the instances 100 times. The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ values produced. If the parameter values...\emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  The parameters that will be tested are the following:
 
 \begin{itemize}
 \item The Ant colony size, $s$.
@@ -15,11 +15,11 @@ Because there is no way of defining the most effective values of the parameters,
 \item The pheromone constant, $p_{b}$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
 \item The percentage of complete route sets to be granted extra pheromone, the best route sets, $BR$.
 \item The percentage of ants to be followed, $FA$.
-\item The percentage of Crazy Ants, $CA$. The Inertia Weight start value, $IW$, is set to 1, and decreases by \emph{\color{red}xx} each iteration, resulting in less $CA$'s iteratively.
+\item The percentage of Crazy Ants, $CA$. The Inertia Weight start value, $IW$, is set to 1%, and decreases by %\emph{\color{red}xx} each iteration, resulting in less $CA$'s iteratively.
 \end{itemize}
 
-When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the rest parameter settings. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $CA$, $FA$, $s$ and $i$. \emph{\color{red} Reasons for this order: ... }
-$p_{v}$ and $p_{b}$ will be tested together \emph{\color{red}because ... }.
+When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the rest parameter settings. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $CA$, $FA$, $s$ and $i$. \emph{\color{blue} TODO: Reasons for this order: ... }
+$p_{v}$ and $p_{b}$ will be tested together \emph{\color{blue} TODO: because ... }.
 $CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%, to test whether the implementation of features from PSO and BSO are advantageous.
 
 \begin{table}[H]
@@ -31,15 +31,15 @@ $CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%, to t
     50 & 50 & 10\% & 0.5 & 0.5 & 10\% & 10\%  & 10\%  \\
 	\hline
     \end{tabular}
-    \caption {Start values for the parameters settings experiment} \emph{\color{red} Reasons for these values:}
+    \caption {Start values for the parameters settings experiment} \emph{\color{blue} TODO: Reasons for these values:}
     \label{table:parameter_startvalues}
 	\end{table}
 
 \subsection{Performance Comparison}
 
-To demonstrate reliability, we will carry out \emph{\color{red} XX } replicate runs per experiment, recording the average (AVG), best (MAX) and worst (MIN) ant.  
+To demonstrate reliability, we will carry out \emph{\color{blue} TODO: XX } replicate runs per experiment, recording the average (AVG), best (MAX) and worst (MIN) ant.  
 
-\emph{\color{red} Because of reasons }we believe that ATT and $d_0$ is the most important parameters for determining best and worst ants, therefore, the selection of the MAX and MIN ant will be selected based on these parameters. 
+\emph{\color{blue} TODO: Because of reasons }we believe that ATT and $d_0$ is the most important parameters for determining best and worst ants, therefore, the selection of the MAX and MIN ant will be selected based on these parameters. 
 
 \subsubsection{Selecting MAX ant}
 \begin{algorithm}[H]
