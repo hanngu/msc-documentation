@@ -28,28 +28,7 @@
     ~ & 50 & 50 & 10\% & 0.01 & 0.1 & \textbf{50\%} & 10\% & 10\% & 11.0 & 11.3 & 11.6 & -256.0 & -247.8 & -35.0 \\
     ~ & 50 & 50 & 10\% & 0.01 & 0.1 & \textbf{90\%} & 10\% & 10\% & 11.1 & 11.4 & 11.7 & -257.0 & -248.6 & -240.0 \\
     \hline
-    \end{tabular}
-    \caption {Parameter settings experiment part 1}
-    \tiny
-    \begin{itemize}[noitemsep]
-    \item[$A^b$:] best $ATT$ value
-    \item[$A^a$:] average $ATT$ value
-    \item[$A^w$:] worst $ATT$ value
-    \item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
-    \item[$T^a$:] average $TOTFIT$ value
-    \item[$T^w$:] worst $TOTFIT$ value
-    \item[$^*$:] No ants satisfied the initial demands, \emph{\color{red} initial demands: }
-    \end{itemize}
-    \label{table:pm1}
-\end{sidewaystable}
-
-\begin{sidewaystable}
-    \centering
-    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l||c|c|c|c|c|c|}
-    \hline
-    ~ & $s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $FA$ & $CA$ & $A^b$ & $A^a$ & $A^w$ & $T^b$ & $T^a$ & $T^w$\\
-    \hline
-    4 & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & 10\% & \textbf{0\%} & 10.9 & 11.3 & 11.6 & -257.0 & -249.3 & -236.0 \\
+       4 & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & 10\% & \textbf{0\%} & 10.9 & 11.3 & 11.6 & -257.0 & -249.3 & -236.0 \\
     ~ & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & 10\% & \textbf{1\%} & 10.8 & 11.3 & 11.6 & -258.0 & -249.1 & -241.0 \\
     ~ & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & 10\% & \textbf{5\%} &  10.9 & 11.2 & 11.7 & -260.0 & -251.0 & -234.0 \\
     %~ & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & 10\% & \textbf{7\%} & 10.9 & 11.3 & 11.7 & -256.0 & -247.2 & -239.0 \\
@@ -62,6 +41,28 @@
     %~ & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & 10\% & \textbf{90\%} & 11.1 & 11.5 & 11.8 & -252.0 & -241.8 & -235.0 \\
     ~ & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & 10\% & \textbf{100\%$^*$} & - & - & - & - & - & - \\
     \hline
+    \end{tabular}
+    \caption {Steps with the corresponding results from the parameter settings experiment (part 1)}
+    \tiny
+    \begin{itemize}[noitemsep]
+    \item[$A^b$:] best $ATT$ value
+    \item[$A^a$:] average $ATT$ value
+    \item[$A^w$:] worst $ATT$ value
+    \item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    \item[$T^a$:] average $TOTFIT$ value
+    \item[$T^w$:] worst $TOTFIT$ value
+    \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
+    \end{itemize}
+    \label{table:pm1}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l||c|c|c|c|c|c|}
+    \hline
+    ~ & $s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $FA$ & $CA$ & $A^b$ & $A^a$ & $A^w$ & $T^b$ & $T^a$ & $T^w$\\
+    \hline
+ 
     5 & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & \textbf{0\%} & 10\% & 10.9 & 11.3 & 11.8 & -257.0 & -248.5 & -240.0 \\
     %~ & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & \textbf{1\%} & 10\% & ~ & ~ & ~ & ~ & ~ & ~ \\
     %~ & 50 & 50 & 10\% & 0.01 & 0.1 & 10\% & \textbf{5\%} & 10\% & 11.2 & 11.4 & 11.6 & -255.0 & -245.9 & -236.0 \\
@@ -88,11 +89,23 @@
     ~ & 50 & \textbf{25} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.8 & 11.5 & 12.4 & -259.0 & -243.1 & -224.0  \\
     ~ & 50 & \textbf{50} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.7 & 11.2 & 11.9 & -259.0 & -252.4 & -245.0 \\
     ~ & 50 & \textbf{75} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 11.1 & 11.4 & 11.8 & -257.0 & -257.4 & -238.0  \\
-    ~ & 50 & \textbf{100} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & ~ & ~ & ~ & ~ & ~ & ~  \\
-    ~ & 50 & \textbf{200} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.9 & 11.2 & 11.4 & -262.0 & 253.7 & 247.0  \\
+    ~ & 50 & \textbf{100} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.8 & 11.2 & 11.6 & -262.0 & -253.3 & -246.0  \\
+    ~ & 50 & \textbf{125} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% &  & ~ & ~ & ~ & ~ & ~  \\
+    ~ & 50 & \textbf{150} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.9 & 11.2 & 11.6 & -265.0 & -254.9 & -246.0  \\
+    ~ & 50 & \textbf{200} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.9 & 11.2 & 11.4 & -262.0 & -253.7 & -247.0  \\
     \hline
     \end{tabular}
-    \caption {Parameter settings experiment part 2}
+    \caption {Steps with the corresponding results from the parameter settings experiment (part 2)}
+    \tiny
+    \begin{itemize}[noitemsep]
+    \item[$A^b$:] best $ATT$ value
+    \item[$A^a$:] average $ATT$ value
+    \item[$A^w$:] worst $ATT$ value
+    \item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    \item[$T^a$:] average $TOTFIT$ value
+    \item[$T^w$:] worst $TOTFIT$ value
+    \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
+    \end{itemize}
     \label{table:pm2}
 \end{sidewaystable}
 
@@ -162,9 +175,10 @@
     ~ & 50 & \textbf{25} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.8 & 11.5 & 12.4 & -259.0 & -243.1 & -224.0  \\
     ~ & 50 & \textbf{50} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.7 & 11.2 & 11.9 & -259.0 & -252.4 & -245.0 \\
     ~ & 50 & \textbf{75} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 11.1 & 11.4 & 11.8 & -257.0 & -257.4 & -238.0  \\
-    ~ & 50 & \textbf{100} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & ~ & ~ & ~ & ~ & ~ & ~  \\
-    ~ & 50 & \textbf{200} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.9 & 11.2 & 11.4 & -262.0 & 253.7 & 247.0  \\
-
+    ~ & 50 & \textbf{100} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.8 & 11.2 & 11.6 & -262.0 & -253.3 & -246.0  \\
+    ~ & 50 & \textbf{125} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% &  & ~ & ~ & ~ & ~ & ~  \\
+    ~ & 50 & \textbf{150} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.9 & 11.2 & 11.6 & -265.0 & -254.9 & -246.0  \\
+    ~ & 50 & \textbf{200} & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\% & 10.9 & 11.2 & 11.4 & -262.0 & -253.7 & -247.0  \\
     \hline
     \end{tabular}
     \caption {Steps with the corresponding results from the parameter settings experiment} 
@@ -175,7 +189,7 @@
     \item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
     \item[$T^a$:] average $TOTFIT$ value
     \item[$T^w$:] worst $TOTFIT$ value
-    \item[$^*$:] No ants satisfied the initial demands, \emph{\color{red} initial demands: }
+    \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
     %\item[$^i$:] Testing values that gave next best results
     \end{itemize}
     \label{table:parameterSettings}

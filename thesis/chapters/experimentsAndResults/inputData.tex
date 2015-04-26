@@ -1,9 +1,9 @@
 \section{Input Data}
 \label{sec:inputData}
 
-We have designed and implemented a method to produce a realistic transit network based on the data from Mandl \citep{mandl79}. The data includes a small and dense network of 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge. The total demand is 15,570 trips per day, which is a relatively high demand for a small network. The travel time between the to farthest nodes in the network is 22 minutes along the shortest path. 
+We have, as mentioned, designed and implemented a method to produce a realistic transit network based on the data from Mandl \citep{mandl79}. The data includes a small and dense network of 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge. The total demand is 15,570 trips per day, which is a relatively high demand for a small network. The travel time between the to farthest nodes in the network is 22 minutes along the shortest path. 
 
-The data set is downloaded from \citet{mumford13}, which consist of text files:
+The data set is downloaded from \citet{mumford13}, and consist of three text files:
 
 \begin{table}[H]
     \begin{center}
@@ -94,7 +94,7 @@ The data set is downloaded from \citet{mumford13}, which consist of text files:
     }
  	\caption {Demand for Mandl's transit network}
  	\label{table:MandlDemand}
- 	The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. (These is no demand either to or from node 15, but it there is demand to node 9, which is only connected to node 15). For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s.
+ 	The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. There is no demand either to or from node 15, but it there is demand to node 9, which is only connected to node 15. For coding reasons, we changed the numbers in the main diagonal (from to left corner to bottom right corner) from all zero to all ’a’s.
 
 \end{table}
 
