@@ -1,6 +1,6 @@
 \section{Pheromone Evaporation}
 
-After each iteration of the algorithm, a percentage of the pheromones, $E$, on each edge in the network is removed. This is done to simulate how pheromones on different paths evaporate in nature. In the early iterations the ants acts more randomly, and the edges chosen is not always the best. Among others, evaporation ensures that the pheromone value of edges used in early iterations, but not in the latter, decreases. The formula for updating the pheromone value $e_p$ on edge $E$ according to evaporation is as follows: 
+After each iteration of the algorithm, a percentage of the pheromones, $E$, on each edge in the network is removed. This is done to simulate how pheromones on different paths evaporate in nature. In the early iterations the ants acts more randomly, and the edges chosen is not always the best. Among others, evaporation ensures that the pheromone value of edges used in early iterations, but not in the latter, decreases. The formula for updating the pheromone value $e_p$ on edge $e$ according to evaporation is as follows: 
 \newline
 $$e_p \minuseq e_p*E$$
 \newline
