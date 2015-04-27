@@ -3,15 +3,17 @@
 
 In the first stage a topic is refined to a task and a view of how to accomplish the task; in the second, the view is refined to a specific method; in the third, a program is developed to implement the method; in the fourth, experiments are designed to test the program; in the fifth, the experiments are run\citep{cohen88}
 
-\subsection{Refining the research topic to a task, and identifying a view.}
+\subsection{Stage 1 - Refining the research topic to a task, and identifying a view.}
 Task: what we want a computer to do, view: a rough idea how to do it. Can you justify the research task, and is your view how to solve the task viable? 
 
 \subsubsection{Is the task worthy of attention? Why?}
+\emph{\color{orange} Motivation}
 Why is is interesting? AtB, pollution ++ 
 
 \subsubsection{How is your reformulation an improvement?}
-Has it been studied before. Yes, the conducted SLR helped us find these results.
-Why do you expect this new perspective to be an improvement? (Cannot afford to spend months implementing a system unless were pretty sure something interesting will happen.)
+
+Has it been studied before. Yes, the conducted SLR helped us find these results.\emph{\color{orange} Structured Literature Review}
+Why do you expect this new perspective to be an improvement? (Cannot afford to spend months implementing a system unless were pretty sure something interesting will happen.)\emph{\color{orange} Problem Statement}
 \begin{itemize}
 \item Trondheim has not been computationally optimized.
 \item ACO with additional features. ACO limitations.
@@ -19,12 +21,55 @@ Why do you expect this new perspective to be an improvement? (Cannot afford to s
 \end{itemize}
 
 \subsubsection{Is the research representative of a class of tasks?}
+\emph{\color{orange} Problem Statement, Evaluation}
 Developing a general solution.
 
 \subsubsection{Have any aspects been abstracted away?}
+\emph{\color{orange} Problem Statement}
 Accurate estimates of travel demand is an important factor for the algorithm, AtB does not possess accurate data about the travel demand, and detailed investigations into measuring and predicting travel demand is an complex research problem, and beyond the scope of this thesis. 
 
-\subsubsection{}
+\subsubsection{When have you successfully demonstrated a solution?}
+\emph{\color{orange} Problem Statement, Experiments and Results, Evaluation}
+Mandl's benchmark problem, performance criteria.
+
+\subsection{Stage 2 - View refined to a method for solving the task}
+
+\subsubsection{How is the method an improvement?}
+\emph{\color{orange} Related Work, Problem Statement}
+ACO limitations: ACO with additional features from PSO and BSO. 
+\emph{\color{blue} Mer spørsmål her.}
+
+\subsubsection{Is it a recognized metric for evaluating the performance?}
+\emph{\color{orange} Problem Statement, Experiments and Results}
+Mandl's benchmark problem, performance criteria.
+
+\subsubsection{Does it rely on other methods?}
+\emph{\color{orange} Model?}
+Input data from Mumford and Fan. Dijkstras algorithm.
+
+\subsubsection{Underlying assumptions}
+\emph{\color{orange} Problem Statement, Model, Discussion?}
+ACO limitations. The type \textit{Following Ant} is inspired by the way BCO initialize some bees to be followers in the search for the best food source. The type \textit{Crazy Ant} is created in order to compensate for the original ACO algorithm weakness of sometimes getting stuck at a local optima. In the early iterations of the algorithm, the particles tends to explore more, and becoming more organized and coordinated in the late iterations.
+
+\subsubsection{What is the scope of the method?}
+\emph{\color{orange} Evaluation}
+How extendible is it? - Scalability experiments
+Does it address exactly the task?
+Could it be applied to other problems? Trondheim's bus network?
+Does it transfer to more complicated problems?
+
+\subsubsection{When it cannot provide a good solution, why?}
+\emph{\color{orange} Evaluation and Discussion}
+
+\subsubsection{How well is the method understood?}
+\begin{itemize}
+\item Why does it work? \emph{\color{orange} Evaluation, Discussion}
+\item Under what circumstances wont it work? \emph{\color{orange} Evaluation, Discussion}
+\item Have the design decision been justified? \emph{\color{orange} Model}
+\end{itemize}
+
+\subsubsection{What is the relationship between the problem and the method?}
+
 
 
 
