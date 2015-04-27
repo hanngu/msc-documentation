@@ -5,7 +5,7 @@
 \subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times. The most optimal would have been to run the algorithm 100 times. It takes approximately 20 minutes to run \textit{one} test case 10 times on the machine we have been assigned. Because of a limited amount of time on our thesis, we do not have the available time to test the each one of the instances 100 times. The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ values produced. \emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  The parameters that will be tested are the following:
+Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times.  The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ values produced. \emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  The parameters that will be tested are the following:
 
 \begin{itemize}
 \item The Ant colony size, $s$.
@@ -20,7 +20,7 @@ Because there is no way of defining the most effective values of the parameters,
 
 When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next tests. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $CA$, $FA$, $s$ and $i$. \emph{\color{blue} TODO: Reasons for this order: ... }
 $p_{v}$ and $p_{b}$ will be tested together \emph{\color{blue} TODO: because ... }.
-$CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%, to test whether the implementation of features from PSO and BSO are advantageous. The start values for the parameter settings experiment will be:
+$CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%, to test whether the implementation of features from PSO and BSO are advantageous.\emph{\color{blue} TODO: mer her ... }. The start values for the parameter settings experiment will be:
 
 \begin{table}[H]
 	\centering
@@ -96,7 +96,7 @@ After running test stage 1, (finding the optimal algorithm parameters), these ar
  	\hline
  	$s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $FA$ & $CA$  \\
  	\hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~  \\
+    50 & 125 & 10\% & 0.01 & 0.1 & 10\% & 10\% & 10\%  \\
 	\hline
     \end{tabular}
     \caption {Final selected parameters}
