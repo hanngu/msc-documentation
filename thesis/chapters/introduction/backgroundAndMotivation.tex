@@ -1,9 +1,11 @@
 \section{Background and Motivation}
 
+\section{COHEN}
 
 In the first stage a topic is refined to a task and a view of how to accomplish the task; in the second, the view is refined to a specific method; in the third, a program is developed to implement the method; in the fourth, experiments are designed to test the program; in the fifth, the experiments are run\citep{cohen88}
 
-\subsection{Stage 1 - Refining the research topic to a task, and identifying a view.}
+\subsection{Stage 1 - Criteria for evaluating research problems}
+Refining the research topic to a task, and identifying a view.
 Task: what we want a computer to do, view: a rough idea how to do it. Can you justify the research task, and is your view how to solve the task viable? 
 
 \subsubsection{Is the task worthy of attention? Why?}
@@ -11,7 +13,6 @@ Task: what we want a computer to do, view: a rough idea how to do it. Can you ju
 Why is is interesting? AtB, pollution ++ 
 
 \subsubsection{How is your reformulation an improvement?}
-
 Has it been studied before. Yes, the conducted SLR helped us find these results.\emph{\color{orange} Structured Literature Review}
 Why do you expect this new perspective to be an improvement? (Cannot afford to spend months implementing a system unless were pretty sure something interesting will happen.)\emph{\color{orange} Problem Statement}
 \begin{itemize}
@@ -32,8 +33,8 @@ Accurate estimates of travel demand is an important factor for the algorithm, At
 \emph{\color{orange} Problem Statement, Experiments and Results, Evaluation}
 Mandl's benchmark problem, performance criteria.
 
-\subsection{Stage 2 - View refined to a method for solving the task}
-
+\subsection{Stage 2 - Criteria for evaluating methods}
+View refined to a method for solving the task
 \subsubsection{How is the method an improvement?}
 \emph{\color{orange} Related Work, Problem Statement}
 ACO limitations: ACO with additional features from PSO and BSO. 
@@ -69,8 +70,94 @@ Does it transfer to more complicated problems?
 \end{itemize}
 
 \subsubsection{What is the relationship between the problem and the method?}
+Why does it work for this task? \emph{\color{orange} Evaluation, Discussion}
 
+\subsection{Stage 3 - Criteria for evaluating method implementation}
+A program is developed to implement the method. Ask whether the program is informative. This is primary for the individual researcher, not for the community at large. 
 
+\subsubsection{How demonstrative is the program?}
+\emph{\color{orange} Experiments and results}
+\begin{itemize}
+\item Can we evaluate its external and internal behavior, and if this behavior clearly demonstrate the method. 
+\item Can the class of capabilities necessary for the task be demonstrated by a well-defined set of test cases?
+\item How many test cases does it demonstrate?
+\end{itemize}
+\subsubsection{Is it specially tuned for a particular example?}
+\emph{\color{orange} Experiments, Evaluation, Discussion}
+Parameter settings - optimized for the Mandl network - but will test on other, larger network: scalability experiments will be executed so this wont happen.
+
+\subsubsection{How well does the program implement the method?}
+Assess how well the program implements the method.
+\emph{\color{orange} Experiments and results?}
+\begin{itemize}
+\item Can you determine the programs limitations?
+\item Have parts been left out? why and to what extent?
+\item Has the implementation forced a detailed definition or even a reevaluation of the method? How was this reevaluation accomplished?
+\end{itemize}
+
+\subsubsection{Is the programs performance predictable?}
+\emph{\color{orange} Experimental plan?} Aim with test. What do we think will happen.
+Because purpose of building a program is to answer something we didn't already know - can we predict performance in advance?
+
+\section{Stage 4 - Criteria for evaluation experiments design}
+\emph{\color{orange} Experiments and results} - Her kan man skrive at testene er designet med tanke på cohen, referer til cohen.
+Design experiments with the newly implemented system - evaluate whether experiments with these systemt will be informative. 
+
+\subsection{How many examples can be demonstrated?}
+\emph{\color{orange} Experimental plan}
+\begin{itemize}
+\item Are they qualitatively different?
+\item Does these examples illustrate the capabilities that are claimed? Do they illustrate limitations?
+(Må huske å claime capabilities.)
+\item Is the number of examples sufficient to justify the inductive generalizations?
+\end{itemize}
+\subsection{Should Program performance be compared to a standard? }
+\emph{\color{orange} Experiments - performance criteria}
+What are criteria for good performance? Who defines the criteria.
+
+\subsection{Does the program purport to be general?}
+\emph{\color{orange} Scalability Experiments}
+Asks whether our experiments claim that a program is general.
+
+\subsection{Is a series of related programs being evaluated?}
+\emph{\color{orange} Evaluation and Discussion}
+Suggests criteria for comparing programs. Are programs are evaluated in the context of other research projects.
+(Her må vi skrive at resultatene kan være annerledes pga metoder brukt for å finne korteste vei. Dijkstras vs. metonene mandl og kechapocholus har brukt.)
+\begin{itemize}
+\item Can you determine how differences in the programs are manifested as differences in behavior?
+\item If the method was implemented different, how does these differences affect the generalization?
+\item Were difficulties encountered in implementing method in other programs? (Dette har vi ikke gjort)
+\end{itemize}
+
+\section{Stage 5 - Analyze the experiments' results}
+Ask whether the system works, and why it works. Convince the research community that the methods are viable, and suggest further research.
+
+\subsection{How did the programs performance compare to its selected standard?}
+\emph{\color{orange} Results, Evaluation and Discussion}
+
+\subsection{Is the programs performance different from predictions?}
+\emph{\color{orange}Evaluation and Discussion}. Husk å ha predictions i experimental plan!
+
+\subsection{How efficient is the program in terms of space and knowledge requirements?}
+\emph{\color{orange} Results, Evaluation and Discussion - space complexity}
+\subsection{Did the program demonstrate good performance?}
+\emph{\color{orange} Results, Evaluation and Discussion - performance comparison}
+\subsection{Did you learn what you wanted from the programs and experiments?}
+\emph{\color{orange} Evaluation and Discussion, Conclusion}
+\subsection{Is it easy for the intended users to understand?}
+\subsection{Can you define the programs performance limitations?}
+\emph{\color{orange} Evaluation and Discussion, Conclusion}
+Identify frailties and strengths. when does it break, and what components contributes to its successfull operations?
+\subsection{Do you understand why the program works and doesn't work?}
+\emph{\color{orange} Evaluation and Discussion, Conclusion}
+VITKTIG PUNKT! NÅR FUNKER DEN IKKE? HVORFOR DET? 
+\begin{itemize}
+\item What is the impact of changing the program even slightly?
+\item Can the effect of different control strategies be determined?
+\item hos does the program respond if the input is rearranged, noisy, or missing?
+\item What is the relationship between characteristics of the test problems and performance?
+\item Can the understanding of the program be generalized to the method? To a larger task?
+\end{itemize}
 
 
 %\textbf{Denne skal skrives om når rapporten er ferdig}
