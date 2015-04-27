@@ -1,21 +1,25 @@
 \section{Selecting Next Nodes}
 \label{sec:selectingNextNode}
 
-When selecting the next node an ant's route set is dependent on which type of ant it is. If ant $a$ is ``crazy'', the next node is chosen randomly from the possible nodes, without considering any parameters. By possible nodes we mean nodes that are connected to the current node and not yet visited in the current route.
+Selecting the next node an ant's route set is dependent on which type of ant it is. 
+
+If ant $a$ is ``crazy'', the next node is chosen randomly based on the possible edges connected to the current node, without considering any parameters. By possible edges we mean edges that are connected to the current node and not yet visited in the current route. Edges that are visited in the current route are excluded because of Constraint \vref{itm:constraintCycles}, which states that no cycles or backtracks are allowed in route $r$. 
+
+If ant $a$ is a ``follower'', the ant chooses the edge chosen by the ant it is following, without considering anything else. This can be done because it has already been established that the ant that is being followed produced a valid route set. 
 
 If ant $a$ is a ``normal'' ant the next node is based on an evaluated edge value for each of the possible edges. Given constraint \vref{itm:constraintCycles} which specifies that no cycles or backtracks are allowed, possible edges are defined as edges that are connected to the current node and not yet visited in the given route. If no such edge exists, $a$ is stuck and the given tour is terminated. Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}, which states that the number of routes in a route set should not exceed a given limit. 
 
-The edge value of edge $e$ is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. The edge value is calculated as follows: 
+The edge value $ev$ of edge $e$ is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. $ev$ of edge $e$ is calculated as follows: 
 \newline
-$$EdgeValue(e) = \frac{d_e}{\sum\limits^{n}_{n=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
+$$ev_e = \frac{d_e}{\sum\limits^{n}_{i=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
 \newline
-where $d$ is the demand value, $p$ is the pheromone value, and $n$ is number of possible edges. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is sat to 0. $\beta$ is a value sat to 1 if $e$ is the choice of the best ant so far, or else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
+where $d$ is the demand value, $p$ is the pheromone value, and $n$ is the possible edges. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is sat to 0. $\beta$ is a value sat to 1 if $e$ is the choice of the best ant so far, or else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
 
-The edge value is used to calculate the probability of edge $e$ to be chosen, leading to the connecting node to be selected as the next node: 
+The edge value $ev_e$ of edge $e$ is used to calculate the probability $prop_e$ that edge $e$ is chosen, leading to the connecting node to be selected as the next node: 
 \newline
-$$Probability(e) = \frac{ev_e}{\sum\limits^{n}_{i=1}ev_i}$$
+$$prob_e = \frac{ev_e}{\sum\limits^{n}_{i=1}ev_i}$$
 \newline
-where $ev$ is the edge value and $n$ is the number of possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose: the edge that holds the random number in the range is chosen and the connecting node of that edge is chosen as next node. Further the pheromone value of the chosen edge $e_p$ is updated by this formula:
+where $n$ is the possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose: the edge that holds the random number in the range is chosen and the connecting node of that edge is chosen as next node. Further the pheromone value of the chosen edge $e_p$ is updated by this formula:
 \newline
 $$e_p \pluseq \frac{p_v}{T_e}$$ 
 \newline

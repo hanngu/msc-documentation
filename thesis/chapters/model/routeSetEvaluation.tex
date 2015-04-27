@@ -4,46 +4,46 @@ After each ant in the SuperSwarm colony has created a complete route set, the an
 
 \subsection{Removing Ants that did not Fulfill the Constraints}
 \label{sec:algoRemoval}
-The first step of evaluation is the removal of ants that have generated route sets which corresponds to a disconnected graph. This is because constraint \vref{itm:criteriaConnectedGraph} states that a passenger should be able to travel from every node to every other node within the route set. For an undirected graph $G$ to be classified as connected, there must be a path between every pair of nodes. 
+The first step of evaluation is the removal of ants that have generated route sets which corresponds to a disconnected graph. This is because Constraint \vref{itm:criteriaConnectedGraph} states that a passenger should be able to travel from every node to every other node within the route set. For an undirected graph $G$ to be classified as connected, there must be a path between every pair of nodes. 
 
 \subsection{Calculating Total Fit}
 \label{sec:totfit}
 After the removal of ants that did not satisfy the constraint mentioned above, the Total Fit $TOTFIT(r)$ for the route sets of the remaining ants are calculated. The calculation of $TOTFIT(r)$ for route set $r$ is inspired by \citet{kechagiopoulos14} and is described as the sum $F_{1}(r)$, $F_{2}(r)$ and $F_{3}(r)$: 
 \newline
 $$ TOTFIT(r) = F_{1}(r) + F_{2}(r) + F_{3}(r)$$
-\subsubsection*{Calculating $F_{1}(r)$}
+\subsubsection{Calculating $F_{1}(r)$}
 \label{sec:f1}
-$F_{1}(r)$ is related to the total travel time for each passenger in the network. The demands described in Table \vref{tbl:mandlDemand} corresponds to the amount of passengers that travels between node $i$ and $j$ each day. $F_{1}(r)$ is the sum of the difference between the travel time of the shortest path possible given the route set, $TT_{spr}$, and the shortest path possible in the network, $TT_{spn}$, for every passenger $p$:
+$F_{1}(r)$ is related to the total travel time for each trip in the network. The demands described in Table \vref{tbl:mandlDemand} corresponds to the amount of traveled trips between node $i$ and $j$ each day. In the Mandl network the number of trips are 15,570 trips per day. $F_{1}(r)$ is the sum of the difference for between the travel time of the shortest path possible given the route set, $TT_{spr}$, and the shortest path possible in the network, $TT_{spn}$, for every trip $t$ given by the demand matrix shown in \vref{tbl:mandlDemand}:
 \newline
-$$F_{1}(r) = \sum\limits^{p}_{p=1}TT_{spr}-TT_{spn}$$
+$$F_{1}(r) = \sum\limits^{t}_{i=1}TT_{spr_i}-TT_{spn_i}$$
 \newline
-Both $TT_{spr}$ and $TT_{spn}$ are calculated using the built-in Dijkstra algorithm in Neo4j. The theoretical best case $F_{1}(r)$ should be 0, meaning there is no difference between $TT_{spr}$ and $TT_{spn}$ for any node couple. Dijkstra's algorithm \citet[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{Making a change that reduces constraints.} all edges leaving $u$. The running time of Dijkstra's algorithm is $O((V + E)lg V)$ and it is guaranteed to find the shortest path\citep[p.~661]{cormen09}. In \citet{mandl79}, the author proposes two different methods for calculating $TT_{spr}$ given a specific route set. \textit{Method 1} chooses the path with the shortest traveling time, not considering transfer penalties. \textit{Method 2} chooses the path with shortest traveling time, including the transfer penalties. To achieve the most accurate and realistic results this research use \textit{Method 2} to choose the path of passenger $p$. This gives us the following equation for calculating $TT_{spr}$ between two nodes: 
+Both $TT_{spr}$ and $TT_{spn}$ are calculated using the built-in Dijkstra algorithm in Neo4j. The theoretical best case $F_{1}(r)$ should be 0, meaning there is no difference between $TT_{spr}$ and $TT_{spn}$ for any trip. In \citet{mandl79}, the author proposes two different methods for calculating $TT_{spr}$ given a specific route set. \textit{Method 1} chooses the path with the shortest traveling time, not considering transfer penalties. \textit{Method 2} chooses the path with shortest traveling time, including the transfer penalties. To achieve the most accurate and realistic results this research use \textit{Method 2} to choose the path for trip $t$. This gives us the following equation for calculating $TT_{spr}$ between two nodes: 
 \newline
 $$TT_{spr} = IVT + (\gamma*NT)$$
 \newline
-where $IVT$ is the in-vehicle travel time, $\gamma$ is the transfer penalty and $NT$ is the number of transfers. For comparison reasons $\gamma$ is set to 5 minutes. $TT_{spn}$ is, as mentioned, the travel time of the shortest possible path in the entire network. $TT_{spn}$ assumes unlimited routes and $TT_{spn}$ therefore equals $IVT$, because no transfers are needed.  
+where $IVT$ is the in-vehicle travel time, $\gamma$ is the transfer penalty and $NT$ is the number of transfers. Like \citet{kechagiopoulos14}, \citet{nikolic14} and \citet{mandl79} $\gamma$ is set to 5 minutes for comparison reasons. $TT_{spn}$ is, as mentioned, the travel time of the shortest possible path in the entire network. $TT_{spn}$ assumes unlimited routes and therefore equals the calculated $IVT$, because no transfers are needed.  
 
-\subsubsection*{Calculating $F_{2}(r)$}
+\subsubsection{Calculating $F_{2}(r)$}
 \label{sec:f2}
 $F_{2}(r)$ reflects the percentage of passengers traveling from their origin to their destination either directly, making a single transfer, or transferring twice. Calculating $F_{2}$ is done using the following equation: 
 \newline
 $$F_2(r) = (-\tau*d_0(r)) + (-\phi*d_1(r)) + (-\omega*d_2(r))$$
 \newline
-where $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers making a single transfer, and $d_2(r)$ is the percentage of passengers transferring twice. In this research $\tau$ is sat to $3$, $\phi$ is sat to $2$ and $\omega$ is sat to $1$. This is done to favor route sets with many direct travelers over route sets with many one transfer travelers and two transfers travelers, and route sets with many one transfer travelers over route sets with many two transfers travelers. $\tau$, $\phi$ and $\omega$ are all negative values because the smaller the values of both $F_{1}(r)$ described in above and $F_{3}(r)$ described below, the better the route set. The theoretical best value of $F_{2}(r)$ is therefor -300, meaning that 100\% of the passengers travels directly from their origin to their destination. 
+where $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers making a single transfer, and $d_2(r)$ is the percentage of passengers transferring twice. In this research $\tau$ is sat to $3$, $\phi$ is sat to $2$ and $\omega$ is sat to $1$. This is done to favor route sets with many direct travelers over route sets with many one transfer travelers and two transfers travelers, and route sets with many one transfer travelers over route sets with many two transfers travelers. $\tau$, $\phi$ and $\omega$ are all negative values because the smaller the values of both $F_{1}(r)$ described in Section \vref{sec:f1} and $F_{3}(r)$ described in Section \vref{sec:f3}, the better the route set. The theoretical best value of $F_{2}(r)$ is therefor -300, meaning that 100\% of the passengers travels directly from their origin to their destination. 
 
-\subsubsection*{Calculating $F_{3}(r)$}
+\subsubsection{Calculating $F_{3}(r)$}
 \label{sec:f3}
 $F_3(r)$ is a score that reflects the percentage of unsatisfied passengers. By unsatisfied passengers we mean passengers traveling from their origin to their destination where the number of transfers is more than or equal to 3, using route set $r$. $F_3(r)$ is calculated using the following formula:
 \newline
 $$F_3(r) = 100 - d_0(r) - d_1(r) - d_2(r)$$
 \newline
-where, as described above, $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers making a single transfer, and $d_2(r)$ is the percentage of passengers transferring twice, using route set $r$.The number $100$ represent 100\%. The theoretical best value of $F_3(r)$ is 0, meaning that no passenger is unsatisfied. 
+where, as described in Section \vref{sec:f2}, $d_0(r)$ is the percentage of passengers traveling directly, $d_1(r)$ is the percentage of passengers making a single transfer, and $d_2(r)$ is the percentage of passengers transferring twice, using route set $r$.The number $100$ represent 100\%. The theoretical best value of $F_3(r)$ is 0, meaning that no passenger is unsatisfied. 
 
 $F_{1}(r)$, $F_{2}(r)$, and $F_{3}(r)$ are, as described above summed and the sum corresponds to the total fit of the route set $r$ of ant $a$. The lower the value of $TOTFIT(r)$, the better the route set $r$. 
 
 \section{Selecting Ants to be Followed}
 \label{sec:selctingAntsToBeFollowed}
-After the total fit of ant $a$ is calculated as described in Section \vref{sec:totfit}, the list of ants are sorted with respect to the total fit so that the ant with the best total fit is placed in position 0. The number of ants to be followed, $NAF$, is calculated as follows:
+After the total fit of ant $a$ is calculated as described in Section \vref{sec:totfit}, the list of ants is sorted with respect to the total fit so that the ant with the best total fit is placed in position 0. The number of ants to be followed, $NAF$, is calculated as follows:
 \newline
 $$NAF = ants_{size} * FA$$
 \newline 
