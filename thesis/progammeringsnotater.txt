@@ -35,4 +35,25 @@ __________________________________________________________________
 Dijkstra is guaranteed to be correct (ref. Algdatbok s.659-661) if the algorithm is ran on a weigthed, directed graph G = (V,E) with non-negative weight function w and source s. 
 
 A* is complete and optimal, provided that H(n) is admissible (it never over estimates the cost to reach the goal) or consistent (the estimated cost of reaching the goal from node n is no greater than the step cost of getting to the successor n' + estimated cost of reaching the goal of n'). (ai-boka side 109, 94-9
+-------------------------------------------------------------------------------------------------
+TEST RESULTS
+-------------------------------------------------------------------------------------------------
+CA 0%
+I = 125
+S = 50
+FA = 0.1
+Pv = 0.01
+Pb = 0.1
+E = 0.1
+BR = 0.1
+
+Average att: 11.3
+Min att: 10.8
+Max att: 11.9
+Average totfit: -270.3177263969172
+Min totfit: -275.32883750802824
+Max totfit: -262.49197174052665
+Teoretisk best mulige totfit: -300.0
+__________________________________________________________________________________________________
+
 
