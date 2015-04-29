@@ -1,17 +1,15 @@
 \section{Super Swarm Optimization}
 
 The baseline of the proposed algorithm, Super Swarm Optimization (SSO), is an implementation of the basic ACO algorithm introduced by \citet{nanda11} and described in chapter \vref{backgroundAndMotivation}. Because the basis of the algorithm is ACO, we have chosen to call the individuals of the SuperSwarm colony for ants. %(if is it efficient to combine attributes from different swarm intelligence algorithms to solve the vehicle routing problem,) 
-In the SSO, some additional features are given; the ants are given memory, and can remember whether or not it has visited a node in the creation of the route set. The ants are also given some acknowledged features inspired by the PSO and BSO are added to the SSO algorithm.
+In the SSO, some additional features are given; the ants are given memory, and can remember whether or not it has visited a node in the creation of the route set. The ants are also given some acknowledged features inspired by the PSO and BSO are added to the SSO algorithm, which are the following:
 
-First, Inertia Weight (IW) from PSO is added to SSO. IW is a decreasing parameter brought to the PSO for balancing local and global search. In the early iterations of the algorithm, the particles tends to explore more, and becoming more organized and coordinated in the late iterations. To do this a generated ant is declared ``crazy'' by a probability $E$. A \textit{Crazy Ant (CA)} does not select next nodes based on the edge value of the connecting edge, but instead selects it randomly. The probability that an ant is declared crazy are given by a predefined start value, and this value is decreased iteratively by an inertia weight (IW). The IW value is high in the early iterations, denoting a higher amount of CA, and when this value decreases (for each iteration), the amount of CA decreases. 
+\begin{itemize}
+\item Inertia Weight (IW) from PSO. IW is a decreasing parameter brought to the PSO for balancing local and global search. In the early iterations of the algorithm, the particles tends to explore more, and becoming more organized and coordinated in the late iterations. To do this a generated ant is declared ``crazy'' by a probability $E$. A \textit{Crazy Ant (CA)} does not select next nodes based on the edge value of the connecting edge, but instead selects it randomly. The probability that an ant is declared crazy are given by a predefined start value, and this value is decreased iteratively by an inertia weight (IW). The IW value is high in the early iterations, denoting a higher amount of CA, and when this value decreases (for each iteration), the amount of CA decreases.
+\item The awareness of the global best solution is given the ants. In PSO each individual particle knows its best position so far, in addition to the best position achieved among all the particles. To implement this, the best ant's results is retained after each iteration of the algorithm. If an edge is walked by the best ant so far, the probability that this also will be walked by ant $a$ increases.
+\item The \textit{following} feature from BSO. Deciding which bee to follow is considered to be a function of the quality of the food source to the recruiter. After the first run, some ants are initialized as ``uncommitted followers'', and they follow the $n$ best ants from the previous iteration unconditionally.
+\end{itemize}
 
-Second, the awareness of the global best solution is given the ants. In PSO each individual particle knows its best position so far, in addition to the best position achieved among all the particles. To implement this, the best ant's results is retained after each iteration of the algorithm. If an edge is walked by the best ant so far, the probability that this also will be walked by ant $a$ increases.
-
-Third, the so called \textit{following} feature from BSO is added to SSO. Deciding which bee to follow is considered to be a function of the quality of the food source to the recruiter. After the first run, some ants are initialized as ``uncommitted followers'', and they follow the $n$ best ants from the previous iteration unconditionally. 
-
-What we hope to achieve with these features is overcoming the ACO limitation of getting stuck at a local optima, as well achieving better results concerning the Performance Criteria, introduced in Section \vref{sec:performanceCriteria}.
-
-
+%What we hope to achieve with these features is overcoming the ACO limitation of getting stuck at a local optima, as well achieving better results concerning the Performance Criteria, introduced in Section \vref{sec:performanceCriteria}.
 
 %%Artifacts:
 %\begin{enumerate}
