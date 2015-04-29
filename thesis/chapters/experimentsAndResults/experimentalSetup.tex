@@ -5,7 +5,8 @@
 \subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times. The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ values produced. \emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  The parameters that will be tested are the following:
+Testing different parameter values is a time-consuming task. Because of this a set of candidate values for each parameter is determined based on the experience from previous research described in Section \vref{realtedWork} and qualified guesses made by the authors of this thesis. Minimum \textit{four} values for each parameter are tested while the other are held constant. The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and the lowest $TOTFIT$ values produced. The parameters that will be tested and their default values are as follows:
+\emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  
 
 \begin{itemize}
 \item The SuperSwarm Colony Size, $s$. 
@@ -18,13 +19,10 @@ Because there is no way of defining the most effective values of the parameters,
 \item The probability that a given ant is declared ``crazy'', $CA$.
 \end{itemize}
 
-When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next tests. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $CA$, $FA$, $s$ and $i$. \emph{\color{blue} TODO: Reasons for this order: ... }
-$p_{v}$ and $p_{b}$ will be tested together \emph{\color{blue} TODO: because ... }.
-$CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%, to test whether the implementation of features from PSO and BSO are advantageous.\emph{\color{blue} TODO: mer her ... }. The start values for the parameter settings experiment will be:
-
-
+The default values of each parameter, which will be held constant when other parameters are tested, are selected based on qualified guesses. The default values are shown in Table \vref{tbl:defaultValues}. in For determining the most fitted parameters, the algorithm is ran 10 time for each candidate value, except for the candidate values of $FA$ and $CA$, which will be ran 100 times. The candidate values of $FA$ and $CA$ are ran 10 times more than the rest, because the best values of these will help us answer Research Question \vref{itm:2a}, which concerns whether or not it is efficient to combine attributes from different swarm intelligence methods. By running the algorithm more times, we reduce the potential randomness in the results. To further establish the effect of implementing features from PSO and BCO, $CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%. $p_{v}$ and $p_{b}$ will be tested together because their values directly affects the effect of the other. 
 
 \begin{table}[H]
+\label{tbl:defaultValues}
 	\centering
     \begin{tabular}{|l|l|l|l|l|l|l|l|}
  	\hline
@@ -33,7 +31,7 @@ $CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%, to t
     50 & 50 & 10\% & 0.1 & 0.5 & 10\% & 10\%  & 10\%  \\
 	\hline
     \end{tabular}
-    \caption {Start values for the parameters settings experiment} \emph{\color{blue} TODO: Reasons for these values:}
+    \caption {Default Values for The Parameter Setting Experiment} \emph{\color{blue} TODO: Reasons for these values:}
     \label{table:parameter_startvalues}
 	\end{table}
 
