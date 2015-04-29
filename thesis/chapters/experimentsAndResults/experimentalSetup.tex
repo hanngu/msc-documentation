@@ -5,17 +5,17 @@
 \subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times.  The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ values produced. \emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  The parameters that will be tested are the following:
+Because there is no way of defining the most effective values of the parameters, a selection of some of the best parameters is tested. For achieving this goal, minimum \textit{four} values for each parameter are tested while the other are held constant. For determining these parameters each one of the instances will run 10 times. The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and $TOTFIT$ values produced. \emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  The parameters that will be tested are the following:
 
 \begin{itemize}
-\item The Ant colony size, $s$.
-\item The total iterations, $i$, which is the the termination criteria - and it will be tested from when it converges. 
-\item The evaporation constant, $p_{e}$, to determine how much pheromone to be removed at each edge at each iteration. 
-\item The pheromone constant, $p_{v}$, to determine how much pheromone to be added to each edge as it is visited by ants. 
-\item The pheromone constant, $p_{b}$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
-\item The percentage of complete route sets to be granted extra pheromone, the best route sets, $BR$.
+\item The SuperSwarm Colony Size, $s$. 
+\item The numbers of iterations (which is the stop criteria), $i$.
+\item The percentage of pheromones to evaporate at each iteration, $E$.
+\item The pheromone constant, $p_v$, to determine how much pheromone to be added to each edge as it is visited by ants.
+\item The pheromone constant, $p_b$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
+\item The percentage of complete route sets to be granted extra pheromone, $BR$.
 \item The percentage of ants to be followed, $FA$.
-\item The percentage of Crazy Ants, $CA$. The Inertia Weight start value, $IW$, is set to 1%, and decreases by %\emph{\color{red}xx} each iteration, resulting in less $CA$'s iteratively.
+\item The probability that a given ant is declared ``crazy'', $CA$.
 \end{itemize}
 
 When the best parameter value concerning $ATT$ and $TOTFIT$ is determined, this parameter will be selected and held constant for the next tests. The tests are performed in the following order; $p_{e}$, $p_{v}$ and $p_{b}$, $BR$, $CA$, $FA$, $s$ and $i$. \emph{\color{blue} TODO: Reasons for this order: ... }
