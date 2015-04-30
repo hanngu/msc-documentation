@@ -5,21 +5,32 @@
 \subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Testing different parameter values is a time-consuming task. Because of this a set of candidate values for each parameter is determined based on the experience from previous research described in Section \vref{relatedWork}, our own  and qualified guesses made by the authors of this thesis. Minimum \textit{four} values for each parameter are tested while the other are held constant. The parameter values selected will be based on the ones that produce best computational results concerning the average travel time $ATT$ and the total fitness $TOTFIT$, where best result means the lowest average $ATT$ and the lowest $TOTFIT$ values produced. The reader recalls from Section \vref{sec:algoEvaluation} that the better the total fitness, the lower the $TOTFIT$ value. If the lowest $ATT$ and the lowest $TOTFIT$ are not achieved by the same parameter value, the selected value is determined by the following formula:
+Testing different parameter values is a time-consuming task and because of this a set of candidate values for each parameter is selected. The values are selected based on the experiences of previous research  
+
+
+ based on the experience from previous research described in Section \vref{relatedWork}, our own  and qualified guesses made by the authors of this thesis. Minimum \textit{four} values for each parameter are tested while the other are held constant. The parameter values selected will be based on the ones that produce best computational results concerning the average travel time $ATT$ and the total fitness $TOTFIT$, where best result means the lowest average $ATT$ and the lowest $TOTFIT$ values produced. The reader recalls from Section \vref{sec:algoEvaluation} that the better the total fitness, the lower the $TOTFIT$ value. If the lowest $ATT$ and the lowest $TOTFIT$ are not achieved by the same parameter value, the selected value is determined by the following formula:
 
 The parameters that will be tested are as follows:
-\emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  
+\begin{table}[H]
+	\begin{tabular}{|l|l|}
+    	\hline
+    	Parameters & Description\\
+    	\hline
+    	$s$ & The SuperSwarm Colony Size\\
+    	$i$ & The numbers of iterations (which is the stop criteria)\\
+    	$E$ & The percentage of pheromones to evaporate at each iteration\\
+    	$p_v$ & The pheromone constant added to edges visited\\
+    	$p_b$ & The pheromone constant added to edges in the best route sets\\
+    	$BR$ & The percentage of complete route sets to be granted extra pheromone\\
+    	$FA$ & The percentage of ants to be followed\\
+    	$CA$ & The probability that a given ant is declared ``crazy''\\
+   	    \hline
+    \end{tabular}
+    \caption {Parameters to be Evaluated}.
+    \label{table:parameters}
+\end{table}
 
-\begin{itemize}
-\item The SuperSwarm Colony Size, $s$. 
-\item The numbers of iterations (which is the stop criteria), $i$.
-\item The percentage of pheromones to evaporate at each iteration, $E$.
-\item The pheromone constant, $p_v$, to determine how much pheromone to be added to each edge as it is visited by ants.
-\item The pheromone constant, $p_b$, to determine how much extra pheromone to be granted to edges included in the \textit{n} best route sets.
-\item The percentage of complete route sets to be granted extra pheromone, $BR$.
-\item The percentage of ants to be followed, $FA$.
-\item The probability that a given ant is declared ``crazy'', $CA$.
-\end{itemize}
+The parameters concerning the pheromone constant added to edges visited, $p_v$, and the inertia weight, $IW$, are held constant at respectively 0.1 and 1.0. These parameters will not be tested with different values. $p_v$ is added to all edges visited by all ants, and when selecting witch path to walk an ant is only concerned about the pheromone ratio between the possible edges. This ratio will be the same no matter what $p_v$ is. $IW$ is constant because its value directly affects $CA$ (as mentioned in Section \vref{sec:algoGeneratingSuperSwarm}) and because implementation of different inertia weight strategies is beyond the scope of this theses. 
 
 The default values of each parameter, which will be held constant when other parameters are tested, are selected based on qualified guesses. These default values are shown in Table \vref{tbl:defaultValues}. For determining the most fitted parameters, the algorithm will be run 10 time for each candidate value, except for the candidate values of $FA$ and $CA$, which will be ran 100 times. The candidate values of $FA$ and $CA$ are run 10 times more than the rest, because the best values of these will help us answer Research Question \vref{itm:2a}, which concerns whether or not it is efficient to combine attributes from different swarm intelligence methods. By running the algorithm more times, we reduce the potential randomness in the results. To further establish the effect of implementing features from PSO and BCO, $CA$ and $FA$ will be tested with more parameter values, including 0\% and 100\%. $p_{v}$ and $p_{b}$ will be tested together because their values directly affects the effect of the other. 
 
