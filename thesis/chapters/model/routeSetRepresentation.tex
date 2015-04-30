@@ -1,5 +1,5 @@
 \section{Route Set Representation}
-For the route set representation, a two dimensional array is used. In the route set representation presented in Table \vref{table:routeSetRepr}, Route 1 starts from node 14, continues to node 10, and so on. In the route set shown in \vref{table:routeSetRepr}, the maximal numbers of nodes in a route, $R_{max}$, is sat to 8. This is a number usually sat by the set by the bus company due to cost limitations. Route 3 and Route 4 consists of less than 8 nodes, because the ant got stuck. In both cases the ant reached a node with only one edge, resulting in no edges to follow without violating Constraint \ref{itm:constraintCycles} described in Section \vref{sec:algoConstraints}.
+For the route set representation, a two dimensional array is used. In the route set representation presented in Table \vref{table:routeSetRepr}, Route 1 starts from node 14, continues to node 10, and so on. The maximal numbers of nodes in a route, $R_{max}$, is sat to 8. Route 3 and Route 4 consists of less than 8 nodes, in both cases the ant reached a node with only one edge, resulting in no edges to follow without violating Constraint \ref{itm:constraintCycles} specified on page \pageref{itm:constraintCycles}.
 \begin{table}[H]
     \begin{center}
         \begin{tabular}{|l| l l l l l l l l|}

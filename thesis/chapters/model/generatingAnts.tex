@@ -2,17 +2,9 @@
 \label{sec:algoGeneratingSuperSwarm}
 After the initialization of the network, a SuperSwarm colony is generated. In the proposed algorithm a colony consists of three types of individuals:
 \begin{itemize}
-\item \textit{Normal Ants} - these ant chooses next nodes based on probability of each of the possible edges. This process is entirely explained in section \vref{sec:selectingNextNode}.
+\item \textit{Normal Ants} - these ants chooses next nodes based on probability of each of the possible edges. 
 \item \textit{Following Ants} - a percentage of the colony becomes Following Ants, $FA$, and follows one of the best ants, $ba_i$, from the previous iteration unconditionally by choosing exactly the same path as $ba_i$.
 \item \textit{Crazy Ants} - by a given probability a normal ant is declared ``crazy''. A crazy ant, $CA$, chooses next node at random, given the possible edges connected to the current node.  
 \end{itemize}
 
-The size of the colony and the percentage of $FA$ are predefined parameters. As mentioned in Section \vref{sec:algoInitialization}, these parameters are selected after excessive testing to establish which value that results in the minimum average travel time and best total fit. The probability that ant, $a$, is declared as crazy is partly determined by a predefined value achieved by testing, and partly determined by the inertia weight. The probability $CA$ is calculated as follows. At each iteration, the value of IW is calculated as follows: 
-\newline
-$$CA = CA*IW$$
-\newline
-where IW is the is the inertia weight. The inertia weight decreases at each iteration, resulting in a smaller probability for $a$ to be declared crazy. The rate in which the inertia weight decreases is dependent on the total of number of iterations, $TI$, the algorithm is runs:
-\newline
-$$IW = IW - \frac{IW}{TI}$$
-\newline
-The type \textit{Following Ant} is inspired by the way BCO initialize some bees to be followers in the search for the best food source. The type \textit{Crazy Ant} is created in order to compensate for the original ACO algorithm weakness of sometimes getting stuck at a local optima. This combined with the inertia weight is inspired by the way the inertia weight in PSO favors exploration in early iterations and exploitation in the later. The probability that ant $a$ is declared crazy decreases through the iterations, but will never reach zero, resulting in that there always is a probability that $a$ is declared crazy. 
+The ant's different behavior is entirely explained in Section \vref{sec:selectingNextNode}.

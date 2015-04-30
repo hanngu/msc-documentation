@@ -7,10 +7,10 @@
 %SIDEWAYS
 \begin{sidewaystable}
     %\centering
-    %\hspace*{-2cm}
+    \hspace*{-0.5cm}
     \begin{tabular}{|l|l|l|l|l|l|l||c|c|c|c|c|c|}
     \hline
-    ~ & $s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $ATT_{min}$ & $ATT_{avg}$ & $ATT_{max}$ & $TOTFIT_{min}$ & $TOTFIT_{avg}$ & $TOTFIT_{max}$\\
+    ~ & $s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $best_{(ATT)}$ & $avg_{(ATT)}$ & $worst_{(ATT)}$ & $best_{(TOTFIT)}$ & $avg_{(TOTFIT)}$ & $worst_{(TOTFIT)}$\\
     \hline
     1 & 50 & 50 & 10\% & \textbf{0.01} & \textbf{0.025} & 10\% & 11.1 & 11.3 & 11.6 & -274.42 & -264.56 & -255.75 \\
     ~ & 50 & 50 & 10\% & \textbf{0.01} & \textbf{0.05} & 10\% & 11.0 & 11.4 & 11.7 & -276.74 & -269.38 & -257.73 \\
@@ -68,11 +68,10 @@
 
 \begin{sidewaystable}
     %\centering
-    %\hspace*{-2cm}
-    
+    \hspace*{-0.5cm}
     \begin{tabular}{|l|l|l||c|c|c|c|c|c|c|c|c|c|}
     \hline
-    ~ & $FA$ & $CA$ & $ATT_{b}$ & $ATT_{a}$ & $ATT_{w}$ & $\sigma_{ATT}$ & $CI_{ATT}$ & $TF_{b}$ & $TF_{a}$ & $TF_{w}$ & $\sigma_{TF}$ & $CI_{TF}$\\
+    ~ & $FA$ & $CA$ & $b_{(ATT)}$ & $a_{(ATT)}$ & $w_{(ATT)}$ & $\sigma_{(ATT)}$ & $CI_{(ATT)}$ & $b_{(TF)}$ & $a_{(TF)}$ & $w_{(TF)}$ & $\sigma_{(TF)}$ & $CI_{(TF)}$\\
     \hline
     1 & 10\% & \textbf{0\%} & 10.8 & 11.3 & 12.1 & 0.057 & 11.335 $\pm$ 0.016 & -280.95 & -267.42 & -246.46 & 38.403 & -267.420 $\pm$ 10.644\\
     ~ & 10\% & \textbf{1\%} & 10.9 & 11.4 & 11.9 & 0.056 & 11.409 $\pm$ 0.016 & -280.49 & -268.30 & -253.77 & 31.612 & -268.299 $\pm$ 8.762\\
@@ -89,16 +88,16 @@
     \caption {Steps with the corresponding results from the parameter settings experiment (CA FA)}
     \tiny
     \begin{itemize}[noitemsep]
-    \item[$ATT^b$:] best $ATT$ value
-    \item[$ATT^a$:] average $ATT$ value
-    \item[$ATT^w$:] worst $ATT$ value
-    \item[$FT^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
-    \item[$TF^a$:] average $TOTFIT$ value
-    \item[$TF^w$:] worst $TOTFIT$ value
-    \item[$\sigma_{ATT}$:] Population Standard Deviation of ATT
-    \item[$CI_{ATT}$:] Confidence Interval with a confidence level of 95\% (ATT)
-    \item[$\sigma_{TF}$:] Population Standard Deviation of TOTFIT
-    \item[$CI_{TF}$:] Confidence Interval with a confidence level of 95\% (TOTFIT)
+    \item[$b_{(ATT)}$:] best $ATT$ value
+    \item[$a_{(ATT)}$:] average $ATT$ value
+    \item[$w_{(ATT)}$:] worst $ATT$ value
+    \item[$b_{(TF)}$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    \item[$a_{(TF)}$:] average $TOTFIT$ value
+    \item[$w_{(TF)}$:] worst $TOTFIT$ value
+    \item[$\sigma_{(ATT)}$:] Population Standard Deviation of $ATT$
+    \item[$CI_{(ATT)}$:] Confidence Interval with a confidence level of 95\% ($ATT$)
+    \item[$\sigma_{(TF)}$:] Population Standard Deviation of $TOTFIT$
+    \item[$CI_{(TF)}$:] Confidence Interval with a confidence level of 95\% ($TOTFIT$)
     \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
     \end{itemize}
     \label{table:pm2}

@@ -1,26 +1,32 @@
 \section{Selecting Next Nodes}
 \label{sec:selectingNextNode}
 
-Selecting the next node an ant's route set is dependent on which type of ant it is. 
+When selecting the next node, an ant's route set is dependent on which type of ant it is. 
 
-If ant $a$ is ``crazy'', the next node is chosen randomly based on the possible edges connected to the current node, without considering any parameters. By possible edges we mean edges that are connected to the current node and not yet visited in the current route. Edges that are visited in the current route are excluded because of Constraint \vref{itm:constraintCycles}, which states that no cycles or backtracks are allowed in route $r$. 
+\subsection{Selecting Next Nodes as a ``Normal Ant''}
+If ant $a$ is a ``normal ant'' the next node selection is based on an evaluated edge value, $ev$, for each of the possible edges, $e$. $e$ are defined as edges that are connected to the current node and not yet visited in the given route. If no such edge exists, the given tour is terminated. %Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}, which states that the number of routes in a route set should not exceed a given limit. 
+$ev$ is calculated as follows: 
 
-If ant $a$ is a ``follower'', the ant chooses the edge chosen by the ant it is following, without considering anything else. This can be done because it has already been established that the ant that is being followed produced a valid route set. 
-
-If ant $a$ is a ``normal'' ant the next node is based on an evaluated edge value for each of the possible edges. Given constraint \vref{itm:constraintCycles} which specifies that no cycles or backtracks are allowed, possible edges are defined as edges that are connected to the current node and not yet visited in the given route. If no such edge exists, $a$ is stuck and the given tour is terminated. Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}, which states that the number of routes in a route set should not exceed a given limit. 
-
-The edge value $ev$ of edge $e$ is determined by the demand and pheromone value of the edge, the edge chosen by the best ant so far and the visited status of the node connected to the edge. $ev$ of edge $e$ is calculated as follows: 
-\newline
 $$ev_e = \frac{d_e}{\sum\limits^{n}_{i=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
-\newline
-where $d$ is the demand value, $p$ is the pheromone value, and $n$ is the possible edges. $\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is sat to 0. $\beta$ is a value sat to 1 if $e$ is the choice of the best ant so far, or else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set, and the $\beta$ variable is used to favor the global best solution so far. The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution. 
 
-The edge value $ev_e$ of edge $e$ is used to calculate the probability $prop_e$ that edge $e$ is chosen, leading to the connecting node to be selected as the next node: 
-\newline
+where $d$ is the demand for the edge, $p$ is the pheromone value, and $n$ is the possible edges. $\beta$ is a value sat to 1 if $e$ is the choice of the global best ant so far, or else it is sat to 0. The $\beta$ variable is used to favor the global best solution so far. %The favoring of the global best solution is inspired by how the velocity and direction of the particles in PSO is based on the global best solution.
+$\alpha$ is a value sat to 1 if the connecting node is not yet visited, else it is sat to 0. The $\alpha$ variable is used to favor nodes not yet visited by ant $a$ in the current route set.  
+
+$ev_e$ is used to calculate the probability, $prop_e$, for $e$ to be chosen. $prop_e$ is calculated as follows:
+
 $$prob_e = \frac{ev_e}{\sum\limits^{n}_{i=1}ev_i}$$
-\newline
+
 where $n$ is the possible edges. Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with high probability is given a large range, and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose: the edge that holds the random number in the range is chosen and the connecting node of that edge is chosen as next node. Further the pheromone value of the chosen edge $e_p$ is updated by this formula:
-\newline
+
 $$e_p \pluseq \frac{p_v}{T_e}$$ 
-\newline
+
 Where $p_v$ is a predefined pheromone constant selected after excessive testing, as described in Section \vref{sec:algoInitialization}, and $T$ is the travel time of the edge. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, which is, in this case, lower travel times. 
+
+\subsection{Selecting Next Nodes as a $CA$}
+If ant $a$ is a $CA$, the next node is chosen randomly based on the possible edges connected to the current node, without considering any parameters. Edges that are visited in the current route are excluded because of Constraint \vref{itm:constraintCycles}. The probability that ant, $a$, is declared as ``crazy'' is partly determined by a predefined value achieved by testing (Section \vref{subsec:parameterSettings_results}), and partly determined by the inertia weight, $IW$. The probability $CA$ is calculated as follows:
+$$CA = CA*IW$$
+The $IW$ decreases at each iteration, resulting in a smaller probability for $a$ to be declared ``crazy''. The rate in which the inertia weight decreases is dependent on the total of number of iterations, $TI$, and is calculated as follows:
+$$IW = IW - \frac{IW}{TI}$$
+
+\subsection{Selecting Next Nodes as a $FA$}
+If ant $a$ is a $FA$, $a$ chooses the edges chosen by the ant it is following. Described in Section \vref{sec:selctingAntsToBeFollowed}, a percentage of the best ants are added to a list, $ba$, where $a_1$ follows $ba_1$, $a_2$ follows $ba_a$, and so on. The percentage of $FA$ is a predefined parameter, selected after excessive testing (Section \vref{subsec:parameterSettings_results}).
