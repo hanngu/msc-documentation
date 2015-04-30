@@ -27,6 +27,9 @@ __________________________________________________________________
 Paper om inertia weight strategier i PSO: http://www.softcomputing.net/nabic11_7.pdf
 __________________________________________________________________
 
+---------------------------------------------------------------
+mvn clean compile && mvn exec:java -Dexec.mainClass="AntMain"
+---------------------------------------------------------------
 
 __________________________________________________________________
 Calculate Confidence Interval: http://www.wikihow.com/Calculate-Confidence-Interval
