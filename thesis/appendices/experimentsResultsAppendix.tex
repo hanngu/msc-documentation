@@ -69,31 +69,36 @@
 \begin{sidewaystable}
     %\centering
     %\hspace*{-2cm}
-    \begin{tabular}{|l|l|l||c|c|c|c|c|c|}
+    
+    \begin{tabular}{|l|l|l||c|c|c|c|c|c|c|c|c|c|}
     \hline
-    ~ & $FA$ & $CA$ & $ATT_{min}$ & $ATT_{avg}$ & $ATT_{max}$ & $TOTFIT_{min}$ & $TOTFIT_{avg}$ & $TOTFIT_{max}$\\
+    ~ & $FA$ & $CA$ & $ATT_{b}$ & $ATT_{a}$ & $ATT_{w}$ & $\sigma_{ATT}$ & $CI_{ATT}$ & $TF_{b}$ & $TF_{a}$ & $TF_{w}$ & $\sigma_{TF}$ & $CI_{TF}$\\
     \hline
-    1 & 10\% & \textbf{0\%} & 10.8 & 11.3 & 12.1 & -280.95 & -267.42 & -246.46\\
-    ~ & 10\% & \textbf{1\%} & 10.9 & 11.4 & 11.9 & -280.49 & -268.30 & -253.77\\
-    ~ & 10\% & \textbf{5\%} & 10.9 & 11.4 & 11.9 & -280.80 & -267.86 & -258.59\\
-    ~ & 10\% & \textbf{10\%} & ~ & ~ & ~ & ~ & ~ & ~\\
-    ~ & 10\% & \textbf{25\%} & ~ & ~ & ~ & ~ & ~ & ~\\
-    ~ & 10\% & \textbf{50\%} & ~ & ~ & ~ & ~ & ~ & ~\\
-    ~ & 10\% & \textbf{100\%} & ~ & ~ & ~ & ~ & ~ & ~\\
+    1 & 10\% & \textbf{0\%} & 10.8 & 11.3 & 12.1 & 0.057 & 11.335 $\pm$ 0.016 & -280.95 & -267.42 & -246.46 & 38.403 & -267.420 $\pm$ 10.644\\
+    ~ & 10\% & \textbf{1\%} & 10.9 & 11.4 & 11.9 & 0.056 & 11.409 $\pm$ 0.016 & -280.49 & -268.30 & -253.77 & 31.612 & -268.299 $\pm$ 8.762\\
+    ~ & 10\% & \textbf{5\%} & 10.9 & 11.4 & 11.9 & 0.060 & 11.387 $\pm$ 0.017 & -280.80 & -267.86 & -258.59 & 24.750 & -267.865 $\pm$ 6.860\\
+    ~ & 10\% & \textbf{10\%} & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    ~ & 10\% & \textbf{25\%} & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    ~ & 10\% & \textbf{50\%} & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    ~ & 10\% & \textbf{100\%} & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
     \hline
-    2 & \textbf{0\%} & 10\% & ~ & ~ & ~ & ~ & ~ & ~\\
-    ~ & \textbf{0\%} & 10\% & ~ & ~ & ~ & ~ & ~ & ~\\
+    2 & \textbf{0\%} & 10\% & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    ~ & \textbf{0\%} & 10\% & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
     \hline
     \end{tabular}
     \caption {Steps with the corresponding results from the parameter settings experiment (CA FA)}
     \tiny
     \begin{itemize}[noitemsep]
-    %\item[$A^b$:] best $ATT$ value
-    %\item[$A^a$:] average $ATT$ value
-    %\item[$A^w$:] worst $ATT$ value
-    %\item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
-    %\item[$T^a$:] average $TOTFIT$ value
-    %\item[$T^w$:] worst $TOTFIT$ value
+    \item[$ATT^b$:] best $ATT$ value
+    \item[$ATT^a$:] average $ATT$ value
+    \item[$ATT^w$:] worst $ATT$ value
+    \item[$FT^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    \item[$TF^a$:] average $TOTFIT$ value
+    \item[$TF^w$:] worst $TOTFIT$ value
+    \item[$\sigma_{ATT}$:] Population Standard Deviation of ATT
+    \item[$CI_{ATT}$:] Confidence Interval with a confidence level of 95\% (ATT)
+    \item[$\sigma_{TF}$:] Population Standard Deviation of TOTFIT
+    \item[$CI_{TF}$:] Confidence Interval with a confidence level of 95\% (TOTFIT)
     \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
     \end{itemize}
     \label{table:pm2}
