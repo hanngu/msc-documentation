@@ -4,12 +4,13 @@
 \section{Parameter Settings}
 %VOL 1 testing:
 
-\begin{table}
+%SIDEWAYS
+\begin{sidewaystable}
     %\centering
-    \hspace*{-2cm}
-    \begin{tabular}{|l|l|l|l|l|l|l|l||c|c|c|c|c|c|}
+    %\hspace*{-2cm}
+    \begin{tabular}{|l|l|l|l|l|l|l||c|c|c|c|c|c|}
     \hline
-    ~ & $s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $A^b$ & $A^a$ & $A^w$ & $T^b$ & $T^a$ & $T^w$\\
+    ~ & $s$ & $i$ & $p_{e}$ & $p_{v}$ & $p_{b}$ & $BR$ & $ATT_{min}$ & $ATT_{avg}$ & $ATT_{max}$ & $TOTFIT_{min}$ & $TOTFIT_{avg}$ & $TOTFIT_{max}$\\
     \hline
     1 & 50 & 50 & 10\% & \textbf{0.01} & \textbf{0.025} & 10\% & 11.1 & 11.3 & 11.6 & -274.42 & -264.56 & -255.75 \\
     ~ & 50 & 50 & 10\% & \textbf{0.01} & \textbf{0.05} & 10\% & 11.0 & 11.4 & 11.7 & -276.74 & -269.38 & -257.73 \\
@@ -51,14 +52,52 @@
     \caption {Steps with the corresponding results from the parameter settings experiment (part 1)}
     \tiny
     \begin{itemize}[noitemsep]
-    \item[$A^b$:] best $ATT$ value
-    \item[$A^a$:] average $ATT$ value
-    \item[$A^w$:] worst $ATT$ value
-    \item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
-    \item[$T^a$:] average $TOTFIT$ value
-    \item[$T^w$:] worst $TOTFIT$ value
+    %\item[$A^b$:] best $ATT$ value
+    %\item[$A^a$:] average $ATT$ value
+    %\item[$A^w$:] worst $ATT$ value
+    %\item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    %\item[$T^a$:] average $TOTFIT$ value
+    %\item[$T^w$:] worst $TOTFIT$ value
     \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
     \end{itemize}
     \label{table:pm1}
-\end{table}
+\end{sidewaystable}
+
+
+%CA OG FA
+
+\begin{sidewaystable}
+    %\centering
+    %\hspace*{-2cm}
+    \begin{tabular}{|l|l|l||c|c|c|c|c|c|}
+    \hline
+    ~ & $FA$ & $CA$ & $ATT_{min}$ & $ATT_{avg}$ & $ATT_{max}$ & $TOTFIT_{min}$ & $TOTFIT_{avg}$ & $TOTFIT_{max}$\\
+    \hline
+    1 & 10\% & \textbf{0\%} & 10.8 & 11.3 & 12.1 & -280.95 & -267.42 & -246.46\\
+    ~ & 10\% & \textbf{1\%} & 10.9 & 11.4 & 11.9 & -280.49 & -268.30 & -253.77\\
+    ~ & 10\% & \textbf{5\%} & 10.9 & 11.4 & 11.9 & -280.80 & -267.86 & -258.59\\
+    ~ & 10\% & \textbf{10\%} & ~ & ~ & ~ & ~ & ~ & ~\\
+    ~ & 10\% & \textbf{25\%} & ~ & ~ & ~ & ~ & ~ & ~\\
+    ~ & 10\% & \textbf{50\%} & ~ & ~ & ~ & ~ & ~ & ~\\
+    ~ & 10\% & \textbf{100\%} & ~ & ~ & ~ & ~ & ~ & ~\\
+    \hline
+    2 & \textbf{0\%} & 10\% & ~ & ~ & ~ & ~ & ~ & ~\\
+    ~ & \textbf{0\%} & 10\% & ~ & ~ & ~ & ~ & ~ & ~\\
+    \hline
+    \end{tabular}
+    \caption {Steps with the corresponding results from the parameter settings experiment (CA FA)}
+    \tiny
+    \begin{itemize}[noitemsep]
+    %\item[$A^b$:] best $ATT$ value
+    %\item[$A^a$:] average $ATT$ value
+    %\item[$A^w$:] worst $ATT$ value
+    %\item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    %\item[$T^a$:] average $TOTFIT$ value
+    %\item[$T^w$:] worst $TOTFIT$ value
+    \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
+    \end{itemize}
+    \label{table:pm2}
+\end{sidewaystable}
+
+
 
