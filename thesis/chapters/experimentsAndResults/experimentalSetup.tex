@@ -5,7 +5,15 @@
 \subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
 
-Testing different parameter values is a time-consuming task. Because of this a set of candidate values for each parameter is determined based on the experience from previous research described in Section \vref{realtedWork} and qualified guesses made by the authors of this thesis. Minimum \textit{four} values for each parameter are tested while the other are held constant. The parameter values selected will be based on the ones that produce best computational results concerning the $ATT$ and $TOTFIT$, where best result means the lowest average $ATT$ and the lowest $TOTFIT$ values produced. The parameters that will be tested and their default values are as follows:
+Testing different parameter values is a time-consuming task. Because of this a set of candidate values for each parameter is determined based on the experience from previous research described in Section \vref{realtedWork}, our own  and qualified guesses made by the authors of this thesis. Minimum \textit{four} values for each parameter are tested while the other are held constant. The parameter values selected will be based on the ones that produce best computational results concerning the average travel time $ATT$ and the total fitness $TOTFIT$, where best result means the lowest average $ATT$ and the lowest $TOTFIT$ values produced. The reader recalls from Section \vref{sec:algoEvaluation} that the better the total fitness, the lower the $TOTFIT$ value. If the lowest $ATT$ and the lowest $TOTFIT$ are not achieved by the same parameter value, the selected value is determined by the following formula:
+\[
+    SelectedValue= 
+\begin{cases}
+    Value_{bestATT},& \text{if } x\geq 1\\
+    Value_{bestTOTFIT},              & \text{otherwise}
+\end{cases}
+\]
+The parameters that will be tested are as follows:
 \emph{\color{blue} TODO: her må vi skrive at vi velger verdier på bakgrunn av hva vi mener er best også, med tanke på hva som gir mening og sånn. }  
 
 \begin{itemize}
@@ -19,7 +27,7 @@ Testing different parameter values is a time-consuming task. Because of this a s
 \item The probability that a given ant is declared ``crazy'', $CA$.
 \end{itemize}
 
-The default values of each parameter, which will be held constant when other parameters are tested, are selected based on qualified guesses. The default values are shown in Table \vref{tbl:defaultValues}. in For determining the most fitted parameters, the algorithm is ran 10 time for each candidate value, except for the candidate values of $FA$ and $CA$, which will be ran 100 times. The candidate values of $FA$ and $CA$ are ran 10 times more than the rest, because the best values of these will help us answer Research Question \vref{itm:2a}, which concerns whether or not it is efficient to combine attributes from different swarm intelligence methods. By running the algorithm more times, we reduce the potential randomness in the results. To further establish the effect of implementing features from PSO and BCO, $CA$ and $FA$ will be tested with more parameters, including 0\% and 100\%. $p_{v}$ and $p_{b}$ will be tested together because their values directly affects the effect of the other. 
+The default values of each parameter, which will be held constant when other parameters are tested, are selected based on qualified guesses. These default values are shown in Table \vref{tbl:defaultValues}. For determining the most fitted parameters, the algorithm will be run 10 time for each candidate value, except for the candidate values of $FA$ and $CA$, which will be ran 100 times. The candidate values of $FA$ and $CA$ are run 10 times more than the rest, because the best values of these will help us answer Research Question \vref{itm:2a}, which concerns whether or not it is efficient to combine attributes from different swarm intelligence methods. By running the algorithm more times, we reduce the potential randomness in the results. To further establish the effect of implementing features from PSO and BCO, $CA$ and $FA$ will be tested with more parameter values, including 0\% and 100\%. $p_{v}$ and $p_{b}$ will be tested together because their values directly affects the effect of the other. 
 
 \begin{table}[H]
 \label{tbl:defaultValues}

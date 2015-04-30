@@ -28,9 +28,17 @@ Paper om inertia weight strategier i PSO: http://www.softcomputing.net/nabic11_7
 __________________________________________________________________
 
 
+__________________________________________________________________
+Calculate Confidence Interval: http://www.wikihow.com/Calculate-Confidence-Interval
+__________________________________________________________________
 
+__________________________________________________________________
+Calculate Standard Deviation: https://www.easycalculation.com/statistics/standard-deviation.php
+__________________________________________________________________
 
-
+__________________________________________________________________
+Z-tabel: http://www.statisticshowto.com/tables/z-table/
+__________________________________________________________________
 
 Dijkstra is guaranteed to be correct (ref. Algdatbok s.659-661) if the algorithm is ran on a weigthed, directed graph G = (V,E) with non-negative weight function w and source s. 
 
@@ -177,6 +185,15 @@ Max att: 11.7
 Average totfit: -267.9315992292871
 Min totfit: -276.5761078998073
 Max totfit: -258.5658317276814
+Teoretisk best mulige totfit: -300.0
+-------------------------------------------------------------------------------------------------
+BR: 5%
+Average att: 11.3
+Min att: 10.8
+Max att: 11.7
+Average totfit: -266.1041104688503
+Min totfit: -276.6403339755941
+Max totfit: -248.05266538214516
 Teoretisk best mulige totfit: -300.0
 -------------------------------------------------------------------------------------------------
 BR: 10%
@@ -386,5 +403,23 @@ Min totfit: -280.4752729608221
 Max totfit: -265.2536929993578
 Teoretisk best mulige totfit: -300.0
 -------------------------------------------------------------------------------------------------
+I: 150
+Average att: 11.2
+Min att: 10.9
+Max att: 11.4
+Average totfit: -274.34187540141295
+Min totfit: -277.84200385356456
+Max totfit: -272.21772639691716
+Teoretisk best mulige totfit: -300.0
+-------------------------------------------------------------------------------------------------
 CA 50X
+-------------------------------------------------------------------------------------------------
+CA: 0% X 50
+Average att: 11.3
+Min att: 10.8
+Max att: 11.8
+Average totfit: -269.1192935131663
+Min totfit: -280.7321772639692
+Max totfit: -253.37379576107895
+Teoretisk best mulige totfit: -300.0
 -------------------------------------------------------------------------------------------------
