@@ -3,8 +3,8 @@
 
 When selecting the next node, an ant's route set is dependent on which type of ant it is. 
 
-If ant $a$ is a ``normal ant'' the next node selection is based on an evaluated edge value, $ev$, for each of the possible edges, $e$, where $e$ are defined as edges connected to the current node and not yet visited in the given route. If no such edge exists, the given tour is terminated. %Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}, which states that the number of routes in a route set should not exceed a given limit. 
-The value $ev$ is calculated as follows: 
+If ant $a$ is a ``normal ant'' the next node selection is based on an evaluated edge value, $ev$, for each of the possible edges, $e$, where $e$ are defined as edges connected to the current node and not yet visited in the given route. If no such edge exists, the given tour is terminated, or else %Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}, which states that the number of routes in a route set should not exceed a given limit. 
+the value $ev$ is calculated as follows: 
 
 $$ev_e = \frac{d_e}{\sum\limits^{n}_{i=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
 
