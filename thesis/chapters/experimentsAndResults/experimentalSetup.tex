@@ -4,13 +4,19 @@
  
 \subsection{Parameter Settings}
 \label{subsec:parameterSettings_setup}
+The parameters tested with different values are described in Table \ref{table:parameters}. Each parameter is assigned a default value, shown i Table \ref{table:parameter_defaultValues} that will be used when other parameters are tested. The default value of $s$ and $i$ are inspired by the corresponding values described in \citet{salehi-nezhad07}, \citet{poorzahedy11}, \citet{sedighpour14}, and \citet{kechagiopoulos14}. $E$, $BR$, $FA$, and $CA$ are parameters unique for the proposed solution, and the default value for these are chosen based on preliminary testing not included in this thesis. The default value of $p_b$ is also partly determined based on preliminary testing, but it is also important to acknowledge that the value of $p_b$ is strongly dependent on the value of $p_v$. $p_v$ is, as mentioned in Section \vref{sec:algoInitialization}, the pheromone constant used to determine how much pheromone to be added to all visited edges. Different values of $p_v$ will not be tested because the ants are only concerned about the ratio of the pheromone level on edge $e$ and the summed pheromone level on all the possible edges when choosing which edge to walk. $p_v$ could in fact be any real number, as long as the constant are the same in all cases. $p_v$ are in this thesis sat to 0.1. The value of the inertia weight, $IW$, is neither tested with different values partly because the value of $IW$ directly affects $CA$ (as described in Section \vref{sec:algoGeneratingSuperSwarm}) and because implementation of different inertia weight strategies is beyond the scope of this theses. 
 
-Testing different parameter values is a time-consuming task and because of this a set of candidate values for each parameter is selected. The values are selected based on the experiences of previous research  
+Minimum \textit{five} different values are tested for each parameter.
 
 
- based on the experience from previous research described in Section \vref{relatedWork}, our own  and qualified guesses made by the authors of this thesis. Minimum \textit{four} values for each parameter are tested while the other are held constant. The parameter values selected will be based on the ones that produce best computational results concerning the average travel time $ATT$ and the total fitness $TOTFIT$, where best result means the lowest average $ATT$ and the lowest $TOTFIT$ values produced. The reader recalls from Section \vref{sec:algoEvaluation} that the better the total fitness, the lower the $TOTFIT$ value. If the lowest $ATT$ and the lowest $TOTFIT$ are not achieved by the same parameter value, the selected value is determined by the following formula:
 
-The parameters that will be tested are as follows:
+The initial values of the parameters concerning the pheromone constant added to edges visited, $p_v$, and the inertia weight, $IW$, are held constant at respectively 0.1 and 1.0. $p_v$ is not tested with different values because which edge that is chosen is only influenced by the 
+
+
+. $p_v$ is added to all edges visited by all ants, and when selecting witch path to walk an ant is only concerned about the pheromone ratio between the possible edges. This ratio will be the same no matter what $p_v$ is. $IW$ is constant because its value directly affects $CA$ (as described in Section \vref{sec:algoGeneratingSuperSwarm}) and because implementation of different inertia weight strategies is beyond the scope of this theses. 
+
+ 
+
 \begin{table}[H]
 	\begin{tabular}{|l|l|}
     	\hline
@@ -26,13 +32,14 @@ The parameters that will be tested are as follows:
     	$CA$ & The probability that a given ant is declared ``crazy''\\
    	    \hline
     \end{tabular}
-    \caption {Parameters to be Evaluated}.
+    \caption {Parameters to be Tested with Different Values}.
     \label{table:parameters}
 \end{table}
 
-The parameters concerning the pheromone constant added to edges visited, $p_v$, and the inertia weight, $IW$, are held constant at respectively 0.1 and 1.0. These parameters will not be tested with different values. $p_v$ is added to all edges visited by all ants, and when selecting witch path to walk an ant is only concerned about the pheromone ratio between the possible edges. This ratio will be the same no matter what $p_v$ is. $IW$ is constant because its value directly affects $CA$ (as mentioned in Section \vref{sec:algoGeneratingSuperSwarm}) and because implementation of different inertia weight strategies is beyond the scope of this theses. 
+The parameter values selected will be based on the ones that produce best computational results concerning the average travel time $ATT$ and the total fitness $TOTFIT$, where best result means the lowest average $ATT$ and the lowest $TOTFIT$ values produced. The reader recalls from Section \vref{sec:algoEvaluation} that the better the total fitness, the lower the $TOTFIT$ value. If the lowest $ATT$ and the lowest $TOTFIT$ are not achieved by the same parameter value, the selected value is determined by the following formula:
 
 The default values of each parameter, which will be held constant when other parameters are tested, are selected based on qualified guesses. These default values are shown in Table \vref{tbl:defaultValues}. For determining the most fitted parameters, the algorithm will be run 10 time for each candidate value, except for the candidate values of $FA$ and $CA$, which will be ran 100 times. The candidate values of $FA$ and $CA$ are run 10 times more than the rest, because the best values of these will help us answer Research Question \vref{itm:2a}, which concerns whether or not it is efficient to combine attributes from different swarm intelligence methods. By running the algorithm more times, we reduce the potential randomness in the results. To further establish the effect of implementing features from PSO and BCO, $CA$ and $FA$ will be tested with more parameter values, including 0\% and 100\%. $p_{v}$ and $p_{b}$ will be tested together because their values directly affects the effect of the other. 
+ 
 
 \begin{table}[H]
 \label{tbl:defaultValues}
@@ -45,7 +52,7 @@ The default values of each parameter, which will be held constant when other par
 	\hline
     \end{tabular}
     \caption {Default Values for The Parameter Setting Experiment} \emph{\color{blue} TODO: Reasons for these values:}
-    \label{table:parameter_startvalues}
+    \label{table:parameter_defaultValues}
 	\end{table}
 
 \subsection{Performance Comparison}
