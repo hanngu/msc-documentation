@@ -426,3 +426,27 @@ Min totfit: -280.7321772639692
 Max totfit: -253.37379576107895
 Teoretisk best mulige totfit: -300.0
 -------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+p_b ny
+-------------------------------------------------------------------------------------------------
+P_b:  0.1
+
+Average att: 11.2
+Min att: 10.5
+Max att: 11.7
+Average totfit: -272.49877970456004
+Min totfit: -280.65960179833013
+Max totfit: -264.3005780346821
+Teoretisk best mulige totfit: -300.0
+
+Population Standard Deviation of Totfit: 27.014708241603785
+Maximum Standard Deviation (Totfit): -245.48407146295625
+Minimum Standard Deviation (Totfit): -299.5134879461638
+Confidence Interval with a confidence level of 95% (Totfit): -272.49877970456004+/-16.743889640204486
+
+Population Standard Deviation of ATT: 0.08617142875999952
+Maximum Standard Deviation (ATT): 11.267931223236557
+Minimum Standard Deviation (ATT): 11.095588365716557
+Confidence Interval with a confidence level of 95% (ATT): 11.181759794476557+/-0.05340960488605734
+-------------------------------------------------------------------------------------------------
+P_b:  0.3
