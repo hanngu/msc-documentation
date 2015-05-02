@@ -46,19 +46,23 @@ The sum of $F_{1}(r)$, $F_{2}(r)$, and $F_{3}(r)$ results in, as described above
 \section{Selecting Ants to be Followed}
 \label{sec:selctingAntsToBeFollowed}
 
-After the $TOTFIT(r)$ of ant $a$ is calculated, the ants is added to a list sorted in descending order, where the ant with the best $TOTFIT(r)$ value is placed in position 0. As initiated in Section \vref{sec:algoGeneratingSuperSwarm} , a percentage of the colony becomes Following Ants, $FA$, and will follow the same path as one of the best ants, $ba_i$, from the previous iteration. To determine the number of ants to be followed, a value $NAF$, is calculated:
+After the $TOTFIT(r)$ of ant $a$ is calculated, the ants are added to a list sorted in descending order, where the ant with the best $TOTFIT(r)$ value is placed in position 0. As initiated in Section \vref{sec:algoGeneratingSuperSwarm} , a percentage of the colony becomes followers and will follow the same path as one of the best ants, $ba_i$, from the previous iteration. To determine the number of ants to be followed, a value $NAF$, is calculated:
 
 $$NAF = ants_{size} * FA$$
  
-where $ants_{size}$ is the number of ants that satisfied the constraints, described in Section \vref{sec:algoRemoval}). As mentioned in \vref{sec:algoInitialization}, and $FA$ is a parameter selected after excessive testing. Because the list is sorted with respect to the $TOTFIT(r)$, the $n$ first ants in the list will be the $n$ best ants, and are chosen to get a follower in the next iteration. 
+where $ants_{size}$ is the number of ants that satisfied the constraints, described in Section \vref{sec:algoRemoval}. As mentioned in \vref{sec:algoInitialization}, is $FA$ a parameter selected after excessive testing. Because the list is sorted with respect to the $TOTFIT(r)$, the $n$ first ants in the list will be the $n$ best ants, and are chosen to get a follower in the next iteration. 
 
 \section{Selecting Route Sets to be Granted More Pheromone}
-To boost the performance of our algorithm, we want to grant the edges in the $m$ best route sets with more pheromone. Both the pheromone constant $p_b$ to be added to the edges in $m$ and the the percentage $BR$ to determine the size of $m$ are, like $FA$ described in Section \vref{sec:selctingAntsToBeFollowed}, selected after excessive testing. The formula for calculating the number of ants/route sets that are granted extra pheromone, $NBRS$, are as follows:
-\newline
+To boost the algorithm's performance, the edges in the best produced route sets are granted more pheromone. To do this, a percentage of the best routes, $BR$, is selected, and a pheromone constant, $p_b$, is added to the edges in these routes. 
+%To do this, a pheromone constant, $p_b$, is added to the edges in $m$, and a percentage of the best routes, $BR$, determines the size of $m$. 
+The formula for calculating the number of ants to be granted extra pheromone, $NBRS$, is as follows:
+
 $$NBRS = ants_{size} * BR$$
-\newline
-Because the list of ants is now sorted, as described in Section \vref{sec:selctingAntsToBeFollowed}, the $NBRS$ first ants are also the $NBRS$ best ants. As mentioned in Section \vref{sec:algoCreatingRouteSet}, every ant contains exactly one route set. Because the ants are evaluated based on its route sets, the route sets of the $NBRS$ best ants are therefore the $NBRS$ best route sets. Further, the edges of the $NBRS$ best route sets are selected and granted extra pheromone. The formula for updating pheromone value of edge $e$, $e_p$ is as follows:
-\newline
+
+As mentioned in Section \vref{sec:selctingAntsToBeFollowed}, is the list of ants sorted, which makes $NBRS$'s first ants, the ants with the best produced route sets.
+%  Further, the edges in $NBRS$ best route sets are selected and granted extra pheromone.
+Further, the formula for updating the pheromone value, $e_p$, of edge $e$, is as follows:
+
 $$e_p \pluseq \tau*(\frac{p_b}{T_e})$$ 
-\newline
-where $T_e$ is the travel time of edge $e$, and $\tau$ is the number of route sets the edge appeared in. As described in Section \vref{sec:selectingNextNode}, the pheromone value is divided on the travel time to benefit edges with smaller travel time. 
+
+where $T_e$ is the travel time of edge $e$, and $\tau$ is the number of route sets the edge appeared in. As mentioned in Section \vref{sec:selectingNextNode}, the pheromone value is divided on the travel time to benefit edges with smaller travel time. 
