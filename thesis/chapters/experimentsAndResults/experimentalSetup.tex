@@ -33,9 +33,8 @@ The value of the inertia weight, $IW$, is neither tested with different values p
 
 For determining the most fitted parameters, the algorithm will be run 10 time for each candidate value, except for the candidate values of $AF$ and $CA$, which will be run 50 times. $AF$ and $CA$ are directly linked to features from respectively BCO and PSO, and these parameters will therefor be tested more thoroughly.
 
-Minimum \textit{five} different candidate values are tested for each parameter. The candidate values of $s$ and $i$ are inspired by the corresponding values of the literature described in Section \vref{relatedWork}. The parameters $E$, $BR$, $AF$, and $CA$ are all stated as a percentage and their candidate values will therefor be in the range 0 to 100. $AF$ and $CA$ are the only two tested with 0, because that will help determine the effect of BCO and PSO. As stated above, $p_b$ is dependent on the $p_v$ value, and because $p_v$ is sat to 0.1, $p_b$ will be tested in the range 0.1 to 0.9. The idea of $p_b$ is to ``reward'' the edges in the best route sets, and we therefor chose to keep $p_b$ equal or greater than $p_v$. However, $p_b$ is always lesser than 1.0 to avoid the ants to get stuck at local optima by over appreciating the edges in the best route sets. 
-
 The parameter values selected will be based on the results concerning the average travel time $ATT$ and the total fitness $TOTFIT$. The selected values will be the ones that produced the lowest average $ATT$ and the lowest $TOTFIT$. The reader recalls from Section \vref{sec:algoEvaluation} that the better the total fitness, the lower the $TOTFIT$ value. If the lowest $ATT$ and the lowest $TOTFIT$ are not achieved by the same parameter value $PV$, the selected value $SV$ is determined by the following formula:
+
 \[
     SV= 
 \begin{cases}
@@ -44,6 +43,7 @@ The parameter values selected will be based on the results concerning the averag
 \end{cases}
 \]
 
+Minimum \textit{five} different candidate values are tested for each parameter. The candidate values of $s$ and $i$ are inspired by the corresponding values in the literature described in Section \vref{relatedWork}. The parameters $E$, $BR$, $AF$, and $CA$ are all stated as a percentage and their candidate values will therefor be in the range 0 to 100. $AF$ and $CA$ are the only two tested with 0, because that will help determine the effect of BCO and PSO. As stated above, $p_b$ is dependent on the $p_v$ value, and because $p_v$ is sat to 0.1, $p_b$ will be tested in the range 0.1 to 0.9. The idea of $p_b$ is to ``reward'' the edges in the best route sets, and we have therefor chosen to keep $p_b$ equal to or greater than $p_v$. Further $p_b$ is always lesser than 1.0 to avoid over appreciating the edges in the best route sets, which might result in the ants getting stuck at local optima. 
 
 \subsection{Performance Comparison}
 
