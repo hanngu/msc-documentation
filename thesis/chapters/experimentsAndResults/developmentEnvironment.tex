@@ -1,23 +1,13 @@
 \section{Development Environment}
 
 \emph{\color{blue}TODO:} 
-The proposed SuperSwarm Optimization algorithm is coded in Java programming language.  
-%Concerning experience in programing languages, we have best experienced with Python and Java. Because Java is known for its fast calculations, we believe this will be positive \emph{\color{red} mer her, mulig vi trenger noen referanser.}. Neo4j is implemented in Java, and the Java built-in methods (Dijkstra's and A*) has a lot of documentation. We believed this would be less time consuming concerning using time creating our own methods for implementation. 
-
-%When it comes to comparing Java to C++, 
-
-%C++ is faster because in Java programs all the classes have to be compiled first, but this difference becomes insignificant in case of larger applications.
-%http://www.azulsystems.com/blog/cliff/2009-09-06-java-vs-c-performanceagain
-
-%\textbf{When c++ is faster}: When very small footprint is required, very small startup time (Startup of a JVM in microseconds is a very hard problem; startup in milliseconds might be vaguely possible), .
-
+The proposed SuperSwarm Optimization algorithm is programmed in the Java programming language. Java is chosen because we are most familiar with that language and therefor believe the development time is reduced. Further, Java is one of the most used programming languages world wide, and the possibility of further development by other contributors will be enhanced using Java. An additional benefit is that Neo4j offers a rich set of integration possibilities for Java and that these possibilities are well documented. Nevertheless, compared to languages like C++, Java is often considered slow and memory-intensive \citep{alnaser12}. However, \citet{sestoft10} states that managed languages like Java are easier and safer to use than traditional languages like C++. \citet{sestoft10} concludes, based on his conducted experiments, that ``there is no obvious relation between the execution speeds of different software platforms, even for the very simple programs studied here: the C, C\# and Java platforms are variously fastest and slowest''. 
 
 %The tests are executed on a Windows machine,  XX with a xx processor running at xxx.
-The tests are / will be executed on a Microsoft Windows 8.1 Pro machine, with a Intel Core i-7 processor (3.40GHz, 3401 Mhz, 4 Core(s)), and with 16.0GB installed physical memory.
+The tests are all performed on Amazon EC2 instances with Ubuntu operating system. The tests ran on C4 instances, which are the latest generation of Compute-optimized instances that Amazon provides. C4 contains high frequency Intel Xeon E5-2666 v3 (Haswell) processors optimized specifically for EC2. The instances used had either 4 or 8 virtual processors, and respectively either 7.5 or 15 GiB memory. 
 
-Testing CA and FA - AMAZON:
+Because of the large number of parameter values tested, Shell scripts were made in order to effectively execute the program with different values. 
 
-8 kjerner, 32 GB minne.
 
 
 
