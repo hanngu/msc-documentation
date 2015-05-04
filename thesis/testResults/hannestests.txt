@@ -1,4 +1,26 @@
 -------------------------------------------------------------------------------------------------
+FA x 50
+-------------------------------------------------------------------------------------------------
+FA: 0%
+
+Average att: 11.3
+Min att: 10.7
+Max att: 12.0
+Average totfit: -268.5814515093127
+Min totfit: -278.35581245985867
+Max totfit: -253.5850995504175
+Teoretisk best mulige totfit: -300.0
+
+Population Standard Deviation of Totfit: 36.40585090788949
+Maximum Standard Deviation (Totfit): -232.17560060142324
+Minimum Standard Deviation (Totfit): -304.9873024172022
+Confidence Interval with a confidence level of 95% (Totfit): -268.5814515093127+/-10.091187028319352
+
+Population Standard Deviation of ATT: 0.06643295816560098
+Maximum Standard Deviation (ATT): 11.392534435365343
+Minimum Standard Deviation (ATT): 11.259668519034141
+Confidence Interval with a confidence level of 95% (ATT): 11.326101477199742+/-0.018414276523566038
+-------------------------------------------------------------------------------------------------
 E x 30
 -------------------------------------------------------------------------------------------------
 E: 1%
@@ -60,3 +82,105 @@ Population Standard Deviation of ATT: 0.0670362422891928
 Maximum Standard Deviation (ATT): 11.378982292385533
 Minimum Standard Deviation (ATT): 11.244909807807147
 Confidence Interval with a confidence level of 95% (ATT): 11.31194605009634+/-0.023988611220486133
+-------------------------------------------------------------------------------------------------
+E: 50%
+
+Average att: 11.3
+Min att: 10.9
+Max att: 11.7
+Average totfit: -270.3869192892314
+Min totfit: -278.8696210661529
+Max totfit: -259.73217726396916
+Teoretisk best mulige totfit: -300.0
+
+Population Standard Deviation of Totfit: 25.537418933542813
+Maximum Standard Deviation (Totfit): -244.84950035568858
+Minimum Standard Deviation (Totfit): -295.9243382227742
+Confidence Interval with a confidence level of 95% (Totfit): -270.3869192892314+/-9.138448001435803
+
+Population Standard Deviation of ATT: 0.032899164052684136
+Maximum Standard Deviation (ATT): 11.339664310702222
+Minimum Standard Deviation (ATT): 11.273865982596853
+Confidence Interval with a confidence level of 95% (ATT): 11.306765146649537+/-0.011772814659482544
+-------------------------------------------------------------------------------------------------
+E: 75%
+
+Average att: 11.3
+Min att: 11.0
+Max att: 11.9
+Average totfit: -269.79458360094196
+Min totfit: -279.8330122029544
+Max totfit: -257.9229287090559
+Teoretisk best mulige totfit: -300.0
+
+Population Standard Deviation of Totfit: 29.820318459677928
+Maximum Standard Deviation (Totfit): -239.97426514126403
+Minimum Standard Deviation (Totfit): -299.6149020606199
+Confidence Interval with a confidence level of 95% (Totfit): -269.79458360094196+/-10.671063913670828
+
+Population Standard Deviation of ATT: 0.06320837183895799
+Maximum Standard Deviation (ATT): 11.356700129492566
+Minimum Standard Deviation (ATT): 11.230283385814651
+Confidence Interval with a confidence level of 95% (ATT): 11.293491757653609+/-0.022618825371856104
+-------------------------------------------------------------------------------------------------
+i x 30
+-------------------------------------------------------------------------------------------------
+i: 1
+
+Average att: 12.4
+Min att: 11.2
+Max att: 13.9
+Average totfit: -163.04127595803894
+Min totfit: -264.85934489402695
+Max totfit: -22.933847141939623
+Teoretisk best mulige totfit: -300.0
+
+Population Standard Deviation of Totfit: 4103.064148964162
+Maximum Standard Deviation (Totfit): 3940.022873006123
+Minimum Standard Deviation (Totfit): -4266.105424922201
+Confidence Interval with a confidence level of 95% (Totfit): -163.04127595803894+/-1468.262648995227
+
+Population Standard Deviation of ATT: 0.6457570360507063
+Maximum Standard Deviation (ATT): 13.01921025805884
+Minimum Standard Deviation (ATT): 11.727696185957425
+Confidence Interval with a confidence level of 95% (ATT): 12.373453222008132+/-0.23108118760426374
+-------------------------------------------------------------------------------------------------
+i: 10
+
+Average att: 11.5
+Min att: 11.1
+Max att: 12.3
+Average totfit: -258.93579533290523
+Min totfit: -277.4566473988439
+Max totfit: -221.1811175337187
+Teoretisk best mulige totfit: -300.0
+
+Population Standard Deviation of Totfit: 192.79122613459074
+Maximum Standard Deviation (Totfit): -66.14456919831449
+Minimum Standard Deviation (Totfit): -451.727021467496
+Confidence Interval with a confidence level of 95% (Totfit): -258.93579533290523+/-68.98945424942332
+
+Population Standard Deviation of ATT: 0.09096598392143528
+Maximum Standard Deviation (ATT): 11.614451318967465
+Minimum Standard Deviation (ATT): 11.432519351124593
+Confidence Interval with a confidence level of 95% (ATT): 11.52348533504603+/-0.032551759288155936
+-------------------------------------------------------------------------------------------------
+i: 50
+
+Average att: 11.4
+Min att: 10.8
+Max att: 12.2
+Average totfit: -268.18614857632195
+Min totfit: -281.2003853564547
+Max totfit: -249.13487475915218
+Teoretisk best mulige totfit: -300.0
+
+Population Standard Deviation of Totfit: 43.58228119535395
+Maximum Standard Deviation (Totfit): -224.603867380968
+Minimum Standard Deviation (Totfit): -311.7684297716759
+Confidence Interval with a confidence level of 95% (Totfit): -268.18614857632195+/-15.595719031909335
+
+Population Standard Deviation of ATT: 0.08720887994591313
+Maximum Standard Deviation (ATT): 11.483740671853429
+Minimum Standard Deviation (ATT): 11.309322911961601
+Confidence Interval with a confidence level of 95% (ATT): 11.396531791907515+/-0.031207296897275864
