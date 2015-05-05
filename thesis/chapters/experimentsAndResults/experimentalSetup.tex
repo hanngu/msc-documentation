@@ -6,7 +6,7 @@
 \label{subsec:parameterSettings_setup}
 
 Each candidate parameter, Table \vref{table:parameters}, is assigned a default value to be held constant while the other parameters are tested with \textit{xx} different candidate values.
-
+%Vi har akkurat sagt at de ikke har inkludert verdier i related work, men så er vi inspirert av de?
 The default value and candidate values for $s$ and $i$ are inspired by values used in related research\citep{salehi-nezhad07}, \citep{poorzahedy11}, \citep{sedighpour14}, \citep{kechagiopoulos14}.
 
 Parameters $E$, $BR$, $AF$, and $CA$ are all unique for the proposed algorithm, and their default values are chosen based on preliminary testing not included in this thesis. Their values are stated as a percentage and will be tested with candidate values in the range from 0.1 to 0.99. To determine the effect of the additional BCO and PSO features by removing them from the implementation, will parameters $AF$ and $CA$ also be tested with the value 0.
@@ -34,9 +34,9 @@ The value of the inertia weight, $IW$, directly affects $CA$ (as described in Se
     \label{table:parameters}
 \end{table}
 
-Parameter $s$, $i$, $E$, $p_b$, and $BR$  will be tested 30 times, due to the the central limit theorem[Ref - Statistiske Metoder A.Hald p.139], which states that the sampling distribution of any statistic will be normal or nearly normal, if the sample size is large enough, and many statisticians say that a sample size of 30 is large enough. $AF$ and $CA$, however, will be tested with a sample size of 50, when this is directly linked to establishing Research Question \vref{itm:2a}.
+Parameter $s$, $i$, $E$, $p_b$, and $BR$  will be tested 30 different times. This is due to the the central limit theorem[Ref - Statistiske Metoder A.Hald p.139], which states that the sampling distribution of any statistic will be normal or nearly normal, if the sample size is large enough, and many statisticians say that a sample size of 30 is large enough. The experimental testing of $AF$ and $CA$, however, is directly linked to establishing Research Question \vref{itm:2a}, and tested 50 times to ensure accuracy.
 
-The parameter values selected will be based on the best produced results, which means the lowest produced average $ATT$ and $TOTFIT$ value. As mentioned in \vref{sec:algoEvaluation}, is the lowest possible $TOTFIT$ and $ATT$ the most optimal solution. If the best $ATT$ and the best $TOTFIT$ is achieved by different candidate values, $CV$, will the selected value, $SV$, be determined by the following formula:
+The parameter values selected will be based on the best produced results: the lowest average $ATT$ and $TOTFIT$ value. As mentioned in \vref{sec:algoEvaluation}, is the lowest possible $TOTFIT$ and $ATT$ the most optimal solution. If the best $ATT$ and the best $TOTFIT$ is achieved by different candidate values, $CV$, will the selected value, $SV$, be determined by the following formula:
 
 \[
     SV= 
