@@ -7,7 +7,7 @@
 %SIDEWAYS
 \begin{sidewaystable}
     %\centering
-    \hspace*{-0.7cm}
+    %\hspace*{-0.5cm}
     \begin{tabular}{|l|l|l|l|l|l||c|c|c|c|c|c|c|}
     \hline
     ~ & $s$ & $i$ & $E$ & $p_{b}$ & $BR$ & $CI_{(A)}$ & $b_{(A)}$ & $w_{(A)}$ & $CI_{(TF)}$ & $b_{(TF)}$ & $w_{(TF)}$\\
@@ -53,10 +53,9 @@
     \item[$A$ :] Average Travel Time ($ATT$)
     \item[$TF$ :] Total Fitness function($TOTFIT$)
     \item[$b$ :] Best produced result
-    \item[$a$ :] Average produced result
     \item[$w$ :] Worst produced result
-    \item[$\sigma$:] Population Standard Deviation 
-    \item[$CI$ :] Confidence Interval with a confidence level of 95\%
+    %\item[$\sigma$:] Population Standard Deviation 
+    \item[$CI$ :] Average produced results with Confidence Interval (confidence level: 95\%)
     %\item[$A^b$:] best $ATT$ value
     %\item[$A^a$:] average $ATT$ value
     %\item[$A^w$:] worst $ATT$ value
@@ -72,21 +71,20 @@
 %CA OG FA
 \begin{sidewaystable}
     %\centering
-    \hspace*{-0.7cm}
-    \begin{tabular}{|l|l|l||c|c|c|c|c|c|c|c|c|c|}
+    %\hspace*{-0.7cm}
+    \begin{tabular}{|l|l|l||c|c|c|c|c|c|}
     \hline
-    ~ & $AF$ & $CA$ & $b_{(ATT)}$ & $a_{(ATT)}$ & $w_{(ATT)}$ & $\sigma_{(ATT)}$ & $CI_{(ATT)}$ & $b_{(TF)}$ & $a_{(TF)}$ & $w_{(TF)}$ & $\sigma_{(TF)}$ & $CI_{(TF)}$\\
+    ~ & $AF$ & $CA$ & $CI_{(ATT)}$ & $b_{(ATT)}$ & $w_{(ATT)}$ & $CI_{(TF)}$ & $b_{(TF)}$ & $w_{(TF)}$ \\
     \hline
-    $AF$ & \textbf{0\%} & 10\% & 10.7 & 11.3 & 12.0 & 0.066 & 11.326 $\pm$ 0.018 & -278.36 & -268.58 & -253.59 & 36.406 & -268.581 $\pm$ 10.091 \\
-    ~ & \textbf{1\%} & 10\% & 10.9 & 11.3 & 12.2 & 0.056 & 11.332 $\pm$ 0.015 & -281.18 & -268.40 & -254.74 & 45.397 & -268.400 $\pm$ 12.583 \\
-    ~ & \textbf{5\%} & 10\% & 10.8 & 11.4 & 12.0 & 0.059 & 11.387 $\pm$ 0.017 & -277.78 & -268.09 & -252.78 & 31.297 & -268.087 $\pm$ 8.675 \\ 
-    ~ & \textbf{10\%} & 10\% & 10.7 & 11.4 & 12.2 & 0.073 & 11.380 $\pm$ 0.020 & -279.13 & -268.81 & -246.12 & 47.241 & -246.116 $\pm$ 13.095 \\ 
-    ~ & \textbf{25\%} & 10\% & 11.3 & 11.4 & 11.4 & 0.002 & 11.366 $\pm$ 0.003 & -272.92 & -272.39 & -271.99 & 0.153 & -272.39 $\pm$ 0.173 \\ 
-    ~ & \textbf{50\%} & 10\% & 10.8 & 11.3 & 11.8 & 0.044 & 11.327 $\pm$ 0.012 & -281.12 & -267.70 & -239.94 & 65.705 & -267.70 $\pm$ 15.718 \\ 
-    ~ & \textbf{75\%} & 10\% & 10.8 & 11.4 & 12.4 & 0.085 & 11.416 $\pm$ 0.024 & -278.48 & -266.33 & -245.41 & 50.713 & -266.33 $\pm$ 14.057 \\ 
-    ~ & \textbf{100\%} & 10\% & 11.0 & 11.8 & 12.8 & 0.192 & 11.776 $\pm$ 0.053 & -279.25 & -238.18 & -179.02 & 421.676 & -238.18 $\pm$ 116.883 \\ 
+    $AF$ & \textbf{0\%} & 10\% & 11.326 $\pm$ 0.018 & 10.7 & 12.0 & -268.581 $\pm$ 10.091 & -278.36 & -253.59   \\
+    ~ & \textbf{1\%} & 10\% & 11.332 $\pm$ 0.015 & 10.9 & 12.2 &  -268.400 $\pm$ 12.583  & -281.18 & -254.74   \\
+    ~ & \textbf{5\%} & 10\% & 11.387 $\pm$ 0.017 & 10.8 & 12.0 &  -268.087 $\pm$ 8.675 & -277.78 & -252.78  \\ 
+    ~ & \textbf{10\%} & 10\% & 11.380 $\pm$ 0.020 & 10.7 & 12.2 &   -246.116 $\pm$ 13.095  & -279.13 & -246.12  \\ 
+    ~ & \textbf{50\%} & 10\% & 11.327 $\pm$ 0.012 & 10.8 & 11.8 & -267.70 $\pm$ 15.718 & -281.12& -239.94  \\ 
+    ~ & \textbf{75\%} & 10\% & 11.416 $\pm$ 0.024 & 10.8 & 12.4 & -266.33 $\pm$ 14.057 & -278.48 & -245.41 \\ 
+    ~ & \textbf{100\%} & 10\% & 11.776 $\pm$ 0.053 & 11.0 & 12.8 & -238.18 $\pm$ 116.883 & -279.25 & -179.02\\ 
     \hline
-    $CA$ & 10\% &\textbf{0\%} & 10.9 & 11.3 & 12.0 & 0.063 & 11.320 $\pm$ 0.017 & -278.74 & -268.29 & -250.66 & 43.241 & -268.291 $\pm$ 11.986 \\
+    $CA$ & 10\% &\textbf{0\%} & 11.320 $\pm$ 0.017 & 10.9 & 12.0 &  -268.291 $\pm$ 11.986 & -278.74 & -250.66 \\
     %~ & 10\% &\textbf{10\%} & 10.9 & 11.3 & 12.0 & 0.063 & 11.320 $\pm$ 0.017 & -278.74 & -268.29 & -250.66 & 43.241 & -268.291 $\pm$ 11.986 \\
 
     \hline
@@ -95,15 +93,15 @@
     \tiny
     \begin{itemize}[noitemsep]
     \item[$b_{(ATT)}$:] best $ATT$ value
-    \item[$a_{(ATT)}$:] average $ATT$ value
+    %\item[$a_{(ATT)}$:] average $ATT$ value
     \item[$w_{(ATT)}$:] worst $ATT$ value
     \item[$b_{(TF)}$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
-    \item[$a_{(TF)}$:] average $TOTFIT$ value
+    %\item[$a_{(TF)}$:] 
     \item[$w_{(TF)}$:] worst $TOTFIT$ value
-    \item[$\sigma_{(ATT)}$:] Population Standard Deviation of $ATT$
-    \item[$CI_{(ATT)}$:] Confidence Interval with a confidence level of 95\% ($ATT$)
-    \item[$\sigma_{(TF)}$:] Population Standard Deviation of $TOTFIT$
-    \item[$CI_{(TF)}$:] Confidence Interval with a confidence level of 95\% ($TOTFIT$)
+    %\item[$\sigma_{(ATT)}$:] Population Standard Deviation of $ATT$
+    \item[$CI_{(ATT)}$:] average $ATT$ value and Confidence Interval with a confidence level of 95\% ($ATT$)
+    %\item[$\sigma_{(TF)}$:] Population Standard Deviation of $TOTFIT$
+    \item[$CI_{(TF)}$:] average $TOTFIT$ value and Confidence Interval with a confidence level of 95\% ($TOTFIT$)
     %\item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
     \end{itemize}
     \label{table:pm2}
