@@ -19,13 +19,14 @@ An assumption made by the authors is that a route represent possibilities for tr
 \emph{\color{blue} TODO: ``How extendible is it? Will it scale up to a large knowledge base?''. Dette må skrives om når Mumford testene er ferdig}
 %(b) Does it address exactly the task? portions of the task? a class of tasks?
 %(c) Could it, or parts of it, be applied to other problems? Is it specially tuned for a particular example?
-The parameters tested and used are specifically tuned for Mandl's Transit Network containing 4 routes, with maximum 8 nodes i one route. This may be considered a weakness because the parameters could possibly have different initial values for other problems. However, metaherustic methods, such as the one proposed in this thesis, requires calibration of parameters with respect to the problem at hand \citep{dobslaw09}. 
-
+The parameters tested and used are specifically tuned for Mandl's Transit Network containing 4 routes, with maximum 8 nodes in one route, but the same parameters are used when testing with 6, 7, and 8 routes as well. This may be considered a weakness, because metaherustic methods, such as the one proposed in this thesis, requires calibration of parameters with respect to the problem at hand \citep{dobslaw09}. 
 
 %(d) Does it transfer to more complicated problems? (perhaps more knowledge intensive or more/less constrained or with more complex interactions)
 \emph{\color{blue} TODO: ``Does it transfer to more complicated problems?''. Dette må skrives om når Mumford testene er ferdig}
 
 %6. When it cannot provide a good solution, does it do nothing or does it provide bad solutions or does it provide the best solution given the available resources?
+
+\emph{\color{blue} Dette er nå et definisjonsspørsmål i vårt tilfelle. Dersom den ikke finner en løsning, i.e. ingen maur lagde ruter som oppfylte constrainstene, returnerer den ingen løsning. Dette skjer dog aldri, med mindre vi har gitt den helt ville parametere (som 100\% CA)}
 
 %7. How well is the method understood?
 %(a) Why does it work?
