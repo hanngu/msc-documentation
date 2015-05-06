@@ -1,3 +1,4 @@
+\subsection{Evaluating Methods}
 %1. How is the method an improvement over existing technologies?
 %(a) Does it account for more situations? (input)
 %(b) Does it produce a wider variety of desired behaviors? (output)
@@ -5,16 +6,24 @@
 %(d) Does it hold more promise for further development? (for example, due to the opening of a new paradigm)
 
 %2. Is there a recognized metric for evaluating the performance of your method? (eg. normative, cognitively valid, etc.)
+As mentioned, Mandl's benchmark problem is used by several researchers and the metric for evaluating is established. A good solution is one that provides a low average travel time, a high percentage of passengers traveling directly or with one transfer form the origin to their destination and a low percentage of both passengers transferring twice and \texit{unsatisfied} passengers. The reader recalls from Section \vref{sec:algoEvaluation} that an unsatisfied passenger is one that needs to transfer more than two times. Not only are these metric used by other researchers, and therefore makes it easy to compare our results, but they also corresponds to our goal described on page \pageref{itm:goal} of increasing  the number of public transportation passengers. 
 
 %3. Does it rely on other methods? (Does it require input in a particular form or preprocessed? Does it require to a certain type of knowledge base or routines?)
+The proposed method requires input on a particular form. Both nodes and their coordinates, travel time between nodes and the demand between nodes needs to be provided on a particular form in an .txt-document. This may be considered as a weakness of the method, but implementing support for retrieving the mentioned data on another form are considered as fairly easy. 
 
 %4. What are the underlying assumptions? (know limitations, scope of expected input, scope of desired output, expected performance criteria, etc.)
+An assumption made by the authors is that a route represent possibilities for traveling in both directions. 
 
 %5. What is the scope of the method?
 %(a) How extendible is it? Will it scale up to a large knowledge base?
+\emph{\color{blue} TODO: ``How extendible is it? Will it scale up to a large knowledge base?''. Dette må skrives om når Mumford testene er ferdig}
 %(b) Does it address exactly the task? portions of the task? a class of tasks?
-%(c) Could it, or parts of it, be applied to other problems?
+%(c) Could it, or parts of it, be applied to other problems? Is it specially tuned for a particular example?
+The parameters tested and used are specifically tuned for Mandl's Transit Network containing 4 routes, with maximum 8 nodes i one route. This may be considered a weakness because the parameters could possibly have different ideal values for other problems. 
+
+
 %(d) Does it transfer to more complicated problems? (perhaps more knowledge intensive or more/less constrained or with more complex interactions)
+\emph{\color{blue} TODO: ``Does it transfer to more complicated problems?''. Dette må skrives om når Mumford testene er ferdig}
 
 %6. When it cannot provide a good solution, does it do nothing or does it provide bad solutions or does it provide the best solution given the available resources?
 
