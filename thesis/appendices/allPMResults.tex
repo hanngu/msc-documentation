@@ -356,7 +356,7 @@
 \end{sidewaystable}
 
 
-%VOL 1 testing:
+before removing standard dev
 
 %SIDEWAYS
 \begin{sidewaystable}
@@ -447,6 +447,112 @@
     \hline
     \end{tabular}
     \caption {Steps with the corresponding results from the CA and AF parameter settings experiment}
+    \tiny
+    \begin{itemize}[noitemsep]
+    \item[$b_{(ATT)}$:] best $ATT$ value
+    \item[$a_{(ATT)}$:] average $ATT$ value
+    \item[$w_{(ATT)}$:] worst $ATT$ value
+    \item[$b_{(TF)}$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    \item[$a_{(TF)}$:] average $TOTFIT$ value
+    \item[$w_{(TF)}$:] worst $TOTFIT$ value
+    \item[$\sigma_{(ATT)}$:] Population Standard Deviation of $ATT$
+    \item[$CI_{(ATT)}$:] Confidence Interval with a confidence level of 95\% ($ATT$)
+    \item[$\sigma_{(TF)}$:] Population Standard Deviation of $TOTFIT$
+    \item[$CI_{(TF)}$:] Confidence Interval with a confidence level of 95\% ($TOTFIT$)
+    %\item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} TODO: initial demands: }
+    \end{itemize}
+    \label{table:pm2}
+\end{sidewaystable}
+
+
+%SIDEWAYS
+\begin{sidewaystable}
+    %\centering
+    \hspace*{-0.7cm}
+    \begin{tabular}{|l|l|l|l|l|l||c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    ~ & $s$ & $i$ & $E$ & $p_{b}$ & $BR$ & $b_{(A)}$ & $a_{(A)}$ & $w_{(A)}$ & $\sigma_{(A)}$ & $CI_{(A)}$ & $b_{(TF)}$ & $a_{(TF)}$ & $w_{(TF)}$ & $\sigma_{(TF)}$ & $CI_{(TF)}$\\
+    \hline
+    $p_{b}$ & 50 & 50 & 10\% & \textbf{0.0} & 10\% & 11.1 & 11.4 & 11.9 & 0.04 & 11.41 $\pm$ 0.02 & -277.39 & -268.52 & -250.82 & 36.98 & 268.52 $\pm$ 13.23 \\
+    ~ & 50 & 50 & 10\% & \textbf{0.1} & 10\% & 10.7 & 11.3 & 12.2 & 0.08 & 11.32 $\pm$ 0.03 & -277.91 & -267.26 & -254.66 & 52.33 & -267.26 $\pm$ 18.73 \\
+    ~ & 50 & 50 & 10\% & \textbf{0.3} & 10\% & 10.7 & 11.3 & 12.1 & 0.07 & 11.35 $\pm$ 0.03 & -277.90 & -268.78 & -253.78 & 29.10 & -268.78 $\pm$ 10.41 \\
+    %~ & 50 & 50 & 10\% & \textbf{0.3} & 10\% & ~ & ~ & ~ & ~ & ~ $\pm$~ & ~ & ~ & ~ & ~ & ~ $\pm$ ~\\
+    %~ & 50 & 50 & 10\% & \textbf{0.3} & 10\% & ~ & ~ & ~ & ~ & ~ $\pm$~ & ~ & ~ & ~ & ~ & ~ $\pm$ ~\\
+    \hline
+    \hline
+    $E$ & 50 & 50 & \textbf{1\%} & 0.1 & 10\% & 10.9 & 11.3 & 11.8 & 0.06 & 11.33 $\pm$ 0.02 & -279.77 & -269.15 & -248.42 & 41.94 & -269.15 $\pm$ 15.01 \\
+    ~ & 50 & 50 & \textbf{10\%} & 0.5 & 10\% & 11.1 & 11.4 & 12.3 & 0.06 & 11.40 $\pm$ 0.02 & -278.29 & -267.94 & -254.21 & 39.08 & -267.94 $\pm$ 13.98 \\
+    ~ & 50 & 50 & \textbf{25\%} & 0.5 & 10\% & 10.7 & 11.3 & 12.1 & 0.07 & 11.31 $\pm$ 0.02 & -279.70 & -269.58 & -250.41 & 45.83 & -269.58 $\pm$ 16.39 \\
+    ~ & 50 & 50 & \textbf{50\%} & 0.5 & 10\% & 10.9 & 11.3 & 11.7 & 0.03 & 11.31 $\pm$ 0.01 & -278.87 & -270.39 & -259.73 & 25.54 & -270.39 $\pm$ 9.14 \\
+    ~ & 50 & 50 & \textbf{75\%} & 0.5 & 10\% & 11.0 & 11.3 & 11.9 & 0.06 & 11.29 $\pm$ 0.02 & -279.83 & -269.79 & -257.92 & 29.82 & -269.79 $\pm$ 10.67 \\
+    ~ & 50 & 50 & \textbf{90\%} & 0.5 & 10\% & 10.9 & 11.4 & 11.9 & 0.06 & 11.39 $\pm$ 0.02 & -275.34 & -267.24 & -243.93 & 35.39 & -267.24 $\pm$ 12.67 \\
+    %~ & 50 & 50 & \textbf{99\%} & 0.5 & 10\% & 10.9 & 11.4 & 11.9 & 0.05 & 11.41 $\pm$ 0.02 & -282.08 & -266.85 & -247.42 & 72.25 & -266.85 $\pm$ 25.86 \\
+    \hline
+    $BR$ & 50 & 50 & 10\% & 0.5 & \textbf{1\%} & 10.8 & 11.3 & 11.7 & 0.05 & 11.31 $\pm$ 0.02 & -280.03 & -269.67 & -259.27 & 23.23 & -267.67 $\pm$ 8.31 \\
+    ~    & 50 & 50 & 10\% & 0.5 & \textbf{10\%} & 10.7 & 11.4 & 12.0 & 0.06 & 11.36 $\pm$ 0.02 & -278.55 & -268.19 & -255.38 & 29.00 & -268.19 $\pm$ 10.38 \\
+    ~    & 50 & 50 & 10\% & 0.5 & \textbf{25\%} & 10.9 & 11.3 & 11.6 & 0.03 & 11.28 $\pm$ 0.01 & -279.96 & -270.38 & -259.48 & 26.99 & -270.38 $\pm$ 9.66 \\
+    ~    & 50 & 50 & 10\% & 0.5 & \textbf{50\%} & 10.9 & 11.3 & 11.8 & 0.04 & 11.33 $\pm$ 0.02 & -281.95 & -269.54 & -257.93 & 32.28 & -269.54 $\pm$ 11.55 \\
+    ~    & 50 & 50 & 10\% & 0.5 & \textbf{75\%} & 10.8 & 11.4 & 11.9 & 0.06 & 11.38 $\pm$ 0.02 & -276.49 & -268.29 & -253.59 & 24.43 & -268.29 $\pm$ 8.74 \\
+    ~    & 50 & 50 & 10\% & 0.5 & \textbf{90\%} & 10.9 & 11.4 & 12.3 & 0.09 & 11.37 $\pm$ 0.03 & -281.82 & -268.26 & -251.27 & 46.84 & 268.26 $\pm$ 16.76 \\
+    ~    & 50 & 50 & 10\% & 0.5 & \textbf{99\%} & 10.8 & 11.3 & 11.9 & 0.04 &  $\pm$  &  -283.56 & -269.41 & -259.25 & -269.41 & 12.30 $\pm$  \\
+    \hline
+    $i$ & 50 & \textbf{1} & 10\% & 0.5 & 10\% & 11.2 & 12.4 & 13.9 & 0.65 & 12.37 $\pm$ 0.23 & -264.86 & -163.04 & -22.93 & 4103.06 & -163.04 $\pm$ 1468.26 \\
+    ~   & 50 &\textbf{10} & 10\% & 0.5 & 10\% & 11.1 & 11.5 & 12.4 & 0.09 & 11.52 $\pm$ 0.03 & -277.46 & -258.94 & -221.18 & 192.79 & -258.94 $\pm$ 68.99 \\
+    ~   & 50 &\textbf{50} & 10\% & 0.5 & 10\% & 10.8 & 11.4 & 12.2 & 0.09 & 11.40 $\pm$ 0.03 & -281.20 & -268.19 & -249.13 &  43.58 & -268.19 $\pm$ 15.59 \\
+    ~   & 50 &\textbf{100} & 10\% & 0.5 & 10\% & 10.7 & 11.2 & 11.7 & 0.04 & 11.18 $\pm$ 0.01 & -279.77 & -274.22 & -263.10 & 14.54 & -274.22 $\pm$ 5.20 \\
+    ~   & 50 &\textbf{125} & 10\% & 0.5 & 10\% & 10.9 & 11.2 & 11.7 & 0.04 & 11.23 $\pm$ 0.01 & -280.80 & -272.72 & -265.77 & 16.32 & -272.72 $\pm$ 5.84 \\
+    \hline
+    $s$ & \textbf{10$^*$} & 50 & 10\% & 0.5 & 10\% & - & - & - & - & - & - & - & - &  & - \\
+    ~ & \textbf{25$^*$} & 50 & 10\% & 0.5 & 10\% & - & - & - & - & - & - & - & - &  & -  \\
+    ~ & \textbf{50} & 50 & 10\% & 0.5 & 10\% & 10.8 & 11.3 & 11.9 & 0.06 & 11.32 $\pm$ 0.02 & -279.70 & -268.13 & -248.58 & 52.47 & -268.13 $\pm$  18.78\\
+    %~ & \textbf{--} & 50 & 10\% & 0.5 & 10\% & - & - & - & - & - $\pm$ - & -& - & - &  & - $\pm$  \\
+    \hline
+    \end{tabular}
+    \caption {Steps with the corresponding results from the parameter settings experiment (sample size: 30)}
+    \tiny
+    \begin{itemize}[noitemsep]
+    \item[$A$ :] Average Travel Time ($ATT$)
+    \item[$TF$ :] Total Fitness function($TOTFIT$)
+    \item[$b$ :] Best produced result
+    \item[$a$ :] Average produced result
+    \item[$w$ :] Worst produced result
+    \item[$\sigma$:] Population Standard Deviation 
+    \item[$CI$ :] Confidence Interval with a confidence level of 95\%
+    %\item[$A^b$:] best $ATT$ value
+    %\item[$A^a$:] average $ATT$ value
+    %\item[$A^w$:] worst $ATT$ value
+    %\item[$T^b$:] best $TOTFIT$ value (best possible $TOTFIT$ value: -315)
+    %\item[$T^a$:] average $TOTFIT$ value
+    %\item[$T^w$:] worst $TOTFIT$ value
+    \item[$^*$:] No ants satisfied the initial demands, \emph{\color{blue} constraints?}
+    \end{itemize}
+    \label{table:pm1}
+\end{sidewaystable}
+
+
+%CA OG FA
+\begin{sidewaystable}
+    %\centering
+    \hspace*{-0.7cm}
+    \begin{tabular}{|l|l|l||c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    ~ & $AF$ & $CA$ & $b_{(ATT)}$ & $a_{(ATT)}$ & $w_{(ATT)}$ & $\sigma_{(ATT)}$ & $CI_{(ATT)}$ & $b_{(TF)}$ & $a_{(TF)}$ & $w_{(TF)}$ & $\sigma_{(TF)}$ & $CI_{(TF)}$\\
+    \hline
+    $AF$ & \textbf{0\%} & 10\% & 10.7 & 11.3 & 12.0 & 0.066 & 11.326 $\pm$ 0.018 & -278.36 & -268.58 & -253.59 & 36.406 & -268.581 $\pm$ 10.091 \\
+    ~ & \textbf{1\%} & 10\% & 10.9 & 11.3 & 12.2 & 0.056 & 11.332 $\pm$ 0.015 & -281.18 & -268.40 & -254.74 & 45.397 & -268.400 $\pm$ 12.583 \\
+    ~ & \textbf{5\%} & 10\% & 10.8 & 11.4 & 12.0 & 0.059 & 11.387 $\pm$ 0.017 & -277.78 & -268.09 & -252.78 & 31.297 & -268.087 $\pm$ 8.675 \\ 
+    ~ & \textbf{10\%} & 10\% & 10.7 & 11.4 & 12.2 & 0.073 & 11.380 $\pm$ 0.020 & -279.13 & -268.81 & -246.12 & 47.241 & -246.116 $\pm$ 13.095 \\ 
+    ~ & \textbf{25\%} & 10\% & 11.3 & 11.4 & 11.4 & 0.002 & 11.366 $\pm$ 0.003 & -272.92 & -272.39 & -271.99 & 0.153 & -272.39 $\pm$ 0.173 \\ 
+    ~ & \textbf{50\%} & 10\% & 10.8 & 11.3 & 11.8 & 0.044 & 11.327 $\pm$ 0.012 & -281.12 & -267.70 & -239.94 & 65.705 & -267.70 $\pm$ 15.718 \\ 
+    ~ & \textbf{75\%} & 10\% & 10.8 & 11.4 & 12.4 & 0.085 & 11.416 $\pm$ 0.024 & -278.48 & -266.33 & -245.41 & 50.713 & -266.33 $\pm$ 14.057 \\ 
+    ~ & \textbf{100\%} & 10\% & 11.0 & 11.8 & 12.8 & 0.192 & 11.776 $\pm$ 0.053 & -279.25 & -238.18 & -179.02 & 421.676 & -238.18 $\pm$ 116.883 \\ 
+    \hline
+    $CA$ & 10\% &\textbf{0\%} & 10.9 & 11.3 & 12.0 & 0.063 & 11.320 $\pm$ 0.017 & -278.74 & -268.29 & -250.66 & 43.241 & -268.291 $\pm$ 11.986 \\
+    %~ & 10\% &\textbf{10\%} & 10.9 & 11.3 & 12.0 & 0.063 & 11.320 $\pm$ 0.017 & -278.74 & -268.29 & -250.66 & 43.241 & -268.291 $\pm$ 11.986 \\
+
+    \hline
+    \end{tabular}
+    \caption {Steps with the corresponding results from the $CA$ and $AF$ parameter settings experiment (Sample size: 50)}
     \tiny
     \begin{itemize}[noitemsep]
     \item[$b_{(ATT)}$:] best $ATT$ value
