@@ -3,25 +3,13 @@
 
 \emph{\color{blue} TODO: referansene må oppdateres.}
 
-%\begin{itemize}
-%\item \citet{cohen88} \textbf{asks, how is your reformulation / method an improvement? And underlying assumptions.}
-
-ACO has several advantages for the VRP, such as natural parallelism and continuous positive feedback, which allows good solutions to be identified fast. However, ACO also has a few drawbacks including the weakness of getting stuck at a local optima. We will investigate the possibility of overcoming this drawback by improving ACO, and including features from other swarm inspired methods. As stated in Section \vref{sec:relatedWork}, we only found one attempt to combine different methods from swarm intelligence.% is to add a notion of the global best solution found to ACO and BCO. 
+ACO has several advantages for the VRP, such as natural parallelism and continuous positive feedback, which allows good solutions to be identified fast. However, ACO also has a few drawbacks including the weakness of getting stuck at a local optima. We will investigate the possibility of overcoming this drawback and to enhance the optimization process, by improving ACO, and including features from other swarm inspired methods. As stated in Section \vref{sec:relatedWork}, we only found one attempt to combine different methods from swarm intelligence.% is to add a notion of the global best solution found to ACO and BCO. 
 
 We did not manage to find any previous research that used graph databases in combination with the vehicle routing problem and swarm intelligence. As mentioned in \vref{subsubsec:neo4j}, does the graph database Neo4j \citep{website:neo4j} have several advantageous features for managing graphs, and we will therefore determine potential advantages and disadvantages of using Neo4j in our implementation and in the optimization process, giving us research question \vref{itm:3a}.
 
-%\item \citet{cohen88} \textbf{asks if any aspects have been abstracted away?}
-
-%As mentioned, does the UTRP comprise the design of physical transportation routes needed to solve the UTNDP. UTSP involves the development of schedules. We will in this thesis focus on UTRP. Geographical issues.
-%and the objective in this thesis will therefore be to minimize the total travel time in the public transportation system, by optimizing the routes concerning the travel time and minimizing number of transfers.
 The current solution of AtB consist of an experience based route network, and therefore not properly, computationally optimized concerning the travel demand and travel time. When a route network is not properly optimized, it can lead to a large number of transfers for passengers when they are traveling from their origin to their destination, resulting in a long total travel time. A good route network will ensure that routes having the most traveling demands are satisfied with short paths and few vehicle transfers, making travel demand a key variable for the algorithm. AtB\citep{website:atb} does not possess accurate data about the travel demand, and detailed investigations into measuring and predicting travel demand is a complex research problem, and beyond the scope of (and abstracted away\citep{cohen88} from) this thesis. 
-%\item \citet{cohen88} \textbf{Does it rely on other methods?}
 
-Demand values are all provided for Mandl's benchmark problem\citep{mandl79}. This benchmark problem seems to be the only one widely used for the UTRP and is acknowledged by researchers\citep{fan09},\citep{kechagiopoulos14},\citep{nikolic14}. Christoph Mandl\citep{mandl79} developed a heuristic algorithm for the UTRP, and the method was applied and based on a real network in Switzerland, the Swiss transit network\citep{mandl80}. The data includes a small and dense network with 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge, and will in this thesis be used as the input data. %The total demand is 15570 trips per day, which is a relatively high demand for a small network. The travel time between the to farthest nodes in the network is 22 minutes along the shortest path. 
-
-%Mandl developed a solution in two phases, where a feasible set of routes were created in the first phase and in the second phase he tried to minimize the the total travel time, including in-vehicle time and waiting time, by reducing the number of transfers. Some important measures of Mandl's solution network includes, for example, 100\% service coverage, 69.4\% of the trips involving no transfers, 29.93\% of the trips involving one transfer, and only 0.13\% of the trips needing more than one transfer. 
-
-%\item \citet{cohen88} \textbf{asks when have you successfully demonstrated a solution? Is there a recognized metric for evaluating the performance?}
+Demand values are all provided for Mandl's benchmark problem\citep{mandl79}. This benchmark problem seems to be the only one widely used for the UTRP and is acknowledged by researchers\citep{fan09},\citep{kechagiopoulos14},\citep{nikolic14}. Christoph Mandl\citep{mandl79} developed a heuristic algorithm for the UTRP, and the method was applied and based on a real network in Switzerland, the Swiss transit network\citep{mandl80}. The data includes a small and dense network with 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge, and will in this thesis be used as the input data. 
 
 In order to demonstrate a solution we will evaluate the performance of our algorithm against the performance criteria used in similar research for comparison[\citep{kechagiopoulos14},\citep{mandl80},\citep{nikolic14},\citep{fan09}], and are the following:
 \begin{itemize}
@@ -32,10 +20,8 @@ In order to demonstrate a solution we will evaluate the performance of our algor
 \item The average travel time in minutes per transit user, which should be as low as possible. %The travel times incorporates a transfer penalty, which is sat to be 5 minutes per transfer for comparison reasons. 
 \end{itemize}
 
-%\item \citet{cohen88} \textbf{asks is the research is representative for a class of tasks? What is the scope of the method?}
-%Does it transfer to more complicated problems?
-For the reasons stated above, (the scope of the research) we will in this thesis focus on the UTRP, creating effective urban transit routes, with an ACO algorithm inspired by both BCO and PSO. (Comparing our results with Mandl etc.) This will help us establish Research Question \vref{itm:2a}, which is concerned about whether or not it is efficient to combine attributes from different swarm intelligence methods in order to improve the computational results.
+For the reasons stated above, we will in this thesis focus on the UTRP, creating effective urban transit routes, with an ACO algorithm inspired by both BCO and PSO, and compare results with previous work. This will help us establish Research Question \vref{itm:2a}, which is concerned about whether or not it is efficient to combine attributes from different swarm intelligence methods in order to improve the computational results.
 
 Our goal with our implementation is that it further can be used to optimize AtBs transit network in order to increase the number of public transportation passengers. Research Question \vref{itm:2c} is concerned about whether or not it is possible to apply our algorithm to optimize bus routes in urban cities. This question cannot be fully answered until it is applied to an urban city, but we will strive to create a method that is easily adaptable with the concerns of public transportation in cities in mind. The implementation will be easily changed with new demand values, and tested on other larger networks.
-%\end{itemize}
+
 
