@@ -1,29 +1,19 @@
 \subsection{Evaluation Criteria}
 \label{subsec:evaluationCriteraCohen}
-%Denne er kopiert men skal skrives om:
-%This section is dedicated to the issue of evaluating the implementation and this project as a whole. Evaluation is an issue much discussed in the field of artificial intelligence(AI). Cohen and Howe claims many papers do an inadequate job of evaluating the result of their AI systems. The systems described in question in this thesis have an inherent black-box nature. This means it is inconceivable to understand the rationale behind why the system delivers its result. his complicates the evaluation. An evaluation with clear relative benchmarks is thus important and to avoid any pitfalls that invalidate the results. Examples of this are overfitting or data leakage. In this effort Cohen and Howe’s five stage process is used for evaluating empirical AI systems.
 
-(Evaluating the implementation and this project as a whole.)
-As initiated in Section\vref{sec:structuredLiteratureReview}, \citet{cohen88} introduced a five-stage model for evaluating research in terms of a five-stage cycle. This development process should be run as iterative cycles, and is begun answered in \vref{sec:structuredLiteratureReview} and \vref{sec:problemStatement}.
+To evaluate the proposed method and this project as a whole, some evaluation criteria must be defined. Why we are doing our research, why our views and methods are a step forward, how completely they are implemented by our programs, how these programs work, whether their performance is likely to increase or has reached a limit (and why), and what problems we encounter ate each stage of our research. Evaluation should be a mechanism of progress both within and across AI research. Evaluation provides a driving force to the research cycle. Evaluation provides a basis for congestions of knowledge. Without evaluation: cannot replicate results. Evaluation: convince research community that ideas are worthwhile, that they work and how. 
+
+Evaluation is an issue discussed a lot in the field of artificial intelligence. Where other sciences has specific aspects of research to be presented, empirical AI has not comparable standards, in this effort has \citet{cohen88}, as initiated in Section\vref{sec:structuredLiteratureReview}, introduced a five-stage mode to use for evaluating AI systems: 
 \begin{enumerate}
-\item a topic is refined to a task and a view of how to accomplish the task
-\item the view is refined to a specific method
-\item a program is developed to implement the method
-\item experiments are designed to test the program
-\item the experiments are run
+\item Refine the research topic to a task and a define a view of how to accomplish the task
+\item Refined the view to a specific method
+\item Develop a program to implement the method
+\item Design experiments to test the program
+\item Run the experiments
 \end{enumerate} 
+ 
+The task is UTRP using SI. 
+And the goal is to produce better results than other research, regarding the performance criteria.  
+The hypothesis is that, implementation from PSO: CA: act more random in beginning - compensate for the original ACO algorithm's weakness of frequently getting stuck at a local optima. Implemented the program to test the method, and run experiments to evaluate against performance criteria.
 
-This thesis, two parts, the first is the structured literature review with related work Chapter 3, and an implementation with experiments Chapter 4 and 5. 
-
-The task is to .., And the goal is to .... The hypothesis is that.. Implemented the program to test the method, and run experiments to evaluate against performance criteria.
-
-\textbf{How is your reformulation an improvement?}
-Has it been studied before. Kort oppsummering av Related Work 
-
-\textbf{Is the research representative of a class of tasks?}
-
-\textbf{Have any aspects been abstracted away?}
-Estimates of travel demand.
-
-\textbf{When have you successfully demonstrated a solution?}
-Mandl's benchmark problem, performance criteria.
+One attempt to combine different methods from swarm intelligence - include features from other swarm inspired methods. Neo4j.
