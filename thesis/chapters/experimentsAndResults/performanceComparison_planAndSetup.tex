@@ -1,0 +1,70 @@
+\subsection{Performance Comparison}
+\label{subsec:performanceComparison_setup}
+%Features are added from PSO/BSO, and the optimal algorithm parameters are found. 
+We will in this stage test the system's performance, comparing it with the respective results, concerning the performance criteria from section \vref{sec:performanceCriteria}. %\emph{\color{red}ACO has a known limitation of being stuck on local optima, and the time/space(?) complexity is high.} We will therefore 
+%add features from PSO - inertial weight, more random in the start and accepting more solutions, knowledge about the best global solution for every iteration, keep the best current solution. After adding SI features from PSO / BSO, 
+The aim with this test is to compare our results with ref.
+%\begin{enumerate}
+
+%\item Add features from PSO - inertial weight, more random in the start and accepting more solutions, knowledge about the best global solution for every iteration, keep the best current solution.
+
+%\item Evaluate results with only the ACO implementation, on Mandl's network and comparing it with the results from other ACO implementations. The aim with this is to test solution quality and check if we need to change the algorithm / add features from other SI algorithms in order to improve the results, in order to answer research question 2. \emph{\color{red} TODO: Known limitations of ACO. Stuck on local optima, time complexity.}
+
+%\item After adding SI features from PSO / BSO, we will check whether it is efficient to combine different swarm intelligence methods' attributes to get better results concerning the vehicle routing problem, in order to answer the research question 2 a.
+
+%\item And to test whether Neo4J is suited, and if Neo4J Dijkstra's or A* is best concerning run times? The aim is to see if the potential advantages for using a graph database in our implementation, and if this is useful in the optimization process, in order to answer research question 3 and 3 a.
+
+The algorithm will be tested with different number of routes.
+
+
+%\end{enumerate}
+
+To demonstrate reliability, will there be carried out \emph{\color{blue}100} runs per experiment, recording the average (AVG), best (MAX) and worst (MIN) ant. The values for each parameter used in this experiment are all found in the parameter setting experiments, Table \vref{table:parameterSettings2}.
+
+%\emph{\color{blue} TODO: Because of reasons }we believe that ATT and $d_0$ is the most important parameters for determining best and worst ants, therefore, the selection of the MAX and MIN ant will be selected based on these parameters. 
+
+%\subsubsection{Selecting MAX ant}
+%\begin{algorithm}[H]
+%$Ant_{i}$ = ant with highest $d_0$\;
+%$Ant_{j}$ = ant with lowest ATT\;
+%\eIf{($Ant_{i}$ = $Ant_{j}$)}{
+%	Select this ant
+%}
+%{
+%	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
+%	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
+%	\eIf{ ($ d_0(\%) $ $ \geq $ ATT(\%)) }{
+%		select $Ant_{j}$
+%	}
+%	{
+%		select $Ant_{i}$
+%	}
+%}
+% \caption{Selecting MAX Ant}
+%\end{algorithm}
+
+
+%The comparison is done by calculating the percentage of the difference between the highest and lowest $d_0$ and $ATT$ values. If the difference in the two $d_0$'s is higher than the difference in the two $ATT$'s, the ant with lowest ATT is selected, or else the ant with the highest $d_0$ is selected. As mentioned, a low as possible $ATT$ value and a high as possible $d_0$ value is what we want to achieve.
+
+%\subsubsection{Selecting MIN ant}
+%\begin{algorithm}[H]
+%$Ant_{i}$ = ant with lowest $d_0$\;
+%$Ant_{j}$ = ant with highest ATT\;
+%eIf{($Ant_{i}$ = $Ant_{j}$)}{
+%	Select this ant
+%}
+%{
+%	$d_0(\%)$ = $(d_0(lowest) / d_0(highest))*100$\;
+%	$ATT(\%)$ = $(ATT(lowest) / ATT(highest))*100$\;
+%	\eIf{ ($ d_0(\%) $ $ \leq $ ATT(\%)) }{
+%		select $Ant_{j}$
+%	}
+%	{
+%		select $Ant_{i}$
+%	}
+%}
+% \caption{Selecting MIN Ant}
+%\end{algorithm}
+
+%The comparison is also done by calculating the percentage of the difference between the highest and lowest $d_0$ and $ATT$ values. If the difference in the two $ATT$'s is higher than the difference in the two $d_0$'s, the the ant with highest ATT is selected, or else the ant with the lowest $d_0$ is selected. A high $ATT$ and a low $d_0$ is not considered good. 
+Will be tested with 4,6,7,8 route set sizes. minimum number of nodes: 2, max: 8. 
