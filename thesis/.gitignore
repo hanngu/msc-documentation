@@ -10,4 +10,5 @@ Report.pdf
 *.toc
 *.tex~
 /out
+.DS_Store
 ../.DS_Store

@@ -42,6 +42,9 @@ __________________________________________________________________
 __________________________________________________________________
 Z-tabel: http://www.statisticshowto.com/tables/z-table/
 __________________________________________________________________
+org.neo4j.kernel.impl.store.UnderlyingStorageException: Id capacity exceeded
+------------------------------------------------------------------
+
 
 Dijkstra is guaranteed to be correct (ref. Algdatbok s.659-661) if the algorithm is ran on a weigthed, directed graph G = (V,E) with non-negative weight function w and source s. 
 
