@@ -6,9 +6,9 @@ Each candidate parameter is assigned a default value to be held constant while t
 %Vi har akkurat sagt at de ikke har inkludert verdier i related work, men så er vi inspirert av de?
 The default value and candidate values for $s$ and $i$ are inspired by values used in related research\citep{salehi-nezhad07}, \citep{poorzahedy11}, \citep{sedighpour14}, \citep{kechagiopoulos14}.
 
-Parameters $E$, $BR$, $AF$, and $CA$ are all unique for the proposed algorithm, and their default values are chosen based on preliminary testing not included in this thesis. Their values are stated as a percentage and will be tested with candidate values in the range from 0.1 to 0.99. To determine the effect of the additional BCO and PSO features by removing them from the implementation, will parameters $AF$ and $CA$ also be tested with value 0 and 1.0.
+Parameters $E$, $BR$, $AF$, and $CA$ are all unique for the proposed algorithm, and their default values are chosen based on preliminary testing not included in this thesis. Their values are stated as a percentage and will be tested with candidate values in the range from 0.0 to 1.0. %To determine the effect of the additional BCO and PSO features by removing them from the implementation, will parameters $AF$ and $CA$ also be tested with value 0 and 1.0.
 
-The idea of $p_b$ is to ``reward'' the edges in the best route sets, and its default value is partly determined by preliminary testing. It is worth mentioning that $p_ b$ is strongly dependent on the value for $p_v$ (the pheromone constant used to determine how much pheromone to be added to all visited edges). Different values of $p_v$ will not be tested, because the edge selection phase is only determent by the ratio of the edge's pheromone level and the summed pheromone level on all the edges. The value of $p_v$ could, in fact, be any real number as long as the value is constant, and is therefore sat to 0.1. The candidate values for $p_b$ will be kept equal to, or greater than $p_v$, and will be tested in the range from 0.0 to 0.9. Its candidate values will not be tested with values over 1.0, to avoid over appreciating the best route sets' edges, when this might result in getting stuck at a local optima.
+The idea of $p_b$ is to ``reward'' the edges in the best route sets, and its default value is partly determined by preliminary testing. It is worth mentioning that $p_ b$ is strongly dependent on the value for $p_v$ (the pheromone constant used to determine how much pheromone to be added to all visited edges). Different values of $p_v$ will not be tested, because the edge selection phase is only determent by the ratio of the edge's pheromone level and the summed pheromone level on all the edges. The value of $p_v$ could, in fact, be any real number as long as the value is constant, and is therefore sat to 0.1. The candidate values for $p_b$ will be kept equal to, or greater than $p_v$, and will be tested in the range from 0.0 to 1.0. Its candidate values will not be tested with values over 1.0, to avoid over appreciating the best route sets' edges, when this might result in getting stuck at a local optima.
 
 The value of the inertia weight, $IW$, directly affects $CA$ (as described in Section \vref{sec:algoGeneratingSuperSwarm}) and an implementation of different inertia weight strategies is beyond the scope of this theses. The value for $IW$ is sat to 1.0. 
 
@@ -31,10 +31,10 @@ The value of the inertia weight, $IW$, directly affects $CA$ (as described in Se
     \label{table:parameters}
 \end{table}
 
-%HER
-Parameter $s$, $i$, $E$, $p_b$, and $BR$  will be tested 30 different times. This is due to the the central limit theorem[Ref - Statistiske Metoder A.Hald p.139], which states that the sampling distribution of any statistic will be normal or nearly normal, if the sample size is large enough, and many statisticians say that a sample size of 30 is large enough. The experimental testing of $AF$ and $CA$, however, is directly linked to establishing Research Question \vref{itm:2a}, and tested 50 times to ensure accuracy.
+In each test case with parameters $s$, $i$, $E$, $p_b$, and $BR$, 30 runs will be carried out. For $AF$ and $CA$, each test case will be carried out 50 times.  \emph{\color{blue} TODO: why?}
+%This is due to the the central limit theorem[Ref - Statistiske Metoder A.Hald p.139], which states that the sampling distribution of any statistic will be normal or nearly normal, if the sample size is large enough, and many statisticians say that a sample size of 30 is large enough.
 
-The parameter values selected will be based on the best produced results: the lowest average $ATT$ and $TOTFIT$ value. As mentioned in \vref{sec:algoEvaluation}, is the lowest possible $TOTFIT$ and $ATT$ the most optimal solution. If the best $ATT$ and the best $TOTFIT$ is achieved by different candidate values, $CV$, will the selected value, $SV$, be determined by the following formula:
+The parameter values selected will be based on the best produced results: the lowest average $ATT$ and $TOTFIT$ value. As mentioned in \vref{sec:algoEvaluation}, is the lowest possible $TOTFIT$ and $ATT$ the most optimal solution. Results will include the best solution, the worst solution, the average solution, and the respective confidence interval(CI). If the best $ATT$ and the best $TOTFIT$ is achieved by different candidate values, $CV$, will the selected value, $SV$, be determined by the following formula:
 
 \[
     SV= 
@@ -43,3 +43,5 @@ The parameter values selected will be based on the best produced results: the lo
     CV_{bestTOTFIT},& \text{otherwise}
 \end{cases}
 \]
+
+
