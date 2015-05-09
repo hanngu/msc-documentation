@@ -2,21 +2,25 @@
 
 The proposed SuperSwarm Optimization algorithm is programmed in Java programming language. Java is chosen because we are most familiar with that language and therefor believe the development time is reduced. Further, Java is one of the most used programming languages world wide, and the possibility of further contributions is enhanced by using Java. An additional benefit is that Neo4j offers a rich set of integration possibilities for Java and that these possibilities are well documented. Nevertheless, compared to languages like C++, Java is often considered slow and memory-intensive \citep{alnaser12}. However, \citet{sestoft10} states that managed languages like Java are easier and safer to use than traditional languages like C++. \citet{sestoft10} concludes, based on his conducted experiments, that ``there is no obvious relation between the execution speeds of different software platforms, even for the very simple programs studied here: the C, C\# and Java platforms are variously fastest and slowest''.
 
-An embedded version of the Neo4j database is used in order to represent the network including nodes, edges and the created routes. Because we have many reads and writes to the database, an embedded version is preferred because it has lower latency.  
+An embedded version of the Neo4j database is used in order to represent the network including nodes, edges and the created routes. An embedded database in preferred to lower the latency of the many reads and writes executed when running the algorithm.
 
 In order to handle project dependencies, such as Neo4j, and configuration details, such as how much memory that is allocated to the program, Apache Maven\citep{website:maven} is used. Maven is a tool that can be used for building and managing any Java-based project. 
 
-%The tests are executed on a Windows machine,  XX with a xx processor running at xxx.
-The tests are all performed on cloud instances with Ubuntu operating system. For the parameter testing Amazon's EC2 virtual servers are used. Specifically they were ran on C4.large instances. C4 is the latest generation of Compute-optimized instances that Amazon provides and they contain high frequency Intel Xeon E5-2666 v3 (Haswell) processors optimized specifically for EC2\citep{website:amazon}. C4.large instances has 2 virtual processors and 3.75 GiB memory.
-For the performance testing Google's cloud platform were used. Specifically n1-standard-2 instances. These contains two 2.6GHz Intel Xeon E5 CPUs and 7.5 GiB memory \citep{website:google}. Because of the large number of tests that were ran, Shell scripts were made in order to effectively execute the program for the different test cases. 
+The tests are all performed on cloud instances with Ubuntu operating system. For the parameter testing Amazon's EC2 C4.large instances were used. C4 is the latest generation of Compute-optimized instances that Amazon provides and they contain high frequency Intel Xeon E5-2666 v3 (Haswell) virtual processors (vCPU) optimized specifically for EC2\citep{website:amazon}. For the performance and scalability testing Google cloud platform's n1-standard-2 instances were used. These contains 2.6GHz Intel Xeon E5 vCPUs\citep{website:google}. For additional details regarding the hardware of both the C4.large and n1-standard-2 instances, see Table\vref{tbl:hardware}. 
 
+Because of the large number of tests that were executed, Shell scripts were made in order to effectively execute the program for the different test cases.
 
-
-
-%\begin{itemize}
-%\item OS Name: Microsoft Windows 8.1 Pro
-%\item Version: 6.3.9600 Build 9600
-%\item Processor: Intel(R) Core(TM) i7-4770 @ 3.40GHz, 3401 Mhz, 4 Core(s), 8 Logical Pro...
-%\item Installed physical memory (RAM): 16.0GB (Total physical memory: 15.9GB, Available physical memory: 12.4GB)
-%\item Page File Space: 2.88GB
-%\end{itemize}
+	\begin{table}[H]
+	\centering
+		\begin{tabular}{| c | c | c |}
+		\hline
+		&\textbf{vCPU (number of)} & \textbf{Memory (GiB)}\\
+		\hline
+  		\textbf{C4.large} & 2 & 3.25 \\
+  		\hline
+  		\textbf{n1-standard-2} & 2 & 7.5 \\
+  		\hline
+		\end{tabular}
+	\caption{Hardware Details of the Used Instances}
+	\label{tbl:hardware}
+	\end{table}
