@@ -2,7 +2,7 @@
 \label{subsec:performanceComparison_setup}
 %We will in this stage test the system's performance, comparing the results with the results published by xxx, and with the basic ACO implementation. 
 
-The values for each parameters is determined in the parameter settings experiments, and are found in \vref{subsec:parameterSettings_results}, Table \vref{table:parameterSettings2}. For the ACO comparison, will the value of parameter $AF$ and $CA$ be 0\%, and the notion of the global best solution will be removed from the ant's. 
+The value for each parameters is determined in the parameter settings experiments, and can be seen in Table \vref{table:parameterSettings2}. For the ACO comparison, will the value of parameter $AF$ and $CA$ be 0\%, and the notion of the global best solution will be removed from the ant's. 
 
 The performance criteria used to evaluate the effectiveness of the algorithm are the following:
 \begin{itemize}
@@ -10,14 +10,14 @@ The performance criteria used to evaluate the effectiveness of the algorithm are
 \item $d_1 (\%)$ - percentage of total transfer demands where the number of transfers are 1. 
 \item $d_2 (\%)$ - percentage of total transfer demands where the number of transfers are 2. 
 \item $d_{unsat}$ (\%) - the percentage of unsatisfied travelers. An unsatisfied traveler is described as a traveler with 3 or more transfers. 
-\item $ATT$  - the average travel time in minutes per transit user (mpu). In all the approaches the algorithm will be compared to, is the transfer penalty of 5 min applied to each route for each required transfer, and the same transfer penalty will also be used by the proposed SSO algorithm.
-
+\item $ATT$  - the average travel time in minutes per transit user (mpu). In all approaches published in the literature, the transfer penalty of 5 min is applied to each route for each required transfer, and the same transfer penalty will be used by the proposed SSO algorithm.
 %$ATT$ is calculated as follows:
 %$$ATT = \frac{\sum\limits^{p}_{p=1}TT}{p_{size}}$$
 %where $p_{size}$ is the number of passengers and $TT$ is the travel time used by passenger $p$. 
 \end{itemize}
+The criteria for good performance includes the percentage of demand satisfied without any transfers is high, and that the average travel time is as low.
 
-There will be carried out 100 monte carlo runs per experiment, recording the average, best and worst ant produced results. In addition, the median solution, the respective standard deviation, the confidence interval and the relative standard deviation will be recorded. The criteria for good performance includes that the percentage of demand satisfied without any transfers is as high as possible, and that the average travel time is as low as possible.
+There will be carried out 50 Monte Carlo runs per experiment, recording the average produced results, in addition to the ant's best and worst produced result. The median solution, the standard deviation, the confidence interval and the relative standard deviation will also be recorded.
 
 If the best $ATT$ and the best $d_0$ is achieved by different ants, $A$, will the selected ant, $Best(A)$, be determined by the following formula:
 
