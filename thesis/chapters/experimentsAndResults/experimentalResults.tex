@@ -33,6 +33,7 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
 \subsection{Performance Comparison}
 \label{subsec:performanceComparison_results}
 
+%---------------------- ACO VS SSO ---------------------
 \begin{table}[H]
     \centering
     \begin{tabular}{|l||l|l|l|l|l|}
@@ -42,13 +43,14 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     ACO &  &  &  &  &  \\
     \hline
     \hline
-    The Proposed SSO Algorithm & ~ & ~ & ~ & ~ & ~ \\
+    SSO & ~ & ~ & ~ & ~ & ~ \\
     \hline
     \end{tabular}
-    \caption {Comparing the best route sets of ACO vs SSO}
+    \caption {Comparing the best route sets ACO vs SSO}
     \label{table:performanceComparison_ACO}
     \end{table}
 
+%-------------------- 4 route sets ---------------------
 \begin{table}[H]
 	\centering
     \begin{tabular}{|l|l l l l l l l l|}
@@ -59,14 +61,13 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     Route 4: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
 	\hline
     \end{tabular}
-    \caption {The best route sets, having four routes}
-    Results constructed by the proposed algorithm, compared with results constructed by other approaches.
+    \caption {The best route set, having four routes}
     \label{table:performanceComparison_bestRouteSet4}
 	\end{table}
 
 \begin{table}[H]
 	\centering
-    \hspace*{-0.7cm}
+    \hspace*{-1.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
  	\hline
  	Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT(mpu^a)$ \\
@@ -74,8 +75,9 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     \citet{mandl79} & 69.94 & 29.93 & 0.13 & 0.00 & 12.90 \\
     \citet{kechagiopoulos14} & 90.52 & 8.75 & 0.73 & 0.00 & 10.71 \\
     %Kechapocholous BEST [ref] & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
-    \citet{nikolic14} & 95.05 & 4.95 & 0.00 & 0.00 & \emph{\color{blue}197.624} \\
+    \citet{nikolic14} & 95.05 & 4.95 & 0.00 & 0.00 & -$^b$ \\
     \citet{kidwai98} & 72.95 & 26.91 & 0.13 & 0.00 & 12.72 \\
+    %\citet{fan09} best & & & & &  \\
     \citet{fan09} Hill Climbing & 91.83 & 8.17 & 0.00 & 0.00 & 11.69 \\
     \citet{fan09} Simulated Annealing & 92.48 & 7.52 & 0.00 & 0.00 & 11.55 \\
     \citet{chakroborty02} & 86.86 & 12.00 & 1.14 & 0.00 & 11.90 \\
@@ -92,31 +94,120 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     %SSO Confidence interval$^b$ & ~ & ~ & ~ & ~ & ~ \\
     \hline
     \end{tabular}
-    \caption {Comparing the best route sets, having four routes}
+    \caption {Comparing the best route set, having four routes}
     Results constructed by the proposed algorithm with average results published by other researchers.
     \begin{itemize}[noitemsep]
     \item[$^a$:] mintues per user
+    \item[$^b$:] 
     %\item[$^b$:] Confidence Interval with a confidence level of 95\%
     \end{itemize}
     \label{table:performanceComparison_4}
 	\end{table}
 
+
+%-------------------- 6 route sets ---------------------
+
     \begin{table}[H]
     \centering
-    \begin{tabular}{|l||l|l|l|l|l|}
+    \begin{tabular}{|l|l l l l l l l l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
-    \hline
-    
-    \hline
-    \hline
-    The Proposed SSO Algorithm & ~ & ~ & ~ & ~ & ~ \\
+    Route 1: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 2: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 3: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 4: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 5: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 6: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
     \hline
     \end{tabular}
-    \caption {Comparing the best route sets, having six routes}
-    Results constructed by the proposed algorithm with route sets constructed by other approaches.
-    \label{table:performanceComparison_4}
+    \caption {The best route set, having six routes}
+    \label{table:performanceComparison_bestRouteSet6}
     \end{table}
+
+    \begin{table}[H]
+    \centering
+    \hspace*{-1.0cm}
+    \begin{tabular}{|l||l|l|l|l|l|}
+    \hline
+    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT(mpu)$ \\
+    \hline
+    \citet{kechagiopoulos14} & 95.62 & 4.28 & 0.10 & 0.00 & 10.28 \\
+    %Kechapocholous BEST [ref] & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
+    \citet{nikolic14} & 94.34 & 5.65 & 0.00 & 0.00 & - \\
+    \citet{kidwai98} & 77.92 & 19.62 & 2.40 & 0.00 & 10.78 \\
+    %\citet{fan09} best & & & & &  \\
+    \citet{fan09} Hill Climbing & 90.23 & 9.26 & 0.51 & 0.00 & 11.69 \\
+    \citet{fan09} Simulated Annealing & 90.87 & 8.74 & 0.39 & 0.00 & 10.65 \\
+    \citet{chakroborty02} & 86.04 & 13.96 & 0.00 & 0.00 & 10.30 \\
+    \citet{zhang10} & 91.12 & 8.88 & 0.00 & 0.00 & 10.50 \\
+    \citet{chew12} & 93.85 & 5.88 & 0.24 & 0.03 & 10.51 \\
+    \citet{baaj91} & 78.61 & 21.39 & 0.00 & 0.00 & 11.86 \\
+    \hline
+    \hline
+    SSO Best & ~ & ~ & ~ & ~ & ~ \\
+    SSO Average & ~ & ~ & ~ & ~ & ~ \\
+    SSO Median & ~ & ~ & ~ & ~ & ~ \\
+    SSO Worst & ~ & ~ & ~ & ~ & ~ \\
+    SSO Standard Deviation & ~ & ~ & ~ & ~ & ~ \\
+    SSO Relative Standard Deviation & ~ & ~ & ~ & ~ & ~ \\
+    \hline
+    \end{tabular}
+    \caption {Comparing the best route set, having six routes}
+    Results constructed by the proposed algorithm with average results published by other researchers.
+    \label{table:performanceComparison_6}
+    \end{table}
+
+%-------------------- 7 route sets ---------------------
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l l l l l l l l|}
+    \hline
+    Route 1: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 2: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 3: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 4: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 5: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 6: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 7: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    \hline
+    \end{tabular}
+    \caption {The best route set, having seven routes}
+    \label{table:performanceComparison_bestRouteSet7}
+    \end{table}
+
+    \begin{table}[H]
+    \centering
+    \hspace*{-1.0cm}
+    \begin{tabular}{|l||l|l|l|l|l|}
+    \hline
+    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT(mpu)$ \\
+    \hline
+    \citet{kechagiopoulos14} & 96.55 & 3.45 & 0.01 & 0.00 & 10.23 \\
+    %Kechapocholous BEST [ref] & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
+    \citet{nikolic14} & 94.41 & 5.59 & 0.00 & 0.00 & - \\
+    \citet{kidwai98} & 93.91 & 6.09 & 0.00 & 0.00 & 10.70 \\
+    %\citet{fan09} best & & & & &  \\
+    \citet{fan09} Hill Climbing & 92.21 & 7.13 & 0.66 & 0.00 & 10.74 \\
+    \citet{fan09} Simulated Annealing & 92.47 & 6.95 & 0.58 & 0.00 & 10.62 \\
+    \citet{chakroborty02} & 89.15 & 10.85 & 0.00 & 0.00 & 10.15 \\
+    \citet{zhang10} & 92.89 & 7.11 & 0.00 & 0.00 & 10.46 \\
+    \citet{chew12} & 96.47 & 3.53 & 0.00 & 0.09 & 10.31 \\
+    \citet{baaj91} & 80.99 & 19.01 & 0.00 & 0.00 & 12.50 \\
+    \hline
+    \hline
+    SSO Best & ~ & ~ & ~ & ~ & ~ \\
+    SSO Average & ~ & ~ & ~ & ~ & ~ \\
+    SSO Median & ~ & ~ & ~ & ~ & ~ \\
+    SSO Worst & ~ & ~ & ~ & ~ & ~ \\
+    SSO Standard Deviation & ~ & ~ & ~ & ~ & ~ \\
+    SSO Relative Standard Deviation & ~ & ~ & ~ & ~ & ~ \\
+    \hline
+    \end{tabular}
+    \caption {Comparing the best route set, having seven routes}
+    Results constructed by the proposed algorithm with average results published by other researchers.
+    \label{table:performanceComparison_7}
+    \end{table}
+%-------------------- 8 route sets ---------------------
 
 \subsection{Scalability Experiments}
 \label{subsec:scalabilityExperiments_results}
