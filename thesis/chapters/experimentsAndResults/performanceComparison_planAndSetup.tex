@@ -1,10 +1,36 @@
 \subsection{Performance Comparison}
 \label{subsec:performanceComparison_setup}
-We will in this stage test the system's performance, comparing it with the respective results, concerning the performance criteria. The algorithm will be tested with different number of routes. In all the approaches the algorithm will be compared to, is the transfer penalty of 5 min applied to each route for each required transfer, and the same transfer penalty will also be used by the proposed SSO algorithm.
+%We will in this stage test the system's performance, comparing the results with the results published by xxx, and with the basic ACO implementation. 
 
-To demonstrate reliability, will there be carried out runs per experiment, recording the average (AVG), best (MAX) and worst (MIN) ant. The values for each parameter used in this experiment are all found in the parameter setting experiments, Table \vref{table:parameterSettings2}.
+The values for each parameters is determined in the parameter settings experiments, and are found in \vref{subsec:parameterSettings_results}, Table \vref{table:parameterSettings2}. For the ACO comparison, will the value of parameter $AF$ and $CA$ be 0\%, and the notion of the global best solution will be removed from the ant's. 
 
+The performance criteria used to evaluate the effectiveness of the algorithm are the following:
+\begin{itemize}
+\item $d_0 (\%)$ - the percentage of demand satisfied without any transfers. 
+\item $d_1 (\%)$ - percentage of total transfer demands where the number of transfers are 1. 
+\item $d_2 (\%)$ - percentage of total transfer demands where the number of transfers are 2. 
+\item $d_{unsat}$ (\%) - the percentage of unsatisfied travelers. An unsatisfied traveler is described as a traveler with 3 or more transfers. 
+\item $ATT$  - the average travel time in minutes per transit user (mpu). In all the approaches the algorithm will be compared to, is the transfer penalty of 5 min applied to each route for each required transfer, and the same transfer penalty will also be used by the proposed SSO algorithm.
 
+%$ATT$ is calculated as follows:
+%$$ATT = \frac{\sum\limits^{p}_{p=1}TT}{p_{size}}$$
+%where $p_{size}$ is the number of passengers and $TT$ is the travel time used by passenger $p$. 
+\end{itemize}
+
+There will be carried out 100 monte carlo runs per experiment, recording the average, best and worst ant produced results. In addition, the median solution, the respective standard deviation, the confidence interval and the relative standard deviation will be recorded. The criteria for good performance includes that the percentage of demand satisfied without any transfers is as high as possible, and that the average travel time is as low as possible.
+
+If the best $ATT$ and the best $d_0$ is achieved by different ants, $A$, will the selected ant, $Best(A)$, be determined by the following formula:
+
+\[
+    Best(A)= 
+\begin{cases}
+    A_{bestATT},& \text{if } \frac{ATT_{A_{bestd0}}}{ATT_{A_{bestATT}}}\geq \frac{d0_{A_{bestATT}}}{d0_{A_{bestd0}}}\\
+    A_{bestd0},& \text{otherwise}
+\end{cases}
+\]
+The comparison is done by calculating the percentage of the difference between the highest and lowest $d_0$ and $ATT$ values. If the difference in the two $d_0$'s is higher than the difference in the two $ATT$'s, the ant with lowest ATT is selected, or else the ant with the highest $d_0$ is selected. %As mentioned, a low as possible $ATT$ value and a high as possible $d_0$ value is what we want to achieve.
+
+In order for our experimental results to be comparable with the results published by other researchers will four, six, seven and eight routes in the route set be examined.
 
 
 %Under er det beskrevet når vi skal velge ut beste og dårligste maur, stemmer disse nå? Hvis de gjør det, kan de kanskje gjøres om til en formel som i parameter settings.
