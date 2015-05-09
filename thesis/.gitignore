@@ -9,6 +9,6 @@ out/*.aux
 Report.pdf
 *.toc
 *.tex~
-/out
+/out/*
 .DS_Store
 ../.DS_Store
