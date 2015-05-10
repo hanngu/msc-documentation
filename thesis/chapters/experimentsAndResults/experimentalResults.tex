@@ -22,9 +22,9 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     \hline
     \end{tabular}
     \caption {Results from the parameter settings experiment}
-    The complete experimental steps with the corresponding results can be found in, Appendix \ref{appendixC}, Table \vref{table:pm1} and Table \vref{table:pm2}.
+    %The complete experimental steps with the corresponding results can be found in, Appendix \ref{appendixC}, Table \vref{table:pm1} and Table \vref{table:pm2}.
     \begin{itemize}[noitemsep]
-    \item[$^*$:] \emph{\color{red} ikke den beste, men på grunnlag av..}
+    \item[$^*$:] \emph{\color{blue} Selected based on runtime}
     \end{itemize}
     \label{table:parameterSettings2}
     \end{table}
@@ -33,32 +33,76 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
 \subsection{Performance Comparison}
 \label{subsec:performanceComparison_results}
 
-%---------------------- ACO VS SSO ---------------------
+%---------------------- Execution time ---------------------
 \begin{table}[H]
+    \centering
+    \begin{tabular}{|l||l|l|l|l|l|l|}
+    \hline
+    Number of routes & Min & Avg & Median & Max & STD & RSD \\
+    \hline
+    4 & 491.0 & 555.2 & 553.0 & 644.0 & 31.0 & 5.59\%\\
+    \hline
+    \end{tabular}
+    \caption {Executing time (in seconds) of SSO for route set designs with 4, }
+   % 100 Monte Carlo runs
+    \label{table:performanceComparison_ACOSSOBEST}
+    \end{table}
+
+
+%---------------------- ACO VS SSO ---------------------
+    \begin{table}[H]
     \centering
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
     Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
-    ACO &  &  &  &  &  \\
+    ACO Best & 86.16 & 12.59 & 2.25 & 0.00 & 11.16 \\
     \hline
-    \hline
-    SSO & ~ & ~ & ~ & ~ & ~ \\
+    SSO Best & 88.44 & 10.28 & 1.29 & 0.00 & 10.67 \\
     \hline
     \end{tabular}
-    \caption {Comparing the best route sets ACO vs SSO}
+    \caption {Comparing the best route set of ACO and SSO, having four routes}
+   % 100 Monte Carlo runs
+    \label{table:performanceComparison_ACOSSOBEST}
+    \end{table}
+
+    %FLyttes til appendix?
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|l||l|l|l|l|l|}
+    \hline
+    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
+    \hline
+    ACO Best & 86.16 & 12.59 & 2.25 & 0.00 & 11.16 \\
+    ACO Average & 72.14 & 24.00 & 3.66 & 0.20 & 11.97 \\
+    ACO Median & 72.67 & 23.57 & 3.37 & 0.00 & 11.77 \\
+    ACO Worst & 54.79 & 35.13 & 10.08 & 0.00 & 11.97 \\
+    ACO Standard Deviation & 6.22 & 5.40 & 2.26 & 0.52 & 0.62 \\
+    ACO Relative Standard Deviation & 8.62 & 22.49 & 61.73 & 255.31 & 5.18 \\
+    \hline
+    \hline
+    SSO Best & 88.44 & 10.28 & 1.29 & 0.00 & 10.67 \\
+    SSO Average & 77.32 & 20.15 & 2.47 & 0.07 & 11.27 \\
+    SSO Median & 77.14 & 20.49 & 2.25 & 0.00 & 11.26 \\
+    SSO Worst & 68.77 & 28.84 & 2.25 & 0.13 & 11.67 \\
+    SSO Standard Deviation & 3.91 & 3.60 & 1.36 & 0.19 & 0.22 \\
+    SSO Relative Standard Deviation & 5.06\% & 17.85\% & 55.16\% & 291.28\% & 1.97\% \\
+    \hline
+    \end{tabular}
+    \caption {Comparing the route sets of ACO and SSO, having four routes}
+   % 100 Monte Carlo runs
     \label{table:performanceComparison_ACO}
     \end{table}
 
 %-------------------- 4 route sets ---------------------
 \begin{table}[H]
-	\centering
-    \begin{tabular}{|l|l l l l l l l l|}
+\centering
+    \begin{tabular}{|l|llllllll|}
     \hline
-    Route 1: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 2: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 3: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 4: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 1: & 13 & 11 & 10 & 8 & 6 & 15 & 7 &  \\
+    Route 2: & 13 & 14 & 10 & 8 & 6 & 3 & 2 & 1 \\
+    Route 3: & 9 & 15 & 7 & 10 & 11 & 12 & 4 & 2 \\
+    Route 4: & 11 & 10 & 8 & 6 & 4 & 5 & 2 & 1 \\
 	\hline
     \end{tabular}
     \caption {The best route set, having four routes}
@@ -67,10 +111,10 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
 
 \begin{table}[H]
 	\centering
-    \hspace*{-2.0cm}
+    \hspace*{-1.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
  	\hline
- 	Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT(mpu^a)$ \\
+ 	Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
  	\hline
     \citet{mandl79} & 69.94 & 29.93 & 0.13 & 0.00 & 12.90 \\
     \citet{kechagiopoulos14} avg & 90.52 & 8.75 & 0.73 & 0.00 & 10.71 \\
@@ -78,27 +122,27 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     \citet{nikolic14} avg & 95.05 & 4.95 & 0.00 & 0.00 & -$^b$ \\
     \citet{kidwai98} & 72.95 & 26.91 & 0.13 & 0.00 & 12.72 \\
     \citet{fan10} best & 93.26 & 6.74 & 0.00 & 0.00 & 11.37 \\
-    \citet{fan10} Hill Climbing avg & 91.83 & 8.17 & 0.00 & 0.00 & 11.69 \\
-    \citet{fan10} Simulated Annealing avg & 92.48 & 7.52 & 0.00 & 0.00 & 11.55 \\
+    \citet{fan10} HC avg & 91.83 & 8.17 & 0.00 & 0.00 & 11.69 \\
+    \citet{fan10} SA avg & 92.48 & 7.52 & 0.00 & 0.00 & 11.55 \\
     \citet{chakroborty02} & 86.86 & 12.00 & 1.14 & 0.00 & 11.90 \\
     \citet{zhang10} & 91.46 & 8.54 & 0.00 & 0.00 & 10.65 \\
     \citet{chew12} avg & 92.88 & 6.91 & 0.20 & 0.00 & 11.16 \\
     \citet{chew12} best & 93.71 & 6.29 & 0.00 & 0.00 & 10.82 \\
 	\hline
     \hline
-    SSO Best & ~ & ~ & ~ & ~ & ~ \\
-    SSO Average & ~ & ~ & ~ & ~ & ~ \\
-    SSO Median & ~ & ~ & ~ & ~ & ~ \\
-    SSO Worst & ~ & ~ & ~ & ~ & ~ \\
-    SSO Standard Deviation & ~ & ~ & ~ & ~ & ~ \\
-    SSO Relative Standard Deviation & ~ & ~ & ~ & ~ & ~ \\
+    SSO Best & 88.44 & 10.28 & 1.29 & 0.00 & 10.67 \\
+    SSO Average & 77.32 & 20.15 & 2.47 & 0.07 & 11.27 \\
+    SSO Median & 77.14 & 20.49& 2.25 & 0.00 & 11.26 \\
+    SSO Worst & 68.79 & 28.84 & 2.25 & 0.13 & 11.67 \\
+    SSO Standard Deviation & 3.91& 3.60 & 1.36 & 0.19 & 0.22 \\
+    SSO Relative Standard Deviation & 5.06\% & 17.85\% & 55.16\% & 291.28\% & 1.97\% \\
     %SSO Confidence interval$^b$ & ~ & ~ & ~ & ~ & ~ \\
     \hline
     \end{tabular}
     \caption {Comparing the best route set, having four routes}
     Results constructed by the proposed algorithm with average results published by other researchers.
     \begin{itemize}[noitemsep]
-    \item[$^a$:] mintues per user
+    %\item[$^a$:] mintues per user
     \item[$^b$:] 
     %\item[$^b$:] Confidence Interval with a confidence level of 95\%
     \end{itemize}
@@ -126,10 +170,10 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
 
     \begin{table}[H]
     \centering
-    \hspace*{-1.0cm}
+    %\hspace*{-2.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT(mpu)$ \\
+    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
     \citet{kechagiopoulos14} & 95.62 & 4.28 & 0.10 & 0.00 & 10.28 \\
     %Kechapocholous BEST [ref] & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
@@ -178,10 +222,10 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
 
     \begin{table}[H]
     \centering
-    \hspace*{-1.0cm}
+    %\hspace*{-2.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT(mpu)$ \\
+    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
     \citet{kechagiopoulos14} & 96.55 & 3.45 & 0.01 & 0.00 & 10.23 \\
     %Kechapocholous BEST [ref] & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
@@ -230,10 +274,10 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
 
     \begin{table}[H]
     \centering
-    \hspace*{-1.0cm}
+    %\hspace*{-2.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT(mpu)$ \\
+    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
     \citet{kechagiopoulos14} avg & 97.47 & 2.53 & 0.00 & 0.00 & 10.17 \\
     %Kechapocholous BEST [ref] & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
