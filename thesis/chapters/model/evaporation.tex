@@ -1,10 +1,10 @@
 \section{Pheromone Evaporation}
 \label{sec:evaporation}
-To simulate how pheromone on paths in the nature evaporate, an amount of the pheromone on the edges will be removed after each iteration. In \citet{nanda11}'s implementation of the ACO algorithm is a constant used for the pheromone evaporation. We experienced, however, that the difference in the pheromone level on the edges was huge. A small constant would hardly affect the edges with the most pheromone and a large constant would affect the edges with the least pheromone more than desired. Due to these issues, is a percentage, $E$, used to determine the evaporation, and the value of $E$ is selected after excessive testing.
+To simulate how pheromone on paths in the nature evaporate, an amount of the pheromone on the edges will be removed after each iteration. In \citet{nanda11}'s implementation of the ACO algorithm is a constant used for the pheromone evaporation.We experienced, however, that the difference in the pheromone level on the edges was huge. A small constant would hardly affect the edges with the most pheromone and a large constant would affect the edges with the least pheromone more than desired. Due to these issues, is a percentage, $E$, used to determine the evaporation at each iteration. The value of $E$ is selected after excessive testing.
 %In the early iterations the ants acts more randomly, and the edges chosen is not always the best. Among others, evaporation ensures that the pheromone value of edges used in early iterations, but not in the latter, decreases. 
 The formula for updating the pheromone value $e_p$ on edge $e$ according to evaporation is as follows: 
 \newline
-$$e_p \minuseq e_p*E$$
+$$e_p \minuseq e_p*\frac{E}{100}$$
 \newline
 
 % and not a constant. This is done because we experienced that the difference of the pheromone level on the edges was huge. A small constant would hardly affect the edges with the most pheromone and a large constant would affect the edges with the least pheromone more than desired. 
