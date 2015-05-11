@@ -37,7 +37,7 @@ Based on the results shown i Appendix \ref{appendixC}, Table \vref{table:pm1} an
 
 The selected value of the parameter $E$ is 50\% based on the results in Table \vref{table:pm1}. Evaporating 50\% of the pheromone each iteration gave the best average total fitness and the second best average travel time. Evaporating 75\% gave the best average travel time, and the second best total fitness, but according to the formula described in Section \vref{subsec:parameterSettings_setup} 50\% is chosen. Because both the best and the second best value are greater or equal to 50\%, we conclude that the algorithm benefits from the fact that a great amount of pheromone evaporates each iteration. We believe this is because this compensates for some of the randomness, by quickly remove pheromone from edges that were once used, but later discarded. We also observe that the worst results were achieved when $E$ was sat to 99\%. We therefor conclude that even though the algorithm benefits from a large percentage of evaporated pheromones, it reaches a threshold were the percentage becomes too big. By removing 99\% of the pheromone an edge that is usually used a lot, but for some reason only is not used as much a given iteration, is ``punished'' too hard.
 
-The selected value of the parameter $AF$
+The selected value of the parameter $AF$.
 
 
 
