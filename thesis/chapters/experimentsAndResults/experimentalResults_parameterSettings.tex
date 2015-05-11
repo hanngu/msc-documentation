@@ -1,0 +1,45 @@
+\section{Experimental Results}
+\label{sec:expResults}
+%Results should be clearly displayed and should provide a suitable representation of your results for the points you wish to make. Graphs should be labeled in a legible font and if more than one result is displayed on the same graph then these should be clearly marked.   Please choose carefully rather than presenting every results. Too much information is hard to read and often hides the key information you wish to present. Make use of statistical methods when presenting results, where possible to strengthen the results.  Further, the format of the presentation of results should be chosen based on what issues in the results you wish to highlight. You may wish to present a subset in the experimental section and provide additional results in the appendix.
+
+\subsection{Parameter Settings}
+\label{subsec:parameterSettings_results}
+
+Table \vref{table:parameterSettings2} shows the parameters tested, their candidate values and the selected value. The complete experimental steps with the corresponding results can be found in, Appendix \ref{appendixC}, Table \vref{table:pm1} and Table \vref{table:pm2}. 
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c||c|}
+    \hline
+    Parameters & Candidate values & Selected value\\
+    \hline
+    $s$ & 10, 25, 50, 100, 150 & 50$^*$ \\
+    $i$ & 1, 10 , 50, 100, 125 & 100$^*$ \\
+    $E$ & 1\%, 10\%, 25\% 50\%, 75\%, 90\%, 99\% & 50\% \\
+    $p_{b}$ & 0.0, 0.1, 0.3, 0.5, 0.7, 0.9 & 0.9 \\
+    %$BR$ & 1\%, 10\%, 25\% 50\%, 75\%, 90\%, 99\% & 25\% \\
+    $AF$ & 0\%, 1\%, 5\%, 10\%, 50\%, 75\%, 100\% & 25\% \\
+    $CA$ & 0\%, 1\%, 5\%, 10\%, 50\%, 75\%, 100\% & 5\% \\
+    \hline
+    \end{tabular}
+    \caption {Results from the parameter settings experiment}
+    %The complete experimental steps with the corresponding results can be found in, Appendix \ref{appendixC}, Table \vref{table:pm1} and Table \vref{table:pm2}.
+    \begin{itemize}[noitemsep]
+    \item[$^*$:] \emph{\color{blue} Selected based on runtime}
+    \end{itemize}
+    \label{table:parameterSettings2}
+    \end{table}
+
+\textbf{Analysis}
+\newline
+Based on the results shown i Appendix \ref{appendixC}, Table \vref{table:pm1} and Table \vref{table:pm2}, we observe that the stated Confidence Interval does not become remarkably better by running the algorithm 50 times compared to 30. This makes it reasonable to conclude that the results regarding the parameters that were ran 30 times are valid. 
+
+%Because our confidence coefficient is sat to correspond to 95\%, we are able to say that we are 95\% confident that the true population parameter is between the lower and upper calculated values.
+
+The selected value of parameter $E$ is 50\% based on the results in Table \vref{table:pm1}. Evaporating 50\% of the pheromone each iteration gave the best average total fitness and the second best average travel time. Evaporating 75\% gave the best average travel time, and the second best total fitness, but according to the formula described in Section \vref{subsec:parameterSettings_setup} 50\% is chosen. Because both the best and the second best value are greater or equal to 50\%, we conclude that the algorithm benefits from the fact that a great amount of pheromone evaporates each iteration. We believe this is because this compensates for some of the randomness, by quickly remove pheromone from edges that were once used, but later discarded. We also observe that the worst results were achieved when $E$ was sat to 99\%. We believe this is because edges are affected too quickly. 
+
+
+
+
+
+
+
