@@ -39,13 +39,24 @@ The selected value of the parameter $E$ is 50\% based on the results in Table \v
 
 The selected value of the parameter $AF$.
 
-Since the value of pb is strongly dependent on the value of AF the more following ants, thus more pheromone will be added to each edge in the best route sets, the value of pb is tested with the new value of AF. This was to ensure that rewarding more edges with the selected amount of pheromone, did not negatively affect the algorithm's performance. 
-\begin{itemize}
-\item pb 0.5: 11.366 and -272.392.
-\item pb 0.9: 11.314 and -271.524. 
-\item pb 0.7: 11.338 and -268.534
-\end{itemize}
+Since the value of $pb$ is strongly dependent on the value of $AF$ (the more following ants, the more pheromone added to each edge in the best route sets), the value of $pb$ is tested with the selected value of $AF$. This is to ensure that rewarding more edges with the selected amount of pheromone, did not negatively affect the algorithm's performance. As seen in the Table \vref{table:pb_testing}, the value of $TOTFIT$ has increased after increasing $AF$, and the $ATT$ value has increased after the default value of $p_b$ has increased. 
 
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c||c|c|}
+    \hline
+    $AF$ & $p_b$ & $ATT$ & $TOTFIT$\\
+    \hline
+    10\% & 0.5 & 11.302 & -269.279 \\
+    10\% & 0.9 & 11.314 & -269.631 \\
+    25\% & 0.5 & 11.366 & -272.392 \\
+    %25\% & 0.7 & 11.338 & -268.534 \\
+    25\% & 0.9 & 11.314 & -271.524 \\
+    \hline
+    \end{tabular}
+    \caption {Results from testing $p_b$}
+    \label{table:pb_testing}
+    \end{table}
 
 
 
