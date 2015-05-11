@@ -22,7 +22,7 @@ Both $TT_{spr}$ and $TT_{spn}$ are calculated using the built-in Dijkstra algori
 \newline
 $$TT_{spr} = IVT + (\gamma*NT)$$
 \newline
-where $IVT$ is the in-vehicle travel time, $\gamma$ is the transfer penalty and $NT$ is the number of transfers. For comparison reasons, $\gamma$ is set to 5 minutes, equivalent to \citet{kechagiopoulos14}, \citet{nikolic14} and \citet{mandl79}. %$TT_{spn}$ assumes unlimited routes and therefore equals the calculated $IVT$, because no transfers are needed. Må omformuleres, skjønner den ikke.  
+where $IVT$ is the in-vehicle travel time, $\gamma$ is the transfer penalty and $NT$ is the number of transfers. %For comparison reasons, $\gamma$ is set to 5 minutes, equivalent to \citet{kechagiopoulos14}, \citet{nikolic14} and \citet{mandl79}. %$TT_{spn}$ assumes unlimited routes and therefore equals the calculated $IVT$, because no transfers are needed. Må omformuleres, skjønner den ikke.  
 
 \subsubsection{Calculating $F_{2}(r)$}
 \label{sec:f2}
@@ -43,26 +43,3 @@ where, $d_0(r)$, $d_1(r)$, and $d_2(r)$ are the same values described in Section
 %Mulig vi skal fjerne denne, er gjentakelse. Men holde sensor i hånda..
 The sum of $F_{1}(r)$, $F_{2}(r)$, and $F_{3}(r)$ results in, as described above, the $TOTFIT(r)$ value of ant $a$, and the lower the value of $TOTFIT(r)$, the better the route set $r$. 
 
-\section{Selecting Ants to be Followed}
-\label{sec:selctingAntsToBeFollowed}
-
-After the $TOTFIT(r)$ value of each ant is calculated, the ants are added to a list sorted in descending order, where the ant with the best $TOTFIT(r)$ value is placed in the first position. As initiated in Section \vref{sec:algoGeneratingSuperSwarm}, becomes a percentage of the colony followers, and follows the same path as one of the best ants from the previous iteration. To determine the number of ants to be followed for the next iterations, a value $NAF$, is calculated:
-
-$$NAF = ants_{size} * AF$$
- 
-where $ants_{size}$ is the number of ants that satisfied the constraints, described in Section \vref{sec:algoRemoval}, and the value of $AF$ is selected after excessive testing. Because the list is sorted with respect to the $TOTFIT(r)$ value, the $NAF$ first ants in the list will be the $NAF$ best ants, and these are chosen to get a follower in the next iteration. %The number of followers will also be the same amount of ants to be followed, where $FA_1$ will follow $ba_1$, $FA_2$ will follow $ba_2$, and so on.  
-
-\section{Selecting Route Sets to be Granted More Pheromone}
-To boost the algorithm's performance, the edges in the ants' best produced route sets are granted more pheromone. To do this, a percentage of the best routes, $BR$, is selected, and a pheromone constant, $p_b$, is added to the edges in these routes. 
-%To do this, a pheromone constant, $p_b$, is added to the edges in $m$, and a percentage of the best routes, $BR$, determines the size of $m$. 
-The formula for calculating the number of route sets to be granted extra pheromone, $NBRS$, is as follows:
-
-$$NBRS = ants_{size} * BR$$
-
-As mentioned in Section \vref{sec:selctingAntsToBeFollowed}, is the list of ants sorted, which makes $NBRS$'s first route sets, the best produced route sets.
-%  Further, the edges in $NBRS$ best route sets are selected and granted extra pheromone.
-Further, the formula for updating the pheromone value, $e_p$, of edge $e$, is as follows:
-
-$$e_p \pluseq \tau*(\frac{p_b}{T_e})$$ 
-
-where $T_e$ is the travel time of edge $e$, and $\tau$ is the number of route sets the edge appeared in. As mentioned in Section \vref{sec:selectingNextNode}, is the pheromone value divided on the travel time to benefit edges with smaller travel time. 
