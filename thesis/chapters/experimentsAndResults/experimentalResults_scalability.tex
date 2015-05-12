@@ -5,14 +5,18 @@
     \centering
     \begin{tabular}{|l|l|l|l|l|l|}
         \hline
-        Test case & Nodes&Edges & Method & Running time(sec) \\
+        Test case & Method & TOTFIT & ATT & Running time(sec) \\
         \hline
-        1 & 30&90 & 1 & 6764 \\
+        1 & 1 & -61.42 & 17.54 & 6764 \\
+        1 & 2 & -167.12 & 17.36 & 68018 \\
+        
         \hline
     \end{tabular}
-    \caption{Mumford}
+    \caption{Mumford0 execution time in seconds, method1 vs method2}
     \label{table:results_mumford}
 \end{table}
+
+The reader recalls from Section \vref{sec:f1},  \textit{Method 1} is where the path with the shortest traveling time, not considering any transitions, is chosen. In the second method, \textit{Method 2}, the transitions is considered, and chooses the path with the shortest traveling time, including transfer penalties.
 
 
 %-------Mumford2--------
