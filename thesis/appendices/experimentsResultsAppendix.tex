@@ -7,20 +7,23 @@
 %SIDEWAYS
 %TODO: remove BR and PB
 \begin{sidewaystable}
-    %\centering
+    \centering
     %\hspace*{-0.5cm}
     \begin{tabular}{|l|l|l|c||c|c|c|c|c|}
     \hline
-    ~ & $s$ & $i$ & $E$ & $AVG$ & $\sigma$ & $RSTD$ & BEST & WORST \\
+    ~ & $s$ & $i$ & $E$ & $AVG$ & $STD$ & $RSTD$ & BEST & WORST \\
     \hline
-    $s$ \\
+    $s$ & 10$^1$ & 50 & 0.0 & 117.244$^1$ $\pm$ 3.854 & 10.77 & 9.186 & 88.364 & 137.997\\
+    ~ & 50 & 10 & 0.0 & 105.424 $\pm$ 2.369 & 6.619 & 6.278 & 90.076 & 114.843\\
 
     \hline
-    $i$ \\
- 
+    $i$ & 50 & 10 & 0.0 & 113.209 $\pm$ 3.205 & 8.957 & 7.912 & 94.551 & 130.521\\
+    ~ & 50 & 50 & 0.0 & 105.044 $\pm$ 2.667 & 7.454 & 7.096 & 90.293 & 120.946\\
     \hline
-    $E$ \\
-  
+    $E$ & 50 & 50 & 10\% & 104.395 $\pm$ 2.125 & 5.938 & 5.688 & 92.757 & 115.734\\
+    ~ & 50 & 50 & 25\% & 103.274 $\pm$ 2.998 & 8.379 & 8.113 & 86.917 & 120.811\\
+    ~ & 50 & 50 & 50\% & 104.252 $\pm$ 2.667 & 7.452 & 7.148 & 85.033 & 116.634\\
+    ~ & 50 & 50 & 90\% & 103.486 $\pm$ 2.576 & 7.2 & 6.957 & 83.245 & 116.951\\
     \hline
     \end{tabular}
     \caption {Steps with the corresponding results from the parameter settings experiment (sample size: 30)}
@@ -30,26 +33,34 @@
     \item[$AVG$ :] Average produced $TOTFIT$ with Confidence Interval (confidence level: 95\%)
     \item[$BEST$ :] Best produced result
     \item[$WORST$ :] Worst produced result
-    \item[$\sigma$:] Population Standard Deviation 
+    \item[$STD$:] Population Standard Deviation 
     \item[$RSTD$ :] Relative Standard Deviation 
-    %\item[$^1$:] On average \% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
+    \item[$^1$:] On average 14.467\% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
     \end{itemize}
     \label{table:pm1}
 \end{sidewaystable}
 
 %CA OG FA
 \begin{sidewaystable}
-    %\centering
+    \centering
     %\hspace*{-0.5cm}
     \begin{tabular}{|l|l|l|c||c|c|c|c|c|}
     \hline
-    ~ & $CA$ & $AF$ & $p_b$ & $AVG$ & $\sigma$ & $RSTD$ & BEST & WORST \\
+    ~ & $CA$ & $AF$ & $p_b$ & $AVG$ & $STD$ & $RSTD$ & BEST & WORST \\
     \hline
-    $CA$ \\
-
+    $CA$ & 0\% & 10\% & 0.0 & 105.66 $\pm$ 1.917 & 6.915 & 6.545 & 89.463 & 118.669\\
+    ~ & 5\% & 10\% & 0.0 & 104.581 $\pm$ 1.576 & 5.686 & 5.437 & 93.975 & 119.024\\
+    ~ & 10\% & 10\% & 0.0 & 104.064 $\pm$ 1.882 & 6.791 & 6.526 & 90.058 & 118.076\\
+    ~ & 25\% & 10\% & 0.0 & 103.597 $\pm$ 2.082 & 7.511 & 7.25 & 88.545 & 119.022\\
+    ~ & 50\% & 10\% & 0.0 & 105.1 $\pm$ 1.726 & 6.228 & 5.926 & 86.434 & 118.981\\
+    ~ & 100\% & 10\% & 0.0 & 110.135 $\pm$ 2.26 & 8.153 & 7.403 & 91.194 & 125.927\\
     \hline
-    $AF$ \\
- 
+    $AF$ & 10\% & 0\% & 0.0 & 105.747 $\pm$ 1.487 & 5.364 & 5.072 & 89.031 & 114.771\\
+    ~ & 5\% & 5\% & 0.0 & 104.389 $\pm$ 1.733 & 6.252 & 5.989 & 92.358 & 118.361\\
+    ~ & 10\% & 10\% & 0.0 & 104.739 $\pm$ 1.861 & 6.714 & 6.41 & 91.345 & 123.648\\
+    ~ & 10\% & 25\% & 0.0 & 104.632 $\pm$ 1.747 & 6.302 & 6.023 & 87.838 & 118.012\\
+    ~ & 10\% & 50\% & 0.0 & 106.327 $\pm$ 2.214 & 7.986 & 7.511 & 89.808 & 119.931\\
+    ~ & 10\% & 100\% & 0.0 & 120.245 $\pm$ 3.546 & 12.792 & 10.638 & 94.116 & 145.6\\
     \hline
     $p_b$ \\
   
@@ -62,9 +73,9 @@
     \item[$AVG$ :] Average produced $TOTFIT$ with Confidence Interval (confidence level: 95\%)
     \item[$BEST$ :] Best produced result
     \item[$WORST$ :] Worst produced result
-    \item[$\sigma$:] Population Standard Deviation 
+    \item[$STD$:] Population Standard Deviation 
     \item[$RSTD$ :] Relative Standard Deviation 
-    %\item[$^1$:] On average \% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
+    \item[$^1$:] On average \% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
     \end{itemize}
     \label{table:pm2}
 \end{sidewaystable}
