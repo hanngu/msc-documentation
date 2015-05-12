@@ -35,11 +35,12 @@ Based on the results shown i Appendix \ref{appendixC}, Table \vref{table:pm1} an
 \newline
 %Because our confidence coefficient is sat to correspond to 95\%, we are able to say that we are 95\% confident that the true population parameter is between the lower and upper calculated values.
 
-The selected value of the parameter $E$ is 50\% based on the results in Table \vref{table:pm1}. Evaporating 50\% of the pheromone each iteration gave the best average total fitness and the second best average travel time. Evaporating 75\% gave the best average travel time, and the second best total fitness, but according to the formula described in Section \vref{subsec:parameterSettings_setup} 50\% is chosen. Because both the best and the second best value are greater or equal to 50\%, we conclude that the algorithm benefits from the fact that a great amount of pheromone evaporates each iteration. We believe this is because this compensates for some of the randomness, by quickly remove pheromone from edges that were once used, but later discarded. We also observe that the worst results were achieved when $E$ was sat to 99\%. We therefor conclude that even though the algorithm benefits from a large percentage of evaporated pheromones, it reaches a threshold were the percentage becomes too big. By removing 99\% of the pheromone an edge that is usually used a lot, but for some reason only is not used as much a given iteration, is ``punished'' too hard.
+Observing the produced results of parameter $E$ in Table \vref{table:pm1}, evaporating 50\% of the pheromone each iteration gave the best average total fitness and the second best average travel time. Evaporating 75\% gave the best average travel time, and the second best total fitness, but according to the formula described in Section \vref{subsec:parameterSettings_setup} 50\% is selected. As one can observe, the best produced results is achieved by a candidate value greater or equal to 50\%. The algorithm seems to benefit from the fact that a great amount of pheromone evaporates each iteration. We believe this is because it compensates for some of the randomness the parameter $CA$ produces, by quickly removing pheromone from edges that were once used, but later discarded. One can also observe that the worst results were achieved when $E$ was sat to 99\%. Even though the algorithm benefits from a large percentage of evaporated pheromones, it reaches a threshold were the percentage becomes too big. By removing 99\% of the pheromone an edge that is usually used a lot, but for some reason not used as much the given iteration, it is ``punished'' too hard. 
+\newline
 
-The selected value of the parameter $AF$.
+The amount of $AF$ determines the amount of Following Ants ($FA$) in the next iteration, and the $FA$ follow the same path as the best ants' paths unconditionally. Observing the results obtained in Table \vref{table:pm2}, the $TOTFIT$ value deteriorates when the amount of $AF$ becomes greater than 25\%. When the amount of $FA$ becomes too great, a relatively large number of normal ants will not be able to explore new (possibly better) routes in the next iterations, and the algorithm may suffer from a local optima. But as one also can see, 25\% computes better results than the candidate values below. Rewarding some good route sets seems to boost the algorithms performance to some degree, and 25\% is selected as the final parameter for $AF$.
 
-Since the value of $pb$ is strongly dependent on the value of $AF$ (the more following ants, the more pheromone added to each edge in the best route sets), the value of $pb$ is tested with the selected value of $AF$. This is to ensure that rewarding more edges with the selected amount of pheromone, did not negatively affect the algorithm's performance. As seen in the Table \vref{table:pb_testing}, the value of $TOTFIT$ has increased after increasing $AF$, and the $ATT$ value has increased after the default value of $p_b$ has increased. 
+Based on the produced results, the selected value of parameter $p_b$ is 0.9. The value of $p_b$ is strongly dependent on the value of $AF$, because the more following ants, the more pheromone added to each edge in the best route sets. To ensure that rewarding more edges with the selected amount of pheromone did not negatively affect the algorithm's performance, the value of $p_b$ was tested with the new selected value of $AF$. As one can observe in Table \vref{table:pb_testing}, both $TOTFIT$ values have increased with the new increased value of $AF$, and the selected value for $p_b$ does not compute worse than when the $AF$ value was 10\%. The $ATT$ value increases after the new value of $p_b$, and the value of $p_b$ will be the same as it initial was selected. 
 
     \begin{table}[H]
     \centering
@@ -50,15 +51,12 @@ Since the value of $pb$ is strongly dependent on the value of $AF$ (the more fol
     10\% & 0.5 & 11.302 & -269.279 \\
     10\% & 0.9 & 11.314 & -269.631 \\
     25\% & 0.5 & 11.366 & -272.392 \\
-    %25\% & 0.7 & 11.338 & -268.534 \\
     25\% & 0.9 & 11.314 & -271.524 \\
     \hline
     \end{tabular}
-    \caption {Results from testing $p_b$}
+    \caption {Testing the value of parameter $p_b$ to the parameter $AF$}
     \label{table:pb_testing}
     \end{table}
-
-
 
 
 
