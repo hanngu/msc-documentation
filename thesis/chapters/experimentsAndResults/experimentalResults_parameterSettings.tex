@@ -23,7 +23,7 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     \end{tabular}
     \caption {Results from the Parameter Settings Experiment}
     \begin{itemize}[noitemsep]
-    \item[$^*$:]  Selected value is based values presented in Figure \vref{fig:svsitesting} and Figure \vref{fig:svsiruntime} 
+    \item[$^*$:]  Selected value is based on results presented in Figure \vref{fig:svsitesting} and Figure \vref{fig:svsiruntime} 
     \end{itemize}
     \label{table:parameterSettings2}
     \end{table}
@@ -35,7 +35,7 @@ Based on the results shown i Appendix \ref{appendixC}, Table \vref{table:pm1} an
 \newline
 %Because our confidence coefficient is sat to correspond to 95\%, we are able to say that we are 95\% confident that the true population parameter is between the lower and upper calculated values.
 
-Based on Table \vref{table:parameterSettings2} we see that the selected value for parameters $s$ and $i$ are sat to respectively 150 and 100. However, one thing that is not considered in the initial parameter setting is that the size of $s$ and $i$ affects each other. A colony of 10 ants ran 100 times would produce similar results to 100 ants ran 10 times. Because of this additional tests are performed with respectively a colony size ($s$) of 50, 75, 100, 125 and 150 each ran with 100 iterations ($i$). The results of these tests are presented in Figure \vref{fig:svsitesting}. Table \vref{table:pm1} in Appendix \ref{appendixC} shows that a $s$ below 50 sometimes produced ant colonies were no ant satisfy the initial constraints described in Section \vref{sec:algoConstraints}. When $s$ is 10, this occurs on average 16\% of the iterations and when the swarm size is 25 i occurs on average 0.5\% of the iterations. The reader recalls from Section \vref{sec:algoEvaluation} that if no ant satisfy the initial constraint, no ant is either evaluated, and the iteration therefor becomes invalid. Especially when $s$ is 10, this leads to that in practice the algorithm is ran less iterations than the sat $i$. 
+Based on Table \vref{table:pm1} we see that the selected value for parameters $s$ and $i$ are sat to respectively 150 and 100 based on the average $ATT$ and the average $TOTFIT$. However, one thing that is not considered in the initial parameter setting experiment is that the size of $s$ and $i$ affects each other. A colony of 10 ants ran 100 times would produce similar results to 100 ants ran 10 times. Because of this additional tests are performed with respectively a colony size ($s$) of 50, 75, 100, 125 and 150 each ran with 100 iterations ($i$). The results of these tests are presented in Figure \vref{fig:svsitesting}. Table \vref{table:pm1} in Appendix \ref{appendixC} shows that a $s$ below 50 sometimes produced ant colonies were no ants satisfy the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}. When $s$ is 10, this occurs on average 16\% of the iterations and when the swarm size is 25 i occurs on average 0.5\% of the iterations. The reader recalls from Section \vref{sec:algoEvaluation} that if no ant satisfy the initial constraint, no ant is either evaluated, and the iteration therefor becomes invalid. Especially when $s$ is 10, this leads to that in practice the algorithm is ran less iterations than the sat $i$. 
 
 \begin{figure}[H]
 \begin{center}
@@ -84,6 +84,6 @@ Based on the produced results, the selected value of parameter $p_b$ is 0.9. The
     \label{table:pb_testing}
     \end{table}
 
-
+The value of $CA$ is sat to 5\% based on the results shown in Table \vref{table:pm2} in Appendix \ref{appendixC}. The reader recalls from Section \vref{sec:algoInitialization} that this means that there is a 5\% probability that an ant is declared ``crazy'' and thus makes completely random decisions. The results in Table \vref{table:pm2} shows that the algorithm benefits from the fact that some ants are declared crazy, but also that if the probability is greater than 25\%, both the average $ATT$ and the average $TOTFIT$ results become worse. This is not very surprising, because if half of the colony or more acts randomly, the algorithm looses some of the performing boosting features from ACO, such as favoring edges frequently walked by other ants. Like for $s$ below 50, a value of $CA$ above 50\% sometimes produces ant colonies were no ants satisfy the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}. This is again not very surprising, because when such a large part of the colony acts randomly, several (and sometimes all) of these ants will create route sets that do not include every node in the network. The probability of creating a route set that does not contain all nodes are decreased in ``normal'' ants by the fact that they favor nodes they have not yet visited in the given route set. 
 
 
