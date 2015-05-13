@@ -40,19 +40,19 @@ As one can see from Figure \vref{fig:svsitesting}, the algorithm seems to conver
 
 As one can observe, increasing the size of the colony leads to a better $TOTFIT$ value in both the initial and final iterations However, there is a great difference in the running time when increasing the colony size. Figure \vref{fig:svsiruntime} shows the respective run times in second. There is a big difference in running time with 125 ants compared to 100. Between 50 and 100 ants the running time increases with about 750 seconds, while between 100 and 125 the running time increases with about 1200 seconds. Because the algorithm is going to be run an excessive amount of times when testing performance, the selected value of parameter $s$ is sat to \textit{100}. This is done, even though both a $s$ of both 125 and 150 gave a better $TOTFIT$, due to the large difference in run time. %The run time also increases drastically with 100 iterations compared to 50. The algorithm uses 499 seconds on the first 50 iterations, while it uses 1408 seconds on the last 50 iterations. These reasons combined makes the selected value of parameter $i$ \textit{50} and not 100, even tough 100 produced slightly better results in the initial parameter setting experiment.
 
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=4in]{assets/svsitest.png}
-  \end{center}
-  \caption{Evolution of Global Best Total Fitness ($TOTFIT$)}
-  \label{fig:svsitesting} 
-\end{figure}
+%\begin{figure}[H]
+%\begin{center}
+%  \includegraphics[width=4in]{assets/svsitest.png}
+%  \end{center}
+%  \caption{Evolution of Global Best Total Fitness ($TOTFIT$)}
+%  \label{fig:svsitesting} 
+%\end{figure}
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=2.5in]{assets/svsiruntime.png}
+  \includegraphics[width=5in]{assets/iterations_swarmsize_runtime.png}
   \end{center}
-  \caption{Evolution of the runtime, in seconds, in accordance to the swarm size}
+  \caption{Comparing runtime of increasing swarm size and number of iterations}
   \label{fig:svsiruntime} 
 \end{figure}
 
