@@ -13,12 +13,12 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     \hline
     Parameters & Candidate values & Selected value\\
     \hline
-    $s$ & 10, 25, 50, 100, 150 & 50$^*$ \\
-    $i$ & 1, 10 , 50, 100, 125 & 100$^*$ \\
-    $E$ & 1\%, 10\%, 25\% 50\%, 75\%, 90\%, 99\% & 50\% \\
-    $p_{b}$ & 0.0, 0.1, 0.3, 0.5, 0.7, 0.9 & 0.9 \\
-    $AF$ & 0\%, 1\%, 5\%, 10\%, 50\%, 75\%, 100\% & 25\% \\
-    $CA$ & 0\%, 1\%, 5\%, 10\%, 50\%, 75\%, 100\% & 5\% \\
+    $s$ & 10, 50, 100, 125 & 50$^*$ \\
+    $i$ & 10, 50 , 100, 125 & 125$^*$ \\
+    $E$ & 10\%, 25\% 50\%, 90\% & 25\% \\
+    $CA$ & 0\%, 5\%, 10\%, 25\%, 50\%, 100\% & 25\% \\
+    $AF$ & 0\%, 5\%, 10\%, 25\%, 50\%, 100\% & 5\% \\
+    $p_{b}$ & 0.0, 0.1, 0.5, 0.9, 1.3 & 0.9 \\
     \hline
     \end{tabular}
     \caption {Results from the Parameter Settings Experiment}
@@ -65,21 +65,5 @@ Observing the produced results of parameter $E$ in Table \vref{table:pm1}, evapo
 The amount of $AF$ determines the amount of Following Ants ($FA$) in the next iteration, and the $FA$ follow the same path as the best ants' paths unconditionally. Observing the results obtained in Table \vref{table:pm2}, the $TOTFIT$ value deteriorates when the amount of $AF$ becomes greater than 25\%. When the amount of $FA$ becomes too great, a relatively large number of normal ants will not be able to explore new (possibly better) routes in the next iterations, and the algorithm may suffer from a local optima. But as one also can see, 25\% computes better results than the candidate values below. Rewarding some good route sets seems to boost the algorithms performance to some degree, and 25\% is selected as the final parameter for $AF$.
 
 Based on the produced results, the selected value of parameter $p_b$ is 0.9. The value of $p_b$ is strongly dependent on the value of $AF$, because the more following ants, the more pheromone added to each edge in the best route sets. To ensure that rewarding more edges with the selected amount of pheromone did not negatively affect the algorithm's performance when $AF$ is 25\%, the value of $p_b$ was tested with the new selected value of $AF$. As one can observe in Table \vref{table:pb_testing}, both $TOTFIT$ values have increased with the new increased value of $AF$, and the selected value for $p_b$ does not compute worse than when the $AF$ value was 10\%. The $ATT$ value decreases after the new value of $p_b$, and the value of $p_b$ will be the same as it initial was selected. 
-
-    \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c||c|c|}
-    \hline
-    $AF$ & $p_b$ & $ATT$ & $TOTFIT$\\
-    \hline
-    10\% & 0.5 & 11.302 & -269.279 \\
-    10\% & 0.9 & 11.314 & -269.631 \\
-    25\% & 0.5 & 11.366 & -272.392 \\
-    25\% & 0.9 & 11.314 & -271.524 \\
-    \hline
-    \end{tabular}
-    \caption {Testing the value of parameter $p_b$ to the parameter $AF$}
-    \label{table:pb_testing}
-    \end{table}
 
 The value of $CA$ is sat to 5\% based on the results shown in Table \vref{table:pm2}, meaning there is a 5\% probability that an ant is declared ``crazy'' and thus makes completely random decisions. The results in Table \vref{table:pm2} shows that the algorithm benefits from the fact that some ants are declared crazy. However, if the probability is greater than 25\%, both the average $ATT$ and the average $TOTFIT$ results worsen. Not surprisingly, is this because half or more of the colony acts completely random, and the algorithm looses some of the performing boosting features from ACO, such as favoring edges frequently walked by other ants. Like for $s$ below 50, a value of $CA$ above 50\% sometimes produces ant colonies were no ants satisfy the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}. When such a large part of the colony acts randomly, several (and sometimes all) of these ants will create route sets that do not include every node in the network. The probability of creating a route set that does not contain all nodes are decreased in ``normal'' ants by the fact that they favor nodes they have not yet visited in the given route set.
