@@ -6,95 +6,92 @@
 
 %SIDEWAYS
 %TODO: remove BR and PB
-\begin{sidewaystable}
+\begin{table}
     \centering
     %\hspace*{-0.5cm}
-    \begin{tabular}{|l|l|l|c||c|c|c|c|c|}
+    \begin{tabular}{|l|l|l|c||c|c|c|c|}
     \hline
-    ~ & $s$ & $i$ & $E$ & $AVG$ & $STD$ & $RSTD$ & BEST & WORST \\
+    ~ & $s$ & $i$ & $E$ & $AVG$ & $STD$ & BEST & WORST \\
     \hline
-    $s$ & 10$^1$ & 50 & 10\% & 117.244$^1$ $\pm$ 3.854 & 10.77 & 9.186 & 88.364 & 137.997\\
-    ~ & 50 & 10 & 10\% & 105.424 $\pm$ 2.369 & 6.619 & 6.278 & 90.076 & 114.843\\
-    ~ & 100 & 50 & 10\% & 99.89 $\pm$ 2.193 & 6.128 & 6.135 & 87.178 & 108.688\\
-    %~ & 100 & 50 & 0.0 & 99.318 $\pm$ 2.336 & 6.192 & 6.235 & 87.178 & 108.688\\
-    ~ & 125 & 50 & 10\% & 97.994 $\pm$ 2.267 & 6.334 & 6.464 & 80.484 & 105.908\\
-    %~ & 125 & 50 & 0.0 & 99.082 $\pm$ 2.459 & 4.859 & 4.904 & 85.208 & 105.908\\
+    $s$ & 10$^1$ & 50 & 10\% & 117.244$^1$ $\pm$ 3.854 & 10.700 & 88.364 & 137.997\\
+    ~ & 50 & 50 & 10\% & 105.424 $\pm$ 2.369 & 6.619 & 90.076 & 114.843\\
+    ~ & 100 & 50 & 10\% & 99.890 $\pm$ 2.193 & 6.128 & 87.178 & 108.688\\
+    %~ & 100 & 50 & 0.0 & 99.318 $\pm$ 2.336 & 6.192 & 87.178 & 108.688\\
+    ~ & 125 & 50 & 10\% & \textbf{97.994 $\pm$ 2.267} & \textbf{6.334} & \textbf{80.484} & \textbf{105.908}\\
+    %~ & 125 & 50 & 0.0 & 99.082 $\pm$ 2.459 & 4.859 & 85.208 & 105.908\\
     \hline
-    $i$ & 50 & 10 & 10\% & 113.209 $\pm$ 3.205 & 8.957 & 7.912 & 94.551 & 130.521\\
-    ~ & 50 & 50 & 10\% & 105.044 $\pm$ 2.667 & 7.454 & 7.096 & 90.293 & 120.946\\
-    ~ & 50 & 100 & 10\% & 101.013 $\pm$ 1.802 & 4.952 & 4.902 & 82.183 & 109.379\\
-    %~ & 50 & 100 & 0.0 & 100.855 $\pm$ 1.995 & 5.09 & 5.047 & 82.183 & 109.379\\
-    ~ & 50 & 125 & 10\% & 96.144 $\pm$ 2.106 & 5.786 & 6.018 & 82.709 & 107.362\\
-    %~ & 50 & 125 & 0.0 & 95.241 $\pm$ 2.716 & 6.349 & 6.666 & 82.709 & 107.362\\
+    $i$ & 50 & 10 & 10\% & 113.209 $\pm$ 3.205 & 8.957 & 94.551 & 130.521\\
+    ~ & 50 & 50 & 10\% & 105.044 $\pm$ 2.667 & 7.454 & 90.293 & 120.946\\
+    ~ & 50 & 100 & 10\% & 101.013 $\pm$ 1.802 & 4.952 & 82.183 & 109.379\\
+    %~ & 50 & 100 & 0.0 & 100.855 $\pm$ 1.995 & 5.09 & 82.183 & 109.379\\
+    ~ & 50 & 125 & 10\% & \textbf{96.144 $\pm$ 2.106} & \textbf{5.786} & \textbf{82.709} & \textbf{107.362}\\
+    %~ & 50 & 125 & 0.0 & 95.241 $\pm$ 2.716 & 6.349 & 82.709 & 107.362\\
     \hline
-    $E$ & 50 & 50 & 10\% & 104.395 $\pm$ 2.125 & 5.938 & 5.688 & 92.757 & 115.734\\
-    ~ & 50 & 50 & 25\% & 103.274 $\pm$ 2.998 & 8.379 & 8.113 & 86.917 & 120.811\\
-    ~ & 50 & 50 & 50\% & 104.252 $\pm$ 2.667 & 7.452 & 7.148 & 85.033 & 116.634\\
-    ~ & 50 & 50 & 90\% & 103.486 $\pm$ 2.576 & 7.2 & 6.957 & 83.245 & 116.951\\
+    $E$ & 50 & 50 & 10\% & 104.395 $\pm$ 2.125 & 5.938 & 92.757 & 115.734\\
+    ~ & 50 & 50 & 25\% & \textbf{103.274 $\pm$ 2.998} & \textbf{8.379} & \textbf{86.917} & \textbf{120.811}\\
+    ~ & 50 & 50 & 50\% & 104.252 $\pm$ 2.667 & 7.452 & 85.033 & 116.634\\
+    ~ & 50 & 50 & 90\% & 103.486 $\pm$ 2.576 & 7.200 & 83.245 & 116.951\\
     \hline
     \end{tabular}
-    \caption {Steps with the corresponding results from the parameter settings experiment (sample size: 30)}
+    \caption {Steps with the corresponding results from the parameter settings experiment}
     \tiny
     \begin{itemize}[noitemsep]
-    \item[$TOTFIT$ :] Total Fitness function($TOTFIT$)
+    \item[$TOTFIT$ :] Total Fitness function
     \item[$AVG$ :] Average produced $TOTFIT$ with Confidence Interval (confidence level: 95\%)
     \item[$BEST$ :] Best produced result
     \item[$WORST$ :] Worst produced result
     \item[$STD$:] Population Standard Deviation 
-    \item[$RSTD$ :] Relative Standard Deviation 
     \item[$^1$:] On average 14.467\% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
     \end{itemize}
     \label{table:pm1}
-\end{sidewaystable}
+\end{table}
 
 %CA OG FA
-\begin{sidewaystable}
+\begin{table}
     \centering
     %\hspace*{-0.5cm}
     \begin{tabular}{|l|l|l|c||c|c|c|c|c|}
     \hline
-    ~ & $CA$ & $AF$ & $p_b$ & $AVG$ & $STD$ & $RSTD$ & BEST & WORST \\
+    ~ & $CA$ & $AF$ & $p_b$ & $AVG$ & $STD$ &BEST & WORST \\
     \hline
-    $CA$ & 0\% & 10\% & 0.0 & 105.66 $\pm$ 1.917 & 6.915 & 6.545 & 89.463 & 118.669\\
-    ~ & 5\% & 10\% & 0.0 & 104.581 $\pm$ 1.576 & 5.686 & 5.437 & 93.975 & 119.024\\
-    ~ & 10\% & 10\% & 0.0 & 104.064 $\pm$ 1.882 & 6.791 & 6.526 & 90.058 & 118.076\\
-    ~ & 25\% & 10\% & 0.0 & 103.597 $\pm$ 2.082 & 7.511 & 7.25 & 88.545 & 119.022\\
-    ~ & 50\% & 10\% & 0.0 & 105.1 $\pm$ 1.726 & 6.228 & 5.926 & 86.434 & 118.981\\
-    ~ & 100\% & 10\% & 0.0 & 110.135 $\pm$ 2.26 & 8.153 & 7.403 & 91.194 & 125.927\\
+    $CA$ & 0\% & 10\% & 0.0 & 105.66 $\pm$ 1.917 & 6.915 & 89.463 & 118.669\\
+    ~ & 5\% & 10\% & 0.0 & 104.581 $\pm$ 1.576 & 5.686 & 93.975 & 119.024\\
+    ~ & 10\% & 10\% & 0.0 & 104.064 $\pm$ 1.882 & 6.791 & 90.058 & 118.076\\
+    ~ & 25\% & 10\% & 0.0 & \textbf{103.597 $\pm$ 2.082} & \textbf{7.511} & \textbf{88.545} & \textbf{119.022}\\
+    ~ & 50\% & 10\% & 0.0 & 105.100 $\pm$ 1.726 & 6.228 & 86.434 & 118.981\\
+    ~ & 100\% & 10\% & 0.0 & 110.135 $\pm$ 2.26 & 8.153 & 91.194 & 125.927\\
     \hline
-    $AF$ & 10\% & 0\% & 0.0 & 105.747 $\pm$ 1.487 & 5.364 & 5.072 & 89.031 & 114.771\\
-    ~ & 5\% & 5\% & 0.0 & 104.389 $\pm$ 1.733 & 6.252 & 5.989 & 92.358 & 118.361\\
-    ~ & 10\% & 10\% & 0.0 & 104.739 $\pm$ 1.861 & 6.714 & 6.41 & 91.345 & 123.648\\
-    ~ & 10\% & 25\% & 0.0 & 104.632 $\pm$ 1.747 & 6.302 & 6.023 & 87.838 & 118.012\\
-    ~ & 10\% & 50\% & 0.0 & 106.327 $\pm$ 2.214 & 7.986 & 7.511 & 89.808 & 119.931\\
-    ~ & 10\% & 100\% & 0.0 & 120.245 $\pm$ 3.546 & 12.792 & 10.638 & 94.116 & 145.6\\
+    $AF$ & 10\% & 0\% & 0.0 & 105.747 $\pm$ 1.487 & 5.364& 89.031 & 114.771\\
+    ~ & 5\% & 5\% & 0.0 & \textbf{104.389 $\pm$ 1.733} & \textbf{6.252}& \textbf{92.358} & \textbf{118.361}\\
+    ~ & 10\% & 10\% & 0.0 & 104.739 $\pm$ 1.861 & 6.714 & 91.345 & 123.648\\
+    ~ & 10\% & 25\% & 0.0 & 104.632 $\pm$ 1.747 & 6.302 & 87.838 & 118.012\\
+    ~ & 10\% & 50\% & 0.0 & 106.327 $\pm$ 2.214 & 7.986 & 89.808 & 119.931\\
+    ~ & 10\% & 100\% & 0.0 & 120.245 $\pm$ 3.546 & 12.792 & 94.116 & 145.600\\
     \hline
-    $p_b$ & 10\% & 25\% & 0.0 & 104.861 $\pm$ 2.841 & 7.938 & 7.57 & 88.867 & 117.717\\
-    ~ & 10\% & 25\% & 0.1 & 105.613 $\pm$ 2.196 & 6.137 & 5.811 & 95.919 & 120.041\\
-    ~ & 10\% & 25\% & 0.5 & 103.646 $\pm$ 3.228 & 9.022 & 8.705 & 79.958 & 116.265\\
-    ~ & 10\% & 25\% & 0.9 & 103.682 $\pm$ 2.379 & 6.649 & 6.413 & 91.0 & 115.468\\
-    ~ & 10\% & 25\% & 1.3 & 104.228 $\pm$ 2.892 & 8.081 & 7.753 & 89.238 & 117.242\\
-    \hline
-    ~ & 10\% & 5\% & 0.0 & 104.882 $\pm$ 2.408 & 6.728 & 6.415 & 78.721 & 113.019\\
-    ~ & 10\% & 5\% & 0.1 & 103.192 $\pm$ 2.837 & 7.928 & 7.683 & 81.306 & 115.088\\
-    ~ & 10\% & 5\% & 0.5 & 104.101 $\pm$ 2.303 & 6.435 & 6.181 & 89.282 & 116.23\\
-    ~ & 10\% & 5\% & 0.9 & 102.579 $\pm$ 2.558 & 7.147 & 6.967 & 85.033 & 115.895\\
-    ~ & 10\% & 5\% & 1.3 & 103.058 $\pm$ 1.665 & 4.653 & 4.515 & 92.982 & 111.865\\
+    $p_b$ & 10\% & 25\% & 0.0 & 104.861 $\pm$ 2.841 & 7.938 & 88.867 & 117.717\\
+    ~ & 10\% & 25\% & 0.1 & 105.613 $\pm$ 2.196 & 6.137 & 95.919 & 120.041\\
+    ~ & 10\% & 25\% & 0.5 & 103.646 $\pm$ 3.228 & 9.022 & 79.958 & 116.265\\
+    ~ & 10\% & 25\% & 0.9 & 103.682 $\pm$ 2.379 & 6.649 & 91.000 & 115.468\\
+    ~ & 10\% & 25\% & 1.3 & 104.228 $\pm$ 2.892 & 8.081 & 89.238 & 117.242\\
+    ~ & 10\% & 5\% & 0.0 & 104.882 $\pm$ 2.408 & 6.728 & 78.721 & 113.019\\
+    ~ & 10\% & 5\% & 0.1 & 103.192 $\pm$ 2.837 & 7.928 & 81.306 & 115.088\\
+    ~ & 10\% & 5\% & 0.5 & 104.101 $\pm$ 2.303 & 6.435 &89.282 & 116.23\\
+    ~ & 10\% & 5\% & 0.9 & \textbf{102.579 $\pm$ 2.558} & \textbf{7.147} & \textbf{85.033} & \textbf{115.895}\\
+    ~ & 10\% & 5\% & 1.3 & 103.058 $\pm$ 1.665 & 4.653 & 92.982 & 111.865\\
     \hline
     \end{tabular}
-    \caption {Steps with the corresponding results from the parameter CA, AF and pb experiments}
+    \caption {Steps with the corresponding results from the parameter settings experiments (parameter $CA$, $AF$ and $p_b$)}
     \tiny
     \begin{itemize}[noitemsep]
-    \item[$TOTFIT$ :] Total Fitness function($TOTFIT$)
+    \item[$TOTFIT$ :] Total Fitness function
     \item[$AVG$ :] Average produced $TOTFIT$ with Confidence Interval (confidence level: 95\%)
     \item[$BEST$ :] Best produced result
     \item[$WORST$ :] Worst produced result
     \item[$STD$:] Population Standard Deviation 
-    \item[$RSTD$ :] Relative Standard Deviation 
-    \item[$^1$:] On average \% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
+    %\item[$^1$:] On average \% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
     \end{itemize}
     \label{table:pm2}
-\end{sidewaystable}
+\end{table}
 
 
 \section{Performance Comparison}
