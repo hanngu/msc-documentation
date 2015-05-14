@@ -2,22 +2,23 @@
 \label{subsec:performanceComparison_setup}
 %We will in this stage test the system's performance, comparing the results with the results published by xxx, and with the basic ACO implementation. 
 
-The value for each parameters is determined in the parameter settings experiments, and can be seen in Table \vref{table:parameterSettings2}. For the ACO comparison, will the value of parameter $AF$, and $CA$ be 0\% and $p_b$ will be 0.0. The memory feature and notion of the global best solution will also be removed from the ants.
-
-The performance criteria used to evaluate the effectiveness of the algorithm are the following:
+In order to evaluate the performance of the proposed algorithm, \textit{five} performance criteria are used:
 \begin{itemize}
-\item $d_0 (\%)$ - the percentage of demand satisfied without any transfers. 
-\item $d_1 (\%)$ - percentage of total transfer demands where the number of transfers are 1. 
-\item $d_2 (\%)$ - percentage of total transfer demands where the number of transfers are 2. 
-\item $d_{unsat}$ (\%) - the percentage of unsatisfied travelers. An unsatisfied traveler is described as a traveler with 3 or more transfers. 
+\item $d_0 (\%)$ - the percentage of passengers satisfied without any transfers. 
+\item $d_1 (\%)$ - percentage passengers transferring once. 
+\item $d_2 (\%)$ - percentage of passengers transferring twice. 
+\item $d_{unsat}$ (\%) - the percentage of unsatisfied passengers. An unsatisfied passenger is described as a passenger with 3 or more transfers. 
 \item $ATT$  - the average travel time in minutes per transit user (mpu). In all approaches published in the literature, the transfer penalty of 5 min is applied to each route for each required transfer, and the same transfer penalty will be used by the proposed SSO algorithm.
 %$ATT$ is calculated as follows:
 %$$ATT = \frac{\sum\limits^{p}_{p=1}TT}{p_{size}}$$
 %where $p_{size}$ is the number of passengers and $TT$ is the travel time used by passenger $p$. 
 \end{itemize}
-The criteria for good performance includes the percentage of demand satisfied without any transfers is high, and that the average travel time is as low.
+These criteria are for comparison reasons the same as the ones presented by \citet{mandl79}, \citet{kechagiopoulos14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, and \citet{chew12}. The criteria for good performance includes that the percentage of passengers satisfied without any transfers is high, and that the average travel time and the percentage of unsatisfied customers is as low. 
 
-There will be carried out 50 runs per experiment, recording the algorithm's average, best and worst produced result. The median solution, standard deviation, and margin of error (confidence interval) will also be presented. 
+As mentioned in Section \vref{sec:expPlan} will the algorithm be compared against a generic ACO algorithm, in addition to comparisons against the proposed methods of the authors mentioned above. The generic ACO is identical to the proposed SSO algorithm, but without the additional features such as Following Ants, Crazy Ants, a notion of the global best found solution so far and memory. 
 
-In order for our experimental results to be comparable with the results published by other researchers will four, six, seven and eight routes in the route set be examined. The execution time (in seconds) of the proposed algorithm with each route set will be presented.
+In order for our results to be comparable with results published, experiments with four, six, seven and eight routes in each route set will be examined. 
+
+There will be carried out 50 runs per experiment, recording the values of $d_0$, $d_1$, $d_2$, $d_unsat$, and $ATT$ of the best found solution, i.e. the one who had the lowest $TOTFIT$. After 50 runs the best and worst solution will be be presented, along with the average, median and standard deviation for the values described above. The minimum, maximum, average, median and standard deviation for the execution time (in seconds) of the algorithm will also be presented.  
+
 
