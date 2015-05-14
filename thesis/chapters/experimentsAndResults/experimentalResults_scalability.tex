@@ -29,14 +29,19 @@ The reader recalls from Section \vref{sec:f1},  \textit{Method 1} is where the p
 \begin{table}[H]
     \centering
     \hspace*{-1.0cm}
-    \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+    \begin{tabular}{|l|l|l|l|l|l|}
         \hline
-        Test case & Nodes & Edges & Min/max nodes  & $d_0$ & $d_1$ & $d_2$ & $d_{unsat}$ & $ATT$\\
+        Test case &  $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$\\
         \hline
-        Mumford0 & 30 & 90 & 2/15 & & & & &\\
-        Mumford1 & 70 & 210 & 10/30 & & & & &\\
-        Mumford2 & 110 & 385 & 10/22 & & & & &\\
-        Mumford3$^a$ & 127 & 425 & 12/25 & & & & &\\
+        Mumford0 & 23.43 & 39.36 & 28.78 & 8.43 & 13.5\\
+        %SSO Best & 23.59 & 39.98 & 29.97 & 6.46 & 13.45\\
+        %SSO Average & 23.43 & 39.36 & 28.78 & 8.43 & 13.5\\
+        %SSO Median & 23.87 & 39.05 & 29.25 & 8.95 & 13.45\\
+        %SSO Worst & 21.34 & 38.87 & 31.01 & 8.77 & 13.58\\
+        %SSO Standard Deviation & 1.12 & 2.72 & 2.42 & 1.29 & 0.21\\
+        Mumford1 & &  & & &\\
+        Mumford2 & &  & & &\\
+        Mumford3$^a$  & & & &&\\
         \hline
     \end{tabular}
     \caption{Data set Mumford}
@@ -45,4 +50,4 @@ The reader recalls from Section \vref{sec:f1},  \textit{Method 1} is where the p
     \end{itemize}
     \label{table:dataSet_mumford}
 \end{table}
-It is worth mentioning, that the amount of iterations and swarm size is sat to 50, and the number of runs is 10. \emph{\color{blue} TODO.}
+The amount of iterations and swarm size is sat to 50, and the number of runs is 10. \emph{\color{blue} TODO.}
