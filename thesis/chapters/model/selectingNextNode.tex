@@ -21,9 +21,9 @@ $$e_p \pluseq \frac{p_v}{T_e}$$
 
 where $p_v$ is a predefined pheromone constant. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, which in this case, is lower travel times. 
 
-If ant $a$ is a $CA$, the next node is chosen randomly based on the possible edges connected to the current node, without considering any parameters. The probability that ant, $a$, is declared as ``crazy'' is partly determined by a predefined value achieved by the parameter testing, and partly determined by the inertia weight, $IW$. The probability $CA$ is calculated as follows:
-$$CA = CA*IW$$
+If ant $a$ is a ``crazy'', the next node is chosen randomly based on the possible edges connected to the current node, without considering the edge value. The probability that ant, $a$, is declared as ``crazy'' is partly determined by a predefined value, $CA$, achieved by the parameter testing, and partly determined by the inertia weight, $IW$. This probability, $p$, is calculated as follows:
+$$p = CA*IW$$
 The $IW$ decreases at each iteration, resulting in a smaller probability for $a$ to be declared ``crazy''. The rate in which the inertia weight decreases is dependent on the total of number of iterations, $TI$, and is calculated as follows:
 $$IW = IW - \frac{IW}{TI}$$
 
-If ant $a$ is a $FA$, $a$ chooses the edges chosen by the ant it is following. Described in Section \vref{sec:selctingAntsToBeFollowed}, a percentage of the best ants are added to a list, $ba$, to further be followed, where $a_1$ follows $ba_1$, $a_2$ follows $ba_2$, and so on. %The percentage of $FA$ is a predefined parameter, selected after excessive testing.
+If ant $a$ is a ``following ant'', $a$ consequently chooses the edges chosen by the ant from the previous iteration it is following.  %The percentage of $FA$ is a predefined parameter, selected after excessive testing.
