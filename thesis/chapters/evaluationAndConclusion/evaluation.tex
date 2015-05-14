@@ -1,23 +1,23 @@
 \section{Evaluation}
+%!!Forklare hvorfor vi fikk de resultatene vi fikk - hva er det resultatene faktisk sier? Vær ærlig om analysen.
 
 %When evaluating your results, avoid drawing grand conclusions, beyond that which your results can in fact support. Further, although you may have designed your experiments to answer certain questions, the results may raise other questions in the eyes of the reader. It is important that you study the graphs/tables to look for unusual features/entries and discuss these as well as discussing the main findings in the results. 
 
-\emph{\color{blue} TODO: omformuleres}
-To evaluate the proposed method and this project as a whole, some evaluation criteria must be defined. Why we are doing our research, why our views and methods are a step forward, how completely they are implemented by our programs, how these programs work, whether their performance is likely to increase or has reached a limit (and why), and what problems we encounter ate each stage of our research. Evaluation should be a mechanism of progress both within and across AI research. Evaluation provides a driving force to the research cycle. Evaluation provides a basis for congestions of knowledge. Without evaluation: cannot replicate results. Evaluation: convince research community that ideas are worthwhile, that they work and how. 
 
-Evaluation is an issue discussed a lot in the field of artificial intelligence. Where other sciences has specific aspects of research to be presented, empirical AI has not comparable standards, in this effort has \citet{cohen88}, as initiated in Section\vref{sec:structuredLiteratureReview}, introduced a five-stage mode to use for evaluating AI systems: 
-\begin{enumerate}
-\item Refine the research topic to a task and a define a view of how to accomplish the task
-\item Refined the view to a specific method
-\item Develop a program to implement the method
-\item Design experiments to test the program
-\item Run the experiments
-\end{enumerate} 
- 
+To evaluate the proposed method and this project as a whole, the five-stage model introduced by \citet{cohen88} , initiated in Section\vref{sec:structuredLiteratureReview}, is used for evaluation. %Why we are doing our research, why our views and methods are a step forward, how completely they are implemented by our programs, how these programs work, whether their performance is likely to increase or has reached a limit (and why), and what problems we encounter ate each stage of our research. Evaluation should be a mechanism of progress both within and across AI research. Evaluation provides a driving force to the research cycle. Evaluation provides a basis for congestions of knowledge. Without evaluation: cannot replicate results. Evaluation: convince research community that ideas are worthwhile, that they work and how. 
+%Evaluation is an issue discussed a lot in the field of artificial intelligence. Where other sciences has specific aspects of research to be presented, empirical AI has not comparable standards, in this effort has \citet{cohen88}, as initiated in Section\vref{sec:structuredLiteratureReview}, introduced a five-stage mode to use for evaluating AI systems: 
+%\begin{enumerate}
+%\item Refine the research topic to a task and a define a view of how to accomplish the task
+%\item Refined the view to a specific method
+%\item Develop a program to implement the method
+%\item Design experiments to test the program
+%\item Run the experiments
+%\end{enumerate} 
 
-The task is UTRP using SI. 
-And the goal is to produce better results than other research, regarding the performance criteria.  
-The hypothesis is that, implementation from PSO: CA: act more random in beginning - compensate for the original ACO algorithm's weakness of frequently getting stuck at a local optima. Implemented the program to test the method, and run experiments to evaluate against performance criteria. One attempt to combine different methods from swarm intelligence - include features from other swarm inspired methods. Neo4j.
+% ---- Nevne at parameter testing ble evaluert i results fordi -- 
 
+The task of solving a vehicle routing problem, more precisely the UTRP problem, is attempted solve by several researchers in the community. However, there where only one attempt to combine some of the best attributes of the different swarm intelligence algorithms, and the proposed algorithm was implemented to test if it was a good idea... The goal was to optimize bus routes in Trondheim, but this made it hard to determine if the implementation was better than already made solutions described in the literature. For the UTRP, Mandl's benchmark problem is used by several researchers in the literature[refs]. In addition, is there a recognized metric for evaluation established. This makes it possible to determine if the proposed algorithm produced viable and good solutions. Not only are these metric used by other researchers, and therefore makes it easy to compare our results, but they also corresponds to our goal described on page \pageref{itm:goal} of increasing the number of public transportation passengers. A good solution is, as mentioned, one that provides a low average travel time, a high percentage of passengers traveling directly or with one transfer form the origin to their destination and a low percentage of both passengers transferring twice and \textit{unsatisfied} passengers. The reader recalls from Section \vref{sec:algoEvaluation} that an unsatisfied passenger is one that needs to transfer more than two times. These performance criteria correspond to the fact that passengers would both like the route to be short, but in addition not transfer buses too many times.
 
+Is the programs performance predictable? Underlying assumptions?
 
+But only testing the algorithms performance on Mandl's network, will not determine if the proposed algorithm produce good results for a broad number of transit networks. The implementation is made adaptable in such a way that different networks and parameters (demand values) can be tested - to establish if the algorithm produce good results regarding, for example, Trondheim's transit network. The next sections will evaluate the results produced by the algorithm. 

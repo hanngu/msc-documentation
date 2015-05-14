@@ -1,6 +1,9 @@
 \section{Discussion}
 
-Discuss what you managed, and why you had sucess / not success. Show that you understand. In the discussion it is important to include a discussion of not just the merits of the work conducted but also the limitations. 
+Discuss what you managed, and why you had sucess / not success. Show that you understand. In the discussion it is important to include a discussion of not just the merits of the work conducted but also the limitations.
+\newline
+Svar på research questionsene.s
+Hva har vi fått til? Hva har vi ikke fått til? Hvorfor fikk vi det til? Hvorfor fikk vi det ikke til? (Små endringer som faktisk kunne blitt gjort, må ikke nevnes, betyr bare at vi har begynt sent på oppgaven.)
 
 \textbf{Goal:}
 \begin{itemize}
@@ -27,4 +30,10 @@ Discuss what you managed, and why you had sucess / not success. Show that you un
 	\item  What are the potential advantages and disadvantages of using a graph database in our implementation?
     \end{enumerate}
 \end{enumerate}
+
+\textbf{\color{blue} Til diskusjon:}
+
+The parameters tested and used are specifically tuned for Mandl's Transit Network containing 4 routes, with maximum 8 nodes in one route, but the same parameters are used when testing with 6, 7, and 8 routes as well. This may be considered a weakness, because metaherustic methods, such as the one proposed in this thesis, requires calibration of parameters with respect to the problem at hand \citep{dobslaw09}.
+
+The proposed method requires input on a particular form. Both nodes and their coordinates, travel time between nodes and the demand between nodes needs to be provided on a particular form in an .txt-document. This may be considered as a weakness of the method, but implementing support for retrieving the mentioned data on another form are considered as fairly easy.
 
