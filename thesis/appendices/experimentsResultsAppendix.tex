@@ -1,7 +1,7 @@
 \chapter{Experimental Results}
 \label{appendixC}
 
-\section{Parameter Settings}
+\section{Parameter Settings Results}
 %VOL 1 testing:
 
 %SIDEWAYS
@@ -94,16 +94,16 @@
 \end{table}
 
 
-\section{Performance Comparison}
-
+\section{Performance Comparison Results}
+%Best Ants Route: {[6,8,15,7,10,11,12,4,][1,2,3,6,8,15,9,][1,2,4,12,11,13,14,10,][1,2,5,4,6,8,10,11,]}
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|llllllll|}
     \hline
-    %Route 1: & 1 & 2 & 5 & 4 & 6 & 8 & 10 & 7 \\
-    %Route 2: & 1 & 2 & 3 & 6 & 8 & 15 & 7 & 10 \\
-    %Route 3: & 12 & 11 & 10 & 14 & 13 &  &  & \\
-    %Route 4: & 9 & 15 & 7 & 10 & 11 & 12 & 4 & 2 \\
+    Route 1: & 6 & 8 & 15 & 7 & 10 & 11 & 12 & 4 \\
+    Route 2: & 1 & 2 & 3 & 6 & 8 & 15 & 9 &  \\
+    Route 3: & 1 & 2 & 4 & 12 & 11 & 13 & 14 & 10 \\
+    Route 4: & 1 & 2 & 5 & 4 & 6 & 8 & 10 & 11 \\
     \hline
     \end{tabular}
     \caption {Representation of the best route set, having four routes, constructed by ACO}
@@ -117,23 +117,21 @@
     \hline
     Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
-    %ACO Best & 86.16 & 12.59 & 2.25 & 0.00 & 11.16 \\
-    %ACO Average & 72.14 & 24.00 & 3.66 & 0.20 & 11.97 \\
-    %ACO Median & 72.67 & 23.57 & 3.37 & 0.00 & 11.77 \\
-    %ACO Worst & 54.79 & 35.13 & 10.08 & 0.00 & 11.97 \\
-    %ACO Standard Deviation & 6.22 & 5.40 & 2.26 & 0.52 & 0.62 \\
-    %ACO Relative Standard Deviation & 8.62 & 22.49 & 61.73 & 255.31 & 5.18 \\
+    ACO Best & 84.07 & 15.03 & 0.90 & 0.00 & 10.08\\
+    ACO Average & 81.92 & 16.13 & 1.86 & 0.09 & 10.43\\
+    ACO Median & 82.66 & 15.29 & 1.16 & 0.00 & 10.42\\
+    ACO Worst & 64.93 & 21.19 & 11.5 & 2.38 & 10.79\\
+    ACO Standard Deviation & 4.87 & 3.75 & 1.83 & 0.37 & 0.32\\
     \hline
     \hline
-    %SSO Best & 88.44 & 10.28 & 1.29 & 0.00 & 10.67 \\
-    %SSO Average & 77.32 & 20.15 & 2.47 & 0.07 & 11.27 \\
-    %SSO Median & 77.14 & 20.49 & 2.25 & 0.00 & 11.26 \\
-    %SSO Worst & 68.77 & 28.84 & 2.25 & 0.13 & 11.67 \\
-    %SSO Standard Deviation & 3.91 & 3.60 & 1.36 & 0.19 & 0.22 \\
-    %SSO Relative Standard Deviation & 5.06\% & 17.85\% & 55.16\% & 291.28\% & 1.97\% \\
+    SSO Best & 87.73 & 10.98 & 1.28 & 0.00 & 10.03\\
+    SSO Average & 85.21 & 13.49 & 1.30 & 0.00 & 10.27\\
+    SSO Median & 85.81 & 13.29 & 1.09 & 0.00 & 10.26\\
+    SSO Worst & 76.56 & 22.16 & 1.28 & 0.00 & 10.01\\
+    SSO Standard Deviation & 2.66 & 2.70 & 0.84 & - & 0.18\\
     \hline
     \end{tabular}
-    \caption {Comparing the route sets of ACO and SSO, having four routes, all results}
+    \caption {Comparing the route sets of ACO and ACO, having four routes, all results}
    % 100 Monte Carlo runs
     \label{table:performanceComparison_ACOFull}
     \end{table}

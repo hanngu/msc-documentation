@@ -3,7 +3,7 @@
 
 %---------------------- ACO VS SSO ---------------------
 
-Table \vref{table:performanceComparison_ACOSSOBEST} shows the average produced results, concerning the performance criteria, of the proposed algorithm and the plain ACO implementation. Representation of the best route set, having for routes, produced by SSO is seen in Table \vref{table:performanceComparison_bestRouteSet4}.  Representation of the best route set, having for routes, produced by ACO is found in \vref{table:performanceComparison_bestRouteSet4_ACO}. Best, worst, average, median, STD and RSTD produced results is presented in Table \vref{table:performanceComparison_ACOFull}.
+Table \vref{table:performanceComparison_ACOSSOBEST} shows the average produced results, concerning the performance criteria, of the proposed algorithm and the plain ACO implementation. Representation of the best route set, having for routes, produced by SSO is seen in Table \vref{table:performanceComparison_bestRouteSet4}.  Representation of the best route set, having for routes, produced by ACO is found in \vref{table:performanceComparison_bestRouteSet4_ACO}. Best, worst, average, and median produced results in addition to the STD is presented in Table \vref{table:performanceComparison_ACOFull}.
 
     \begin{table}[H]
     \centering
@@ -11,14 +11,13 @@ Table \vref{table:performanceComparison_ACOSSOBEST} shows the average produced r
     \hline
     Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
-    ACO Average & 72.14 & 24.00 & 3.66 & 0.20 & 11.97 \\
+    ACO Average & 81.92 & 16.13 & 1.86 & 0.09 & 10.43\\
     \hline
-    SSO Average & 77.67 & 19.90 & 2.38 & 0.04 & 11.25 \\
+    SSO Average & 85.21 & 13.49 & 1.30 & 0.00 & 10.27\\
     \hline
     \end{tabular}
-    \caption {Comparing the best route set of ACO and SSO, having four routes.}
-    
-   % 100 Monte Carlo runs
+    \caption {Comparing the best route set of a plain ACO implementation (ACO) and the proposed algorithm (SSO), having four routes.}
+    % 50 runs
     \label{table:performanceComparison_ACOSSOBEST}
     \end{table}
 
@@ -26,15 +25,15 @@ Table \vref{table:performanceComparison_ACOSSOBEST} shows the average produced r
 
 %-------------------- 4 route sets ---------------------
 
-%Best Ants Route: {[1,2,3,6,8,10,11,12,][9,15,7,10,14,13,11,12,][3,2,5,4,6,8,10,11,][6,15,7,10,11,12,4,2,]}
+%Best Ants Route: {[14,13,11,10,8,6,15,7,][1,2,3,6,8,10,11,12,][14,10,8,6,4,5,2,3,][9,15,7,10,11,12,4,2,]}
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|llllllll|}
     \hline
-    Route 1: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 12 \\
-    Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
-    Route 3: & 3 & 2 & 5 & 4 & 6 & 8 & 10 & 11 \\
-    Route 4: & 6 & 15 & 7 & 10 & 11 & 12 & 4 & 2 \\
+    Route 1: & 14 & 13 & 11 & 10 & 8 & 6 & 15 & 7 \\
+    Route 2: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 12 \\
+    Route 3: & 14 & 10 & 8 & 6 & 4 & 5 & 2 & 3 \\
+    Route 4: & 9 & 15 & 7 & 10 & 11 & 12 & 4 & 2 \\
 	\hline
     \end{tabular}
     \caption {Representation of the best route set, having four routes, constructed by the proposed algorithm.}
@@ -72,16 +71,15 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \citet{chew12} best & 93.71 & 6.29 & 0.00 & 0.00 & 10.82 \\
 	\hline
     \hline
-    SSO Best & 88.12 & 10.53 & 1.35 & 0.00 & 10.69 \\
-    SSO Average & 77.67 & 19.90 & 2.38 & 0.04 & 11.25 \\
-    SSO Median & 77.87 & 20.04 & 2.12 & 0.00 & 11.23 \\
-    SSO Worst & 68.98 & 24.53 & 6.48 & 0.00 & 11.88 \\
-    SSO Standard Deviation & 3.37 & 3.43 & 1.34 & 0.09 & 0.19 \\
-    SSO Relative Standard Deviation & 4.34\% & 17.22\% & 56.12\% & 223.61\% & 1.67\% \\
+    SSO Best & 87.73 & 10.98 & 1.28 & 0.00 & 10.03\\
+    SSO Average & 85.21 & 13.49 & 1.30 & 0.00 & 10.27\\
+    SSO Median & 85.81 & 13.29 & 1.09 & 0.00 & 10.26\\
+    SSO Worst & 76.56 & 22.16 & 1.28 & 0.00 & 10.01\\
+    SSO Standard Deviation & 2.66 & 2.70 & 0.84 & - & 0.18\\
     %SSO Confidence interval$^b$ & ~ & ~ & ~ & ~ & ~ \\
     \hline
     \end{tabular}
-    \caption {Comparing the best route set, having four routes, produced by the proposed algorithm with route sets constructed by other approaches.}
+    \caption {Comparing the best route set, having four routes, produced by the proposed algorithm(SSO) with route sets constructed by other approaches.}
     \begin{itemize}[noitemsep]
     %\item[$^a$:] mintues per user
     \item[$^b$:] 
@@ -90,23 +88,33 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \label{table:performanceComparison_4}
 \end{table}
 
+
 %-------------------- 6 route sets ---------------------
-%Best Ants Route: {[9,15,7,10,14,13,11,12,][13,11,10,8,6,4,5,2,][11,13,10,8,6,3,2,1,][12,11,10,7,15,6,3,2,][1,2,4,12,11,10,7,15,][12,4,5,2,3,6,8,15,]}
+%Best Ants Route: {[12,11,10,13,14,][9,15,7,10,14,13,11,12,][7,10,8,6,4,5,2,3,][1,2,3,6,8,10,11,13,][1,2,4,6,3,][14,13,10,7,15,6,4,12,]}
     \begin{table}[H]
     \centering
     \begin{tabular}{|l|l l l l l l l l|}
     \hline
-    Route 1: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
-    Route 2: & 13 & 11 & 10 & 8 & 6 & 4 & 5 & 2 \\
-    Route 3: & 11 & 13 & 10 & 8 & 6 & 3 & 2 & 1 \\
-    Route 4: & 12 & 11 & 10 & 7 & 15 & 6 & 3 & 2 \\
-    Route 5: & 1 & 2 & 4 & 12 & 11 & 10 & 7 & 15 \\
-    Route 6: & 12 & 4 & 5 & 2 & 3 & 6 & 8 & 15 \\
+    Route 1: & 12 & 11 & 10 & 13 & 14 &  &  &  \\
+    Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
+    Route 3: & 7 & 10 & 8 & 6 & 4 & 5 & 2 & 3 \\
+    Route 4: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 13 \\
+    Route 5: & 1 & 2 & 4 & 6 & 3 &  &  &  \\
+    Route 6: & 14 & 13 & 10 & 7 & 15 & 6 & 4 & 12 \\
     \hline
     \end{tabular}
     \caption {The best route set, having six routes}
     \label{table:performanceComparison_bestRouteSet6}
     \end{table}
+
+
+    \begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=4in]{assets/mandlnetwork_6routes.png}
+    \end{center}
+    \caption{Illustration of the best route set, having six routes, constructed by the proposed algorithm (Mandl's transit network as a graph)}
+    \label{fig:bestRouteSet4} 
+\end{figure}
 
     \begin{table}[H]
     \centering
@@ -129,12 +137,11 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \citet{baaj91} & 78.61 & 21.39 & 0.00 & 0.00 & 11.86 \\
     \hline
     \hline
-    SSO Best & 92.04 & 7.06 & 0.83 & 0.06 & 10.44 \\
-    SSO Average & 86.53 & 12.40 & 1.06 & 0.02 & 10.73 \\
-    SSO Median & 86.54 & 12.04 & 1.03 & 0.0 & 10.75 \\
-    SSO Worst & 82.21 & 17.21 & 0.58 & 0.00 & 10.92 \\
-    SSO Standard Deviation & 2.10 & 2.24 & 0.66 & 0.05 & 0.11 \\
-    SSO Relative Standard Deviation & 2.43\% & 8.08\% & 62.85\% & 268.74\% & 1.02\% \\
+    SSO Best & 89.53 & 9.25 & 1.22 & 0.00 & 10.03\\
+    SSO Average & 87.17 & 12.0 & 0.82 & 0.01 & 10.11\\
+    SSO Median & 87.93 & 10.98 & 0.77 & 0.00 & 10.03\\
+    SSO Worst & 82.47 & 17.41 & 0.13 & 0.00 & 10.03\\
+    SSO Standard Deviation & 2.74 & 2.78 & 0.63 & 0.02 & 0.14\\
     \hline
     \end{tabular}
     \caption {Comparing the best route set, having six routes, produced by the proposed algorithm with route sets constructed by other approaches.}
@@ -256,7 +263,23 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     6 & 1049.0 & 1217.28 & 1214.5 & 1436.0 & 82.22 \\
     \hline
     \end{tabular}
+    \caption {Executing time (in seconds) of SSO for route set designs with four, six,  \emph{\color{blue} gammel algorithme}}
+    \label{table:performanceComparison_runtimeOld}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l||l|}
+    \hline
+    Number of routes & AVG seconds\\
+    \hline
+    4 & 673.02 \\
+    6 & 2442.12  \\
+    \hline
+    \end{tabular}
     \caption {Executing time (in seconds) of SSO for route set designs with four, six, }
-   % 100 Monte Carlo runs
     \label{table:performanceComparison_runtime}
-    \end{table}
+\end{table}
+
+Table \vref{table:performanceComparison_runtime} shows the average runtime for each run with 50 runs.
+
