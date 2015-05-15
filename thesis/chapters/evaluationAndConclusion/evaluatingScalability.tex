@@ -6,15 +6,40 @@ One reason for this is that, as mentioned in Section \vref{subsec:scalabilityExp
 
 Another reason is that when testing the Mumford Networks 50 iterations is used compared to 125 when testing the Mandl Network. This results in that the Mumford networks, which are in fact twice or more the size of the Mandl network, are explored by 3750 less ants in total and thus have a smaller probability of finding the best route sets.  
 
-\emph{\color{blue} Totfiten blir veldig høy for Mumford-nettverkene. Dette betyr at ATT blir ENDA mer vektlagt. Dette betyr at å dele på $nodesize^2$ blir for lite for Mumford og det burde ha vært satt annerledes}
+A third reason, and maybe most important reason, may be that when calculating the $TOTFIT$ as described in Section \vref{sec:algoEvaluation}, the $F_1(r)$ are emphasized to much compared both $F_2(r)$ and $F_3(r)$. As described in \emph{\color{blue} Section XX}, $F_1(r)$ is already emphasized when running the tests on the Mandl Network, and this results in the best average travel time of all the published methods compared against. However, when the networks becomes significantly larger, such as the ones provided by \citet{mumford13}, the value of $F_1(r)$ becomes much larger than the values of both $F_2(r)$ and $F_3(r)$. This results in that the effect of $F_2(r)$ and $F_3(r)$ boarders against zero. In Table \vref{tabel:averageTotfitAllTestCases} the results of the average $TOTFIT$ is shown for each of the test cases ran. As one can observe the average $TOTFIT$ is much larger for the Mumford0 and Mumford1 cases compared to the Mandl-cases. The reader recalls from Section \vref{sec:totfit}, that the value of $F_2(r)$ is between $-300$ and $0$, and that the value of $F_3(r)$ is between $0$ and $1000$. The value of $F_1(r)$ is dependent on network size and the total demand, and as Table \vref{tabel:averageTotfitAllTestCases} shows dividing $F_1(r)$ on the $nodeSize^2$ is not sufficient enough because $F_1(r)$ becomes to big. 
 
+\begin{table}[H]
+    \centering
+    \hspace*{-1.0cm}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Number} & \textbf{Instance} & \textbf{Average $TOTFIT$}\\
+        \hline
+        1 & Mandl (4 routes) & 98.0\\
+        \hline
+        2 & Mandl (6 routes) & 89.5\\
+        \hline
+        3 & Mandl (7 routes) & 87.1\\
+        \hline
+        4 & Mandl (8 routes) & 82.6\\
+        \hline
+        5 & Mumford0 & 3886.4\\
+        \hline
+        6 & Mumford1 & 14459.8\\
+        \hline
+    \end{tabular}
+    \caption{Average Total Fitness for All Tests Cases. 1-4 are the results of 50 runs, 5-6 are the results of 10 runs. \emph{\color{blue} TODO: Sett inn nytt tall for 8 routes}}
+    \label{tabel:averageTotfitAllTestCases}
+\end{table}
+
+The run time for the proposed method is dependent on the number of routes in a route set ($NRS$), the number of ants ($s$), the number of iterations ($i$), the size of the network and whether Method 1 or Method 2 is used. As one can observe from Table \vref{tabel:runTimeMandl} the average run time increases drastically when the number of routes increases. This may be because the number of relationship types, $NRT$, in the Neo4j database becomes significantly larger when increasing the number of routes. Table \vref{tabel:numberOfRelationshipTypes} shows the $NRT$ for each test case using the Mandl Network.  
 
 \begin{table}[H]
     \centering
     \hspace*{-1.0cm}
     \begin{tabular}{|c|c|}
         \hline
-        Instance & Average Run Time (seconds)\\
+        \textbf{Instance} & \textbf{Average Run Time (seconds)$^1$}\\
         \hline
         Mandl (4 routes) & 673.0\\
         \hline
@@ -25,16 +50,46 @@ Another reason is that when testing the Mumford Networks 50 iterations is used c
         Mandl (8 routes) & 8830.2\\
         \hline
     \end{tabular}
-    \caption{Average Runtime of 50 Runs for Tests Using the Mandl Network}
+    \caption{Average Runtime of 50 Runs for Experiments Using the Mandl Network \emph{\color{blue} TODO: Sett inn nytt tall for 8 routes}}
+    \begin{itemize}[noitemsep]
+    \item[$^1$:] $s$ = 50, $i$ = 125)
+    \end{itemize} 
     \label{tabel:runTimeMandl}
 \end{table}
+
+Independent of whether it is the route set size, network size, the number of iterations or the number of ants in the colony that becomes bigger, the number of reads and writes to the Neo4j database increases, which again increases the run time. \emph{\color{blue} Kanskje vi må si noe mer her, finne noe data på hvorfor dette øker run timen eller noe. Kanskje vi må si noe om at vi har observert at minnebruken aldri går over 30\%?}
 
 \begin{table}[H]
     \centering
     \hspace*{-1.0cm}
     \begin{tabular}{|c|c|}
         \hline
-        Instance & Average Run Time (seconds) \\
+        \textbf{$NRS$} & \textbf{$NRT^1$}\\
+        \hline
+        4 & 25000\\
+        \hline
+        6 & 37500\\
+        \hline
+        7 & 43750\\
+        \hline
+        8 & 50000\\
+        \hline
+    \end{tabular}
+    \caption{Number of Relationship Types Generated using the Mandl Network with Different Route Set Sizes}
+    \begin{itemize}[noitemsep]
+    \item[$^1$:] 50 ($s$) * 125 ($i$) * $NRS$
+    \end{itemize} 
+    \label{tabel:numberOfRelationshipTypes}
+\end{table}
+
+As stated above may the results suffer from using Method 1 compared to Method 2, but as shown in Table \vref{table:results_mumford} the run time is more than 10 times greater using using Method 2 compared to Method 1. When using Method 1 it is sufficient to only use the built in Dijkstra algorithm in Neo4j to find the shortest path between two nodes given a route set. When Method 2 is used, the proposed method finds all possible routes between two nodes given a route set, and further evaluates which route to choose based on the total travel time (including transfer penalties). The run time difference of using Method 1 compared to Method 2 increases as the network becomes bigger. This is because the algorithm finds a path between every two nodes in the network, and when the network increases, so does (usually) the number of nodes and possible paths as well. Table \vref{tabel:runTimeMumford} shows that the average run times of Mumford0 and Mumford1. As one can observer the run times are approximately the same as the ones for the experiments who uses the Mandl Network (Table \vref{tabel:runTimeMandl}), even though these experiments have a smaller network and fewer $NRS$. This is partly because of the decreased number of $i$ and partly because Method 1 is used instead of Method 2.  
+
+\begin{table}[H]
+    \centering
+    \hspace*{-1.0cm}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Instance} & \textbf{Average Run Time (seconds)$^1$} \\
         \hline
         Mumford0 & 2368.0\\
         \hline
@@ -42,7 +97,10 @@ Another reason is that when testing the Mumford Networks 50 iterations is used c
         \hline
     \end{tabular}
     \caption{Average Runtime of 10 Runs for Tests Using the Mumford Network}
-    \label{tabel:runTimeMandl}
+    \label{tabel:runTimeMumford}
+    \begin{itemize}[noitemsep]
+    \item[$^1$:] $s$ = 50, $i$ = 50)
+    \end{itemize} 
 \end{table}
 
 %\textbf{Did the program demonstrate good performance?}
