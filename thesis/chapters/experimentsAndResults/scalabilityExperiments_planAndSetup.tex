@@ -9,8 +9,7 @@ To answer Research Question \vref{itm:2c}, which is concerned about whether or n
 \subsection{Experimental Setup}
 \label{subsec:scalabilityExperiments_setup}
 
-In order to test scalability the generated instances added as supplementary material to \citet{mumford13} will be used.
-The mentioned instances consists of transport networks with bus stops (nodes) and roads (edges). Coordinates for each node, travel time for each edge and demand between each two nodes are all provided. Constraint \vref{itm:constraintRouteSize} specifies that the maximum number of nodes, $Max(n)$ and minimum number of nodes, $Min(n)$, in a route should be predefined, along with the size of the route set, $RS_{size}$. These values are all specified in the supplementary material to \citet{mumford13}. Table \vref{table:dataSet_mumford} defines the properties of the instances, along with $Max(n)$, $Min(n)$ and $RS_{size}$ for each instance. The tests will be performed with both values of parameter $s$ and $i$ sat to 50 for all instances of Mumford, and the algorithm will be ran 10 times for each instance. The Mumford Networks are tested with a smaller value of $s$ than the Mandl Network due to the fact that the limit of relationships types is sat to $2^{16} \approx 66 000$. As stated in Section \vref{subsec:networkGeneration} is each route for each ant for each iteration created as a relationship type. If we were to use the initial  
+In order to test scalability the two of the generated instances added as supplementary material to \citet{mumford13} will be used. The mentioned instances consists of transport networks with bus stops (nodes) and roads (edges). Coordinates for each node, travel time for each edge and demand between each two nodes are all provided. Constraint \vref{itm:constraintRouteSize} specifies that the maximum number of nodes, $Max(n)$ and minimum number of nodes, $Min(n)$, in a route should be predefined, along with the size of the route set, $RS_{size}$. These values are all specified in the supplementary material to \citet{mumford13}. Table \vref{table:dataSet_mumford} defines the properties of the instances, along with $Max(n)$, $Min(n)$ and $RS_{size}$ for each instance. The tests will be performed with both values of parameter $s$ and $i$ sat to 50 for all instances of Mumford, and the algorithm will be ran 10 times for each instance. The tests on the Mumford Networks are tested with a smaller value of $s$ than the tests on the Mandl Network due to the fact that the limit of relationships types is sat to $2^{16} \approx 66 000$ by Neo4j. As stated in Section \vref{subsec:networkGeneration} each route for each ant for each iteration is created as a relationship type. The selected values for $s$ and $i$ are respectively 50 and 125 as described in\vref{subsec:parameterSettings_results}. If we were to use these values would both Mumford0 and Mumford1 exceed the number of relationship types allowed.  
 
 \begin{table}[H]
 	\centering
@@ -20,13 +19,15 @@ The mentioned instances consists of transport networks with bus stops (nodes) an
     	\hline
    	    Mumford0 & 30&90 & 2&15 & 12 \\
    	    Mumford1 & 70&210 & 10&30 & 15 \\
-   	    Mumford2 & 110&385 & 10&22 & 56 \\
-   	    Mumford3 & 127&425 & 12&25 & 60 \\
+   	    %Mumford2 & 110&385 & 10&22 & 56 \\
+   	    %Mumford3 & 127&425 & 12&25 & 60 \\
    	    \hline
     \end{tabular}
     \caption{Data set Mumford}
     \label{table:dataSet_mumford}
 \end{table}
+
+In addition to the instances in Table \vref{table:dataSet_mumford}, the supplementary material to \citet{mumford13} contains two bigger instances. These two will not be tested in this thesis due to the relationship type limit mentioned above. 
 
 When testing the Mumford networks, \textit{Method 1} will be used to find the routes for the passenger and not \textit{Method 2} as used when testing the Mandl network. The reader recalls from Section \vref{sec:f1} that Method 1 is where the path with the shortest traveling time, not considering any transitions, is chosen. In the second method, Method 2, the transitions is considered, and chooses the path with the shortest traveling time, including transfer penalties. As Table \vref{table:results_mumford} shows, Method 2 produces a better $TOTFIT$, but due to the excessive difference in run time, Method 1 is chosen for this experiment. 
 
