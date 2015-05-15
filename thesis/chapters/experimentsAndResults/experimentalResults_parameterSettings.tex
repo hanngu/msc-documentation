@@ -1,8 +1,8 @@
-\section{Experimental Results}
-\label{sec:expResults}
+
+
 %Results should be clearly displayed and should provide a suitable representation of your results for the points you wish to make. Graphs should be labeled in a legible font and if more than one result is displayed on the same graph then these should be clearly marked.   Please choose carefully rather than presenting every results. Too much information is hard to read and often hides the key information you wish to present. Make use of statistical methods when presenting results, where possible to strengthen the results.  Further, the format of the presentation of results should be chosen based on what issues in the results you wish to highlight. You may wish to present a subset in the experimental section and provide additional results in the appendix.
 
-\subsection{Parameter Settings}
+\subsection{Experimental Results}
 \label{subsec:parameterSettings_results}
 
 Table \vref{table:parameterSettings2} shows the parameters tested, their candidate values and the selected value. The complete experimental steps with the corresponding results can be found in, Appendix \ref{appendixC}, Table \vref{table:pm1} and Table \vref{table:pm2}. 
@@ -25,7 +25,7 @@ Table \vref{table:parameterSettings2} shows the parameters tested, their candida
     \label{table:parameterSettings2}
     \end{table}
     
-\textbf{Evaluation of parameters}
+\textbf{Selecting Final Parameters}
 \newline
 
 As one can observe in Appendix \ref{appendixC}, Table \vref{table:pm1} and Table \vref{table:pm2}, the computed Confidence Interval does not become remarkably better after running the algorithm 50 times compared to 30. This makes it reasonable to conclude that the results regarding the parameters that were ran 30 times are valid.
@@ -35,6 +35,8 @@ As one can observe in Appendix \ref{appendixC}, Table \vref{table:pm1} and Table
 As one can observe in Table \vref{table:pm1}, increasing parameters $s$ and $i$ both decreased the average $TOTFIT$ value, which is equivalent to a better average solution. The selected value for both parameters should therefore be $125$ based on the average produced $TOTFIT$. One aspect not considered in the initial parameter setting experiment is that the size of $s$ and $i$ affects each other. A colony of 50 ants with 100 iterations would produce close to similar results to 100 ants with 50 iterations, because the total number of ants traversing the network will be the same. The most optimal would be to observe the results when increasing the value of both these parameters. However, an increase in the swarm size or number of iterations both clearly affect the computational cost of the proposed algorithm. The average runtime of each run, with each candidate value, is presented in Figure \vref{fig:svsiruntime}. As one can see, there is a difference in the running time with a colony size of 125 versus 125 iterations. Between 100 and 125 ants the running time increases with 393 seconds, while between 100 and 125 iterations the running time increases with about 140 seconds. \emph{\color{blue}TODO: why is that?} Because the algorithm is going to be run an excessive amount of times when testing performance, and increasing both of these parameter values will result in an enormous runtime. As seen in \ref{table:pm1}, increasing the number of iterations increase the $TOTFIT$ value more than increasing the $S$ value. Due to this, the selected value of parameter $s$ is sat to \textit{50} and $i$ is sat to \textit{125}.
 
 It is worth mentioning that values below 50 of parameter $s$, sometimes produce ant colonies were no ants satisfies the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}. When $s$ is 10, this occurs on average 14.5\% of the iterations. If no ant satisfy the initial constraint, no ant is either evaluated, and their results will be invalid. 
+
+%\citet{poorzahedy11} reports that ``In more than 80\% of the time, the best found solution of the problem has been found in less than 65 iterations'' --> Settes i sammenheng med $i$.
 
 \begin{figure}[H]
 \begin{center}
