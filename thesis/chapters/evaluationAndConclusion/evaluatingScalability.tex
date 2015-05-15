@@ -2,22 +2,48 @@
 
 Comparing the results from the Mumford networks (Table \vref{table:results_mumford}) to the results from the Mandl network (Tables \vref{table:performanceComparison_4}, \vref{table:performanceComparison_6}, \vref{table:performanceComparison_7}, and \vref{table:performanceComparison_bestRouteSet8}) one can see that the average number of direct travelers ($d_0$) decreases, while the number of unsatisfied passengers ($d_unsat$) increases in the networks \textit{mumford0} and \textit{mumford1}. Given the maximal number of routes in a route set, the maximal number of nodes in a route and the edge and node size, the Mumford networks should have a better probability of covering all edges compared to the Mandl network with four routes, but based on the results it seems like it does not. 
 
-One reason for this is that, as mentioned in Section \vref{subsec:scalabilityExperiments_setup}, Method 1 is used when deciding which route a passenger should use, and not Method 2 as used when testing the Mandl Network. In Method 1 the transfer penalties are not considered when choosing a path, which leads to possibly choosing paths with many transfers. This again leads to a higher number of unsatisfied travelers, and a lower number of direct travelers compared to using Method 2. Further it leads to that the average travel time becomes higher, because the transfer transfer penalties, which is sat to 5 minutes per transfer, is added to the travel time. 
+One reason for this is that, as mentioned in Section \vref{subsec:scalabilityExperiments_setup}, Method 1 is used when deciding which route a passenger should use, and not Method 2 as used when testing the Mandl Network. In Method 1 the transfer penalties are not considered when choosing a path, which leads to possibly choosing paths with many transfers. This again leads to a higher number of unsatisfied travelers, and a lower number of direct travelers compared to using Method 2. Further it leads to that the average travel time becomes higher, because the transfer transfer penalties, which is sat to 5 minutes per transfer, afterwards is added to the travel time. 
 
-Another reason is that when testing the Mumford Networks 50 iterations is used compared to 125 when testing the Mandl Network. This results in that the Mumford networks, which are in fact twice or more the size of the Mandl network, are explored by 3750 less ants in total and thus have a smaller probability of finding the best route sets. The Mumford Networks are tested with a smaller number of iterations due to the fact that the limit of relationships types is sat to $2^{16} \approx 66 000$. 
+Another reason is that when testing the Mumford Networks 50 iterations is used compared to 125 when testing the Mandl Network. This results in that the Mumford networks, which are in fact twice or more the size of the Mandl network, are explored by 3750 less ants in total and thus have a smaller probability of finding the best route sets.  
 
-
-This may be due to that the ants finds certain ``popular'' edges, and chooses to walk these in many routes, instead of investigating new edges. By doing so, some edges may be left unexplored and more passengers are not able to travel directly. Further the number of iterations is decreased from 125 when testing the Mandl Network to 50 when testing Mumford networks. This results in that the Mumford networks, which are in fact twice or more the size of the Mandl network, are explored by 3750 less ants and thus have a smaller probability of finding the best route sets. 
-
+\emph{\color{blue} Totfiten blir veldig høy for Mumford-nettverkene. Dette betyr at ATT blir ENDA mer vektlagt. Dette betyr at å dele på $nodesize^2$ blir for lite for Mumford og det burde ha vært satt annerledes}
 
 
+\begin{table}[H]
+    \centering
+    \hspace*{-1.0cm}
+    \begin{tabular}{|c|c|}
+        \hline
+        Instance & Average Run Time (seconds)\\
+        \hline
+        Mandl (4 routes) & 673.0\\
+        \hline
+        Mandl (6 routes) & 2442.1\\
+        \hline
+        Mandl (7 routes) & 3891.1\\
+        \hline
+        Mandl (8 routes) & 8830.2\\
+        \hline
+    \end{tabular}
+    \caption{Average Runtime of 50 Runs for Tests Using the Mandl Network}
+    \label{tabel:runTimeMandl}
+\end{table}
 
-This can be observed in Figures \vref{fig:bestRouteSet4}, \vref{fig:bestRouteSet6}, \emph{\color{blue} TODO: figur av 7 ruter} and \emph{\color{blue} TODO: figur av 8 ruter}, where one can observe that some edges are walked in several routes.  
-
-as mentioned in Section \vref{subsec:scalabilityExperiments_setup}, the is algorithm only ran 10 times with 50 iterations compared to 125 iterations when doing the performance comparison on the Mandl Network and that even. 
-
-This may be due to that the number of passengers to be satisfied is increased, and that the
-
+\begin{table}[H]
+    \centering
+    \hspace*{-1.0cm}
+    \begin{tabular}{|c|c|}
+        \hline
+        Instance & Average Run Time (seconds) \\
+        \hline
+        Mumford0 & 2368.0\\
+        \hline
+        Mumford1 & 5862.4\\
+        \hline
+    \end{tabular}
+    \caption{Average Runtime of 10 Runs for Tests Using the Mumford Network}
+    \label{tabel:runTimeMandl}
+\end{table}
 
 %\textbf{Did the program demonstrate good performance?}
 
