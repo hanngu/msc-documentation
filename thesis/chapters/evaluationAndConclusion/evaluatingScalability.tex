@@ -1,6 +1,6 @@
 \subsection{Evaluating Scalability Results}
 
-Comparing the results from the Mumford networks (Table \vref{table:results_mumford}) to the results from the Mandl network (Tables \vref{table:performanceComparison_4}, \vref{table:performanceComparison_6}, \vref{table:performanceComparison_7}, and \vref{table:performanceComparison_bestRouteSet8}) one can see that the average number of direct travelers ($d_0$) decreases, while the number of unsatisfied passengers ($d_unsat$) increases in the networks \textit{mumford0} and \textit{mumford1}. Given the maximal number of routes in a route set, the maximal number of nodes in a route and the edge and node size, the Mumford networks should have a better probability of covering all edges compared to the Mandl network with four routes, but based on the results it seems like it does not. 
+Comparing the results from the Mumford networks (Table \vref{table:results_mumford}) to the results from the Mandl network (Tables \ref{table:performanceComparison_4}, \ref{table:performanceComparison_6}, \ref{table:performanceComparison_7}, and \ref{table:performanceComparison_bestRouteSet8} in Section \vref{subsec:performanceComparison_results}) one can see that the average number of direct travelers ($d_0$) decreases, while the number of unsatisfied passengers ($d_unsat$) increases in the networks \textit{mumford0} and \textit{mumford1}. Given the maximal number of routes in a route set, the maximal number of nodes in a route and the edge and node size, the Mumford networks should have a better probability of covering all edges compared to the Mandl network with four routes, but based on the results it seems like it does not. 
 
 One reason for this is that, as mentioned in Section \vref{subsec:scalabilityExperiments_setup}, Method 1 is used when deciding which route a passenger should use, and not Method 2 as used when testing the Mandl Network. In Method 1 the transfer penalties are not considered when choosing a path, which leads to possibly choosing paths with many transfers. This again leads to a higher number of unsatisfied travelers, and a lower number of direct travelers compared to using Method 2. Further it leads to that the average travel time becomes higher, because the transfer transfer penalties, which is sat to 5 minutes per transfer, afterwards is added to the travel time. 
 
@@ -32,7 +32,7 @@ A third reason, and maybe most important reason, may be that when calculating th
     \label{tabel:averageTotfitAllTestCases}
 \end{table}
 
-The run time for the proposed method is dependent on the number of routes in a route set ($NRS$), the number of ants ($s$), the number of iterations ($i$), the size of the network and whether Method 1 or Method 2 is used. As one can observe from Table \vref{tabel:runTimeMandl} the average run time increases drastically when the number of routes increases. This may be because the number of relationship types, $NRT$, in the Neo4j database becomes significantly larger when increasing the number of routes. Table \vref{tabel:numberOfRelationshipTypes} shows the $NRT$ for each test case using the Mandl Network.  
+The run time for the proposed method is dependent on the number of routes in a route set ($NRS$), the number of ants ($s$), the number of iterations ($i$), the size of the network and whether Method 1 or Method 2 is used. As one can observe from Table \ref{tabel:runTimeMandl} the average run time increases drastically when the number of routes increases. This may be because the number of relationship types, $NRT$, in the Neo4j database becomes significantly larger when increasing the number of routes. Table \ref{tabel:numberOfRelationshipTypes} shows the $NRT$ for each test case using the Mandl Network.  
 
 \begin{table}[H]
     \centering
@@ -99,7 +99,7 @@ As stated above may the results suffer from using Method 1 compared to Method 2,
     \caption{Average Runtime of 10 Runs for Tests Using the Mumford Network}
     \label{tabel:runTimeMumford}
     \begin{itemize}[noitemsep]
-    \item[$^1$:] $s$ = 50, $i$ = 50)
+    \item[$^1$:] $s$ = 50, $i$ = 50
     \end{itemize} 
 \end{table}
 
