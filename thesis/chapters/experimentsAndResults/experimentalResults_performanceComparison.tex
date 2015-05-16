@@ -253,31 +253,26 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|l||l|l|l|l|l|}
-    \hline
-    Number of routes & Min & Avg & Median & Max & STD\\
-    \hline
-    4 & 446.0 & 505.9 & 509.5 & 563.0 & 28.14 \\
-    6 & 1049.0 & 1217.28 & 1214.5 & 1436.0 & 82.22 \\
-    \hline
+    \hspace*{-1.0cm}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Instance} & \textbf{Run Time$^1$ (secs)}\\
+        \hline
+        Mandl (4 routes) & 673.0\\
+        \hline
+        Mandl (6 routes) & 2442.1\\
+        \hline
+        Mandl (7 routes) & 3891.1\\
+        \hline
+        Mandl (8 routes) & 8830.2\\
+        \hline
     \end{tabular}
-    \caption {Executing time (in seconds) of SSO for route set designs with four, six,  \emph{\color{blue} gammel algorithme}}
-    \label{table:performanceComparison_runtimeOld}
+    \caption{Average Runtime of 50 Runs for Experiments Using the Mandl Network \emph{\color{blue} TODO: Sett inn nytt tall for 8 routes}}
+    \begin{itemize}[noitemsep]
+    \item[$^1$:] $s$ = 50, $i$ = 125)
+    \end{itemize} 
+    \label{tabel:runTimeMandl}
 \end{table}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l||l|}
-    \hline
-    Number of routes & AVG seconds\\
-    \hline
-    4 & 673.02 \\
-    6 & 2442.12  \\
-    \hline
-    \end{tabular}
-    \caption {Executing time (in seconds) of SSO for route set designs with four, six, }
-    \label{table:performanceComparison_runtime}
-\end{table}
-
-Table \vref{table:performanceComparison_runtime} shows the average runtime for each run with 50 runs.
+%Table \vref{table:performanceComparison_runtime} shows the average runtime for each run with 50 runs.
 

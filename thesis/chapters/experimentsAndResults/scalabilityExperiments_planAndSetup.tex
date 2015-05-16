@@ -27,21 +27,21 @@ In order to test scalability the two of the generated instances added as supplem
     \label{table:dataSet_mumford}
 \end{table}
 
-In addition to the instances in Table \vref{table:dataSet_mumford}, the supplementary material to \citet{mumford13} contains two bigger instances. These two will not be tested in this thesis due to the relationship type limit mentioned above. 
+In addition to the instances in Table \vref{table:dataSet_mumford}, the supplementary material to \citet{mumford13} contains two bigger instances. These two will not be tested in this thesis due to the relationship type limit of Neo4j mentioned above. 
 
-When testing the Mumford networks, \textit{Method 1} will be used to find the routes for the passenger and not \textit{Method 2} as used when testing the Mandl network. The reader recalls from Section \vref{sec:f1} that Method 1 is where the path with the shortest traveling time, not considering any transitions, is chosen. In the second method, Method 2, the transitions is considered, and chooses the path with the shortest traveling time, including transfer penalties. As Table \vref{table:results_mumford} shows, Method 2 produces a better $TOTFIT$, but due to the excessive difference in run time, Method 1 is chosen for this experiment. 
+When testing the Mumford networks, \textit{Method 1} will be used to find the routes for the passenger and not \textit{Method 2}, which is used when testing the Mandl network. The reader recalls from Section \vref{sec:f1} that Method 1 is where the path with the shortest traveling time, not considering any transitions, is chosen. Adding the transfer penalties after the route set is found. In the second method, Method 2, the transitions is considered, and chooses the path with the shortest traveling time, including transfer penalties. As Table \vref{table:results_mumford0RunTime} shows, Method 2 produces a better, but due to the excessive difference in run time, Method 1 is chosen for this experiment. 
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|l|l|l|l|l|l|}
+    \begin{tabular}{|l|l|l|l|l|l|l|}
         \hline
-        Method & TOTFIT & Run time(sec) \\
+        Instance & $d_0$ & $d_1$ & $d_2$ & $d_{unsat}$ & $ATT$ & Run Time (secs) \\
         \hline
-        1 & -61.42 & 6764 \\
-        2 & -167.12 & 68018 \\
+        Mumford0 & 24.16 & 37.79 & 28.53 & 9.52 & 13.36 & 2334 \\
+        Mumford0 & 40.29 & 46.38 & 12.96 & 0.37 & 13.17 & 37161 \\
         \hline
     \end{tabular}
-    \caption{Mumford0 execution time in seconds, Method1 vs. Method2 \emph{\color{blue} gammel algorithme}}
-    \label{table:results_mumford}
+    \caption{Comparing Run Time in Seconds of Method 1 and Method 2 on the Mumford0 Network}
+    \label{table:results_mumford0RunTime}
 \end{table}
 

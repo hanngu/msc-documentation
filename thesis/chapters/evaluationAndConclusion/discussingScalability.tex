@@ -1,31 +1,23 @@
-\section{Discussion}
+
 %Discuss what you managed, and why you had sucess / not success. Show that you understand. In the discussion it is important to include a discussion of not just the merits of the work conducted but also the limitations.
 %Svar på research questionsene. %Hva har vi fått til? Hva har vi ikke fått til? Hvorfor fikk vi det til? Hvorfor fikk vi det ikke til? (Små endringer som faktisk kunne blitt gjort, må ikke nevnes, betyr bare at vi har begynt sent på oppgaven.)
 
-\begin{enumerate}[label=\textbf{\arabic*})]
-\item[\textbf{2)}]
-    \begin{enumerate}
+\subsection{ Is it possible to apply the proposed algorithm to optimize urban transit routes in real urban cities?}
 
-    \item[(c)]  \textbf{Is it possible to apply the proposed algorithm to optimize urban transit routes in real urban cities?}
+    The proposed algorithm as-is will not be sufficient to employ on a real urban city. As we mentioned, the Mandl network used as the input is a small network, consisting of 15 nodes. In such small networks, the increase in route sets will reach a threshold where no better solutions will be found, and the amount of relationship types used in the graph database will never reach Neo4j's id capacity. However, the increase in networks normally grows in pace with the amount of route sets. The transit network in Trondheim consist of 653 bus stops\citep{website:rutebok}, and a maximum of 10 route sets will not be sufficient in a large city like this. %This will not help increasing the amount of passengers, which is, as mentioned, the goal in implementing the algorithm. %Creating an effective transit network in Trondheim with the algorithm as-is will not be sufficient. %At this time, it is not possible because of id capacity of neo4j.
 
-    * Not really.
+    To make the algorithm sufficient for larger networks, we would have to remove Neo4j from our implementation, or change how the relationship types in the graph database is created. The choice of making each route in each ant in each iteration an unique id is the reason for the large amount of relationship types. This idea was smart on a relatively small network like Mandl's. Each route will have its unique id, and with this make it easier to separate the different routes made by unique ants in an unique iteration, because.. This could have been done differently. \emph{\color{blue} how.} And with this decrease the number of relationship types. Larger networks will be then possible to represent in a Neo4j graph database, and the algorithm will produce good transit networks.
 
-    * The run time for the proposed method is dependent on the number of routes in a route set , the colony size, the number of iterations, the size of the network and whether Method 1 or Method 2 is used. 
+    The choice of selecting Method 2 over Method 1 increase the computational cost of the algorithm. The reader recalls, that Method 2 performs the best. In large networks, the amount of possible paths between two nodes will be really large, and finding all possible paths between two nodes will not be very time efficient. However, the fact that a transit network usually is created once, (changing the transit network in a city often will make the passengers unsatisfied) - and the runtime will therefore not be the determining factor when selecting which method to use. Creating transit networks with method 2 will therefore make the proposed algorithm produce good results for larger transit networks. 
 
-    * What we see, the choice of selecting a graph database that increase the time the most. All the above mentioned, is dependent on the amount of data saved in the graph database. Increasing them, increase the read and write operations to the database, as well as the database size.
+    %In addition, is the increase of relationship types less time effective when it has to searching trough a large amount of relationships.  (worst case: between two nodes - an enormous amount of relationships). The run time for the proposed method is dependent on the number of routes in a route set , the colony size, the number of iterations, the size of the network and whether Method 1 or Method 2 is used. 
 
-    * Mandl network - small number of nodes - and this makes it possible to search trough all relationship types. But when the network increases - it normally grow in pace with the amount of route sets and route sizes.
-    The increase of relationship types makes it less time effective when it has to search trough a large amount of relationships.  (worst case: between two nodes - an enormous amount of relationships).
+    %What we see, is the choice of selecting a graph database that increase the run time of the algorithm the most. Increasing the amount of data saved in the graph database, will increase the read and write operations to the database, as well as the database size. 
+    %* As mentioned, method 2 increase the runtime enormous. (method 2 all possible paths, and ) . Network increases: a lot more possible paths from node 1 to node 2. And the use of method 1 will maybe not be the most appropriate route concerning transfers and transfer penalties. Method 1 chooses the selected path only based on the shortest possible path between two nodes, and adding the transfer penatlites afterwards will make the selected routes indicative. It is worth mentioning that when creating a route network - this is usually done one time, and the amount of runtime - and method 2 will use alot more time, but will make the most appropriate routes. 
 
-    * At this time, it is not possible because of id capacity of neo4j. 
+    
 
-     * As mentioned, method 2 increase the runtime enormous. (method 2 all possible paths, and ) . Network increases: a lot more possible paths from node 1 to node 2. And the use of method 1 will maybe not be the most appropriate route concerning transfers and transfer penalties. Method 1 chooses the selected path only based on the shortest possible path between two nodes, and adding the transfer penatlites afterwards will make the selected routes indicative. It is worth mentioning that when creating a route network - this is usually done one time, and the amount of runtime - and method 2 will use alot more time, but will make the most appropriate routes. 
-
-     * 653 bussholdeplasser i trondheim %http://www.rutebok.no/nriiisstatictables/tables/ruter/kommune/KO001601.htm
-    \end{enumerate}
-\item[\textbf{3)}]
-	\begin{enumerate}
-	\item[(b)]  What are the potential advantages and disadvantages of using a graph database in our implementation?
+\subsection{What are the potential advantages and disadvantages of using a graph database in our implementation?}
 
     * [sjekkes opp først] Negative of graph databases: Searching for a specific node, have to search (worst case) trough all nodes. 
     * This also concerns es the relationship types. This is where the bottleneck lies. 
@@ -33,12 +25,10 @@
     * Instead of having a relationship type edge and added properties on these, each individual route for ant for each iteration, receive a relationship type. This makes it possible to separate each individual route for each ant. This makes each route in each route set saved with an unique identifier. 
     * However, this results in an enormous amount of relationships and relationship types. Neo4j has a capacity of 1216, which with solution it exceeds when the size of the route sets increase. 
 
-    \end{enumerate}
-\end{enumerate}
 
-\textbf{\color{blue} Til diskusjon:}
+%\textbf{\color{blue} Til diskusjon:}
 
-The parameters tested and used are specifically tuned for Mandl's Transit Network containing 4 routes, with maximum 8 nodes in one route, but the same parameters are used when testing with 6, 7, and 8 routes as well. This may be considered a weakness, because metaherustic methods, such as the one proposed in this thesis, requires calibration of parameters with respect to the problem at hand \citep{dobslaw09}.
+%The parameters tested and used are specifically tuned for Mandl's Transit Network containing 4 routes, with maximum 8 nodes in one route, but the same parameters are used when testing with 6, 7, and 8 routes as well. This may be considered a weakness, because metaherustic methods, such as the one proposed in this thesis, requires calibration of parameters with respect to the problem at hand \citep{dobslaw09}.
 
-The proposed method requires input on a particular form. Both nodes and their coordinates, travel time between nodes and the demand between nodes needs to be provided on a particular form in an .txt-document. This may be considered as a weakness of the method, but implementing support for retrieving the mentioned data on another form are considered as fairly easy.
+%The proposed method requires input on a particular form. Both nodes and their coordinates, travel time between nodes and the demand between nodes needs to be provided on a particular form in an .txt-document. This may be considered as a weakness of the method, but implementing support for retrieving the mentioned data on another form are considered as fairly easy.
 
