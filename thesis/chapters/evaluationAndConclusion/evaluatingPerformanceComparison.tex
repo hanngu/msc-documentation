@@ -1,9 +1,9 @@
 \subsection{Evaluating Performance Comparison Results}
 
-\textbf{COHEN: How did the program performance compare to its selected standard?} 
-\textbf{Did the program demonstrate good performance?}
-\textbf{Is the programs performance different from predictions?} 
-\textbf{Did you learn what you wanted from the experiments?}
+%\textbf{COHEN: How did the program performance compare to its selected standard?} 
+%\textbf{Did the program demonstrate good performance?}
+%\textbf{Is the programs performance different from predictions?} 
+%\textbf{Did you learn what you wanted from the experiments?}
 
 The best route set, having four routes, constructed by the proposed algorithm (SSO) is presented in Table \vref{table:performanceComparison_bestRouteSet4} and illustrated in Fig. \vref{fig:bestRouteSet4}. The best route set, having four routes, constructed by a plain ACO implementation is found in Table \vref{table:performanceComparison_bestRouteSet4_ACO}. The best, worst, average, median produced results with the standard deviation can be found in Appendix \ref{appendixC}, Table \vref{table:performanceComparison_ACOFull}. 
 
@@ -16,7 +16,7 @@ As one can see in Table \vref{table:performanceComparison_ACOSSOBEST}, the SSO p
     \caption{Evolution of TOTFIT for ACO and SSO }
     \label{fig:acovssso} 
 \end{figure}
-
+%bytt på att og d0
 In Table \vref{table:performanceComparison_4}, the results of the SSO, having four routes, are compared with route sets published in the literature. As one can observe in Table \vref{table:performanceComparison_4}, the route set constructed by SSO has a lower $ATT$ compared to route sets constructed by all other approaches. However, all approaches, except \citep{mandl79, kidwai98, chakroborty02}, produce better route sets concerning the $d_0$ criteria. 
 
 The calculation of $TOTFIT$ is, as mentioned, the sum of $F1$, $F2$ and $F3$. As described in \vref{sec:f1}, a weight parameter, $\sigma$, is used to control the importance of $F1$, $F2$, and $F3$. In the proposed algorithm, $\sigma$ is sat to favor $F1$, which is directly linked to a low $ATT$. Demonstrated in Fig. \vref{fig:mandlWithTT}, when traveling from node 7 to node 14 the algorithm will choose to transfer from route 4 to route 3, and the total travel time will be 20 minutes including a transfer penalty of 5 minutes. $F2$ is concerned whether the algorithm has a high $d_0$, denoting a minimum number of transfers. If $F2$ is favored over $F1$, route 1, which have a direct route from node 7 to node 14, would be selected. The travel time for this route is 27 minutes, increasing the $ATT$. It is worth mentioning that the algorithm does not select $F1$ unconditionally, a high amount of $d_0$ is still important, but the algorithm select the best route set concerning the ratio between the two. 
