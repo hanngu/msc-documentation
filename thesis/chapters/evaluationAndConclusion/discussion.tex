@@ -30,19 +30,46 @@ Research Question \label{itm:1} has a whole is answered in Chapter \label{relate
     * In BCO - communicate and share knowledge. The once who have found good routes, share this knowledge with other bees, and make more bees will follow the same path. BCO has proven too find good solutions[ref], and this reflects the implementation of this feature in the proposed algorithm. Wee see that rewarding the very best routes with a high amount of pheromone is beneficial for the performance of the algorithm. 
 
     \item[(b)]  \textbf{How does the proposed method perform compared to methods published in literature?}
+
     * As stated in Evaluation, the proposed algorithm produce the best average travel time, compared to all the published literature this algorithm is compared to. It performs best concerning the average travel time, regardless of the route set size, on the Mandl network. 
     * The rest of the performance criteria, concerning the number of transfers - the algorithm performs just below average compared to the other approaches. 
+
     * Again, is it worth mentioning that a direct route is still an important factor when selecting the best route set. But, this approach sat to favor a small average travel time.
-    * This is because. 
+
+    * This is because:
+
     * Whether a passenger would travel a little longer and travel direct, versus changing a route once and decrease the travel time is a matter of preferences. And as one can see, you have to choose one at the expense of the other. But, as mentioned in the motivation, citizens often prefer private transportation because of the decreased travel time. 
 
     \item[(c)]  \textbf{Is it possible to apply the proposed algorithm to optimize urban transit routes in real urban cities?}
+
+    * Not really.
+
+    * The run time for the proposed method is dependent on the number of routes in a route set , the colony size, the number of iterations, the size of the network and whether Method 1 or Method 2 is used. 
+
+    * What we see, the choice of selecting a graph database that increase the time the most. All the above mentioned, is dependent on the amount of data saved in the graph database. Increasing them, increase the read and write operations to the database, as well as the database size.
+
+    * Mandl network - small number of nodes - and this makes it possible to search trough all relationship types. But when the network increases - it normally grow in pace with the amount of route sets and route sizes.
+    The increase of relationship types makes it less time effective when it has to search trough a large amount of relationships.  (worst case: between two nodes - an enormous amount of relationships).
+
+    * At this time, it is not possible because of id capacity of neo4j. 
+
+     * As mentioned, method 2 increase the runtime enormous. (method 2 all possible paths, and ) . Network increases: a lot more possible paths from node 1 to node 2. And the use of method 1 will maybe not be the most appropriate route concerning transfers and transfer penalties. Method 1 chooses the selected path only based on the shortest possible path between two nodes, and adding the transfer penatlites afterwards will make the selected routes indicative. It is worth mentioning that when creating a route network - this is usually done one time, and the amount of runtime - and method 2 will use alot more time, but will make the most appropriate routes. 
+
+     * 653 bussholdeplasser i trondheim %http://www.rutebok.no/nriiisstatictables/tables/ruter/kommune/KO001601.htm
 
 
     \end{enumerate}
 \item[\textbf{3)}]
 	\begin{enumerate}
 	\item[(b)]  What are the potential advantages and disadvantages of using a graph database in our implementation?
+
+    * [sjekkes opp først] Negative of graph databases: Searching for a specific node, have to search (worst case) trough all nodes. 
+    * This also concerns es the relationship types. This is where the bottleneck lies. 
+    * Dumb with our solution: we have made a lot of relationship types. 
+    * Instead of having a relationship type edge and added properties on these, each individual route for ant for each iteration, receive a relationship type. This makes it possible to separate each individual route for each ant. This makes each route in each route set saved with an unique identifier. 
+    * However, this results in an enormous amount of relationships and relationship types. Neo4j has a capacity of 1216, which with solution it exceeds when the size of the route sets increase. 
+
+
     \end{enumerate}
 \end{enumerate}
 
