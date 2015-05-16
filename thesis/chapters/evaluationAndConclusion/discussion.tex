@@ -1,33 +1,48 @@
 \section{Discussion}
+%Discuss what you managed, and why you had sucess / not success. Show that you understand. In the discussion it is important to include a discussion of not just the merits of the work conducted but also the limitations.
+%Svar på research questionsene. %Hva har vi fått til? Hva har vi ikke fått til? Hvorfor fikk vi det til? Hvorfor fikk vi det ikke til? (Små endringer som faktisk kunne blitt gjort, må ikke nevnes, betyr bare at vi har begynt sent på oppgaven.)
 
-Discuss what you managed, and why you had sucess / not success. Show that you understand. In the discussion it is important to include a discussion of not just the merits of the work conducted but also the limitations.
-\newline
-Svar på research questionsene.s
-Hva har vi fått til? Hva har vi ikke fått til? Hvorfor fikk vi det til? Hvorfor fikk vi det ikke til? (Små endringer som faktisk kunne blitt gjort, må ikke nevnes, betyr bare at vi har begynt sent på oppgaven.)
+Research Question \label{itm:1} has a whole is answered in Chapter \label{relatedWork}.
 
 \textbf{Goal:}
 \begin{itemize}
 \item  Increase the number of public transportation passengers by making urban transit networks more efficient.
 \end{itemize}
+
 \textbf{Research Questions:}
 \begin{enumerate}[label=\textbf{\arabic*})]
-\item 
+\item[\textbf{2)}]
     \begin{enumerate}
-    \item  Is swarm intelligence methods suitable for the vehicle routing problem?
-    \item  What is the state-of-the-art in solving vehicle routing problems using swarm intelligence methods?
-    \item  What changes have been done to the classical swarm intelligence-methods to improve them?
-    \item  Have there been any attempts to combine different swarm intelligence-methods?
-	\end{enumerate}
-\item
-    \begin{enumerate}
-    \item  Is it efficient to add attributes from other swarm intelligence-methods in order to improve the ant colony optimization algorithm?
-    \item  How does the proposed algorithm's computational results compare to results published in the literature?
-    \item  Is it possible to apply the proposed algorithm to optimize urban transit routes in real urban cities?
+
+    \item[(a)]  \textbf{Is it efficient to add attributes from other swarm intelligence-methods in order to improve the ant colony optimization algorithm?}
+
+    * Based on results, we see that is efficient to add attributes from other SI methods. 
+
+    * ACO has previously shown that it manage to find good solutions - [ref]. It manage to find good solutions fast, by following pheromone trails. The disadvantage is that pheromone trails laid can be a local optima.
+    
+    * As seen in the ACO vs SSO performance comparison one can see that SSO performs overall better than a plain ACO implementation. But as mentioned in the evaluation. ACO does not possess the memory feature. Which enables the ants to remember which node it has visited within the same route set. This feature makes it possible for the ants to create more route sets that are connected, this is important, because a passenger should be able to travel from every node to every other node withing the route network. This results in a lot of ACOs route sets will be discarded, and therefore not taken into evaluation. This means ACO will have less good route sets to be evaluated, and therefore increases the chance of finding the optimal route set. 
+
+    * However. As we observed in the parameter settings experiments. When adding the additional parameters from other swarm inspired methods. These both increased the performance of the algorithm. 
+
+    * The feature added from PSO - where the particles explore more in the early iterations and become more organized in the later iterations. The PSO algorithms have shown to find good solutions[ref], because they manage to get out of a local optima. This feature was added to the proposed. And we observed that adding this additional feature to ACO managed to increase the performance of our algorithm. This feature enables the algorithm to explore new (possible better) routes, regardless of the pheromone value laid on the edges.
+    %global best solution of all iterations
+
+    * In BCO - communicate and share knowledge. The once who have found good routes, share this knowledge with other bees, and make more bees will follow the same path. BCO has proven too find good solutions[ref], and this reflects the implementation of this feature in the proposed algorithm. Wee see that rewarding the very best routes with a high amount of pheromone is beneficial for the performance of the algorithm. 
+
+    \item[(b)]  \textbf{How does the proposed method perform compared to methods published in literature?}
+    * As stated in Evaluation, the proposed algorithm produce the best average travel time, compared to all the published literature this algorithm is compared to. It performs best concerning the average travel time, regardless of the route set size, on the Mandl network. 
+    * The rest of the performance criteria, concerning the number of transfers - the algorithm performs just below average compared to the other approaches. 
+    * Again, is it worth mentioning that a direct route is still an important factor when selecting the best route set. But, this approach sat to favor a small average travel time.
+    * This is because. 
+    * Whether a passenger would travel a little longer and travel direct, versus changing a route once and decrease the travel time is a matter of preferences. And as one can see, you have to choose one at the expense of the other. But, as mentioned in the motivation, citizens often prefer private transportation because of the decreased travel time. 
+
+    \item[(c)]  \textbf{Is it possible to apply the proposed algorithm to optimize urban transit routes in real urban cities?}
+
+
     \end{enumerate}
-\item
+\item[\textbf{3)}]
 	\begin{enumerate}
-    \item  Have graph databases been employed in combination with the vehicle routing problem and swarm intelligence?
-	\item  What are the potential advantages and disadvantages of using a graph database in our implementation?
+	\item[(b)]  What are the potential advantages and disadvantages of using a graph database in our implementation?
     \end{enumerate}
 \end{enumerate}
 
