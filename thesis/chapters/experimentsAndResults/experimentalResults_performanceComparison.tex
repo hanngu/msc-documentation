@@ -149,6 +149,7 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \end{table}
 
 %-------------------- 7 route sets ---------------------
+%Best Ants Route: {[12,11,10,8,6,4,5,2,][9,15,7,10,14,13,11,12,][11,12,4,5,2,3,6,8,][12,11,10,8,6,3,2,4,][4,6,15,7,10,13,14,][13,10,14,][1,2,3,6,8,10,14,13,]}
 
 \begin{table}[H]
     \centering
@@ -199,6 +200,7 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \label{table:performanceComparison_7}
     \end{table}
 %-------------------- 8 route sets ---------------------
+%Best Ants Route: {[11,10,8,6,3,2,1,][13,14,10,7,15,9,][5,4,12,11,10,7,15,6,][11,10,8,6,3,2,5,4,][10,7,15,6,3,2,4,5,][9,15,7,10,11,13,14,][13,14,10,8,6,4,5,2,][5,4,2,3,6,8,15,7,]}
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|l l l l l l l l|}
@@ -225,26 +227,27 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
     \citet{kechagiopoulos14} avg & 97.47 & 2.53 & 0.00 & 0.00 & 10.17 \\
-    %Kechapocholous BEST [ref] & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
+    \citet{kechagiopoulos14} best & 97.75 & 2.25 & 0.00 & 0.00 & 10.13 \\
     \citet{nikolic14} & 96.40 & 3.60 & 0.00 & 0.00 & - \\
     \citet{kidwai98} & 84.73 & 15.27 & 0.00 & 0.00 & 12.22 \\
-    %\citet{fan09} best & & & & &  \\
-    \citet{fan09} Hill Climbing & 93.23 & 6.18 & 0.59 & 0.00 & 10.69 \\
-    \citet{fan09} Simulated Annealing & 93.65 & 5.88 & 0.47 & 0.00 & 10.58 \\
+    \citet{fan10} best & 94.54 & 5.46 & 0.00 & 0.00 & 10.36 \\
+    \citet{fan10} Hill Climbing & 93.23 & 6.18 & 0.59 & 0.00 & 10.69 \\
+    \citet{fan10} Simulated Annealing & 93.65 & 5.88 & 0.47 & 0.00 & 10.58 \\
     \citet{chakroborty02} & 90.38 & 9.58 & 0.00 & 0.00 & 10.46 \\
     \citet{zhang10} & 93.14 & 6.86 & 0.00 & 0.00 & 10.42 \\
-    \citet{chew12} & 96.16 & 3.84 & 0.00 & 0.09 & 10.31 \\
+    \citet{chew12} avg & 96.16 & 3.84 & 0.00 & 0.09 & 10.31 \\
+    \citet{chew12} best & 97.82 & 2.18 & 0.00 & 0.09 & 10.19 \\
     \citet{baaj91} & 79.96 & 20.04 & 0.00 & 0.00 & 11.86 \\
     \hline
     \hline
     SSO Best & 91.01 & 7.9 & 1.09 & 0.0 & 10.01\\
-    SSO Average & 88.31 & 10.89 & 0.8 & 0.0 & 10.05\\
-    SSO Median & 88.12 & 11.21 & 0.87 & 0.0 & 10.03\\
-    SSO Worst & 85.61 & 12.85 & 1.54 & 0.0 & 10.08\\
-    SSO Standard Deviation & 1.8 & 1.82 & 0.51 & 0.0 & 0.06\\
+    SSO Average & 89.16 & 10.05 & 0.8 & 0.0 & 10.06\\
+    SSO Median & 88.7 & 10.21 & 0.77 & 0.0 & 10.03\\
+    SSO Worst & 92.42 & 6.81 & 0.77 & 0.0 & 10.08\\
+    SSO Standard Deviation & 2.24 & 2.14 & 0.68 & 0.0 & 0.07\\
     \hline
     \end{tabular}
-    \caption {CComparing the best route set, having eight routes, produced by the proposed algorithm with route sets constructed by other approaches. \emph{\color{blue} TODO:}}
+    \caption {Comparing the best route set, having eight routes, produced by the proposed algorithm with route sets constructed by other approaches.}
     \label{table:performanceComparison_8}
     \end{table}
 
@@ -263,10 +266,10 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
         \hline
         Mandl (7 routes) & 3891.1\\
         \hline
-        Mandl (8 routes) & 8830.2\\
+        Mandl (8 routes) & 8515.9\\
         \hline
     \end{tabular}
-    \caption{Average Runtime of 50 Runs for Experiments Using the Mandl Network \emph{\color{blue} TODO: Sett inn nytt tall for 8 routes}}
+    \caption{Average Runtime of 50 Runs for Experiments Using the Mandl Network}
     \begin{itemize}[noitemsep]
     \item[$^1$:] $s$ = 50, $i$ = 125)
     \end{itemize} 
