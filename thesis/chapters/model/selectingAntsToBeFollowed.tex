@@ -5,13 +5,7 @@ After the $TOTFIT(r)$ value of each ant is calculated, the ants are added to a l
 
 $$NAF = ants_{size} * AF$$
  
-where $ants_{size}$ is the number of ants that satisfied the constraints, described in Section \vref{sec:algoRemoval}, and the value of $AF$ is selected after excessive testing. Because the list is sorted with respect to the $TOTFIT(r)$ value, the $NAF$ first ants in the list will be the $NAF$ best ants, and these are chosen to get a follower in the next iteration. %The number of followers will also be the same amount of ants to be followed, where $FA_1$ will follow $ba_1$, $FA_2$ will follow $ba_2$, and so on.  
-
-To test whether rewarding the edges in the $NAF$ best ants will boost the algorithm's performance, an additional pheromone constant, $p_b$, is added to the edges in these routes. The value for $p_b$, is selected after after excessive testing. Further, the pheromone value, $e_p$, of edge $e$, is updated with the following formula:
-
-$$e_p \pluseq \tau*(\frac{p_b}{T_e})$$ 
-
-where $T_e$ is the travel time of edge $e$, and $\tau$ is the number of route sets the edge appeared in. As mentioned in Section \vref{sec:selectingNextNode}, is the pheromone value divided on the travel time to benefit edges with smaller travel time.
+where $ants_{size}$ is the number of ants that satisfied the constraints, described in Section \vref{sec:algoRemoval}. The value of $AF$ is selected after excessive testing described in \vref{sec:parametersettings}. Because the list is sorted with respect to the $TOTFIT(r)$ value, the $NAF$ first ants in the list will be the $NAF$ best ants, and these are chosen to get a follower in the next iteration.  
 
 
  

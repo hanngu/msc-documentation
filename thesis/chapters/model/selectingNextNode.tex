@@ -3,8 +3,9 @@
 
 When selecting the next node, an ant's route set is dependent on which type of ant it is. 
 
-If ant $a$ is a ``normal ant'' the next node selection is based on an evaluated edge value, $ev$, for each of the possible edges, $e$, where $e$ are defined as edges connected to the current node and not yet visited in the given route. If no such edge exists, the given tour is terminated, or else %Further the current route is added to the route set of $a$, and a new route is created as long as it does not violate constraint \vref{itm:constraintRouteSetSize}, which states that the number of routes in a route set should not exceed a given limit. 
-the value $ev$ is calculated as follows: 
+If ant $a$ is ``crazy'', the next node is chosen randomly based on the possible edges connected to the current node, without considering the edge value. If ant $a$ is a ``following ant'', $a$ consequently chooses the edges chosen by the ant it is following.  
+
+If ant $a$ is a ``normal ant'' the next node selection is based on an evaluated edge value, $ev$, for each of the possible edges, $pe$. $pe$ is defined as a Relationship with the RelationshipType ``TravelTime'' connected to the current node and a node not yet visited in the given route. If no such edge exists, the given tour is terminated, or else the value $ev$ for each edge $e$ in $pe$ is calculated as follows: 
 
 $$ev_e = \frac{d_e}{\sum\limits^{n}_{i=1}d_i} + \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha + \beta$$
 
@@ -21,9 +22,11 @@ $$e_p \pluseq \frac{p_v}{T_e}$$
 
 where $p_v$ is a predefined pheromone constant. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by the way \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, which in this case, is lower travel times. 
 
-If ant $a$ is a ``crazy'', the next node is chosen randomly based on the possible edges connected to the current node, without considering the edge value. The probability that ant, $a$, is declared as ``crazy'' is partly determined by a predefined value, $CA$, achieved by the parameter testing, and partly determined by the inertia weight, $IW$. This probability, $p$, is calculated as follows:
-$$p = CA*IW$$
-The $IW$ decreases at each iteration, resulting in a smaller probability for $a$ to be declared ``crazy''. The rate in which the inertia weight decreases is dependent on the total of number of iterations, $TI$, and is calculated as follows:
-$$IW = IW - \frac{IW}{TI}$$
+\emph{\color{blue}Skriv om det under her. Typ: ``If the ant is a following ant, the edges will be granted an extra amount of pheromone....''}
 
-If ant $a$ is a ``following ant'', $a$ consequently chooses the edges chosen by the ant from the previous iteration it is following.  
+Further, the pheromone value, $e_p$, of edge $e$, is updated with the following formula:
+
+$$e_p \pluseq \tau*(\frac{p_b}{T_e})$$ 
+
+where $T_e$ is the travel time of edge $e$, and $\tau$ is the number of route sets the edge appeared in. 
+

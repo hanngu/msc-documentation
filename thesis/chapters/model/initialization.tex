@@ -3,33 +3,39 @@
 \subsection{Parameters}
 Initial values for the algorithm parameters are set to a numeric value. The parameters to be set for the algorithm are:
 \begin{enumerate}
-\item The SuperSwarm Colony Size, $s$. 
-\item The numbers of iterations (which is the stop criteria), $i$.
-\item The percentage of pheromones to evaporate at each iteration, $E$.
-\item The pheromone constant, $p_v$, added to each edge each time it is visited by an ant.
-\item The pheromone constant, $p_b$, added extra to the edges visited by the following ants. 
-%\item The percentage of complete route sets to be granted extra pheromone, $BR$.
-\item The percentage of ants to be followed, $AF$.
-\item The probability that a given ant is declared ``crazy'', $CA$.
-\item Number of routes in a complete route set, $RS_{max}$. 
-\item The maximum number of nodes in a route, $R_{max}$.
-\item The minimum number of nodes in a route, $R_{min}$.
-\item Initial value for the inertia Weight, $IW$.
+\item $s$, the colony size
+\item $i$, the number of iterations (which is the stop criteria)
+\item $E$, the percentage of pheromones to evaporate at each iteration
+\item $p_v$, the pheromone constant added to each edge each time it is visited by an ant
+\item $p_b$, the pheromone constant added extra to the edges visited by the following ants 
+\item $AF$, the percentage of ants to be followed
+\item $CA$, the probability that a given ant is declared ``crazy''
+\item $RS$, the number of routes in a complete route set 
+\item $R_{max}$, the maximum number of nodes in a route
+\item $R_{min}$, the minimum number of nodes in a route
+\item $IW$, the initial value for the Inertia Weight
 \end{enumerate}
-The value of parameters 1-7, except parameter 4, is determined by a conducted experiment described in Chapter\vref{experimentsAndResults}. For comparison reasons, the value of parameters 8-10 will be the same as the parameters used in approaches described in the literature\citep{mandl79, kechagiopoulos14, nikolic14,kidwai98,fan10,chakroborty02,zhang10,chew12,baaj91}. The value of parameter 4 and 11 is constant. 
+
+The value of parameters 1-7, except parameter 4, is determined by a conducted experiment described in Chapter\vref{experimentsAndResults}. For comparison reasons, the value of parameters 8-10 will be the same as the parameters used in approaches described in the literature\citep{mandl79, kechagiopoulos14, nikolic14,kidwai98,fan10,chakroborty02,zhang10,chew12,baaj91, mumford13}. The value of parameter 4 and 11 is constant at respectively 0.1 and 1.0. 
 
 \subsection{Input Data}
-The input data used, described in Section \vref{sec:inputData}, includes:
+The input data required, described in Section \vref{sec:inputData}, includes:
 \begin{itemize}
 \item data concerning the structure of the road network (nodes with coordinates)
-\item data concerning the travel times between the nodes 
-\item data concerning the travel demand between each node couple
+\item data concerning the travel times between the nodes
+\item data concerning the travel demand between the nodes
 \end{itemize}
 
 \subsection{Network Generation}
 \label{subsec:networkGeneration}
-A network is generated consisting of nodes from the data in the MandlCoordinates file shown in Table \vref{table:MandlCoords} and edges from the data in the MandlDemand file shown in Table \vref{table:MandlDemand}. Travel times are added to the generated edges based on the data from the MandlTravelTimes file shown in Table \vref{table:MandlTravelTimes}. Some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. These edges are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly. 
 
-The generated network is used to create a Neo4j graph database that holds the created network and all routes created by all ants in all iterations. For each route for each ant for each iteration a relationship type is created. This is done in order to be able to separate the different routes for each generated ant at a given iteration. As stated in Research Question \vref{itm:3a}, we want to explore the possible advantages and disadvantages of using Neo4j in our implementation. We discovered that Neo4j contains a built-in Dijkstra algorithm, which is used to determine the shortest possible path between every node couple in the graph. 
+A network consisting of nodes and relationships is created using the graph database Neo4j. The nodes are created based on a file similar to the one in Table \vref{table:MandlCoords}, which consist of the of the number of nodes and coordinates of each node. These coordinates are not used other than to represent the graph visually. An example of such a visual representation can be found in Figure \vref{fig:MandlNetwork_problemstatement}. The relationships between the nodes in the initialization corresponds the the travel time and demand between the nodes. These data are gathered from files similar to the ones shown in Table 
+\vref{table:MandlTravelTimes} and Table \vref{table:MandlDemand}. Table \ref{table:MandlTravelTimes} shows the travel time between every two nodes in minutes. Some of the travel times are described as ``Inf'', meaning there is no direct link between the two nodes in question. Table \ref{table:MandlDemand} shows the demand between every two nodes, which corresponds to the average number of passengers traveling between every two node each day. Both Table \ref{table:MandlTravelTimes} and \ref{table:MandlDemand} are symmetrical matrices, meaning that the travel time and demand between nodes $i$ and $j$ are the same in either direction. 
 
-Dijkstra's algorithm \citet[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{Making a change that reduces constraints.} all edges leaving $u$. The running time of Dijkstra's algorithm is $O((V + E)lg V)$ and it is guaranteed to find the shortest path\citep[p.~661]{cormen09}. The shortest possible paths are used in the evaluation phase is described in Section \vref{sec:algoEvaluation}. 
+%A network is generated consisting of nodes from the data in the MandlCoordinates file shown in Table \vref{table:MandlCoords} and edges from the data in the MandlDemand file shown in Table \vref{table:MandlDemand}. Travel times are added to the generated edges based on the data from the MandlTravelTimes file shown in Table \vref{table:MandlTravelTimes}. Some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. These edges are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly.
+\emph{\color{blue}Denne skal kanskje flyttes til Generating Route Set. Mest sannsynlig faktisk}
+For each route for each ant in each iteration a RelationshipType is created. A relationship of the given RelationshipType is created for each edge used in each route. Neo4j's built-in Dijkstra Algorithm is used to find both the shortest possible path in the network and the shortest possible path using a given route set. Dijkstra's algorithm \cite[p.658-662]{cormen09} maintains a set $S$ of vertices's whose final shortest-path weights from the source $s$ have already been determined. The algorithm repeatedly selects the vertex $u = V - S$ with the minimum shortest path estimate, adds $u$ to $S$, and relaxes\footnote{Making a change that reduces constraints.} all edges leaving $u$. The running time of Dijkstra's algorithm is $O((V + E)lg V)$ and it is guaranteed to find the shortest path\cite[p.~661]{cormen09}. The built-in Dijkstra in Neo4j takes one or more RelationshipTypes as input, and finds the shortest path using only the given RelationshipTypes, if such a path exists. The shortest possible paths are used in the evaluation phase described in Section \vref{sec:algoEvaluation}.
+
+%The generated network is used to create a Neo4j graph database that holds the created network and all routes created by all ants in all iterations. For each route for each ant for each iteration a relationship type is created. This is done in order to be able to separate the different routes for each generated ant at a given iteration. As stated in Research Question \vref{itm:3a}, we want to explore the possible advantages and disadvantages of using Neo4j in our implementation. We discovered that Neo4j contains a built-in Dijkstra algorithm, which is used to determine the shortest possible path between every node couple in the graph. 
+
+

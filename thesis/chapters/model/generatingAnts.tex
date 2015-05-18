@@ -6,5 +6,14 @@ After the initialization of the network, a SuperSwarm colony is generated. Becau
 \item \textit{Following Ants} - a number $n$ of the colony becomes Following Ants, $FA$. $n$ is determined by the $AF$ percentage of ants to be followed from the previous iteration. A Following Ant follows one of the best ants, $ba_i$, from the previous iteration unconditionally by choosing exactly the same path as $ba_i$ did.
 \item \textit{Crazy Ants} - by a given probability a normal ant is declared ``crazy''. A crazy ant, $CA$, chooses next node at random, given the possible edges connected to the current node.  
 \end{itemize}
-
-How the individual ants generates routes is reviewed in Section \vref{sec:selectingNextNode}.
+The number of Following Ants is equivalent to the number of ants to be followed, $NAF$, described in Section \vref{sec:selctingAntsToBeFollowed}. The Following Ants will boost the edges walked by the $NAF$ best ants in the previous iteration, simply by walking the same path and leaving additional pheromone. To test if further boosting is beneficial will an additional pheromone constant, $p_b$, will be added to the edges walked by the Following Ants. In the very first iteration there exists no ants to be followed, and thus will their neither be any Following Ants. 
+\newline
+\newline
+The probability that a generated ant is declared ``crazy'' is partly determined by a predefined value, $CA$, achieved by the parameter testing, and partly determined by the inertia weight, $IW$. This probability, $p$, is calculated as follows:
+$$p = CA*IW$$
+The $IW$ decreases at each iteration, resulting in a smaller probability for the ants to be declared ``crazy''. The rate in which the inertia weight decreases is dependent on the number of iterations, $i$. At each iteration $IW$ is updated as follows:
+$$IW = IW - \frac{IW}{i}$$
+It might be worth mentioning that Following Ants can not be declared crazy. 
+\newline
+\newline
+If an ant is neither a Following Ant or a Crazy Ant, it is a Normal Ant and chooses edges based on the edge value $ev$ as described in Section \vref{sec:selectingNextNode}.
