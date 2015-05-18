@@ -95,15 +95,15 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \centering
     \begin{tabular}{|l|l l l l l l l l|}
     \hline
-    Route 1: & 12 & 11 & 10 & 13 & 14 &  &  &  \\
+    Route 1: & 12 & 11 & 10 & 13 & 14 & - & - & - \\
     Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
     Route 3: & 7 & 10 & 8 & 6 & 4 & 5 & 2 & 3 \\
     Route 4: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 13 \\
-    Route 5: & 1 & 2 & 4 & 6 & 3 &  &  &  \\
+    Route 5: & 1 & 2 & 4 & 6 & 3 & - & - & - \\
     Route 6: & 14 & 13 & 10 & 7 & 15 & 6 & 4 & 12 \\
     \hline
     \end{tabular}
-    \caption {The best route set, having six routes}
+    \caption {The best route set, having six routes, constructed by the proposed algorithm.}
     \label{table:performanceComparison_bestRouteSet6}
     \end{table}
 
@@ -138,10 +138,10 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \hline
     \hline
     SSO Best & 89.53 & 9.25 & 1.22 & 0.00 & 10.03\\
-    SSO Average & 87.17 & 12.0 & 0.82 & 0.01 & 10.11\\
+    SSO Average & 87.17 & 12.0 & 0.82 & 0.00 & 10.11\\
     SSO Median & 87.93 & 10.98 & 0.77 & 0.00 & 10.03\\
     SSO Worst & 82.47 & 17.41 & 0.13 & 0.00 & 10.03\\
-    SSO Standard Deviation & 2.74 & 2.78 & 0.63 & 0.02 & 0.14\\
+    SSO Standard Deviation & 2.74 & 2.78 & 0.63 & - & 0.14\\
     \hline
     \end{tabular}
     \caption {Comparing the best route set, having six routes, produced by the proposed algorithm with route sets constructed by other approaches.}
@@ -155,16 +155,16 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \centering
     \begin{tabular}{|l|l l l l l l l l|}
     \hline
-    Route 1: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 2: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 3: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 4: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 5: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 6: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 7: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    Route 1: & 12 & 11 & 10 & 8 & 6 & 4 & 5 & 2 \\
+    Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
+    Route 3: & 11 & 12 & 4 & 5 & 2 & 3 & 6 & 8 \\
+    Route 4: & 12 & 11 & 10 & 8 & 6 & 3 & 2 & 4 \\
+    Route 5: & 4 & 6 & 15 & 7 & 10 & 13 & 14 & - \\
+    Route 6: & 13 & 10 & 14 & - & - & - & - & - \\
+    Route 7: & 1 & 2 & 3 & 6 & 8 & 10 & 14 & 13 \\
     \hline
     \end{tabular}
-    \caption {The best route set, having seven routes \emph{\color{blue} TODO:}}
+    \caption {The best route set, having seven routes, constructed by the proposed algorithm. }
     \label{table:performanceComparison_bestRouteSet7}
     \end{table}
 
@@ -189,11 +189,11 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \citet{baaj91} & 80.99 & 19.01 & 0.00 & 0.00 & 12.50 \\
     \hline
     \hline
-    SSO Best & 89.85 & 8.67 & 1.48 & 0.0 & 10.03\\
-    SSO Average & 88.49 & 10.72 & 0.79 & 0.0 & 10.08\\
-    SSO Median & 88.12 & 10.92 & 0.9 & 0.0 & 10.03\\
-    SSO Worst & 83.94 & 15.93 & 0.13 & 0.0 & 10.01\\
-    SSO Standard Deviation & 2.29 & 2.32 & 0.42 & 0.02 & 0.08\\
+    SSO Best & 89.85 & 8.67 & 1.48 & 0.00 & 10.03\\
+    SSO Average & 88.49 & 10.72 & 0.79 & 0.00 & 10.08\\
+    SSO Median & 88.12 & 10.92 & 0.90 & 0.00 & 10.03\\
+    SSO Worst & 83.94 & 15.93 & 0.13 & 0.00 & 10.01\\
+    SSO Standard Deviation & 2.29 & 2.32 & 0.42 & - & 0.08\\
     \hline
     \end{tabular}
     \caption {Comparing the best route set, having seven routes, produced by the proposed algorithm with route sets constructed by other approaches.}
@@ -204,18 +204,18 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|l l l l l l l l|}
-    \hline
-    Route 1: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 2: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 3: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 4: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 5: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 6: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 7: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
-    Route 8: & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+    \hline 
+    Route 1: & 11 & 10 & 8 & 6 & 3 & 2 & 1 & - \\
+    Route 2: & 13 & 14 & 10 & 7 & 15 & 9 & - & - \\
+    Route 3: & 5 & 4 & 12 & 11 & 10 & 7 & 15 & 6 \\
+    Route 4: & 11 & 10 & 8 & 6 & 3 & 2 & 5 & 4 \\
+    Route 5: & 10 & 7 & 15 & 6 & 3 & 2 & 4 & 5 \\
+    Route 6: & 9 & 15 & 7 & 10 & 11 & 13 & 14 & - \\
+    Route 7: & 13 & 14 & 10 & 8 & 6 & 4 & 5 & 2 \\
+    Route 8: & 5 & 4 & 2 & 3 & 6 & 8 & 15 & 7 \\
     \hline
     \end{tabular}
-    \caption {The best route set, having eight routes \emph{\color{blue} TODO:}}
+    \caption {The best route set, having eight routes, constructed by the proposed algorithm. }
     \label{table:performanceComparison_bestRouteSet8}
     \end{table}
 
@@ -240,11 +240,11 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \citet{baaj91} & 79.96 & 20.04 & 0.00 & 0.00 & 11.86 \\
     \hline
     \hline
-    SSO Best & 91.01 & 7.9 & 1.09 & 0.0 & 10.01\\
-    SSO Average & 89.16 & 10.05 & 0.8 & 0.0 & 10.06\\
-    SSO Median & 88.7 & 10.21 & 0.77 & 0.0 & 10.03\\
-    SSO Worst & 92.42 & 6.81 & 0.77 & 0.0 & 10.08\\
-    SSO Standard Deviation & 2.24 & 2.14 & 0.68 & 0.0 & 0.07\\
+    SSO Best & 91.01 & 7.9 & 1.09 & 0.00 & 10.01\\
+    SSO Average & 89.16 & 10.05 & 0.8 & 0.00 & 10.06\\
+    SSO Median & 88.7 & 10.21 & 0.77 & 0.00 & 10.03\\
+    SSO Worst & 92.42 & 6.81 & 0.77 & 0.00 & 10.08\\
+    SSO Standard Deviation & 2.24 & 2.14 & 0.68 & - & 0.07\\
     \hline
     \end{tabular}
     \caption {Comparing the best route set, having eight routes, produced by the proposed algorithm with route sets constructed by other approaches.}
