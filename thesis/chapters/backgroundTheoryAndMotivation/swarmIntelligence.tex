@@ -13,7 +13,7 @@ In nature ants have proven to be extremely capable of finding an optimal or clos
    \label{fig:ants}
 \end{figure}
 
-Ant Colony Optimization (ACO) is a class of graph representation based algorithms designed to optimize routing problems. The first description of an ACO algorithm, called Ant System (AS), was initially proposed by \citet{dorigo96}. The AS strategy developed by Dorigo tries to simulate the behavior of real ants by the fact that the pheromone values are updated by all ants that have build a solution. Algorithm \ref{algo:aco} shows the metaheuristic of ACO, as described by \citet{dorigo06}: \\
+Ant Colony Optimization (ACO) is a class of graph representation based algorithms designed to optimize routing problems. The first description of an ACO algorithm, called Ant System (AS), was initially proposed by \citet{dorigo96}. The AS strategy developed by Dorigo tries to simulate the behavior of real ants, but unlike the ants in nature, pheromone trails are left by all ants. Algorithm \ref{algo:aco} shows the metaheuristic of ACO, as described by \citet{dorigo06}: \\
 \begin{algorithm}
 \caption{The Ant Colony Optimization Metaheuristic}
 \label{algo:aco}
@@ -27,8 +27,7 @@ Ant Colony Optimization (ACO) is a class of graph representation based algorithm
 \end{algorithmic}
 \end{algorithm}
 ~\\
-The idea of ACO algorithms is to create a decentralized system with multiple agents. The agents influence each others decisions by using pheromones. In the beginning, before any distinct pheromone trail is laid, the ants' choices are random and thus they perform a broad search in the environment. This randomness will decrease over time as the pheromone trails becomes more distinct. The literature describes many different algorithms that can be classified as ACO algorithms, including the work of \citet{salehi-nezhad07}, \citet{tripathi09}, \citet{jiang10}, and \citet{dias14}. Most of the authors describe artificial ants with additional features to those found in nature, including vision and memory. The addition of these features is typically done to increase the performance of the algorithm and to overcome some of the known weaknesses of ACO, such as getting stuck at local optima.  
-\emph{\color{blue}Her må det kanskje legges til noe om AS og ACS}
+The idea of ACO algorithms is to create a decentralized system with multiple agents. The agents influence each others decisions by using pheromones. In the beginning, before any distinct pheromone trail is laid, the ants' choices are random and thus they perform a broad search in the environment. This randomness will decrease over time as the pheromone trails becomes more distinct. At the end of each iteration some of the pheromones are evaporated. This reduces the probability of the ants getting stuck at local optima. The literature describes many different algorithms that can be classified as ACO algorithms, including the work of \citet{salehi-nezhad07}, \citet{tripathi09}, \citet{jiang10}, and \citet{dias14}. Most of the authors describe artificial ants with additional features to those found in nature, including vision, memory and rewarding of the best ants. The addition of these features is typically done to increase the performance of the algorithm.
 
 %TODO: SKRIVE OM ACO I RUTEOPTIMALISERING! 
 

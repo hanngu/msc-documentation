@@ -18,9 +18,8 @@ Initial values for the algorithm parameters are set to a numeric value. The para
 
 The value of parameters 1-7, except parameter 4, is determined by a conducted experiment described in Chapter\vref{experimentsAndResults}. For comparison reasons, the value of parameters 8-10 will be the same as the parameters used in approaches described in the literature\citep{mandl79, kechagiopoulos14, nikolic14,kidwai98,fan10,chakroborty02,zhang10,chew12,baaj91, mumford13}. The value of parameter 4 and 11 is constant at respectively 0.1 and 1.0.
 
-The parameters $E$, $CA$ and $AF$ are all represented as percentages. $E$ is stated as a percentage because the pheromone level changes over time. In the beginning the level is quite small, and during the iterations the level increases. By stating $E$ as a percentage an equivalent amount is evaporated at each iteration. $CA$ and $AF$ are stated as percentages because this ensures that the amount of both Crazy Ants (described in Section \vref{sec:algoGeneratingSuperSwarm}) and Ants To Be Followed (described in Section \vref{sec:selctingAntsToBeFollowed}) are the same no matter the value of $s$. 
+The parameters $E$, $CA$ and $AF$ are all represented as percentages. $E$ is stated as a percentage because the pheromone level changes over time. In the beginning the level is quite small, and during the iterations the level increases. By stating $E$ as a percentage an equivalent amount is evaporated at each iteration. $CA$ and $AF$ are also stated as percentages to ensure that the amount of both Crazy Ants (described in Section \vref{sec:algoGeneratingSuperSwarm}) and Ants To Be Followed (described in Section \vref{sec:selctingAntsToBeFollowed}) are the same regardless of the value of $s$. 
 
-A small constant would hardly affect the edges with the most pheromone and a large constant would affect the edges with the least pheromone more than desired. Due to these issues, is a percentage, $E$, used to determine the evaporation at each iteration. The value of $E$ is selected after excessive testing.
 
 \subsection{Input Data}
 The input data required includes:
