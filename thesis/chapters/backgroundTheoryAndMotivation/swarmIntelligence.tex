@@ -53,13 +53,13 @@ As reported in \citet{shi99}, Particle Swarm Optimization (PSO) was first introd
 \centerline{$V_{id} = w * V_{id} + c_1 * rand() * (P_{id}-X_{id}) + c_2 * Rand() * (P_{gd}-X_{id})$}
 \newline
 \newline
-where \textit{w} is a decreasing parameter called inertia weight brought to the PSO for balancing local and global search, $c_1$ and $c_2$ are two positive constants, and \textit{rand()} and \textit{Rand()} are two random functions in the range [0,1]. Figure \ref{fig:psoBeginning} illustrates how the particles in PSO tends to explore in the the early iterations of the algorithm, while figure \ref{fig:psoEnd} illustrates how the particles tend to act more organized and coordinated at the late iterations. The new position of the \textit{i}th particle is calculated as follows \citep{shi99}:
+where \textit{w} is a decreasing parameter called inertia weight brought to the PSO for balancing local and global search, $c_1$ and $c_2$ are two positive constants, and \textit{rand()} and \textit{Rand()} are two random functions in the range [0,1]. Figure \ref{fig:psoBeginning} illustrates how the particles in PSO tends to explore in the the early iterations of the algorithm, while figure \ref{fig:psoEnd} illustrates how the particles tend to act more organized and coordinated at the late iterations. The new position of the \textit{i}th particle is calculated as follows \cite{shi99}:
 \newline
 \newline
 \centerline{$X_i = X_{id} + V_{id}$}
 \newline
 \newline
-Because of the decreasing inertia weight, PSO may suffer from low global search ability at the end of the run, and thus risking getting stuck at a local optimum. This may result in the algorithm failing to find the required optimum when the problem to be solved is very complicated and complex \citep{shi99}. However, PSO has proven to solve NP hard problems including the Multi-Dimensional Knapsack Problem\citep{wan09}. 
+Because of the decreasing inertia weight, PSO may suffer from low global search ability at the end of the run, and thus risking getting stuck at a local optimum. This may result in the algorithm failing to find the required optimum when the problem to be solved is very complicated and complex \cite{shi99}. However, PSO has proven to create sufficient solutions NP hard problems including the Multi-Dimensional Knapsack Problem\cite{wan09} and the Urban Transit Routing Problem\cite{kechagiopoulos14}. 
 
 \begin{figure}[H]
   \centering
