@@ -9,8 +9,6 @@ In order to determine Research Question \vref{itm:2a}, whether the additional at
 \subsection{Experimental Setup}
 \label{subsec:performanceComparison_setup}
 %We will in this stage test the system's performance, comparing the results with the results published by xxx, and with the basic ACO implementation. 
-\emph{\color{blue} TODO: Tabell med specs om instansene brukt.}
-
 In order to evaluate the performance of the proposed algorithm, \textit{five} performance criteria are used:
 \begin{itemize}
 \item $d_0 (\%)$ - the percentage of passengers satisfied without any transfers. 
@@ -26,8 +24,10 @@ These criteria are for comparison reasons the same as the ones presented by \cit
 
 As mentioned in Section \vref{sec:expPlan} will the algorithm be compared against a generic ACO algorithm, in addition to comparisons against the proposed methods of the authors mentioned above. The generic ACO is identical to the proposed SSO algorithm, but without the additional features such as Following Ants, Crazy Ants, a notion of the global best found solution so far and memory. 
 
-In order for our results to be comparable with results published, experiments with four, six, seven and eight routes in each route set will be examined. 
+In order for our results to be comparable with results published, experiments with four, six, seven and eight routes in each route set will be examined for SSO. 
 
-There will be carried out 50 runs per experiment, recording the values of $d_0$, $d_1$, $d_2$, $d_unsat$, and $ATT$ of the best found solution, i.e. the one who had the lowest $TOTFIT$. After 50 runs the best and worst solution will be be presented, along with the average, median and standard deviation for the values described above. The minimum, maximum, average, median and standard deviation for the execution time (in seconds) of the algorithm will also be presented.  
+There will be carried out 50 runs per experiment, recording the values of $d_0$, $d_1$, $d_2$, $d_unsat$, and $ATT$ of the best found solution, i.e. the one who had the lowest $TOTFIT$. After 50 runs the best and worst solution will be be presented, along with the average, median and standard deviation for the values described above. The minimum, maximum, average, median and standard deviation of the execution time (in seconds) will also be presented.  
+
+The performed experiments regarding Performance Comparison will all be run Ubuntu instances provided by the Google Cloud Platform. For the experiments with four, six and seven routes, the instances used will be of the type n1-highcpu-2. These instances contain, as mentioned in Section \vref{subsec:parameterSettings_setup}, two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 1.8 GB memory\cite{website:google}. For the experiment with eight routes an instance of type n1-standard-2 will be used, because of the increased need for memory when the route set size is 8. This instance contains two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 7.5 GB memory\cite{website:google}.
 
 
