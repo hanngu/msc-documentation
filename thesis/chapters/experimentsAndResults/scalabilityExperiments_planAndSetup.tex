@@ -27,9 +27,9 @@ In order to test scalability the two of the generated instances added as supplem
     \label{table:dataSet_mumford}
 \end{table}
 
-In addition to the instances in Table \vref{table:dataSet_mumford}, the supplementary material to \citet{mumford13} contains two bigger instances. These two will not be tested in this thesis due to the relationship type limit of Neo4j mentioned above. 
-
 When testing the Mumford networks, \textit{Method 1} will be used to find the routes for the passenger and not \textit{Method 2}, which is used when testing the Mandl network. The reader recalls from Section \vref{sec:f1} that Method 1 is where the path with the shortest traveling time, not considering any transitions, is chosen. Adding the transfer penalties after the route set is found. In the second method, Method 2, the transitions is considered, and chooses the path with the shortest traveling time, including transfer penalties. As Table \vref{table:results_mumford0RunTime} shows, Method 2 produces a better, but due to the excessive difference in run time, Method 1 is chosen for this experiment. 
+
+The proposed algorithm will only be run 10 times for each of the Mumford networks, because the main goal is only to establish whether or not the proposed system supports larger input. Because of this the produced results must be considered as indicative. 
 
 \begin{table}[H]
     \centering
