@@ -1,63 +1,17 @@
-\chapter{Protocol}
+\chapter{Structured Literature Review}
+%Short description
+
 \label{appendixA}
-
+\section{Protocol}
 %TODO: The final protocol with the final search term and justifications.
-%Ref: https://raw.githubusercontent.com/kenborge/slr-scbw/master/sections/protocol.tex
-\noindent
-\begin{sidewaystable}[h]
-%\resizebox{12.5cm}{!} {
+%vref: https://raw.githubusercontent.com/kenborge/slr-scbw/master/subsections/protocol.tex
 
-    %\hspace*{-2.25cm}
-    \begin{tabular}[c]{| m{1.25cm} | m{1.5cm} | m{2.5cm} | m{2.5cm} | m{2.5cm} | m{2cm} | m{1.3cm} | m{1.5cm} | m{1.5cm} |}
-    %\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-    \hline
-    & \textbf{Group 1} & \textbf{Group 2} & \textbf{Group 3} & \textbf{Group 4} & \textbf{Group 5} & \textbf{Group 6} & \textbf{Group 7} & \textbf{Group 8} \\ \hline   
-    \textbf{Term1} & Train & \parbox[t]{3in}{Path \par optimization\strut} &\parbox[t]{3in}{Bee colony \par optimization\strut}  & Transit & \parbox[t]{3in}{Artificial \par intelligence\strut}  & Multi agent & Routing & Neo4j \\ \hline
-    \textbf{Term2} & Plane & \parbox[t]{3in}{Scheduling \par optimization\strut} & \parbox[t]{3in}{Particle swarm \par optimization\strut} & \hspace{0pt}Transportation & AI & & & Graph database \\ \hline
-    \textbf{Term3} & Bus & \parbox[t]{3in}{Route \par optimization\strut}& \parbox[t]{3in}{Swarm \par intelligence\strut} & Traffic & Machine Learning & & & \\ \hline
-    \textbf{Term4} & Delivery & Planning & \parbox[t]{3in}{Ant colony \par optimization\strut} & Vehicle & & & & \\ \hline
-    \textbf{Term5} & & Multimodal & BCO & & & & & \\ \hline
-    \textbf{Term6} & & & PSO & & & & & \\ \hline
-    \textbf{Term7} & & & ACO & & & & & \\ \hline
-    \end{tabular}%\hspace*{-2.25cm}
-    
-   % }
-    \caption{Matrix of search terms}
-    \label{table:searchterms}
-\end{sidewaystable}
-
-\section{Search Terms}
-\label{sec:searchTerms}
-\begin{itemize}
-
-\item Group 1: Train, plane, bus, delivery
-\item Group 2: Path optimization, Scheduling Optimization, Route Optimization, Planning, Multimodal
-\item Group 3: Bee colony optimization, Particle swarm optimization, Swarm intelligence, Ant colony optimization, BCO, PSO, ACO
-\item Group 4: Transit, Transportation, Traffic, Vehicle
-\item Group 5: Artificial Intelligence, ai, Machine Learning
-\item Group 6: Multi-agent
-\item Group 7: Routing
-\item Group 8: Neo4j, Graph database
-
-\end{itemize}
-
-\section{Complete Search Term}
-\label{searchterm}
-
-\textit{(train OR plane OR bus OR delivery) AND (``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR planning OR multimodal) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR bco OR pso OR aco) AND (transit OR transportation OR traffic OR vehicle) AND (``artificial intelligence'' OR ai OR ``machine learning'') AND ``multi-agent'' AND routing)}
-
-% Har ditcha gruppe 8 i den "komplette søketermen", fordi vi ikke bruker gruppe 8 som en del av literatursøket, men kun til å "prove a point"
-
- %Lol & Group 1 & Group 2 & Group 3 & Group 4 & Group 5 & Group 6 & Group 7 & Group 8 \\ \hline
- %   Term 1 & Train & Path optimization & Bee colony optimization & Transit & Artificial intelligence & Multi agent & Routing & Neo4j \\ \hline
-
-
-\section{Research Questions}
+\subsection{Defining the Problem}
 \label{sec:researchQSLR}
-To conduct a structured literature review it is vital to decide the problem to be solved, referred to as P, and the constraints used to guide the search, referred to as C.
+To conduct a structured literature review it is vital to decide the problem to be solved, vreferred to as P, and the constraints used to guide the search, vreferred to as C.
 \newline
 \newline
-One of the goals for the environment package for transportation in Trondheim, ``Miljøpakken'', is to reduce percentage of people travelling with cars from 58 \% to 50 \% by 2018 \citep{website:miljopakken}. If this goal is reached, it will be an increased need for public transportation in Trondheim. There has never been done any optimization of the bus routes in Trondheim, the existing solution is purely based on experience. The problem formulation for this thesis was therefore based on the idea to improve todays solution by optimizing the bus routes using AI-methods. (And as a result of this satisfy the same amount of users today with less resources.)
+One of the goals for the environment package for transportation in Trondheim, ``Miljøpakken'', is to reduce percentage of people travelling with cars from 58 \% to 50 \% by 2018 \citep{website:miljopakken}. If this goal is reached, it will be an increased need for public transportation in Trondheim. There has never been done any optimization of the bus routes in Trondheim, the existing solution is purely based on experience. The problem formulation for this thesis was thevrefore based on the idea to improve todays solution by optimizing the bus routes using AI-methods. (And as a result of this satisfy the same amount of users today with less resources.)
 
 \begin{itemize}
 \item \textbf{P:} “Optimizing the bus routes in Trondheim using AI-methods. “ This problem can be characterized as a \textit{General Pickup and Delivery Problem (GPDP)} \citep[p.22-25]{vehiclerouting}.  
@@ -68,7 +22,7 @@ One of the goals for the environment package for transportation in Trondheim, ``
     \end{enumerate}
 \end{itemize}
 
-\textbf{Drawn to the following research questions:}
+\textbf{Drawn to the following research question:}
 %\begin{enumerate}
 %\item What are the existing solutions to this problem?
 %\item Which swarm intelligence methods is best suited for optimizing? 
@@ -79,19 +33,64 @@ One of the goals for the environment package for transportation in Trondheim, ``
 \begin{enumerate}[label=\textbf{\arabic*})]
 \item 
     \begin{enumerate}
-    \item Is swarm intelligence methods suitable for the vehicle routing problem?
-    \item What is the state-of-the-art in solving vehicle routing problems using swarm intelligence methods?
-    \item What changes have been done to the classical swarm intelligence-methods to improve them?
-    \item Have there been any attempts to combine different swarm intelligence-methods?
-    \item Have graph databases been employed in combination with the vehicle routing problem and swarm intelligence?
+    \item[RQ 1: ] What is the state-of-the-art in solving vehicle routing problems using swarm intelligence methods and graph databases?
     \end{enumerate}
 \end{enumerate}
 
+\subsection{Search Terms}
+\label{sec:searchTerms}
+Search terms were decided based on the defined research question, and formed into groups of synonyms:
+\begin{itemize}
+\item Group 1: Train, plane, bus, delivery
+\item Group 2: Path optimization, Scheduling Optimization, Route Optimization, Planning, Multimodal
+\item Group 3: Bee colony optimization, Particle swarm optimization, Swarm intelligence, Ant colony optimization, BCO, PSO, ACO
+\item Group 4: Transit, Transportation, Traffic, Vehicle
+\item Group 5: Artificial Intelligence, ai, Machine Learning
+\item Group 6: Multi-agent
+\item Group 7: Routing
+\item Group 8: Neo4j, Graph database
+\end{itemize}
+
+%\noindent
+%\begin{sidewaystable}[H]
+    %\resizebox{12.5cm}{!} {
+    %\hspace*{-2.25cm}
+    %\begin{tabular}[c]{| m{1.25cm} | m{1.5cm} | m{2.5cm} | m{2.5cm} | m{2.5cm} | m{2cm} | m{1.3cm} | m{1.5cm} | m{1.5cm} |}
+    %\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+    %\hline
+    %& \textbf{Group 1} & \textbf{Group 2} & \textbf{Group 3} & \textbf{Group 4} & \textbf{Group 5} & \textbf{Group 6} & \textbf{Group 7} & \textbf{Group 8} \\ 
+    %\hline 
+
+    %\textbf{Term1} & Train & \parbox[t]{3in}{Path \par optimization\strut} &\parbox[t]{3in}{Bee colony \par optimization\strut}  & Transit & \parbox[t]{3in}{Artificial \par intelligence\strut}  & Multi agent & Routing & Neo4j \\ \hline
+    %\textbf{Term2} & Plane & \parbox[t]{3in}{Scheduling \par optimization\strut} & \parbox[t]{3in}{Particle swarm \par optimization\strut} & \hspace{0pt}Transportation & AI & & & Graph database \\ \hline
+    %\textbf{Term3} & Bus & \parbox[t]{3in}{Route \par optimization\strut}& \parbox[t]{3in}{Swarm \par intelligence\strut} & Traffic & Machine Learning & & & \\ \hline
+    %\textbf{Term4} & Delivery & Planning & \parbox[t]{3in}{Ant colony \par optimization\strut} & Vehicle & & & & \\ \hline
+    %\textbf{Term5} & & Multimodal & BCO & & & & & \\ \hline
+    %\textbf{Term6} & & & PSO & & & & & \\ \hline
+    %\textbf{Term7} & & & ACO & & & & & \\ \hline
+    %\end{tabular}%\hspace*{-2.25cm}
+   % }
+   %\end{tabular}
+    %\caption{Matrix of search terms}
+    %\label{table:searchterms}
+%\end{sidewaystable}
+
+\subsection{Complete Search Term}
+\label{searchterm}
+The search terms and the groups of synonyms were assembled into a complete search term:
+\newline
+\textit{(train OR plane OR bus OR delivery) AND (``path optimization'' OR ``scheduling optimization'' OR ``route optimization'' OR planning OR multimodal) AND (``bee colony optimization'' OR ``particle swarm optimization'' OR ``swarm intelligence'' OR ``ant colony optimization'' OR bco OR pso OR aco) AND (transit OR transportation OR traffic OR vehicle) AND (``artificial intelligence'' OR ai OR ``machine learning'') AND ``multi-agent'' AND routing)}
+
+% Har ditcha gruppe 8 i den "komplette søketermen", fordi vi ikke bruker gruppe 8 som en del av literatursøket, men kun til å "prove a point"
+
+ %Lol & Group 1 & Group 2 & Group 3 & Group 4 & Group 5 & Group 6 & Group 7 & Group 8 \\ \hline
+ %   Term 1 & Train & Path optimization & Bee colony optimization & Transit & Artificial intelligence & Multi agent & Routing & Neo4j \\ \hline
+
 %Todo: Skrive om Zotero
 
-\section{Inclusion Criteria}
+\subsection{Inclusion Criteria}
 \label{sec:inclusionCriteria}
-To exclude irrelevant literature, some inclusion criterias were decided to ensure a level of relevance to the very first pool. First of all, duplicate literature, book of chapters, book of abstracts, book of references, literature not written in english, books, and literature with cleary irrelevant titles (for example literature from different research areas) were removed based on title. After that, we decided to filter out relevant literature based on the abstracts. Because we had relatively many sources to related literature after the initial filtering (367), we decided that we wanted the abstracts (or the keyword section) to explicitly mention swarm intelligence or algorithms associated with swarm intelligence, while it also described a problem connected to vehicle routing. For our literature review we decided to use the inclusion criterias solely on the title, abstract and keywords. After a discussion and reading a few abstracts we landed on the following inclusion criterias:
+To exclude irrelevant literature, some inclusion criterias were decided to ensure a level of relevance to the very first pool. First of all, duplicate literature, book of chapters, book of abstracts, book of vreferences, literature not written in english, books, and literature with cleary irrelevant titles (for example literature from different research areas) were removed based on title. After that, we decided to filter out relevant literature based on the abstracts. Because we had relatively many sources to related literature after the initial filtering (367), we decided that we wanted the abstracts (or the keyword subsection) to explicitly mention swarm intelligence or algorithms associated with swarm intelligence, while it also described a problem connected to vehicle routing. For our literature review we decided to use the inclusion criterias solely on the title, abstract and keywords. After a discussion and reading a few abstracts we landed on the following inclusion criterias:
 \begin{itemize}
 \item The main concern is route optimization focusing on vehicles. 
 \item The study focuses on the use of swarm intelligence.
@@ -102,7 +101,7 @@ To exclude irrelevant literature, some inclusion criterias were decided to ensur
 
 After the inclusion criteria filtering, we had 42 sources to related literature, including scientific papers and master theses. 
 
-\section{Quality Criteria} 
+\subsection{Quality Criteria} 
 
 \begin{enumerate}
 \item \label{itm:qa1}How relevant is it?
@@ -124,18 +123,16 @@ After the inclusion criteria filtering, we had 42 sources to related literature,
 \item Is the amount/quality of citation satisfactory? ($<$ $\frac{1}{3}$  self-citation and $>$ 10 citations)
 \end{enumerate}
 
-\subsection{Scoring}
-Point 1-13 was given a score, with the granularity of 0 (no), $\frac{1}{2}$ (partly), and 1 (yes). For this structured literature review we wanted to emphasize on the quality criteria that covered the relevance. We read some literature that were quite good regarding to the example structure and composition, but not relevant for our thesis. Therefore, we chose to multiply the 1a and 1b quality criteria with 3. Table \ref{table:literature} shows the papers that were read and scored according to the quality criteria: 
+\subsubsection{Scoring}
+Point 1-13 was given a score, with the granularity of 0 (no), $\frac{1}{2}$ (partly), and 1 (yes). For this structured literature review we wanted to emphasize on the quality criteria that covered the relevance. For retrieving the most relevant papers based on the content and not just the quality of the paper, Quality Criteria \vref{itm:qa1a} and \vref{itm:qa1b} was multiplied by 3. Table \vref{table:literature} shows the papers that were read and scored according to the quality criteria: 
 
-\begin{table}[H]
-    {
+\begin{sidewaystable}
+    %\hspace*{-0.5cm}
     \tiny
-    \hspace*{-2cm}
-    \resizebox{16.5cm}{!} {
-    \begin{tabular}[c]{|m{6.5cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \begin{tabular}[c]{|m{7cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
         \hline
         \textbf{Title} & \textbf{1a} & \textbf{1b} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{Total} \\ \hline
-        \textit{``A comprehensive review of firefly algorithms''}&0&3&1&1&1&0&1&0&1&0.5&0&0&0&1&9 \\ \hline
+        \textit{``A comprehensive review of fivrefly algorithms''}&0&3&1&1&1&0&1&0&1&0.5&0&0&0&1&9 \\ \hline
         \textit{``Adaptive Comprehensive Learning Bacterial Foraging Optimization and Its Application on Vehicle Routing Problem with Time Windows''}&1.5&1.5&0.5&1&0.5&1&1&1&1&1&1&0&0&1&12 \\ \hline
         \textit{``Adapt-Traf: An adaptive multiagent road traffic management system based on hybrid ant-hierarchical fuzzy model''}&1.5&1.5&1&1&1&0.5&0.5&1&0&1&1&1&0&1&12 \\ \hline
         \textit{``A Design of Intelligent and Autonomous Public Transportation System by Co-evolution''}&3&1.5&0&0&0.5&0&0&0&0&0&0&0&0&0.5&5.5 \\ \hline
@@ -177,20 +174,16 @@ Point 1-13 was given a score, with the granularity of 0 (no), $\frac{1}{2}$ (par
         \textit{``Transit network design by Bee Colony Optimization''}&1.5&3&1&1&1&1&1&1&0.5&0&0.5&1&0.5&1&14 \\ \hline
         \textit{``Transportation Modeling: An Artificial Life Approach''} &1.5&3&1&0.5&0.5&0&0.5&0.5&0.5&0.5&0.5&1&0.5&1&11.5 \\ \hline
         \textit{``Transport Modeling by Multi-Agent Systems: A Swarm Intelligence Approach''}&3&3&0.5&0.5&0.5&0&0&0&0.5&0&0&0&0&1&9 \\ \hline
-
     \end{tabular}
-    } 
-    }
 \caption{Quality Criteria Scoring}\label{table:literature}
-\end{table}\hspace*{-2cm}
+\end{sidewaystable}
 
-\section{Selecting the final literature}
-When selecting the final literature we decided to do this solely based on the quality criteria scores. The average score of the read literature was 13.01 $\approx$ 13. We decided that literature given a score $\geq{1.5}$ above average were selected. After this sorting we ended up with 12 final literature. These 12 literature are going to create the foundation of our thesis. Table \ref{table:finalliterature} shows the selected literature. 
+\subsection{Selecting the final literature}
+When selecting the final literature we decided to do this solely based on the quality criteria scores. The average score of the read literature was 12.01 $\approx$ 12. We decided that literature given a score $\geq{1.5}$ above average were selected. After this sorting we ended up with 12 final literature. These 12 literature are going to create the foundation of our thesis. Table \vref{table:finalliterature} shows the selected literature. 
 
 \begin{table}[!htb]
     {
     \begin{center}
-    \small
     \begin{tabular}[c]{| m{6cm} | m{6cm} |}
         \hline
         \textbf{Title} & \textbf{Author} \\ \hline
