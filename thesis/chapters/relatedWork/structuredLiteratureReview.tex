@@ -1,30 +1,32 @@
-
 \section{Refining the Research Topic}
-\label{sec:refiningResearchTopic}
-\citet{cohen88} introduced a five-stage model for evaluating research in terms of a five-stage cycle. The development process should be run in iterative cycles, and the suggested model is used for evaluation throughout the project. The first stage in the model involves refining the research topic to a task, and identifying a view of how to accomplish the task. %The rest of the stages will be evaluated in Section \vref{subsec:evaluationCriteraCohen}. 
-As stated in the motivation, Section \vref{sec:motivation}, congestion and environmental problems in Trondheim is increasing every year due to the population growth\citep{website:miljopakken}, and efficient public transportation systems can reduce the negative effects of these issues. Since AtB's\citep{website:atb} current solution consist of an experience based route network, may it not be the optimal solution. The task in this research is to optimize urban transit networks using swarm intelligence methods. Further, is the goal to make urban transit networks more convenient for passengers, and thus increase the number of public transportation passengers in Trondheim. 
+\label{sec:definingResearchTopic}
 
-A Structured Literature Review, based on the model suggested by \citet{kofod2014} is conducted to gather available information from primary relevant studies.
+\citet{cohen88} introduced a five-stage model for evaluating AI research in terms of a five-stage cycle, and the suggested model is used for evaluation throughout the project. The first stage in this model involves refining the research topic to a task, and identifying a view of how to accomplish the task. As stated in the motivation, Section \vref{sec:backgroundAndMotivation}, congestion and environmental problems in Trondheim is increasing every year due to the population growth, and efficient public transportation systems can reduce the negative effects of these issues. Since AtB's current solution consist of an experience based route network, may it not be the optimal solution. The task in this research is to optimize urban transit networks using swarm intelligence methods. Further, is the goal to make urban transit networks more convenient for passengers, and thus increase the number of public transportation passengers.
 
 \section{Structured Literature Review}
 \label{sec:structuredLiteratureReview}
 
-The urban transit network design problem (UTNDP), is suggested to be solved using swarm intelligence (SI) to develop an algorithm. As described in Section \vref{sec:VRP}, is UTNDP a sub-problem of the vehicle routing problem (VRP), which is a generic name given to a broad class of optimization problems. VRPs are represented as a road network by relevant locations in a graph, and graph databases uses graph structures to represent and store data. For these reasons, %will we  determine previous research in solving VRPs using SI methods and whether graph databases are employed in combination with the VRP and SI. 
-were the following research questions formed in order to guide the review:
+A Structured Literature Review is a formal way of gathering available information from primary relevant studies\citep{kofod2014}. There are several advantages in using this model. These advantages includes mapping out existing solutions, avoiding bias in the work, and highlighting areas where additional research is required. As proposed, a review protocol is developed. This protocol presents how each step is carried out, and can be found in \vref{appendixA}. Table \vref{table:finalliterature} shows the \emph{\color{blue}12} final literature that were selected based on the protocol. This final literature will form the foundation of or research, and the results of the final data synthesis is presented in Section \vref{sec:relatedWork}. %The complete process is described in Appendix \vref{appendixA}.
 
-\begin{enumerate}[label=\textbf{\arabic*})]
-\item 
-    \begin{enumerate}
-    \item Is SI methods suitable for the VRP?
-    \item What is the state-of-the-art in solving VRPs using SI methods?
-    \item What changes have been done to the classical SI methods to improve them?
-    \item Have there been any attempts to combine different SI methods?
-    \item Have graph databases been employed in combination with the VRP and SI?
-    \end{enumerate}
-\end{enumerate}
+%The urban transit network design problem (UTNDP), is suggested to be solved using swarm intelligence (SI) to develop an algorithm. 
 
-Key search terms were decided based on the defined research questions, formed into groups of synonyms, and assembled into a complete search term. The key search terms and the complete search term can be found in appendix \ref{appendixA}, section \vref{searchterm} and section \vref{sec:searchTerms}, respectively. The list of sources for retrieving the  relevant literature, were selected based on \citep[p.3]{kofod2014}, and can be found in Appendix \vref{appendixB}. 
+%As described in Section \vref{sec:VRP}, is UTNDP a sub-problem of the vehicle routing problem (VRP), which is a generic name given to a broad class of optimization problems. VRPs are represented as a road network by relevant locations in a graph, and graph databases uses graph structures to represent and store data. For these reasons, %will we  determine previous research in solving VRPs using SI methods and whether graph databases are employed in combination with the VRP and SI. 
+%were the following research questions formed in order to guide the review:
+%\begin{enumerate}[label=\textbf{\arabic*})]
+%\item 
+%\begin{enumerate}
+%    \item \textbf{Is swarm intelligence methods suitable for the vehicle routing problem?}
+%    \item \textbf{What is the state-of-the-art in solving vehicle routing problems using swarm intelligence methods?}
+%    \item \textbf{What changes have been done to the classical swarm intelligence-methods to improve them?}
+%    \item \textbf{Have there been any attempts to combine different swarm intelligence-methods?} 
+%    \item \textbf{Have graph databases been employed in combination with the vehicle routing problem and swarm intelligence?}
+%\end{enumerate}
+%\end{enumerate}
 
-To exclude irrelevant literature, some Inclusion Criteria was decided to ensure a level of relevance. The Inclusion Criteria can be found in Appendix \ref{appendixA}, Section \ref{sec:inclusionCriteria}. After the Inclusion Criteria filtering, we had 42 sources for the related literature, including scientific papers and master theses. Quality Criteria was determined to ensure quality in the final papers and to filter away studies not theoretically relevant for our thesis. Each of the studies under consideration was classified according to the Quality Criteria, by scoring the papers on each Quality Criteria. Each point was given a score, where 1 point denote relevant, $\frac{1}{2}$ point denote partly relevant and 0 points denote not relevant. For retrieving the most relevant papers based on the content and not just the quality of the paper, Quality Criteria \ref{itm:qa1a} and \vref{itm:qa1b} was multiplied by 3. Quality Criteria \ref{itm:qa1a} is concerned about whether or not the research in fact is a Vehicle Routing Problem and Quality Criteria \ref{itm:qa1b} addresses whether or not swarm intelligence is the main optimization method. 
+%Key search terms were decided based on the defined research questions, formed into groups of synonyms, and assembled into a complete search term. The key search terms and the complete search term can be found in appendix \ref{appendixA}, section \vref{searchterm} and section \vref{sec:searchTerms}, respectively. The list of sources for retrieving the  relevant literature, were selected based on \citep[p.3]{kofod2014}, and can be found in Appendix \vref{appendixB}. 
 
-Table \vref{table:literature} shows the papers that were selected based on the Inclusion Criteria and the scores given based on Quality Criteria. The average score of the read literature was 13.01 $\approx$ 13, and literature given a score $\geq{1.5}$ above average were selected. This resulted in 12 final researches, which can be seen in Table \vref{table:finalliterature}. %This research will form the foundation of the thesis, whereas Section \vref{sec:relatedWork} are the results of the final data synthesis, and of the once describing a vehicle routing problem attempted solved by a swarm inspired method. With changes related to our problem 
+%To exclude irrelevant literature, some Inclusion Criteria was decided to ensure a level of relevance. The Inclusion Criteria can be found in Appendix \ref{appendixA}, Section \ref{sec:inclusionCriteria}. After the Inclusion Criteria filtering, we had 42 sources for the related literature, including scientific papers and master theses. Quality Criteria was determined to ensure quality in the final papers and to filter away studies not theoretically relevant for our thesis. Each of the studies under consideration was classified according to the Quality Criteria, by scoring the papers on each Quality Criteria. Each point was given a score, where 1 point denote relevant, $\frac{1}{2}$ point denote partly relevant and 0 points denote not relevant. For retrieving the most relevant papers based on the content and not just the quality of the paper, Quality Criteria \ref{itm:qa1a} and \vref{itm:qa1b} was multiplied by 3. Quality Criteria \ref{itm:qa1a} is concerned about whether or not the research in fact is a Vehicle Routing Problem and Quality Criteria \ref{itm:qa1b} addresses whether or not swarm intelligence is the main optimization method. 
+
+
+
+ %based on the Inclusion Criteria and the scores given based on Quality Criteria. The average score of the read literature was 13.01 $\approx$ 13, and literature given a score $\geq{1.5}$ above average were selected. This resulted in 12 final researches, which can be seen in Table \vref{table:finalliterature}. %This research will form the foundation of the thesis, whereas Section \vref{sec:relatedWork} are the results of the final data synthesis, and of the once describing a vehicle routing problem attempted solved by a swarm inspired method. With changes related to our problem 
