@@ -14,7 +14,7 @@ In nature ants have proven to be extremely capable of finding an optimal or clos
 \end{figure}
 
 Ant Colony Optimization (ACO) is a class of graph representation based algorithms designed to optimize routing problems. The first description of an ACO algorithm, called Ant System (AS), was initially proposed by \citet{dorigo96}. The AS strategy developed by Dorigo tries to simulate the behavior of real ants, but unlike the ants in nature, pheromone trails are left by all ants. Algorithm \ref{algo:aco} shows the metaheuristic of ACO, as described by \citet{dorigo06}: \\
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{The Ant Colony Optimization Metaheuristic}
 \label{algo:aco}
 \begin{algorithmic}
@@ -27,9 +27,10 @@ Ant Colony Optimization (ACO) is a class of graph representation based algorithm
 \end{algorithmic}
 \end{algorithm}
 ~\\
-The idea of ACO algorithms is to create a decentralized system with multiple agents. The agents influence each others decisions by using pheromones. In the beginning, before any distinct pheromone trail is laid, the ants' choices are random and thus they perform a broad search in the environment. This randomness will decrease over time as the pheromone trails becomes more distinct. At the end of each iteration some of the pheromones are evaporated. This reduces the probability of the ants getting stuck at local optima. The literature describes many different algorithms that can be classified as ACO algorithms, including the work of \citet{salehi-nezhad07}, \citet{tripathi09}, \citet{jiang10}, and \citet{dias14}. Most of the authors describe artificial ants with additional features to those found in nature, including vision, memory and rewarding of the best ants. The addition of these features is typically done to increase the performance of the algorithm.
 
-%TODO: SKRIVE OM ACO I RUTEOPTIMALISERING! 
+The idea of ACO algorithms is to create a decentralized system with multiple agents. The agents influence each others decisions by using pheromones. In the beginning, before any distinct pheromone trail is laid, the ants' choices are random and thus they perform a broad search in the environment. This randomness will decrease over time as the pheromone trails becomes more distinct. At the end of each iteration some of the pheromones are evaporated. This reduces the probability of the ants getting stuck at local optima. 
+
+Many version of ACO algorithms have been proposed in the literature, and among the most successful are the Ant Colony System (ACS) proposed by \citet{dorigo97} and the MAX-MIN Ant System (MMAS) proposed by \citet{stutzle06}. The ACS implements both a \textit{local} and a \textit{global} pheromone update. The local pheromone update are applied by all ants after each construction step, and the global pheromone update are applied by the evaluated best ant at the end of each iteration. The MMAS only allows the evaluated best ant to update the pheromone trails, and the amount of pheromone given to the best path is determined, within a certain bound, by the quality of the solution found. 
 
 \subsection{Bee Colony Optimization}
 \label{subsec:BCO}
