@@ -6,7 +6,7 @@
 
 %Caused by: org.neo4j.kernel.impl.store.UnderlyingStorageException: Id capacity exceeded: 65536 is not within bounds
  %[0; 65535] for Neo4jTest1/neostore.relationshiptypestore.db.id
-Table \vref{table:mumford0_and1_results} represents the best route set constructed by the proposed algorithm, tested on larger networks.
+Table \vref{table:mumford0_and1_results} shows the average percentage of direct travelers ($d_0$), travelers with one transfer ($d_1$), travelers with two transfers ($d_2$), travelers with three or more transfers ($d_{unsat}$) and the average travel time experienced by each passenger ($ATT$).
 
 \begin{table}[H]
     \centering
@@ -16,12 +16,16 @@ Table \vref{table:mumford0_and1_results} represents the best route set construct
         Instance & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$\\
         \hline
         Mumford0$^1$ & 23.43 & 39.36 & 28.78 & 8.43 & 13.5\\
+        Standard Deviation & 1.12 & 2.72 & 2.42 & 1.29 & 0.21\\
+        \hline
         Mumford1$^1$ & 11.03 & 24.2 & 30.16 & 34.61 & 20.78\\
+        Standard Deviation & 0.52 & 1.09 & 0.89 & 0.68 & 0.55\\
+        \hline
         Mumford2$^2$ & - & - & - & - & - \\
         Mumford3$^2$ & - & - & - & - & - \\
         \hline
     \end{tabular}
-    \caption{Representation of the Best Route Set Produced on Larger Networks, Constructed by the Proposed Algorithm}
+    \caption{Results Produced for Networks Added as Supplementary Material to \citet{mumford13}}
     \tiny
     \begin{itemize}[noitemsep]
     \item[$^1$:] Ran with $i$ = 50
