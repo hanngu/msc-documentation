@@ -9,7 +9,8 @@
 \usepackage{graphicx}							% To include graphics
 \usepackage{natbib}								% Correct citations
 %\usepackage{fancyheadings}						% Nice header and footer
-\usepackage[linktocpage,colorlinks]{hyperref}			% PDF hyperlink
+\usepackage[linktocpage,colorlinks]{hyperref}   % PDF hyperlink
+%\usepackage[linktocpage]{hyperref}				% LINKS WITHOUT COLOURS
 %\usepackage{geometry} 							% Better geometry
 \usepackage{import}
 \usepackage[toc,page]{appendix}
@@ -23,6 +24,13 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{float}
 \usepackage{enumitem}
+\makeatletter                          % For labeling items
+\def\namedlabel#1#2{\begingroup
+    #2%
+    \def\@currentlabel{#2}%
+    \phantomsection\label{#1}\endgroup
+}
+\makeatother
 \usepackage{varioref}
 \usepackage{tabto}
 \usepackage{enumitem} % For abbrevations
