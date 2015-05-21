@@ -74,34 +74,7 @@ The proposed model was originally designed for the Mandl Network and this networ
     \label{tabel:averageTotfitAllTestCases}
 \end{table}
  
-The run time for the proposed method is dependent on $NRS$, the number of ants ($s$), the number of iterations ($i$), the size of the network, and whether Method 1 or Method 2 is used. The run time is of course dependent on both the number of ants and iterations because they both increase the number of route sets generated and evaluated. Because a route set must be evaluated on the shortest travel time between every two nodes in the network, the run time also increases as the network expands. As one can observe from Table \vref{table:results_mumford0RunTime}, the run time is also highly dependent on whether Method 1 or Method 2 is used, in fact the run time is more than ten times greater when using Method 2 compared to Method 1. In Method 1 Dijkstra only needs to find the absolutely shortest path between two nodes, while in Method 2 Dijkstra must find all paths between the two nodes and further evaluate them based on the travel time and eventual transfer penalties. The difference in using Method 1 and Method 2 will increase as both the network and the $NRS$ increases, due to the enlarged number of possible routes. As one can see from the average run times regarding the experiments using the Mandl Network in Table \vref{tabel:runTimeMandl}, the run time increases drastically from 7 to 8 routes. However, as mentioned in Section \vref{subsec:performanceComparison_setup}, is this experiment ran on a different instance than the other experiments who used the Mandl Network due to the increased need of memory. This instance is not CPU optimized such as the others, and we believe this is a reason for the increased run time.  
 
-
-%As one can observe from Table \vref{tabel:runTimeMandl} the average run time increases drastically when the number of routes in the Mandl network increases. 
-
-
-%This may be because $NRT$ and the number of Relationships in the Neo4j database becomes significantly larger when increasing the number of routes. . The run time is also more than 10 times greater using using Method 2 compared to Method 1 as seen in \vref{table:results_mumford0RunTime}. When using Method 1 it is sufficient to use the built in Dijkstra algorithm in Neo4j to only find the shortest path between two nodes given a route set. When Method 2 is used, Dijkstra must find all possible routes between two nodes given a route set, and further evaluates which route to choose based on the total travel time (including transfer penalties). The difference in the run time, using Method 1 compared to Method 2, also increases as the network becomes bigger. This is because the algorithm finds a path between every two nodes in the network, and when the network increases, so does (usually) the number of nodes and possible paths as well. Table \vref{tabel:runTimeMumford} shows that the average run times of Mumford0 and Mumford1. It is worth mentioning, that the run times are approximately the same as the ones for the experiments who uses the Mandl Network, even though these experiments have a smaller network and fewer $NRS$, due to the decreased number of $i$ and the fact that Method 1 is used instead of Method 2. 
-
-%Independent of whether it is the route set size, network size, the number of iterations or the number of ants in the colony that becomes bigger, the number of reads and writes to the Neo4j database increases, which again increases the run time. %\emph{\color{blue} Kanskje vi må si noe mer her, finne noe data på hvorfor dette øker run timen eller noe. Kanskje vi må si noe om at vi har observert at minnebruken aldri går over 30\%?}
-
-\begin{table}[H]
-    \centering
-    \hspace*{-1.0cm}
-    \begin{tabular}{|c|c|}
-        \hline
-        \textbf{Instance} & \textbf{Run Time$^1$ (secs)} \\
-        \hline
-        Mumford0 & 2368.0\\
-        \hline
-        Mumford1 & 5862.4\\
-        \hline
-    \end{tabular}
-    \caption{Average Runtime in seconds of 10 Runs Using the Mumford Network}
-    \label{tabel:runTimeMumford}
-    \begin{itemize}[noitemsep]
-    \item[$^1$:] $s$ = 50, $i$ = 50
-    \end{itemize} 
-\end{table}
 
 %\textbf{Did the program demonstrate good performance?}
 
