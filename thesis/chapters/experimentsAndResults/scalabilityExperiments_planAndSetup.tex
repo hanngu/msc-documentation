@@ -2,14 +2,14 @@
 
 \subsection{Experimental Plan}
 %The programs are rarely informative if they are designed to run on a single example - Therefore we will test algorithm on other, larger, networks, to check whether it is general and not just optimized for Mandl. (Mumford)
-To answer Research Question \vref{itm:2c}, which is concerned about whether or not it is possible to apply the proposed algorithm to transit networks in real urban cities, the proposed algorithm will be tested against larger networks than the Mandl Network. This is because the majority of real cities have larger transit networks than the relatively small Mandl Network, which only contains 15 nodes (bus stops) and 21 edges (roads). The scalability experiments will help us establish if the proposed algorithm supports larger network as input and if so, how a larger network affects the run time and the result quality.
+To answer \vref{itm:RQ3}, which is concerned about whether or not it is possible to apply the proposed algorithm to optimize the transit networks in large urban cities, the proposed algorithm will be tested against larger networks than the Mandl Network. This is because the majority of real cities have larger transit networks than the relatively small Mandl Network, which only contains 15 nodes (bus stops) and 21 edges (roads). The Network Expansion experiments will help us establish if the proposed algorithm supports larger network as input and if so, how a larger network affects the run time and the result quality.
 %The exact shape of any normal curve is totally determined by its mean and standard deviation. %Therefore, if we know the mean and standard deviation of a statistic, we can find the mean and standard deviation of the sampling distribution of the statistic
 
 
 \subsection{Experimental Setup}
 \label{subsec:scalabilityExperiments_setup}
 
-In order to test scalability the two of the generated instances added as supplementary material to \citet{mumford13} will be used. The mentioned instances consists of transport networks with bus stops (nodes) and roads (edges). Coordinates for each node, travel time for each edge and demand between each two nodes are all provided. Constraint \vref{itm:constraintRouteSize} specifies that the maximum number of nodes, $Max(n)$ and minimum number of nodes, $Min(n)$, in a route should be predefined, along with the size of the route set, $RS_{size}$. These values are all specified in the supplementary material to \citet{mumford13}. Table \vref{table:dataSet_mumford} defines the properties of the instances, along with $Max(n)$, $Min(n)$ and $RS_{size}$ for each instance. The experiments will be ran with the same parameter values as the selected values described in \vref{sec:parametersettings}.
+In order to test whether or not the proposed algorithm supports larger networks the generated instances added as supplementary material to \citet{mumford13} will be used. The mentioned instances consists of transport networks with bus stops (nodes) and roads (edges). Coordinates for each node, travel time for each edge and demand between each two nodes are all provided. Constraint \vref{itm:constraintRouteSize} specifies that the maximum number of nodes, $Max(n)$ and minimum number of nodes, $Min(n)$, in a route should be predefined, along with the size of the route set, $RS_{size}$. These values are all specified in the supplementary material to \citet{mumford13}. Table \vref{table:dataSet_mumford} defines the properties of the instances, along with $Max(n)$, $Min(n)$ and $RS_{size}$ for each instance. The experiments will be ran with the same parameter values as the selected values described in \vref{sec:parametersettings}.
 
 \begin{table}[H]
 	\centering
@@ -27,7 +27,7 @@ In order to test scalability the two of the generated instances added as supplem
     \label{table:dataSet_mumford}
 \end{table}
 
-When testing the Mumford networks, \textit{Method 1} will be used to find the routes for the passenger and not \textit{Method 2}, which is used when testing the Mandl network. The reader recalls from Section \vref{sec:f1} that Method 1 is where the path with the shortest traveling time, not considering any transitions, is chosen. Adding the transfer penalties after the route set is found. In the second method, Method 2, the transitions is considered, and chooses the path with the shortest traveling time, including transfer penalties. As Table \vref{table:results_mumford0RunTime} shows, Method 2 produces a better, but due to the excessive difference in run time, Method 1 is chosen for this experiment. 
+When testing the Mumford networks, \textit{Method 1} will be used to find the routes for the passenger and not \textit{Method 2}, which is used when testing the Mandl network. The reader recalls from Section \vref{sec:f1} that Method 1 is where the path with the shortest traveling time, not considering any transitions, is chosen. In Method 1 transfer penalties are added after the route is selected. In the second method, Method 2, the transitions is considered, and chooses the path with the shortest traveling time, including transfer penalties. As Table \vref{table:results_mumford0RunTime} shows, Method 2 produces a better, but due to the excessive difference in run time, Method 1 is chosen for this experiment. 
 
 The proposed algorithm will only be run 10 times for each of the Mumford networks, because the main goal is only to establish whether or not the proposed system supports larger input. Because of this the produced results must be considered as indicative. 
 
@@ -45,5 +45,5 @@ The proposed algorithm will only be run 10 times for each of the Mumford network
     \label{table:results_mumford0RunTime}
 \end{table}
 
-The performed experiments regarding Scalability will all be run Ubuntu instances provided by the Google Cloud Platform. The instances used will be of type n1-standard-2 will be used, because of the increased need for memory when the route set size is 8. This instance contains two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 7.5 GB memory\cite{website:google}.
+The performed experiments regarding Network Expansion will all be run Ubuntu instances provided by the Google Cloud Platform. The instances used will be of type n1-standard-2. This instance contains two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 7.5 GB memory\cite{website:google}.
 
