@@ -38,14 +38,16 @@ Applications of graph databases can include calculating routes and finding the s
 
 \subsection{Neo4j}
 \label{subsubsec:neo4j}
-Neo4j\citep{website:neo4j} is an open-source graph database, implemented in Java, and is ranked the most popular graph database \citep{website:graphdbranking}. It is a native graph database optimized and designed for storing and managing graphs, and is known for extremely fast traversals of relationship. The underlying data model of Neo4j is the labeled property graph, and is one of the most generic and versatile of all graph models\citep[p.73]{robinson13}. This graph data model gives four different fundamental building blocks to structure and store data, including nodes to store entity information, relationships to connect nodes to another, properties for relevant information, and labels for creating subgraphs. 
+Neo4j\citep{website:neo4j} is an open-source graph database, implemented in Java. It is ranked the most popular graph database world wide \citep{website:graphdbranking} and is used by several large companies such as Telenor\citep{website:telenor}, Walmart\citep{website:walmart} and Cisco\citep{website:cisco}. It is a native graph database optimized and designed for storing and managing graphs, and is known for extremely fast traversals of relationship. The underlying data model of Neo4j is the labeled property graph, and is one of the most generic and versatile of all graph models\citep[p.73]{robinson13}. This graph data model gives four different fundamental building blocks to structure and store data, including Nodes to store entity information, Relationships to connect nodes to another, Properties for relevant information, and Labels for creating subgraphs.
 
-A query that is extremely well suited for graph databases are queries for finding the paths between different nodes in a graph, and Neo4j can be used to see whether a path exist, finding the optimal path, and looking for variability in the path\citep[p. 51]{bruggen14}. Neo4j includes built-methods for finding the shortest path, including:
+A query that is extremely well suited for graph databases are queries for finding the paths between different nodes in a graph, and Neo4j can be used to see whether a path exist, finding the optimal path, and looking for variability in the path\citep[p. 51]{bruggen14}. Neo4j includes built-in methods for finding the shortest path, including:
 
 \begin{itemize}
-\item Dijkstra's algorithm\citep{cormen09}, which is one of the best-known algorithms to calculate the shortest weighted path between two points in a graph, using the properties of the edges as a weight or costs of that link.
+\item Dijkstra's algorithm\citep{cormen09}, which is one of the best-known algorithms to calculate the shortest weighted path between two points in a graph, using the properties of the edges as a weight or costs.
 \item A* search\citep{russel10}, which is a variation of Dijkstra's original ideas, but uses heuristics to predict more efficiently the shortest path exploration. A* search explores potential graph paths by it calculates the past path cost and the future path cost of the different options that are possible during the route exploration. 
 \end{itemize}
+
+The Relationships in a Neo4j database are capable of being of different RelationshipTypes, which among others enables the built-in methods to find the shortest path using only specific RelationshipTypes. 
 
 %Sweet spot use cases of neo4j: complex, join-intensive queries, path finding queries\citep[p. 51]{bruggen14}. 
 
