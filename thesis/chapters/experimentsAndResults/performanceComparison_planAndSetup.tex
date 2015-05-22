@@ -1,14 +1,15 @@
 \section{Performance Comparison}
 \label{sec:performanceComparison}
 \subsection{Experimental Plan}
-When the optimal parameters are found will the comparison studies determine how the proposed algorithm performs. To determine the performance of the algorithm the algorithm will be compared to the methods published by \citet{mandl79}, \citet{kechagiopoulos14}, \citet{nikolic14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, \citet{chew12}, and \citet{baaj91}. Four different cases will be studied, each having different number of routes. In order for our experimental results to be comparable with the results published by the researches mentioned above, will cases with four, six, seven and eight routes in the route set be examined.
+When the value for each parameter is selected, the comparison studies will determine the performance of the proposed system. The results produced by the proposed system will be compared to results published by \citet{mandl79}, \citet{kechagiopoulos14}, \citet{nikolic14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, \citet{chew12}, and \citet{baaj91}. Four different cases will be studied, each having different number of routes. In order for our experimental results to be straight comparable with the results published, cases with four, six, seven and eight routes in the route set will be examined.
 
-In order to determine Research Question \vref{itm:RQ2}, whether the additional attributes inspired by PSO and BCO has improved the basic ACO algorithm, the proposed algorithm will also be compared against a generic ACO implementation.
+In order to determine \vref{itm:RQ2}, which is concerned about whether the additional attributes inspired by PSO and BCO has improved the basic ACO algorithm, the proposed system will be compared to a generic ACO implementation. The generic ACO is identical to the proposed system, but without the additional Following Ants, Crazy Ants, and memory features. 
 
 \subsection{Experimental Setup}
 \label{subsec:performanceComparison_setup}
 %We will in this stage test the system's performance, comparing the results with the results published by xxx, and with the basic ACO implementation. 
-In order to evaluate the performance of the proposed algorithm, \textit{five} performance criteria are used:
+In order to determine the performance of the proposed system, some performance criteria will be used for evaluation. As stated in \citet{kechagiopoulos14}, the criteria were first proposed by \citet{chakroborty02} in order to have a fair comparison between all system's results. The performance criteria are %used by all approaches this thesis will use for comparison, which are \citet{mandl79}, \citet{kechagiopoulos14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, and \citet{chew12}, and are 
+the following:
 \begin{itemize}
 \item $d_0 (\%)$ - the percentage of passengers satisfied without any transfers. 
 \item $d_1 (\%)$ - percentage passengers transferring once. 
@@ -19,14 +20,13 @@ In order to evaluate the performance of the proposed algorithm, \textit{five} pe
 %$$ATT = \frac{\sum\limits^{p}_{p=1}TT}{p_{size}}$$
 %where $p_{size}$ is the number of passengers and $TT$ is the travel time used by passenger $p$. 
 \end{itemize}
-These criteria are for comparison reasons the same as the ones presented by \citet{mandl79}, \citet{kechagiopoulos14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, and \citet{chew12}. The criteria for good performance includes that the percentage of passengers satisfied without any transfers is high, and that the average travel time and the percentage of unsatisfied customers is as low. 
+The criteria for good performance includes that the percentage of passengers satisfied without any transfers is high, and that the average travel time and the percentage of unsatisfied customers is low. 
 
-As mentioned in Section \vref{sec:expPlan} will the algorithm be compared against a generic ACO algorithm, in addition to comparison against the proposed methods of the authors mentioned above. The generic ACO is identical to the proposed SSO algorithm, but without the additional features such as Following Ants, Crazy Ants, and memory. 
+ %
 
-In order for our results to be comparable with results published, experiments with four, six, seven and eight routes in each route set will be examined for SSO. 
+%In order for our results to be comparable with results published, experiments with four, six, seven and eight routes in each route set will be examined for SSO. 
 
-There will be carried out 50 runs per experiment, recording the values of $d_0$, $d_1$, $d_2$, $d_unsat$, and $ATT$ of the best found solution, i.e. the one who had the lowest $TOTFIT$. After 50 runs the best and worst solution will be be presented, along with the average, median and standard deviation for the values described above. The minimum, maximum, average, median and standard deviation of the execution time (in seconds) will also be presented.  
+There will be carried out 50 runs per experiment, recording the values of $d_0$, $d_1$, $d_2$, $d_{unsat}$, and $ATT$ of the best produced solution. The best produced solution is the one with lowest $TOTFIT$ value. After 50 runs the best and worst solution will be be presented, along with the average, median and standard deviation for the values described above. %The minimum, maximum, average, median and standard deviation of the execution time (in seconds) will also be presented.  
 
-The performed experiments regarding Performance Comparison will all be run Ubuntu instances provided by the Google Cloud Platform. For the experiments with four, six and seven routes, the instances used will be of the type n1-highcpu-2. These instances contain, as mentioned in Section \vref{subsec:parameterSettings_setup}, two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 1.8 GB memory\cite{website:google}. For the experiment with eight routes an instance of type n1-standard-2 will be used, because of the increased need for memory when the route set size is 8. This instance contains two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 7.5 GB memory\cite{website:google}.
-
+The experiments will be run on Ubuntu instances provided by the Google Cloud Platform\citep{website:google}. For the experiments with four, six and seven routes, the instances used will be of type ``n1-highcpu-2''. These instances contain, as mentioned in Section \vref{subsec:parameterSettings_setup}, two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 1.8 GB memory. For the experiment with eight routes an instance type ``n1-standard-2'' will be used, due to the increased memory usage. This instance contains two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 7.5 GB memory.
 
