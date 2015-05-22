@@ -3,20 +3,20 @@
 
 %---------------------- ACO VS SSO ---------------------
 
-Table \vref{table:performanceComparison_ACOSSOBEST} shows the average produced results, concerning the performance criteria, of the proposed algorithm and the plain ACO implementation. Representation of the best route set, having for routes, produced by SSO is seen in Table \vref{table:performanceComparison_bestRouteSet4}.  Representation of the best route set, having for routes, produced by ACO is found in \vref{table:performanceComparison_bestRouteSet4_ACO}. Best, worst, average, and median produced results in addition to the STD is presented in Table \vref{table:performanceComparison_ACOFull}.
+Table \vref{table:performanceComparison_ACOSSOBEST} presents the average produced results the proposed system (SSO) and the plain ACO implementation has produced. Representation of the best route set, having for routes, produced by SSO is seen in Fig. \vref{fig:bestRouteSet4}. Best, worst, average, and median produced results in addition to the standard deviation can be found in Appendix \ref{appendixC}, Table \vref{table:performanceComparison_ACOFull}.
 
     \begin{table}[H]
     \centering
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
+    \textbf{System} & \textbf{$d_0(\%)$} & \textbf{$d_1(\%)$} & \textbf{$d_2(\%)$} & \textbf{$d_{unsat}(\%)$} & \textbf{$ATT$} \\
     \hline
-    ACO Average & 81.92 & 16.13 & 1.86 & 0.09 & 10.43\\
+    ACO avg & 81.92 & 16.13 & 1.86 & 0.09 & 10.43\\
     \hline
-    SSO Average & 85.21 & 13.49 & 1.30 & 0.00 & 10.27\\
+    SSO avg & 85.21 & 13.49 & 1.30 & 0.00 & 10.27\\
     \hline
     \end{tabular}
-    \caption {Comparing the best route set of a plain ACO implementation (ACO) and the proposed algorithm (SSO), having four routes.}
+    \caption {The best route set, having four routes, constructed by the generic ACO implementation and the proposed system.}
     % 50 runs
     \label{table:performanceComparison_ACOSSOBEST}
     \end{table}
@@ -28,18 +28,18 @@ Table \vref{table:performanceComparison_ACOSSOBEST} shows the average produced r
     \begin{center}
     \includegraphics[width=4in]{assets/mandlnetwork_4routes.png}
     \end{center}
-    \caption{Illustration of the best route set, having four routes, constructed by the proposed algorithm (Mandl's transit network as a graph)}
+    \caption{Illustration of the best route set, having four routes, constructed by the proposed system on Mandl's Network}
     \label{fig:bestRouteSet4} 
 \end{figure}
 
-Table \vref{table:performanceComparison_4} presents the results produced by the proposed algorithm (SSO), having four routes, and results from route sets constructed by other approaches.
+Table \vref{table:performanceComparison_4} presents the results produced by the proposed system, having four routes, and results from route sets constructed by other approaches. The table is sorted in ascending order with respect to the $ATT$ value.
 
 \begin{table}[H]
 	\centering
     \hspace*{-1.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
  	\hline
- 	Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
+ 	\textbf{System} & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
  	\hline
     \citet{nikolic14} avg & 95.05 & 4.95 & 0.00 & 0.00 & -$^1$ \\
     \citet{kechagiopoulos14} best & 91.84 & 7.64 & 0.51 & 0.00 & 10.64 \\
@@ -48,8 +48,8 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \citet{chew12} best & 93.71 & 6.29 & 0.00 & 0.00 & 10.82 \\
     \citet{chew12} avg & 92.88 & 6.91 & 0.20 & 0.00 & 11.16 \\
     \citet{fan10} best & 93.26 & 6.74 & 0.00 & 0.00 & 11.37 \\
-    \citet{fan10} SA avg & 92.48 & 7.52 & 0.00 & 0.00 & 11.55 \\
-    \citet{fan10} HC avg & 91.83 & 8.17 & 0.00 & 0.00 & 11.69 \\
+    \citet{fan10} SA$^2$ avg & 92.48 & 7.52 & 0.00 & 0.00 & 11.55 \\
+    \citet{fan10} HC$^3$ avg & 91.83 & 8.17 & 0.00 & 0.00 & 11.69 \\
     \citet{chakroborty02} & 86.86 & 12.00 & 1.14 & 0.00 & 11.90 \\
     \citet{kidwai98} & 72.95 & 26.91 & 0.13 & 0.00 & 12.72 \\
     \citet{mandl79} & 69.94 & 29.93 & 0.13 & 0.00 & 12.90 \\
@@ -62,21 +62,25 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     %SSO Confidence interval$^b$ & ~ & ~ & ~ & ~ & ~ \\
     \hline
     \end{tabular}
-    \caption {Comparing the best route set, having four routes, produced by the proposed algorithm(SSO) with route sets constructed by other approaches.}
+    \caption {Comparing the best route set, having four routes, produced by the proposed system, with route sets constructed by other approaches.}
     \begin{itemize}[noitemsep]
     %\item[$^a$:] mintues per user
     \item[$^1$:] ATT not supplied
+    \item[$^2$:] Simulated Annealing based system
+    \item[$^3$:] Hill Climbing based system
     %\item[$^b$:] Confidence Interval with a confidence level of 95\%
     \end{itemize}
     \label{table:performanceComparison_4}
 \end{table}
 
 %-------------------- 6 route sets ---------------------
+Table \vref{table:performanceComparison_4} presents the results produced by the proposed system, having six routes, and results from route sets constructed by other approaches. The table is sorted in ascending order with respect to the $ATT$ value.
+
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=4in]{assets/mandlnetwork_6routes.png}
     \end{center}
-    \caption{Illustration of the best route set, having six routes, constructed by the proposed algorithm (Mandl's transit network as a graph)}
+    \caption{Illustration of the best route set, having six routes, constructed by the proposed system on Mandl's Network}
     \label{fig:bestRouteSet6} 
 \end{figure}
 
@@ -85,7 +89,7 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \hspace*{-1.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
+    \textbf{System} & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
     \citet{nikolic14} & 94.34 & 5.65 & 0.00 & 0.00 & - \\
     \citet{kechagiopoulos14} best & 96.21 & 3.47 & 0.32 & 0.00 & 10.23 \\
@@ -107,16 +111,18 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     Standard Deviation & 2.74 & 2.78 & 0.63 & - & 0.14\\
     \hline
     \end{tabular}
-    \caption {Comparing the best route set, having six routes, produced by the proposed algorithm with route sets constructed by other approaches.}
+    \caption {Comparing the best route set, having six routes, produced by the proposed system with route sets constructed by other approaches.}
     \label{table:performanceComparison_6}
 \end{table}
 
 %-------------------- 7 route sets ---------------------
+Table \vref{table:performanceComparison_4} presents the results produced by the proposed system, having seven routes, and results from route sets constructed by other approaches. The table is sorted in ascending order with respect to the $ATT$ value.
+
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=4in]{assets/mandlnetwork_7routes.png}
     \end{center}
-    \caption{Illustration of the best route set, having seven routes, constructed by the proposed algorithm (Mandl's transit network as a graph)}
+    \caption{Illustration of the best route set, having seven routes, constructed by the proposed system on Mandl's Network}
     \label{fig:bestRouteSet7} 
 \end{figure}
 
@@ -125,7 +131,7 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \hspace*{-1.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
+    \textbf{System} & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
     \citet{nikolic14} & 94.41 & 5.59 & 0.00 & 0.00 & - \\
     \citet{chakroborty02} & 89.15 & 10.85 & 0.00 & 0.00 & 10.15 \\
@@ -147,15 +153,17 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     Standard Deviation & 2.29 & 2.32 & 0.42 & - & 0.08\\
     \hline
     \end{tabular}
-    \caption {Comparing the best route set, having seven routes, produced by the proposed algorithm with route sets constructed by other approaches.}
+    \caption {Comparing the best route set, having seven routes, produced by the proposed system with route sets constructed by other approaches.}
     \label{table:performanceComparison_7}
 \end{table}
 %-------------------- 8 route sets ---------------------
+Table \vref{table:performanceComparison_4} presents the results produced by the proposed system, having eight routes, and results from route sets constructed by other approaches. The table is sorted in ascending order with respect to the $ATT$ value.
+
 \begin{figure}[H]
     \begin{center}
     \includegraphics[width=4in]{assets/mandlnetwork_8routes.png}
     \end{center}
-    \caption{Illustration of the best route set, having eight routes, constructed by the proposed algorithm}
+    \caption{Illustration of the best route set, having eight routes, constructed by the proposed system}
     \label{fig:bestRouteSet8} 
 \end{figure}
 
@@ -164,7 +172,7 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     \hspace*{-1.0cm}
     \begin{tabular}{|l||l|l|l|l|l|}
     \hline
-    Algorithm & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
+    \textbf{System} & $d_0(\%)$ & $d_1(\%)$ & $d_2(\%)$ & $d_{unsat}(\%)$ & $ATT$ \\
     \hline
     \citet{nikolic14} & 96.40 & 3.60 & 0.00 & 0.00 & - \\
     \citet{kechagiopoulos14} best & 97.75 & 2.25 & 0.00 & 0.00 & 10.13 \\
@@ -186,7 +194,7 @@ Table \vref{table:performanceComparison_4} presents the results produced by the 
     Standard Deviation & 2.24 & 2.14 & 0.68 & - & 0.07\\
     \hline
     \end{tabular}
-    \caption {Comparing the best route set, having eight routes, produced by the proposed algorithm with route sets constructed by other approaches.}
+    \caption {Comparing the best route set, having eight routes, produced by the proposed system with route sets constructed by other approaches.}
     \label{table:performanceComparison_8}
     \end{table}
 
