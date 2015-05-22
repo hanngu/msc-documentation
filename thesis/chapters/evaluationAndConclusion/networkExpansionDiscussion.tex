@@ -2,38 +2,40 @@
 \label{subsec:networkExpansion}
 
 %skrive litt bedre
-The results produced by the proposed system on instances provided by \citet{mumford13}, is presented in  Table \vref{table:mumford0_and1_results}. As one can see, the value of parameter $i$ is sat to 50 when testing instance Mumford0 and Mumford1. While testing Mumford0 and Mumford1 with the original value for $i$, the proposed system did not manage to produce any results. The reason for this is due to the fact that the number of generated RelationshipTypes exceeds the limit of RelationshipTypes sat by Neo4j, which is $2^{16} = 65 536$ RelationshipTypes. All of the Mumford instances have an increased number of routes in the route sets ($NRS$) compared to route set sizes tested on the Mandl Network. As mentioned in Section \vref{subsec:networkGeneration}, to distinct the routes from each other, each route in each ant's route set in each iteration has an unique RelationshipType. The number of RelationshipTypes ($NRT$) is therefore dependent on both the number ants, the number of iterations and the $NRS$. As demonstrated in Table \vref{tabel:numberOfRelationshipTypes}, neither of the Mumford-instances is within this limit with the original value for $i$. By reducing $i$ to 50, both Mumford0 and Mumford1 was within the limit. As demonstrated in Section \vref{subsec:parameterSettings_results}, the higher the $i$, the better the result. Due to the reduction of $i$, the results of the experiments run on the Mumford0 and Mumford1 instances have suffered. To be able to run experiments on Mumford2 or Mumford3, either $s$ or $i$ would have to be further reduced. Because further reduction of both these parameters will lead to a further deterioration of the results, this was not carried out.
+The results produced by the proposed system on the networks provided by \citet{mumford13}, is presented in  Table \vref{table:mumford0_and1_results}. As one can see, the value of parameter $i$ is sat to 50 when testing the networks Mumford0 and Mumford1. While testing Mumford0 and Mumford1 with the original value for $i$, the proposed system did not manage to produce any results. The reason for this is due to the fact that the number of generated RelationshipTypes exceeds the limit of RelationshipTypes sat by Neo4j, which is $2^{16} = 65 536$ RelationshipTypes. All of the Mumford networks have an increased number of routes in the route sets ($NRS$) compared to route set sizes tested on the Mandl Network. As mentioned in Section \vref{subsec:networkGeneration}, to distinct the routes from each other, each route in each ant's route set in each iteration has an unique RelationshipType. The number of RelationshipTypes ($NRT$) is therefore dependent on both the number ants, the number of iterations and the $NRS$. As demonstrated in Table \vref{tabel:numberOfRelationshipTypes}, neither of the Mumford-networks is within this limit with the original value for $i$. By reducing $i$ to 50, both Mumford0 and Mumford1 was within the limit. As demonstrated in Section \vref{subsec:parameterSettings_results}, the higher the $i$, the better the result. Due to the reduction of $i$, the results of the experiments run on the Mumford0 and Mumford1 networks have suffered. To be able to run experiments on Mumford2 or Mumford3, either $s$ or $i$ would have to be further reduced. Because further reduction of both these parameters will lead to a further deterioration of the results, this was not carried out.
 
 As explained in Section \vref{subsec:problemStatement}, we wanted to investigate how the usage of Neo4j would affect our proposed solution. In order to accomplish this, we included multiple artifacts from Neo4j.  The built-in Dijkstra method in Neo4j was incorporated in the proposed system. This built-in method is able to find all paths in addition to the shortest possible path between two nodes. The method also includes the possibility of finding the shortest path within one or more RelationshipTypes. This function makes it possible to evaluate unique route sets created by unique ants. By adopting this built-in method, the development time of the proposed solution was reduced. It it also sufficient to apply this method on small networks, like the Mandl Network. However, when the network size increase, an inappropriate amount of RelationshipTypes are required to be generated.
 \newline
 
-Comparing the results produced by the proposed system on Mumford0 and Mumford1 to the results produced on the Mandl network is found in Table \vref{table:performanceComparison_routesets}. As one can see, the average number of direct travelers ($d_0$) decreases, and the number of unsatisfied passengers ($d_{unsat}$) increases. First of all is this due to the reduction of $i$. The Mumford instances, which are twice or more the size of the Mandl Network, will be explored by 3750 less ants in total. This results in a decreased probability of finding the best route sets. 
+Comparing the results produced by the proposed system on the Mumford0 and Mumford1 networks to the results produced on the Mandl Network, one can see that the average number of direct travelers ($d_0$) decreases, and the number of unsatisfied passengers ($d_{unsat}$) increases. 
 
-A second reason for this is, as mentioned in Section \vref{subsec:scalabilityExperiments_setup}, that Method 1 is employed when selecting routes, whereas Method 2 is used the experiments run on the Mandl Network. The average travel time will thus increase, due to the fact that transfer penalties are added to the total travel time afterwards.  
+First of all, this is due to the reduction of the value of $i$. The Mumford networks, which are twice or more the size than the Mandl Network, will be explored by 3750 less ants in total. This results in a decreased probability of finding the best route sets. 
+
+A second reason is, as mentioned in Section \vref{subsec:scalabilityExperiments_setup}, because Method 1 is employed when selecting routes, whereas Method 2 is used in the experiments run on the Mandl Network. In Method 1, the transfer penalties are not considered when selecting a path, which will increase the probability of selecting paths with many transfers. This again leads to an increased number of unsatisfied passengers, and a decreased number of direct travelers compared to using Method 2. The average travel time will also increase, due to the fact that transfer penalties are added to the total travel time afterwards.  
 
 %Another reason is that when testing the Mumford Networks, 50 iterations is used compared to 125 when testing the Mandl Network. This results in that the Mumford networks, which are in fact twice or more the size of the Mandl network, are explored by 3750 less ants in total and thus have a smaller probability of finding the best route sets. The reason for this is that each route of each ant in a given iteration has its own relationship type, and the number of routes in a route set ($NRS$) is larger in the Mumford Networks. Due to the fact that Neo4j has a limit of $2^{16} \approx 66 000$ relationship types, as demonstrated in \vref{tabel:numberOfRelationshipTypes}, the number of relationship types, $NRT$, would exceed Neo4j's capacity. 
 
 \begin{table}[H]
     \centering
-    \%hspace*{-1.0cm}
+    %hspace*{-1.0cm}
     \begin{tabular}{|c|c|}
         \hline
         \textbf{$NRS$} & \textbf{$NRT^1$}\\
         \hline
         4 & 25000\\
-        \hline
+        
         6 & 37500\\
-        \hline
+       
         7 & 43750\\
-        \hline
+        
         8 & 50000\\
-        \hline
+       
         12 & 75000\\
-        \hline
+        
         15 & 93750\\
-        \hline
+        
         56 & 350000\\
-        \hline
+        
         60 & 375000\\
         \hline
     \end{tabular}
@@ -44,35 +46,31 @@ A second reason for this is, as mentioned in Section \vref{subsec:scalabilityExp
     \label{tabel:numberOfRelationshipTypes}
 \end{table} 
 
-Finally, when calculating the $TOTFIT$ value, as described in Section \vref{sec:algoEvaluation}, the $F_1(r)$ is emphasized more than both $F_2(r)$ and $F_3(r)$. As described in Section \vref{subsec:performanceComparisonDiscussion}, $F_1(r)$ is already favored when running the tests on the Mandl Network, which resulted in the best average travel time over all the published systems compared to. When the networks becomes significantly enlarged, such as the instances provided by \citet{mumford13}, the value of $F_1(r)$ overwhelms the values $F_2(r)$ and $F_3(r)$. The effect of $F_2(r)$ and $F_3(r)$ will thus boarder against zero. In Table \ref{tabel:averageTotfitAllTestCases} the results of the average $TOTFIT$ is shown for each of the test cases. As one can observe, the average $TOTFIT$ is much larger for the Mumford0 and Mumford1 cases compared to the Mandl-cases. The value of $F_2(r)$ is, at stated in Section \vref{sec:totfit}, between $-300$ and $0$, and the value of $F_3(r)$ is between $0$ and $1000$. The value of $F_1(r)$ is dependent on network size and the total demand, and as Table \vref{tabel:averageTotfitAllTestCases} demonstrated, dividing $F_1(r)$ on the $nodeSize^2$ is not sufficient for these network sizes. %$F_1(r)$ increase too much compared to what $F_2(r)$ and $F_3(r)$ does. 
+Finally, when calculating the $TOTFIT$ value, as described in Section \vref{sec:algoEvaluation}, the $F_1(r)$ is emphasized more than both $F_2(r)$ and $F_3(r)$. As described in Section \vref{subsec:performanceComparisonDiscussion}, $F_1(r)$ is already favored when running the tests on the Mandl Network, which resulted in the best average travel time over all the published systems compared to. When the networks becomes significantly enlarged, such as the networks provided by \citet{mumford13}, the value of $F_1(r)$ overwhelms the values $F_2(r)$ and $F_3(r)$. The effect of $F_2(r)$ and $F_3(r)$ will thus boarder against zero. In Table \ref{tabel:averageTotfitAllTestCases} the results of the average $TOTFIT$ is shown for each of the test cases. As one can observe, the average $TOTFIT$ is much larger for the Mumford0 and Mumford1 cases compared to the Mandl cases. The value of $F_2(r)$ is, as stated in Section \vref{sec:totfit}, between $-300$ and $0$, and the value of $F_3(r)$ is between $0$ and $1000$. The value of $F_1(r)$ is dependent on network size and the total demand, and as Table \vref{tabel:averageTotfitAllTestCases} demonstrated, dividing $F_1(r)$ on the $nodeSize^2$ is not sufficient for these network sizes. %$F_1(r)$ increase too much compared to what $F_2(r)$ and $F_3(r)$ does. 
 
-%Conclusion stuff
-As we see, the proposed system and experiments is optimized for the Mandl Network, an in order to use the system on larger networks 
-
-
-and this network is used for preliminary testing. The model, including how $F_1(r)$ is calculated, is not changed when testing on larger networks in order for us to establish the strengths and weaknesses of our method. 
+ 
 
 \begin{table}[H]
     \centering
     \hspace*{-1.0cm}
     \begin{tabular}{|c|c|c|}
         \hline
-        \textbf{Number} & \textbf{Instance} & \textbf{Average $TOTFIT$}\\
+        \textbf{Number} & \textbf{Network} & \textbf{Average $TOTFIT$}\\
         \hline
         1 & Mandl (4 routes) & 98.0\\
-        \hline
+        
         2 & Mandl (6 routes) & 89.5\\
-        \hline
+        
         3 & Mandl (7 routes) & 87.1\\
-        \hline
+        
         4 & Mandl (8 routes) & 83.4\\
-        \hline
+        
         5 & Mumford0 & 3886.4\\
-        \hline
+        
         6 & Mumford1 & 14459.8\\
         \hline
     \end{tabular}
-    \caption{Average Total Fitness for All Tests Cases. 1-4 are the results of 50 runs, 5-6 are the results of 10 runs}
+    \caption{Average Total fitness for all tests cases. 1-4 are the results of 50 runs, 5-6 are the results of 10 runs.}
     \label{tabel:averageTotfitAllTestCases}
 \end{table}
  

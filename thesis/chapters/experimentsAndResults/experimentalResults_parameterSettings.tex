@@ -31,7 +31,7 @@ The computed Confidence Interval does not become remarkably better after running
 \newline
 %Because our confidence coefficient is sat to correspond to 95\%, we are able to say that we are 95\% confident that the true population parameter is between the lower and upper calculated values.
 
-As one can observe in Table \vref{table:pm1}, increasing parameters $s$ and $i$ both decrease the $TOTFIT$ value. One aspect not considered in the initial parameter setting experiment is that the size of $s$ and $i$ affects each other. A colony of 50 ants with 125 iterations produce close to similar results to 125 ants with 50 iterations, due to the fact that the total number of ants traversing the network will be approximately the same. The most optimal would therefore be to observe the results when increasing the value of these parameters together. However, an increase in the swarm size or number of iterations both clearly affect the computational cost of the proposed system. The average runtime of each run, with candidate values of 50 and 125, is presented in Table \vref{table:svsiruntime}. As one can see, there is a difference in the running time with a colony size of 125 versus 125 iterations. Because the proposed system is going to be run an excessive amount of times when testing performance, increasing both of these parameter values will result in an enlarged runtime. As seen in Table \ref{table:pm1}, the value of 125 iterations produce better results than a colony size of 125. Due to the runtime difference and the produced results, the selected value of parameter $s$ is sat to \textit{50} and $i$ is sat to \textit{125}.
+As one can observe in Table \vref{table:pm1}, increasing parameters $s$ and $i$ both decrease the $TOTFIT$ value. One aspect not considered in the initial parameter setting experiment is that the size of $s$ and $i$ affects each other. A colony of 50 ants with 125 iterations produce close to similar results to 125 ants with 50 iterations, due to the fact that the total number of ants traversing the network will be approximately the same. The most optimal would therefore be to observe the results when increasing the value of these parameters together. However, an increase in the swarm size or number of iterations both clearly affect the computational cost of the proposed system. The average run time of each run, with candidate values of 50 and 125, is presented in Table \vref{table:svsiruntime}. As one can see, there is a difference in the running time with a colony size of 125 versus 125 iterations. Because the proposed system is going to be run an excessive amount of times when testing performance, increasing both of these parameter values will result in an enlarged run time. As seen in Table \ref{table:pm1}, the value of 125 iterations produce better results than a colony size of 125. Due to the run time difference and the produced results, the selected value of parameter $s$ is sat to \textit{50} and $i$ is sat to \textit{125}.
 
 \begin{table}[H]
     \centering
@@ -44,7 +44,7 @@ As one can observe in Table \vref{table:pm1}, increasing parameters $s$ and $i$ 
     \hline
     \end{tabular}
     \caption {Running time in seconds for different candidate values of parameters $s$ and $i$}
-    \label{table:svsiruntime}
+    \label{table:svsirun time}
     \end{table}
 
 %It is worth mentioning that values below 50 of parameter $s$, sometimes produce ant colonies were no ants satisfies the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \ref{sec:algoConstraints}. When $s$ is 10, this occurs on average 14.5\% of the iterations. If no ant satisfy the initial constraint, no ant is either evaluated, and their results will be invalid. 
@@ -53,10 +53,10 @@ As one can observe in Table \vref{table:pm1}, increasing parameters $s$ and $i$ 
 
 %\begin{figure}[H]
 %\begin{center}
- % \includegraphics[width=5in]{assets/iterations_swarmsize_runtime.png}
+ % \includegraphics[width=5in]{assets/iterations_swarmsize_run time.png}
   %\end{center}
-  %\caption{Comparing Runtime when increasing the Swarm Size and the Number of Iterations}
-  %\label{fig:svsiruntime} 
+  %\caption{Comparing run time when increasing the Swarm Size and the Number of Iterations}
+  %\label{fig:svsirun time} 
 %\end{figure}
 
 Observing the produced results of parameter $E$ in Table \vref{table:pm1}, evaporating 25\% of the pheromone each iteration gave the best average total fitness, closely followed by 50\%. The fact that a noticeable amount of pheromone evaporates each iteration is beneficial. However, removing over 90\% at each iteration is an excessive amount. The worst results were achieved when $E$ is 10\%. Evaporating only a small percentage of the pheromone may result in ants getting stuck at local optima, due to the fact that routes found in the early iterations will contain significantly more pheromone than newly discovered routes. Evaporation is important when it ensures that the pheromone level on routes explored in early iterations, but later discarded in favor of others, decreases. By stating $E$ as a percentage an equivalent amount of pheromone is removed from each edge, independent of whether the pheromone level is big or small. 

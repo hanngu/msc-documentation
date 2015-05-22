@@ -2,7 +2,7 @@
 
 \subsection{Experimental plan}
 %The programs are rarely informative if they are designed to run on a single example - Therefore we will test system on other, larger, networks, to check whether it is general and not just optimized for Mandl. (Mumford)
-To determine \vref{itm:RQ3}, the proposed system will be tested on larger networks than the Mandl Network. This research question is, as mentioned, concerned about whether or not it is possible to apply the proposed system to optimize the transit networks in real urban cities. The majority of real cities (often) consist of larger transit networks than the relatively small Mandl Network. As an example, Mandl's transit network contains 15 nodes (bus stops), whereas AtB's transit network consist of 1289 bus stops (informed by Email correspondence with AtB). The network expansion experiments will establish whether the proposed system supports larger network as input, and if so, how these networks affects the runtime and the result quality.
+To determine \vref{itm:RQ3}, the proposed system will be tested on larger networks than the Mandl Network. This research question is, as mentioned, concerned about whether or not it is possible to apply the proposed system to optimize the transit networks in real urban cities. The majority of real cities (often) consist of larger transit networks than the relatively small Mandl Network. As an example, Mandl's transit network contains 15 nodes (bus stops), whereas AtB's transit network consist of 1289 bus stops (informed by Email correspondence with AtB). The network expansion experiments will establish whether the proposed system supports larger network as input, and if so, how these networks affects the run time and the result quality.
 
 %The exact shape of any normal curve is totally determined by its mean and standard deviation. %Therefore, if we know the mean and standard deviation of a statistic, we can find the mean and standard deviation of the sampling distribution of the statistic
 
@@ -10,13 +10,13 @@ To determine \vref{itm:RQ3}, the proposed system will be tested on larger networ
 \subsection{Experimental setup}
 \label{subsec:scalabilityExperiments_setup}
 
-In order to test whether the proposed system supports larger networks, the generated instances added as supplementary material to \citet{mumford13} will be used. Coordinates for each node, travel time between connected nodes, and demand values between each two nodes are all provided in this supplementary material. In addition is the maximum number of nodes ($Max(n)$), minimum number of nodes ($Min(n)$), along with the size of the route set ($RS_{size}$) all specified. The experiments will be run with the same parameter values as the selected values described in Section \vref{sec:parametersettings}.
+In order to test whether the proposed system supports larger networks, the generated networks added as supplementary material to \citet{mumford13} will be used. Coordinates for each node, travel time between connected nodes, and demand values between each two nodes are all provided in this supplementary material. In addition is the maximum number of nodes ($Max(n)$), minimum number of nodes ($Min(n)$), along with the size of the route set ($RS_{size}$) all specified. The experiments will be run with the same parameter values as the selected values described in Section \vref{sec:parametersettings}.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|l|}
     	\hline
-    	\textbf{Instance} & \textbf{Nodes}&\textbf{Edges} & $Min(n)$ & $Max(n)$ & $RS_{size}$\\
+    	\textbf{Network} & \textbf{Nodes}&\textbf{Edges} & $Min(n)$ & $Max(n)$ & $RS_{size}$\\
     	\hline
    	    Mumford0 & 30&90 & 2&15 & 12 \\
    	    Mumford1 & 70&210 & 10&30 & 15 \\
@@ -24,24 +24,24 @@ In order to test whether the proposed system supports larger networks, the gener
    	    Mumford3 & 127&425 & 12&25 & 60 \\
    	    \hline
     \end{tabular}
-    \caption{Instances with properties from the supplementary material of \citet{mumford13}.}
+    \caption{networks with properties from the supplementary material of \citet{mumford13}.}
     \label{table:dataSet_mumford}
 \end{table}
 
-The instances will use \textit{Method 1} to generate routes, and not \textit{Method 2}, which is used while testing on Mandl's network. As mentioned in Section \vref{sec:f1}, Method 1 selects the path with the shortest traveling time, not considering any transitions, and the transfer penalties are added after the route is selected. In Method 2, the transitions are considered, and the path with the shortest traveling time, including transfer penalties, is chosen. As Table \vref{table:results_mumford0RunTime} shows, Method 2 performs better. However, these experiments will be run in order to determine \textit{if} the proposed system supports larger input, and due to the excessive difference in runtime, Method 1 is chosen for this experiment. The proposed system will be run 10 times, and the produced results concerning the performance criteria must be considered as indicative. 
+\textit{Method 1} will be used to generate routes on these networks, and not \textit{Method 2}, which is used when testing on Mandl's network. As mentioned in Section \vref{sec:f1}, Method 1 selects the path with the shortest traveling time, not considering any transitions, and the transfer penalties are added after the route is selected. In Method 2, the transitions are considered, and the path with the shortest traveling time, including transfer penalties, is chosen. As Table \vref{table:results_mumford0runtime} shows, Method 2 performs better. However, these experiments will be run in order to determine \textit{if} the proposed system supports larger input, and due to the excessive difference in run time, Method 1 is chosen for this experiment. The proposed system will be run 10 times, and the produced results concerning the performance criteria must be considered as indicative. 
 
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|l|l|l|l|l|l|}
         \hline
-        \textbf{Method} & $d_0$ & $d_1$ & $d_2$ & $d_{unsat}$ & $ATT$ & \textbf{Runtime} \\
+        \textbf{Method} & $d_0$ & $d_1$ & $d_2$ & $d_{unsat}$ & $ATT$ & \textbf{Run time} \\
         \hline
         1 & 24.16 & 37.79 & 28.53 & 9.52 & 13.36 & 2334 \\
         2 & 40.29 & 46.38 & 12.96 & 0.37 & 13.17 & 37161 \\
         \hline
     \end{tabular}
-    \caption{Comparing the runtime in seconds for Method 1 and Method 2 on the Mumford0 instance.}
-    \label{table:results_mumford0RunTime}
+    \caption{Comparing the run time in seconds for Method 1 and Method 2 on the Mumford0 network.}
+    \label{table:results_mumford0runtime}
 \end{table}
 
 The experiments will be run Ubuntu instances provided by the Google Cloud Platform\citep{website:google}. The instances used will be of type ``n1-standard-2'', which contains two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 7.5 GB memory.
