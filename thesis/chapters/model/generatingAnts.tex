@@ -1,19 +1,18 @@
 \section{Generating Combined Swarm Colony}
 \label{sec:algoGeneratingSuperSwarm}
-After the initialization of the network, a Combined Swarm colony is generated. Because the basis of the algorithm is ACO, will the individuals of the Combined Swarm colony be referred to as ants. A colony consists of three types of individuals:
+After the initialization of the network, a Combined Swarm Colony is generated. Because the basis of the system is ACO, will the individuals of the Combined Swarm Colony be referred to as ants. A colony consists of three types of individuals:
+
 \begin{itemize}
-\item \textit{Normal Ants} - these ants chooses next nodes based on probability of each of the possible edges. 
+\item \textit{Normal Ants} - these ants chooses next nodes based on a probability of each of the possible edges. 
 \item \textit{Following Ants} - a number $n$ of the colony becomes Following Ants, $FA$. $n$ is determined by the $AF$ percentage of ants to be followed from the previous iteration. A Following Ant follows one of the best ants, $ba_i$, from the previous iteration unconditionally by choosing exactly the same path as $ba_i$ did.
 \item \textit{Crazy Ants} - by a given probability a normal ant is declared ``crazy''. A crazy ant, $CA$, chooses next node at random, given the possible edges connected to the current node.  
 \end{itemize}
-The number of Following Ants is equivalent to the number of ants to be followed, $NAF$, described in Section \vref{sec:selctingAntsToBeFollowed}. The Following Ants will boost the edges walked by the $NAF$ best ants in the previous iteration, simply by walking the same path and leaving additional pheromone. To test if further boosting is beneficial will an additional pheromone constant, $p_b$, will be added to the edges walked by the Following Ants. In the very first iteration there exists no ants to be followed, and thus will their neither be any Following Ants. 
-\newline
-\newline
+The number of Following Ants is equivalent to the number of ants to be followed, $NAF$, described in Section \vref{sec:selctingAntsToBeFollowed}. The Following Ants will add additional pheromone to the edges walked by the $NAF$ best ants in the previous iteration, simply by walking the same path. To test if further boosting is beneficial will an additional pheromone constant, $p_b$, will be added to the edges walked by the Following Ants. In the very first iteration there exists no ants to be followed, and thus will their neither be any Following Ants. 
+
 The probability that a generated ant is declared ``crazy'' is partly determined by a predefined value, $CA$, achieved by the parameter testing, and partly determined by the inertia weight, $IW$. This probability, $p$, is calculated as follows:
 $$p = CA*IW$$
 The $IW$ decreases at each iteration, resulting in a smaller probability for the ants to be declared ``crazy''. The rate in which the inertia weight decreases is dependent on the number of iterations, $i$. At each iteration $IW$ is updated as follows:
 $$IW = IW - \frac{IW}{i}$$
 It might be worth mentioning that Following Ants can not be declared crazy. 
-\newline
-\newline
+
 If an ant is neither a Following Ant or a Crazy Ant, it is a Normal Ant and chooses edges based on the edge value $ev$ as described in Section \vref{sec:selectingNextNode}.
