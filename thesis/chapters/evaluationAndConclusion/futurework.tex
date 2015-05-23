@@ -2,7 +2,7 @@
 
 \subsection*{Use Neo4j differently or remove from implementation}
 The proposed system does not transfer well to an increased network size. Supporting larger networks is vital, because most real world transit networks are larger than the Mandl Network used as input in this thesis. A reason for the insufficient performance is that the current solution with the graph database Neo4j does not support the excessive amount of RelationshipTypes required when the network size increase. An implementation where the generated amount of RelationshipTypes were significantly smaller would have been an interesting approach. Neo4j's built-in method is used for the traversal of graphs and is dependent on RelationshipTypes to distinguish the generated routes. Adding the ``properties'' function to edges instead of RelationshipTypes would be one approach to change the usage of Neo4j. However, an implementation of Dijkstra's algorithm from scratch will be required.  
-\newline
+
 
 The run time of the proposed system is also relatively large. The run time also increases fast if either the size of the network, number of iterations, the size of the colony or number of routes in a route set increases. We believe the use of Neo4j is at least partially responsible for this increase in run time. An implementation of the current system without Neo4j would, therefore, be interesting to investigate an eventual change in run time.  
 %An implementation without Neo4j would also help to further address the potential advantages/disadvantages of Neo4j because one would have a basis for comparison. \emph{\color{blue} Vi burde si noe om minnebruken i discussion. Jeg tror at løsningen i dag er veldig minneeffektiv.}
