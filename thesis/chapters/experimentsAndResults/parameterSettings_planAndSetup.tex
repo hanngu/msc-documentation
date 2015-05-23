@@ -7,7 +7,7 @@ In addition, studying the effect of the additional parameters inspired by partic
 
 \subsection{Experimental setup}
 \label{subsec:parameterSettings_setup}
-The parameters used in the proposed system (SSO) are described in Section \vref{sec:algoInitialization}, and the parameters to be tested are presented in Table \ref{table:parameters}. As one can see, each parameter is assigned a default value to be held constant while the other parameters are tested. Each parameter are run with minimum \textit{four} different candidate values, presented in Table \vref{table:parameterSettings2}. The selected value will be the one that produce the lowest total fitness ($TOTFIT$). As stated in Section \vref{sec:algoEvaluation}, the lower the $TOTFIT$, the better the solution. 
+The parameters used in the proposed system (CSS) are described in Section \vref{sec:algoInitialization}, and the parameters to be tested are presented in Table \ref{table:parameters}. As one can see, each parameter is assigned a default value to be held constant while the other parameters are tested. Each parameter are run with minimum \textit{four} different candidate values, presented in Table \vref{table:parameterSettings2}. The selected value will be the one that produce the lowest total fitness ($TOTFIT$). As stated in Section \vref{sec:algoEvaluation}, the lower the $TOTFIT$, the better the solution. 
 
 The default- and candidate values for parameters $s$ and $i$ are both inspired by the corresponding values described in related research\citep{salehi-nezhad07, poorzahedy11, sedighpour14, kechagiopoulos14}. The parameters $E$, $AF$, and $CA$ are considered unique for the proposed algorithm, and their default values are chosen based on preliminary testing not included in this thesis. Even though the classic ACO includes an evaporation parameter, $E$ is unique for this research due to the fact that $E$ is stated as a percentage and not as a constant. Because $E$, $AF$, and $CA$ all are stated as percentages, they will be tested with values in the range from 0\% to 100\%. %To determine the effect of the additional BCO and PSO features by removing them from the implementation, will parameters $AF$ and $CA$ also be tested with value 0 and 1.0.
 
@@ -22,7 +22,7 @@ The value of the inertia weight, $IW$, will not be tested with different values 
     	\hline
     	\textbf{Parameter} & \textbf{Description} & \textbf{Default Value}\\
     	\hline
-    	$s$ & The SuperSwarm Colony Size & 50\\
+    	$s$ & The Colony Size & 50\\
         
     	$i$ & Number of iterations (the stop criteria) & 50\\
         

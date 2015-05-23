@@ -1,6 +1,6 @@
-\section{Generating SuperSwarm Colony}
+\section{Generating Combined Swarm Colony}
 \label{sec:algoGeneratingSuperSwarm}
-After the initialization of the network, a SuperSwarm colony is generated. Because the basis of the algorithm is ACO, will the individuals of the SuperSwarm colony be referred to as ants. A colony consists of three types of individuals:
+After the initialization of the network, a Combined Swarm colony is generated. Because the basis of the algorithm is ACO, will the individuals of the Combined Swarm colony be referred to as ants. A colony consists of three types of individuals:
 \begin{itemize}
 \item \textit{Normal Ants} - these ants chooses next nodes based on probability of each of the possible edges. 
 \item \textit{Following Ants} - a number $n$ of the colony becomes Following Ants, $FA$. $n$ is determined by the $AF$ percentage of ants to be followed from the previous iteration. A Following Ant follows one of the best ants, $ba_i$, from the previous iteration unconditionally by choosing exactly the same path as $ba_i$ did.
