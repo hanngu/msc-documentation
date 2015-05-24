@@ -11,9 +11,9 @@
     %\hspace*{-0.5cm}
     \begin{tabular}{|l|l|l|c||c|c|c|c|}
     \hline
-    Parameter & $s$ & $i$ & $E$ & $AVG$ & $STD$ & BEST & WORST \\
+    Parameter & $s$ & $i$ & $E$ & $CI^1$ & $STD^2$ & BEST & WORST \\
     \hline
-    $s$ & \textbf{10$^1$} & 50 & 10\% & 117.244$^1$ $\pm$ 3.854 & 10.700 & 88.364 & 137.997\\
+    $s$ & \textbf{10$^3$} & 50 & 10\% & 117.244$^1$ $\pm$ 3.854 & 10.700 & 88.364 & 137.997\\
     ~ & \textbf{50} & 50 & 10\% & 105.424 $\pm$ 2.369 & 6.619 & 90.076 & 114.843\\
     ~ & \textbf{100} & 50 & 10\% & 99.890 $\pm$ 2.193 & 6.128 & 87.178 & 108.688\\
     ~ & \textbf{125} & 50 & 10\% & \textbf{97.994 $\pm$ 2.267} & \textbf{6.334} & \textbf{80.484} & \textbf{105.908}\\
@@ -34,12 +34,9 @@
     \caption {Steps with the corresponding results from the parameter settings experiment}
     \tiny
     \begin{itemize}[noitemsep]
-    \item[$TOTFIT$ :] Total Fitness function
-    \item[$AVG$ :] Average produced $TOTFIT$ with Confidence Interval (confidence level: 95\%)
-    \item[$BEST$ :] Best produced result
-    \item[$WORST$ :] Worst produced result
-    \item[$STD$:] Population Standard Deviation 
-    \item[$^1$:] On average 14.467\% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
+    \item[$^1$ :] Confidence Interval of Total Fitness (confidence level: 95\%)
+    \item[$^2$:] Population Standard Deviation 
+    \item[$^3$:] On average 14.467\% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
     \end{itemize}
     \label{table:pm1}
 \end{table}
@@ -50,7 +47,7 @@
     %\hspace*{-0.5cm}
     \begin{tabular}{|l|l|l|c||c|c|c|c|c|}
     \hline
-    Parameter & $CA$ & $AF$ & $p_b$ & $AVG$ & $STD$ &BEST & WORST \\
+    Parameter & $CA$ & $AF$ & $p_b$ & $CI^1$ & $STD^2$ &BEST & WORST \\
     \hline
     $CA$ & \textbf{0\%} & 10\% & 0.0 & 105.66 $\pm$ 1.917 & 6.915 & 89.463 & 118.669\\
     ~ & \textbf{5\%} & 10\% & 0.0 & 104.581 $\pm$ 1.576 & 5.686 & 93.975 & 119.024\\
@@ -82,11 +79,11 @@
     \caption {Steps with the corresponding results from the parameter settings experiments (parameter $CA$, $AF$ and $p_b$)}
     \tiny
     \begin{itemize}[noitemsep]
-    \item[$TOTFIT$ :] Total Fitness function
-    \item[$AVG$ :] Average produced $TOTFIT$ with Confidence Interval (confidence level: 95\%)
-    \item[$BEST$ :] Best produced result
-    \item[$WORST$ :] Worst produced result
-    \item[$STD$:] Population Standard Deviation 
+    %\item[$TOTFIT$ :] Total Fitness function
+    \item[$^1$ :] Confidence Interval of Total Fitness (confidence level: 95\%)
+    %\item[$BEST$ :] Best produced result
+    %\item[$WORST$ :] Worst produced result
+    \item[$^2$:] Population Standard Deviation 
     %\item[$^1$:] On average \% of the iterations of each run did not create any ants that satisfied the initial Constraint \ref{itm:criteriaConnectedGraph} described in Section \vref{sec:algoConstraints}.
     \end{itemize}
     \label{table:pm2}
@@ -99,35 +96,35 @@
 For the route set representation, a two dimensional array is used. In the route set representation presented in Table \vref{table:routeSetRepr}, Route 1 starts from node 14, continues to node 10, and so on. The maximal numbers of nodes in a route, $R_{max}$, is sat to 8. Route 3 and Route 4 consists of less than 8 nodes. This happens because the ant has reached a node were there are no edges to walk without violating Constraint \vref{itm:constraintCycles}.
 
 %Best Ants Route: {[14,13,11,10,8,6,15,7,][1,2,3,6,8,10,11,12,][14,10,8,6,4,5,2,3,][9,15,7,10,11,12,4,2,]}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|llllllll|}
-    \hline
-    Route 1: & 14 & 13 & 11 & 10 & 8 & 6 & 15 & 7 \\
-    Route 2: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 12 \\
-    Route 3: & 14 & 10 & 8 & 6 & 4 & 5 & 2 & 3 \\
-    Route 4: & 9 & 15 & 7 & 10 & 11 & 12 & 4 & 2 \\
-    \hline
-    \end{tabular}
-    \caption {Representation of the best route set, having four routes, constructed by the proposed algorithm.}
-    \label{table:performanceComparison_bestRouteSet4}
-\end{table}
+%\begin{table}[H]
+ %   \centering
+  %  \begin{tabular}{|l|llllllll|}
+   % \hline
+%    Route 1: & 14 & 13 & 11 & 10 & 8 & 6 & 15 & 7 \\
+ %   Route 2: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 12 \\
+  %  Route 3: & 14 & 10 & 8 & 6 & 4 & 5 & 2 & 3 \\
+   % Route 4: & 9 & 15 & 7 & 10 & 11 & 12 & 4 & 2 \\
+ %   \hline
+%    \end{tabular}
+  %  \caption {Representation of the best route set, having four routes, constructed by the proposed algorithm.}
+   % \label{table:performanceComparison_bestRouteSet4}
+%\end{table}
 
 
 %Best Ants Route: {[6,8,15,7,10,11,12,4,][1,2,3,6,8,15,9,][1,2,4,12,11,13,14,10,][1,2,5,4,6,8,10,11,]}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|llllllll|}
-    \hline
-    Route 1: & 6 & 8 & 15 & 7 & 10 & 11 & 12 & 4 \\
-    Route 2: & 1 & 2 & 3 & 6 & 8 & 15 & 9 &  \\
-    Route 3: & 1 & 2 & 4 & 12 & 11 & 13 & 14 & 10 \\
-    Route 4: & 1 & 2 & 5 & 4 & 6 & 8 & 10 & 11 \\
-    \hline
-    \end{tabular}
-    \caption {Representation of the best route set, having four routes, constructed by ACO}
-    \label{table:performanceComparison_bestRouteSet4_ACO}
-\end{table}
+%\begin{table}[H]
+ %   \centering
+  %  \begin{tabular}{|l|llllllll|}
+  %  \hline
+ %   Route 1: & 6 & 8 & 15 & 7 & 10 & 11 & 12 & 4 \\
+ %   Route 2: & 1 & 2 & 3 & 6 & 8 & 15 & 9 &  \\
+  %  Route 3: & 1 & 2 & 4 & 12 & 11 & 13 & 14 & 10 \\
+   % Route 4: & 1 & 2 & 5 & 4 & 6 & 8 & 10 & 11 \\
+   % \hline
+%    \end{tabular}
+ %   \caption {Representation of the best route set, having four routes, constructed by ACO}
+  %  \label{table:performanceComparison_bestRouteSet4_ACO}
+%\end{table}
 
  %FLyttes til appendix?
     \begin{table}[H]
@@ -156,58 +153,58 @@ For the route set representation, a two dimensional array is used. In the route 
     \end{table}
 
 %Best Ants Route: {[12,11,10,13,14,][9,15,7,10,14,13,11,12,][7,10,8,6,4,5,2,3,][1,2,3,6,8,10,11,13,][1,2,4,6,3,][14,13,10,7,15,6,4,12,]}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l l l l l l l l|}
-    \hline
-    Route 1: & 12 & 11 & 10 & 13 & 14 & - & - & - \\
-    Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
-    Route 3: & 7 & 10 & 8 & 6 & 4 & 5 & 2 & 3 \\
-    Route 4: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 13 \\
-    Route 5: & 1 & 2 & 4 & 6 & 3 & - & - & - \\
-    Route 6: & 14 & 13 & 10 & 7 & 15 & 6 & 4 & 12 \\
-    \hline
-    \end{tabular}
-    \caption {The best route set, having six routes, constructed by the proposed algorithm.}
-    \label{table:performanceComparison_bestRouteSet6}
-\end{table}
+%\begin{table}[H]
+ %   \centering
+  %  \begin{tabular}{|l|l l l l l l l l|}
+   % \hline
+    %Route 1: & 12 & 11 & 10 & 13 & 14 & - & - & - \\
+    %Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
+ %   Route 3: & 7 & 10 & 8 & 6 & 4 & 5 & 2 & 3 \\
+  %  Route 4: & 1 & 2 & 3 & 6 & 8 & 10 & 11 & 13 \\
+   % Route 5: & 1 & 2 & 4 & 6 & 3 & - & - & - \\
+    %Route 6: & 14 & 13 & 10 & 7 & 15 & 6 & 4 & 12 \\
+  %  \hline
+   % \end{tabular}
+    %\caption {The best route set, having six routes, constructed by the proposed algorithm.}
+   % \label{table:performanceComparison_bestRouteSet6}
+%\end{table}
 
 %Best Ants Route: {[12,11,10,8,6,4,5,2,][9,15,7,10,14,13,11,12,][11,12,4,5,2,3,6,8,][12,11,10,8,6,3,2,4,][4,6,15,7,10,13,14,][13,10,14,][1,2,3,6,8,10,14,13,]}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l l l l l l l l|}
-    \hline
-    Route 1: & 12 & 11 & 10 & 8 & 6 & 4 & 5 & 2 \\
-    Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
-    Route 3: & 11 & 12 & 4 & 5 & 2 & 3 & 6 & 8 \\
-    Route 4: & 12 & 11 & 10 & 8 & 6 & 3 & 2 & 4 \\
-    Route 5: & 4 & 6 & 15 & 7 & 10 & 13 & 14 & - \\
-    Route 6: & 13 & 10 & 14 & - & - & - & - & - \\
-    Route 7: & 1 & 2 & 3 & 6 & 8 & 10 & 14 & 13 \\
-    \hline
-    \end{tabular}
-    \caption {The best route set, having seven routes, constructed by the proposed algorithm. }
-    \label{table:performanceComparison_bestRouteSet7}
-\end{table}
+%\begin{table}[H]
+  %  \centering
+  %  \begin{tabular}{|l|l l l l l l l l|}
+ %   \hline
+ %   Route 1: & 12 & 11 & 10 & 8 & 6 & 4 & 5 & 2 \\
+ %   Route 2: & 9 & 15 & 7 & 10 & 14 & 13 & 11 & 12 \\
+  %  Route 3: & 11 & 12 & 4 & 5 & 2 & 3 & 6 & 8 \\
+  %  Route 4: & 12 & 11 & 10 & 8 & 6 & 3 & 2 & 4 \\
+   % Route 5: & 4 & 6 & 15 & 7 & 10 & 13 & 14 & - \\
+  %  Route 6: & 13 & 10 & 14 & - & - & - & - & - \\
+  %  Route 7: & 1 & 2 & 3 & 6 & 8 & 10 & 14 & 13 \\
+   % \hline
+  %  \end{tabular}
+  %  \caption {The best route set, having seven routes, constructed by the proposed algorithm. }
+  %  \label{table:performanceComparison_bestRouteSet7}
+%\end{table}
 
 %Best Ants Route: {[11,10,8,6,3,2,1,][13,14,10,7,15,9,][5,4,12,11,10,7,15,6,][11,10,8,6,3,2,5,4,][10,7,15,6,3,2,4,5,][9,15,7,10,11,13,14,][13,14,10,8,6,4,5,2,][5,4,2,3,6,8,15,7,]}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|l l l l l l l l|}
-    \hline 
-    Route 1: & 11 & 10 & 8 & 6 & 3 & 2 & 1 & - \\
-    Route 2: & 13 & 14 & 10 & 7 & 15 & 9 & - & - \\
-    Route 3: & 5 & 4 & 12 & 11 & 10 & 7 & 15 & 6 \\
-    Route 4: & 11 & 10 & 8 & 6 & 3 & 2 & 5 & 4 \\
-    Route 5: & 10 & 7 & 15 & 6 & 3 & 2 & 4 & 5 \\
-    Route 6: & 9 & 15 & 7 & 10 & 11 & 13 & 14 & - \\
-    Route 7: & 13 & 14 & 10 & 8 & 6 & 4 & 5 & 2 \\
-    Route 8: & 5 & 4 & 2 & 3 & 6 & 8 & 15 & 7 \\
-    \hline
-    \end{tabular}
-    \caption {The best route set, having eight routes, constructed by the proposed algorithm. }
-    \label{table:performanceComparison_bestRouteSet8}
-\end{table}
+%\begin{table}[H]
+  %  \centering
+  %  \begin{tabular}{|l|l l l l l l l l|}
+  %  \hline 
+  %  Route 1: & 11 & 10 & 8 & 6 & 3 & 2 & 1 & - \\
+  %  Route 2: & 13 & 14 & 10 & 7 & 15 & 9 & - & - \\
+  %  Route 3: & 5 & 4 & 12 & 11 & 10 & 7 & 15 & 6 \\
+  %  Route 4: & 11 & 10 & 8 & 6 & 3 & 2 & 5 & 4 \\
+  %  Route 5: & 10 & 7 & 15 & 6 & 3 & 2 & 4 & 5 \\
+  %  Route 6: & 9 & 15 & 7 & 10 & 11 & 13 & 14 & - \\
+  %  Route 7: & 13 & 14 & 10 & 8 & 6 & 4 & 5 & 2 \\
+  %  Route 8: & 5 & 4 & 2 & 3 & 6 & 8 & 15 & 7 \\
+   % \hline
+   % \end{tabular}
+  %  \caption {The best route set, having eight routes, constructed by the proposed algorithm. }
+  %  \label{table:performanceComparison_bestRouteSet8}
+%\end{table}
 
 
