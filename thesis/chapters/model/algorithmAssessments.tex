@@ -1,28 +1,28 @@
-\section{System Assessments}
+\section{System assessments}
 The aim of designing a route network is to optimize specific criteria that define its efficiency and quality. Also, some real world constraints should be satisfied. The evaluation criteria and constraints are inspired by \citep{kechagiopoulos14}.
 
 \subsection{Constraints}
 \label{sec:algoConstraints}
-During the route set generation, described in Section \vref{sec:algoCreatingRouteSet}, the algorithm constraints are the following:
+During the route set generation, described in Section \vref{sec:algoCreatingRouteSet}, the system's constraints are the following:
 \begin{enumerate}
-\item \label{itm:constraintCycles} \textbf{No cycles (or backtracks) in the graph is allowed. I.e. a node visited once in a route should not be visited again in the same route.}
+\item \label{itm:constraintCycles} \textbf{No cycles (or backtracks) in the graph is allowed.} I.e. a node visited once in a route should not be visited again in the same route.
 This corresponds to the real world constraint that a bus route should only contain a given bus stop once. 
-\item \label{itm:constraintRouteSize} \textbf{The route size is predefined. The routes shall not exceed the minimum or maximum limit of nodes.}
-This corresponds to the real world constraint saying that a bus route should include at least a number $n$ bus stops, and must not exceed a number $m$ of bus stops. This number is usually sat by the bus service provider based transit network size and cost limitations. 
+\item \label{itm:constraintRouteSize} \textbf{The route size is predefined. The routes shall not exceed the maximum or attain the minimum limit of nodes.}
+This corresponds to the real world constraint saying that a bus route should include at least a number $n$ bus stops, and must not exceed a number $m$ of bus stops. This number is usually sat by the bus service provider based the size of the transit network and cost limitations. 
 \item \label{itm:constraintRouteSetSize} \textbf{The route set size is predefined.}
 This corresponds to the real world constraint that a service provider must be able to determine the number of bus routes in the transit network. This number is, like Constraint \ref{itm:constraintRouteSize}, sat based on the size of the transit network and cost limitations. 
 \item \label{itm:criteriaConnectedGraph} \textbf{The created route sets must correspond to a connected graph.}
 This corresponds to the real world constraint saying that a passenger must be able to travel between any two bus stops in the transit network. 
 \end{enumerate}
 
-\subsection{Evaluation Criteria} 
-This evaluation of the ant's performance is done after the route set generation and is based on the following evaluation criteria:
+\subsection{Evaluation criteria} 
+This evaluation of the ant's performance is done after each route set generation and is based on the following criteria:
 \begin{enumerate}
 \item \label{itm:criteriaTotalTravelTime} The sum of the difference between the total travel time experienced by each passenger and the travel time of the shortest possible path, referred to as $F_1(r)$.
 \item \label{itm:f2} Number of transfers, referred to as $F_2(r)$.
 \item Number of unsatisfied customers, referred to as $F_3(r)$. 
 \end{enumerate}
-These evaluation criteria are used to calculate the total fit, $TOTFIT$, of route set $r$. This process is explained in Section \vref{sec:totfit}.
+These evaluation criteria are used to calculate the total fit, $TOTFIT$, of route set $r$, which process is described in Section \vref{sec:totfit}.
 
 
 

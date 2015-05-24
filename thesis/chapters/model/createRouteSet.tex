@@ -1,8 +1,10 @@
-\section{Creating the Route Set}
+\section{Creating the route set}
 \label{sec:algoCreatingRouteSet}
 
-When a node is selected as the next node, it is added to the route, and declared as the current node. If the current route has reached its maximum number, $R_{max}$, of nodes the current route is added to the route set and a new route is initialized. As Constraint \vref{itm:constraintRouteSetSize} specifies, the route set size is predefined, and if the route set has reached its limit, $RS$, no new route will be created. If $RS$ is reached, $a$ has finished its tour, the route set is added to the Neo4j database and $a$ is ready for evaluation. 
+When a node is selected as the next node, it is added to the route, and declared as the current node. If the current route has reached its maximum number of nodes, $R_{max}$, the current route is added to the route set and a new route is initialized. As Constraint \vref{itm:constraintRouteSetSize} specifies, the route set size is predefined, and if the route set has reached its limit, $RS$, no new route will be created. If $RS$ is reached, $a$ has finished its tour, the route set is added to the Neo4j database and $a$ is ready for evaluation. 
 
-For each route created by each ant in each iteration a RelationshipType is created in Neo4j. A Relationship of the given RelationshipType is created for each edge used in each route. Neo4j's built-in Dijkstra Algorithm is used to find both the shortest possible path in the network and the shortest possible path using a given route set. 
+In Neo4j, each route, $r$, produced by each ant, $a$, in each iteration, $i$, is given a RelationshipType, $RT$:
+$$RT_j = i_{in}a_{an}r_{rn}$$
+where $in$ is the given iteration number, $an$ is the ant number, and $rn$ is the route number.
 
-The built-in Dijkstra in Neo4j is capable of taking one or more RelationshipTypes as input, and finds the shortest path using only the given RelationshipTypes. If no such path exists, it returns null. The shortest possible paths are used in the evaluation phase described in Section \vref{sec:algoEvaluation}.
+Neo4j's built-in Dijkstra Algorithm is used to find both the shortest possible path in the network and the shortest possible path using a given route set. The built-in Dijkstra is capable of taking one or more $RT$s as input, and finds the shortest path using only the given $RT$. If no such path exists, it returns null. The shortest possible paths are used in the evaluation phase described in Section \vref{sec:algoEvaluation}.

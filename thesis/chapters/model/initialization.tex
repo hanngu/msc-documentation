@@ -1,40 +1,61 @@
 \section{Initialization}
 \label{sec:algoInitialization}
 \subsection{Parameters}
-Initial values for the algorithm parameters are set to a numeric value. The parameters to be set for the algorithm are:
-\begin{enumerate}
-\item $s$, the colony size
-\item $i$, the number of iterations (which is the stop criteria)
-\item $E$, the percentage of pheromones to evaporate at each iteration
-\item $p_v$, the pheromone constant added to each edge each time it is visited by an ant
-\item $p_b$, the pheromone constant added extra to the edges visited by the following ants 
-\item $AF$, the percentage of ants to be followed
-\item $CA$, the probability that a given ant is declared ``crazy''
-\item $RS$, the number of routes in a complete route set 
-\item $R_{max}$, the maximum number of nodes in a route
-\item $R_{min}$, the minimum number of nodes in a route
-\item $IW$, the initial value for the Inertia Weight
-\end{enumerate}
+Initial values for the system parameters are set to a numeric value. 
 
-The value of parameters 1-7, except parameter 4, is determined by a conducted experiment described in Chapter\vref{experimentsAndResults}. For comparison reasons, the value of parameters 8-10 will be the same as the parameters used in approaches described in the literature\citep{mandl79, kechagiopoulos14, nikolic14,kidwai98,fan10,chakroborty02,zhang10,chew12,baaj91, mumford13}. The value of parameter 4 and 11 is constant at respectively 0.1 and 1.0.
+\begin{table}[H]
+    \centering
+    %\hspace*{-0.5cm}
+	\begin{tabular}{|l|l|m{9cm}|}
+    	\hline
+    	~ & \textbf{Parameter} & \textbf{Description} \\
+    	\hline
+    	1. & $s$ & The Colony Size \\
+        
+    	2. & $i$ & Number of iterations (the stop criteria) \\
 
-The parameters $E$, $CA$ and $AF$ are all represented as percentages. $E$ is stated as a percentage because the pheromone level changes over time. In the beginning, the level is quite small, and during the iterations the level increases. By stating $E$ as a percentage, an equivalent amount is evaporated at each iteration. $CA$ and $AF$ are also stated as percentages to ensure that the amount of both Crazy Ants (described in Section \vref{sec:algoGeneratingSuperSwarm}) and Ants To Be Followed (described in Section \vref{sec:selctingAntsToBeFollowed}) are the same regardless of the value of $s$. 
+    	3. & $E$ & Percentage of pheromones to evaporate at each iteration \\
+
+    	4. & $p_v$ & The pheromone constant added to each edge, each time it is visited by an ant \\
+        
+        5. & $p_b$ & Pheromone constant added to reward edges walked by following ants \\
+   		
+   		6. & $AF$ & Percentage of ants to be followed \\
+
+   		7. & $CA$ & The probability of a given ant to be declared ``crazy'' \\
+        
+    	8. & $RS$ & The number of routes in a complete route set \\
+        
+    	9. & $R_{max}$ & The maximum number of nodes in a route \\
+
+        10. & $R_{min}$ & The minimum number of nodes in a route \\
+
+        11. & $IW$ & The initial value for the Inertia Weight \\
+   	    \hline
+    \end{tabular}
+    \caption {The parameters to be set for the system}
+    \label{table:parametersToBeSet}
+\end{table}
 
 
-\subsection{Input Data}
+The values of parameters 1-7, except parameter 4, are determined by a conducted experiment described in Chapter\vref{experimentsAndResults}. For comparison reasons, the value of parameters 8-10 will be the same as the parameters used in approaches described in the literature\citep{mandl79, kechagiopoulos14, nikolic14,kidwai98,fan10,chakroborty02,zhang10,chew12,baaj91, mumford13}. The values of parameter 4 and 11 are constant at respectively 0.1 and 1.0.
+
+The parameters $E$, $CA$ and $AF$ are all represented as percentages. $E$ is stated as a percentage because the pheromone level changes over time. In the beginning, the level is quite small, and during the iterations the level increases. By stating $E$ as a percentage, an equivalent amount is evaporated at each iteration. $CA$ and $AF$ are also stated as percentages to ensure that the amount of both ``crazy ants'' (described in Section \vref{sec:algoGeneratingSuperSwarm}) and ``ants to be followed'' (described in Section \vref{sec:selctingAntsToBeFollowed}) are the same regardless of the value of $s$. 
+
+
+\subsection{Input data}
 The input data required includes:
 \begin{itemize}
 \item data concerning the structure of the road network (nodes with coordinates)
 \item data concerning the travel times between the nodes
 \item data concerning the travel demand between the nodes
 \end{itemize}
-An example of such files can be found in Appendix \vref{sec:inputData}.
+Examples of such files can be found in Appendix \vref{sec:inputData}.
 
-\subsection{Network Generation}
+\subsection{Network generation}
 \label{subsec:networkGeneration}
 
-A network consisting of nodes and relationships is created using the graph database Neo4j. The nodes are created based on the file presented in Table \vref{table:MandlCoords}, which consist of the of the number of nodes and coordinates of each node. These coordinates are in this thesis not used other than to represent the graph visually. An example of such a visual representation can be found in Figure \vref{fig:MandlNetwork_problemstatement}. The relationships between the nodes in the initialization corresponds the travel time and demand between the nodes. These data are gathered from files shown in Table 
-\vref{table:MandlTravelTimes} and Table \vref{table:MandlDemand}. Table \ref{table:MandlTravelTimes} shows the travel time between every two nodes in minutes. Some of the travel times are described as ``Inf'', meaning there is no direct link between the two nodes in question. Table \ref{table:MandlDemand} shows the demand between every two nodes, which corresponds to the average number of passengers traveling between every two nodes each day. Both Table \ref{table:MandlTravelTimes} and \ref{table:MandlDemand} are symmetrical matrices, meaning that the travel time and demand between nodes $i$ and $j$ are the same in either direction. 
+The network consist of nodes and relationships, and is created using the graph database Neo4j. The nodes are created based on the file presented in Table \vref{table:MandlCoords}, which consist of the number of nodes and the coordinates for each node. These coordinates are just used to represent the graph visually, and an example of such a visual representation can be found in Figure \vref{fig:MandlNetwork_problemstatement}. The relationships between the nodes corresponds to the travel time and demand between the nodes. These data are gathered from files shown in Table \vref{table:MandlTravelTimes} and Table \vref{table:MandlDemand}. Table \ref{table:MandlTravelTimes} shows the travel time between every two nodes in minutes. Some of the travel times are described as ``Inf'', meaning there is no direct link between the two nodes. Table \ref{table:MandlDemand} shows the demand between every two nodes, which corresponds to the average number of passengers traveling between every two nodes each day. Both Table \ref{table:MandlTravelTimes} and \ref{table:MandlDemand} are symmetrical matrices. Because the generated networks are directed, the travel time and demand between two nodes are the same in either direction. 
 
 %A network is generated consisting of nodes from the data in the MandlCoordinates file shown in Table \vref{table:MandlCoords} and edges from the data in the MandlDemand file shown in Table \vref{table:MandlDemand}. Travel times are added to the generated edges based on the data from the MandlTravelTimes file shown in Table \vref{table:MandlTravelTimes}. Some of the travel times are described as ``Inf'', meaning there is no direct path between the two nodes in question even though there is a (possibly) high demand between them. These edges are excluded for the most part of the algorithm, because there is in fact not possible to travel between the nodes connected by the edge. However, when the route sets are evaluated, the algorithm awards sets that satisfy node couples with high demand directly.
 

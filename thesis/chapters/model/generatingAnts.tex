@@ -1,18 +1,21 @@
-\section{Generating Combined Swarm Colony}
+\section{Generating Combined Swarm colony}
 \label{sec:algoGeneratingSuperSwarm}
-After the initialization of the network, a Combined Swarm Colony is generated. Because the basis of the system is ACO, will the individuals of the Combined Swarm Colony be referred to as ants. A colony consists of three types of individuals:
+After the network initialization, a Combined Swarm colony is generated. Because the basis of the system is ACO, the individuals of the Combined Swarm colony will be referred to as ants. A colony consists of three types of individuals, and are the following:
 
 \begin{itemize}
-\item \textit{Normal Ants} - these ants chooses next nodes based on a probability of each of the possible edges. 
-\item \textit{Following Ants} - a number $n$ of the colony becomes Following Ants, $FA$. $n$ is determined by the $AF$ percentage of ants to be followed from the previous iteration. A Following Ant follows one of the best ants, $ba_i$, from the previous iteration unconditionally by choosing exactly the same path as $ba_i$ did.
-\item \textit{Crazy Ants} - by a given probability a normal ant is declared ``crazy''. A crazy ant, $CA$, chooses next node at random, given the possible edges connected to the current node.  
-\end{itemize}
-The number of Following Ants is equivalent to the number of ants to be followed, $NAF$, described in Section \vref{sec:selctingAntsToBeFollowed}. The Following Ants will add additional pheromone to the edges walked by the $NAF$ best ants in the previous iteration, simply by walking the same path. To test if further boosting is beneficial will an additional pheromone constant, $p_b$, will be added to the edges walked by the Following Ants. In the very first iteration there exists no ants to be followed, and thus will their neither be any Following Ants. 
+\item \textbf{Normal Ants}: The normal ant chooses possible edges by a probability which is based on the edge value $ev$, described in Section \vref{sec:selectingNextNode}.
+
+\item \textbf{Following Ants}: the following ants, $FA$, will follow the same path as the best ants selected from the previous iteration. The amount of the ants to be followed in the next iteration, $n$, is determined by a percentage, $AF$, described in Section \vref{sec:selctingAntsToBeFollowed}. The same amount of $FA$ will choose exactly the same nodes as the ant it is following.
+\newline
+\newline
+The $FA$ will add additional pheromone to the edges walked by the best ants in the previous iteration, simply by walking the same path. To test if further boosting is beneficial, an additional pheromone constant, $p_b$, will be added to the edges walked by the $FA$. The amount of $p_b$ is selected after excessive testing. It is worth mentioning that in the very first iteration, there are no ants to be followed, and there will therefore neither be any $FA$.  
+
+\item \textbf{Crazy Ants}: by a given probability a normal ant is declared ``crazy''. A crazy ant, $CA$, chooses the next node at random, given the possible edges connected to the current node. 
 
 The probability that a generated ant is declared ``crazy'' is partly determined by a predefined value, $CA$, achieved by the parameter testing, and partly determined by the inertia weight, $IW$. This probability, $p$, is calculated as follows:
 $$p = CA*IW$$
-The $IW$ decreases at each iteration, resulting in a smaller probability for the ants to be declared ``crazy''. The rate in which the inertia weight decreases is dependent on the number of iterations, $i$. At each iteration $IW$ is updated as follows:
+As one can observe, the $IW$ decreases at each iteration. This results in a smaller probability for the ants to be declared ``crazy''. The rate in which the inertia weight decreases is dependent on the number of iterations, $i$. At each iteration $IW$ is updated as follows:
 $$IW = IW - \frac{IW}{i}$$
-It might be worth mentioning that Following Ants can not be declared crazy. 
+It might be worth mentioning that the $FA$ can not be declared crazy. 
 
-If an ant is neither a Following Ant or a Crazy Ant, it is a Normal Ant and chooses edges based on the edge value $ev$ as described in Section \vref{sec:selectingNextNode}.
+\end{itemize}
