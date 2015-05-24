@@ -1,12 +1,11 @@
 \section{Selecting next nodes}
 \label{sec:selectingNextNode}
 
-How an ant is selecting the next node is dependent on which type of ant it is. 
+How an ant selects the next node is dependent on which type of ant it is. 
 
 If ant $a$ is ``crazy'', the next node is chosen randomly based on the possible edges connected to the current node, without considering the edge value. If $a$ is a ``following ant'', $a$ consequently chooses the edges selected by the ant it is following.  
 
-If $a$ is a ``normal ant'' the next node selection is based on an evaluated edge value, $ev$, for each of the possible edges, $pe$. $pe$ is defined as a Relationship in Neo4j with the RelationshipType ``TravelTime''.  
-This RelationshipType is an edge which is connected to the current node and a node not yet visited in the given route. If no such edge exists, the given tour is terminated, or else the value $ev$ for each edge $e$ in $pe$ is calculated as follows: 
+If $a$ is a ``Normal Ant'' the next node selection is based on an evaluated edge value, $ev$, for each of the possible edges, $pe$. $pe$ is an edge that is connected to the current node and a node not yet visited in the given route. If no such edge exists, the given tour is terminated, else the value $ev$ for each edge $e$ in $pe$ is calculated as follows: 
 
 $$ev_e = \frac{p_e}{\sum\limits^{n}_{i=1}p_i} + \alpha $$
 
@@ -14,15 +13,15 @@ where $p_e$ is the pheromone value of edge $e$, and $n$ is the possible edges. $
 
 $$prob_e = \frac{ev_e}{\sum\limits^{n}_{i=1}ev_i}$$
 
-Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with a high probability is given a broad range and vice versa. A random decimal number between 0 to 1 is used to determine which edge to choose. The edge that holds the random number in the range is chosen, and the connecting node of that edge is selected as the next node. 
+Each edge is given a range between 0 to 1 based on the calculated probability. Every real number between 0 and 1 is covered by a range exactly once. An edge with a high probability is given a broad range and vice versa. A random decimal number between 0 and 1 is used to determine which edge to choose. The edge that holds the random number in the range is chosen, and the connecting node of that edge is selected as the next node. 
 
-When an edge is selected, the pheromone value $e_p$ of this edge is updated. This happens independent of the ant type. $e_p$ is updated as follows:
+When an edge is selected, the pheromone value $e_p$ of this edge is updated. This happens independently of ant type. $e_p$ is updated as follows:
 
 $$e_p \pluseq \frac{p_v}{T_e}$$ 
 
 Where $p_v$ is a predefined pheromone constant and $T_e$ is the edge's travel time. As this formula shows, an edge with a shorter travel time is granted more pheromone than an edge with longer travel time. This is inspired by how \citet{hsiao04} updates pheromones, and designed to favor edges with lower cost, which, in this case, is lower travel times. 
 
-If $a$ is a Following Ant, the chosen edge is granted additional pheromone, as mentioned in Section \vref{sec:algoGeneratingSuperSwarm}. After the initial pheromone is added, $e_p$ is further updated by the following formula:
+If $a$ is ``Following Ant'', the chosen edge is granted additional pheromone, as mentioned in Section \vref{sec:algoGeneratingSuperSwarm}. After the initial pheromone is added, $e_p$ is further updated by the following formula:
 
 $$e_p \pluseq \frac{p_b}{T_e}$$ 
 
