@@ -1,32 +1,28 @@
 \section{Performance comparison}
 \label{sec:performanceComparison}
 \subsection{Experimental plan}
-When the value for each parameter is selected, the comparison studies will determine the performance of the proposed system. The results produced by the proposed system will be compared to results published by \citet{mandl79}, \citet{kechagiopoulos14}, \citet{nikolic14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, \citet{chew12}, and \citet{baaj91}. Four different cases will be studied, each having different number of routes. In order for our experimental results to be straight comparable with the results published, cases with four, six, seven and eight routes in the route set will be examined.
+When the value of each parameter is selected, the comparison studies will determine the performance of the proposed system. The results produced by the proposed system will be compared to results published by \citet{mandl79}, \citet{kechagiopoulos14}, \citet{nikolic14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, \citet{chew12}, and \citet{baaj91}. Four different cases will be studied, each having different number of routes. For our experimental results to be straight comparable with the results published, cases with four, six, seven and eight routes in the route set will be examined.
 
-In order to determine \vref{itm:RQ2}, which is concerned about whether the additional attributes from swarm intelligence has improved the basic ACO, the proposed system will be compared to a generic ACO implementation. The generic ACO is identical to the proposed system, but without following ants, crazy ants, or memory. 
+To determine \vref{itm:RQ2}, which is concerned whether the additional attributes from swarm intelligence has improved a standard ACO algorithm, the proposed system will be compared to a generic ACO implementation. The generic ACO is identical to the proposed system, but without ``following ants'', ``crazy ants'', or ``memory''. 
 
 \subsection{Experimental setup}
 \label{subsec:performanceComparison_setup}
 %We will in this stage test the system's performance, comparing the results with the results published by xxx, and with the basic ACO implementation. 
-In order to determine the performance of the proposed system, some performance criteria will be used for evaluation. As stated in \citet{kechagiopoulos14}, the criteria were first proposed by \citet{chakroborty02} in order to have a fair comparison between all system's results. The performance criteria are %used by all approaches this thesis will use for comparison, which are \citet{mandl79}, \citet{kechagiopoulos14}, \citet{kidwai98}, \citet{fan10}, \citet{chakroborty02}, \citet{zhang10}, and \citet{chew12}, and are 
-the following:
+To determine the performance of the proposed system, some performance criteria will be used for evaluation. As stated in \citet{kechagiopoulos14}, the criteria were first proposed by \citet{chakroborty02} to have a fair comparison between all system's results. The performance criteria are the following:
 \begin{itemize}
-\item $d_0 (\%)$ - the percentage of passengers satisfied without any transfers. 
-\item $d_1 (\%)$ - percentage passengers transferring once. 
-\item $d_2 (\%)$ - percentage of passengers transferring twice. 
+\item $d_0 (\%)$ - the percentage of passengers without any transfers. 
+\item $d_1 (\%)$ - the percentage passengers transferring once. 
+\item $d_2 (\%)$ - the percentage of passengers transferring twice. 
 \item $d_{unsat}$ (\%) - the percentage of unsatisfied passengers. An unsatisfied passenger is described as a passenger with 3 or more transfers. 
-\item $ATT$  - the average travel time in minutes per transit user (mpu). In all approaches published in the literature, the transfer penalty of 5 min is applied to each route for each required transfer, and the same transfer penalty will be used by the proposed CSS.
+\item $ATT$  - the average travel time in minutes per transit user. In all approaches published in the literature, the transfer penalty of 5 min is applied to each route for each required transfer, and the same transfer penalty will be used by the proposed system.
 %$ATT$ is calculated as follows:
 %$$ATT = \frac{\sum\limits^{p}_{p=1}TT}{p_{size}}$$
 %where $p_{size}$ is the number of passengers and $TT$ is the travel time used by passenger $p$. 
 \end{itemize}
-The criteria for good performance includes that the percentage of passengers satisfied without any transfers is high, and that the average travel time and the percentage of unsatisfied customers is low. 
-
- %
-
+The criteria for good performance includes that the percentage of passengers satisfied without any transfers is high and that the average travel time and the percentage of unsatisfied customers are low. 
 %In order for our results to be comparable with results published, experiments with four, six, seven and eight routes in each route set will be examined for SSO. 
 
-There will be carried out 50 runs per experiment, recording the values of $d_0$, $d_1$, $d_2$, $d_{unsat}$, and $ATT$ of the best produced solution. The best produced solution is the one with lowest $TOTFIT$ value. After 50 runs the best, worst, average and worst solution will be be presented, along with the standard deviation for the values described above. %The minimum, maximum, average, median and standard deviation of the execution time (in seconds) will also be presented.  
+There will be carried out 50 runs per experiment, recording the values of $d_0$, $d_1$, $d_2$, $d_{unsat}$, and $ATT$ of the best produced solution each run. The best-produced solution is the one with lowest $TOTFIT$ value. After 50 runs the best, worst, average and worst solution for all runs will be presented along with the standard deviation. %The minimum, maximum, average, median and standard deviation of the execution time (in seconds) will also be presented.  
 
 The experiments will be run on Ubuntu instances provided by the Google Cloud Platform\citep{website:google}. For the experiments with four, six and seven routes, the instances used will be of type ``n1-highcpu-2''. These instances contain, as mentioned in Section \vref{subsec:parameterSettings_setup}, two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 1.8 GB memory. For the experiment with eight routes an instance of type ``n1-standard-2'' will be used, due to the increased memory usage. This instance contains two 2.6GHz Intel Xeon E5 (Sandy Bridge) virtual CPUs and 7.5 GB memory.
 
