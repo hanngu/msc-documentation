@@ -4,7 +4,9 @@
 \section{Mandl's Network}
 A method is, as mentioned, designed and implemented to produce a realistic transit network based on the data from Mandl \citep{mandl79}. The data includes a network of 15 nodes and 21 edges, in addition to the travel times and travel demand for each edge. %The travel time between the to farthest nodes in the network is 22 minutes along the shortest path. 
 
-The data set is downloaded from \citet{mumford13}, and consist of three text files:
+The data set is downloaded from \citet{mumford13}, and is presented in Table \vref{table:MandlCoords}, Table \vref{tbl:mandlDemand}, and Table \vref{table:MandlDemand}. 
+
+The file presented in Table \vref{table:MandlCoords}, includes 16 lines, with a number indicating the amount of nodes, and the (x,y) coordinates for the 15 nodes. These coordinates was not supplied in Mandl's literature, so they are retrieved from \citet{mumford13} and are approximate for the picture to be drawn.
 
 \begin{table}[H]
     \begin{center}
@@ -32,8 +34,9 @@ The data set is downloaded from \citet{mumford13}, and consist of three text fil
     \end{center}
     \caption {Coordinates for Mandl's transit network}
     \label{table:MandlCoords}
-    This file includes 16 lines, with a number indicating the amount of nodes, and the (x,y) coordinates for the 15 nodes. These coordinates was not supplied in Mandl's literature, so they are copied from \citet{mumford13} and are approximate for the picture to be drawn.
 \end{table}
+
+Table \vref{table:MandlTravelTimes} shows the content of the travel time file. The presented travel times matrix gives the travel times it takes in minutes between the nodes. This matrix is symmetrical, travel times between each node and itself are zero, and ``Inf'' indicates that there is no direct link between the nodes.
 
 \begin{table}[H]
 \resizebox{12.5cm}{!} {
@@ -63,8 +66,10 @@ The data set is downloaded from \citet{mumford13}, and consist of three text fil
 }
     \caption {Travel times for Mandl's transit network}
     \label{table:MandlTravelTimes}
-    The travel times matrix gives the travel times it takes in minutes between the nodes. This matrix is symmetrical, travel times between each node and itself are zero, and ``Inf'' indicates that there is no direct link between the nodes.
 \end{table}
+
+Table \vref{table:MandlDemand} presents the demand file. The demand matrix in this file shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. There is no demand either to or from node 15, but it there is demand to node 9, which is only connected to node 15. For coding reasons, is the numbers in the main diagonal (from to left corner to bottom right corner) changed from all zero to all ’a’s.
+
 
 \begin{table}[H]
 \label{tbl:mandlDemand}
@@ -95,8 +100,7 @@ The data set is downloaded from \citet{mumford13}, and consist of three text fil
     }
  	\caption {Demand for Mandl's transit network}
  	\label{table:MandlDemand}
- 	The demand matrix shows the travel demand between each node pair, which is the average number of passenger trips per day. This matrix is also symmetrical. There is no demand either to or from node 15, but it there is demand to node 9, which is only connected to node 15. For coding reasons, is the numbers in the main diagonal (from to left corner to bottom right corner) changed from all zero to all ’a’s.
-
+ 	
 \end{table}
 
 %\begin{figure}[H]
