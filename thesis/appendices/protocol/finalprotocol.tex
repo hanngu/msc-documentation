@@ -8,17 +8,16 @@
 
 \subsection{Defining the Problem}
 \label{sec:researchQSLR}
-To conduct a structured literature review it is vital to decide the problem to be solved, referred to as P, and the constraints used to guide the search, referred to as C.
-\newline
-\newline
-One of the goals for the environment package for transportation in Trondheim, ``Miljøpakken'', is to reduce percentage of people traveling with cars from 58 \% to 50 \% by 2018 \citep{website:miljopakken}. If this goal is reached, it will be an increased need for public transportation in Trondheim. There has never been done any optimization of the bus routes in Trondheim, the existing solution is purely based on experience. The problem formulation for this thesis was therefore based on the idea to improve todays solution by optimizing the bus routes using AI-methods. 
+To conduct a structured literature review it is vital to decide the problem, $P$, to be solved and the constraints, $C$, used to guide the search.
+
+One of the goals for the environment package for transportation in Trondheim, ``Greener Trondheim'', is to improve the public transportation system \citep{website:miljopakken}. From a meeting with AtB\citep{website:atb} we learned that the bus network in Trondheim never has been computational optimized, and the existing solution is purely based on experience. The problem formulation for this thesis was therefore based on the idea to improve todays solution by optimizing the bus routes using AI-methods. 
 
 \begin{itemize}
-\item \textbf{P:} Optimizing the bus routes in Tronheim using AI-methods. % This problem can be characterized as a \textit{General Pickup and Delivery Problem (GPDP)} \citep[p.22-25]{vehiclerouting}.  
+\item \textbf{P:} Optimizing the bus routes in Trondheim using AI-methods. % This problem can be characterized as a \textit{General Pickup and Delivery Problem (GPDP)} \citep[p.22-25]{vehiclerouting}.  
 \item \textbf{C:} 
     \begin{enumerate}
-        \item To optimize the bus routes in Trondheim we wanted to explore the possibility using methods from swarm intelligence. This idea came from an initial, non-structured literature review were we did a broad search among different artificial intelligence methods and route optimizing. %Todo: Kanskje skrive litt mer om dette? Evt. sitere noe literatureshit Hva med SI?
-        \item We believe that a part of solving the problem, P, is how we choose to represent the network of the bus routes in Trondheim. The chosen algorithms to optimize the routes with respect to minimize the number of resources used will use this representation. We have some experience with the graph database Neo4j. Neo4j has several benefits that we believe we can take advantage of when solving P, including a natural node-edge-structure and the possibility of saving information to both the nodes and edges. We envision that the nodes will represent bus stops, and the edges will represent the connectivity between the stops. 
+        \item To computationally optimize the bus routes in Trondheim we wanted to explore the possibility using methods from swarm intelligence. This idea came from an initial, non-structured literature review were we did a broad search among different artificial intelligence methods and route optimizing. %Todo: Kanskje skrive litt mer om dette? Evt. sitere noe literatureshit Hva med SI?
+        \item We believe that a part of solving the problem, P, is how we choose to represent the network of the bus routes in Trondheim. We have some experience with the graph database Neo4j. Neo4j has several benefits that we believe we can take advantage of when solving P, including a natural node-edge-structure and the possibility of saving information to both the nodes and edges. We envision that the nodes will represent bus stops, and the edges will represent the connectivity between the stops. 
     \end{enumerate}
 \end{itemize}
 
