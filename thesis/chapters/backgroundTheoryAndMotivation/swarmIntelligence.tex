@@ -54,7 +54,7 @@ As reported in \citet{shi99}, was Particle Swarm Optimization (PSO) first introd
 \centerline{$V_{id} = w * V_{id} + c_1 * rand() * (P_{id}-X_{id}) + c_2 * Rand() * (P_{gd}-X_{id})$}
 \newline
 \newline
-where \textit{w} is a decreasing parameter called inertia weight brought to the PSO for balancing local and global search, $c_1$ and $c_2$ are two positive constants, and \textit{rand()} and \textit{Rand()} are two random functions in the range [0,1]. Figure \ref{fig:psoBeginning} illustrates how the particles in PSO tends to explore in the the early iterations of the algorithm, while figure \ref{fig:psoEnd} illustrates how the particles tend to act more organized and coordinated at the late iterations. The new position of the \textit{i}th particle is calculated as follows \cite{shi99}:
+where \textit{w} is a decreasing parameter called inertia weight brought to the PSO balances local and global search, $c_1$ and $c_2$ are two positive constants, and \textit{rand()} and \textit{Rand()} are two random functions in the range [0,1]. Figure \ref{fig:psoBeginning} illustrates how the particles in PSO tends to explore in the the early iterations of the algorithm, while figure \ref{fig:psoEnd} illustrates how the particles tend to act more organized and coordinated at the late iterations. The new position of the \textit{i}th particle is calculated as follows \cite{shi99}:
 \newline
 \newline
 \centerline{$X_i = X_{id} + V_{id}$}
