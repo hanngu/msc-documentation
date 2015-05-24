@@ -1,4 +1,5 @@
 \section{Future Work}
+\label{sec:futureWork}
 
 \subsection*{Use Neo4j differently or remove from implementation}
 The proposed system does not transfer well to an increased network size. Supporting larger networks is vital, because most real world transit networks are larger than the Mandl Network used as input in this thesis. A reason for the insufficient performance is that the current solution with the graph database Neo4j does not support the excessive amount of RelationshipTypes required when the network size increase. An implementation where the generated amount of RelationshipTypes were significantly smaller would have been an interesting approach. Neo4j's built-in method is used for the traversal of graphs and is dependent on RelationshipTypes to distinguish the generated routes. Adding the ``properties'' function to edges instead of RelationshipTypes would be one approach to change the usage of Neo4j. However, an implementation of Dijkstra's algorithm from scratch will be required.  
