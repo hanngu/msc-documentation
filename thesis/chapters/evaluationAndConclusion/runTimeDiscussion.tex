@@ -1,7 +1,7 @@
 \subsection{Run time}
 \label{subsec:runtime}
 
-The run time for the proposed system is dependent on the $NRS$, the number of ants ($s$), the number of iterations ($i$), the size of the network, and whether Method 1 or Method 2 is used.  Of course, the run time is dependent on both the $s$ and $i$ because they both increase the number of route sets to be generated and evaluated. Because a route set must be evaluated on the shortest travel time between every two nodes in the network, the run time also increases as the network expands. As one can observe from Table \vref{table:results_mumford0runtime}, the run time is also highly dependent on whether Method 1 or Method 2 is used. The run time is, in fact, more than ten times greater when using Method 2 compared to Method 1. In Method 1, Dijkstra only will only need to find the absolute shortest path between two nodes, while in Method 2 Dijkstra will need to find all possible paths between the two nodes to evaluate them further based on the travel time and potential transfer penalties. The difference in using Method 1 and Method 2 will increase as both the network and the $NRS$ increases, due to the enlarged number of possible routes. As one can see from the average run times regarding the experiments using the Mandl Network in Table \vref{tabel:runTimeMandl}, the run time increases drastically from 7 to 8 routes. This is because, in the generation of 8 routes, the need for more memory led to using an instance from Google with more memory and less CPU power. 
+The run time for the proposed system is dependent on the $NRS$, the number of ants ($s$), the number of iterations ($i$), the size of the network, and whether Method 1 or Method 2 is used.  Of course, the run time is dependent on both the $s$ and $i$ because both parameters increase the number of route sets to be generated and evaluated. Because a route set must be evaluated on the shortest travel time between every two nodes in the network, the run time increases as the network expands. As one can observe from Table \vref{table:results_mumford0runtime}, the run time is highly dependent on whether Method 1 or Method 2 is used. The run time is, in fact, more than ten times greater when using Method 2 compared to Method 1. In Method 1, Dijkstra only will only need to find the absolute shortest path between two nodes, while in Method 2 Dijkstra will need to find all possible paths between the two nodes to further evaluate them based on the travel time and potential transfer penalties. The difference in using Method 1 and Method 2 will increase as both the network and the $NRS$ increases, due to the enlarged number of possible routes. As one can see from the average run times regarding the experiments using the Mandl Network in Table \vref{tabel:runTimeMandl}, the run time increases drastically from 7 to 8 routes. This is may be because, in the generation of 8 routes, the need for more memory led to using an instance from Google with more memory and less CPU power. 
  
 
 %As one can observe from Table \vref{tabel:runTimeMandl} the average run time increases drastically when the number of routes in the Mandl network increases. 
@@ -26,7 +26,7 @@ The run time for the proposed system is dependent on the $NRS$, the number of an
     \caption{Average run time in seconds of 10 runs using the Mumford Networks}
     \label{tabel:runTimeMumford}
     \begin{itemize}[noitemsep]
-    \item[$^1$:] $s$ = 50, $i$ = 50
+    \item[$^1$:] Swarm size, $s$ = 50, Number of iterations, $i$ = 50
     \end{itemize} 
 \end{table}
 
@@ -35,7 +35,7 @@ The run time for the proposed system is dependent on the $NRS$, the number of an
     \hspace*{-1.0cm}
     \begin{tabular}{|c|c|}
         \hline
-        \textbf{Network} & \textbf{Run time$^2$}\\
+        \textbf{Network} & \textbf{Run time$^1$}\\
         \hline
         Mandl (4 routes) & 673.0\\
         
@@ -48,7 +48,7 @@ The run time for the proposed system is dependent on the $NRS$, the number of an
     \end{tabular}
     \caption{Average run time in seconds of 50 runs for each route set size on the Mandl Network}
     \begin{itemize}[noitemsep]
-    \item[$^2$:] $s$ = 50, $i$ = 125
+    \item[$^1$:] Swarm size, $s$ = 50, Number of iterations, $i$ = 125
     \end{itemize} 
     \label{tabel:runTimeMandl}
 \end{table}
