@@ -4,7 +4,7 @@
 When a node is selected as the next node, it is added to the route, and declared as the current node. If the current route has reached its maximum number of nodes, $R_{max}$, the current route is added to the route set and a new route is initialized. As Constraint \vref{itm:constraintRouteSetSize} specifies, the route set size is predefined, and if the route set has reached its limit, $RS$, no new route will be created. If $RS$ is reached, $a$ has finished its tour, the route set is added to the Neo4j database and $a$ is ready for evaluation. 
 
 In Neo4j, each route, $r$, produced by each ant, $a$, in each iteration, $i$, is given a RelationshipType, $RT$:
-$$RT_j = i_{in}a_{an}r_{rn}$$
+$$RT = i_{in}a_{an}r_{rn}$$
 where $in$ is the given iteration number, $an$ is the ant number, and $rn$ is the route number.
 
-Neo4j's built-in Dijkstra Algorithm is used to find both the shortest possible path in the network and the shortest possible path using a given route set. The built-in Dijkstra is capable of taking one or more $RT$s as input, and finds the shortest path using only the given $RT$. If no such path exists, it returns null. The shortest possible paths are used in the evaluation phase described in Section \vref{sec:algoEvaluation}.
+Neo4j's built-in Dijkstra Algorithm is used to find both the shortest possible path in the network and the shortest possible path using a given route set. The built-in Dijkstra is capable of taking one or more $RT$s as input, and finds the shortest path using only the given $RT$. If no such path exists, it returns null. The shortest possible paths are used in the evaluation phase described in the next section.
