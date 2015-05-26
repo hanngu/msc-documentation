@@ -3,13 +3,13 @@
 After the network initialization, a Combined Swarm colony is generated. Because the basis of the system is ACO, the individuals of the Combined Swarm colony will be referred to as ants. A colony consists of three types of individuals, and are the following: 
 
 \begin{itemize}
-\item \textbf{Normal Ants}: The normal ant chooses the next edge to walk by a probability based on the edge value $ev$, described in Section \vref{sec:selectingNextNode}.
+\item \textbf{Normal ants}: ``normal ant'' chooses the next edge to walk by a probability based on the edge value $ev$, described in Section \vref{sec:selectingNextNode}.
 
-\item \textbf{Following Ants}: the following ants, $FA$, will follow the same path as the best ants selected from the previous iteration. The amount of the ants to be followed in the next iteration, $n$, is determined by a percentage, $AF$, described in Section \vref{sec:selctingAntsToBeFollowed}. The same amount of $FA$ will choose exactly the same nodes as the ant it is following.
+\item \textbf{Following ants}: the ``following ants'', $FA$, will follow the same path as the best ants selected from the previous iteration. The amount of the ants to be followed in the next iteration, $n$, is determined by a percentage, $AF$, described in Section \vref{sec:selctingAntsToBeFollowed}. The same amount of $FA$ will choose exactly the same nodes as the ant it is following.
 
 The $FA$ will add additional pheromone to the edges walked by the best ants in the previous iteration, simply by walking the same path. To test if further boosting is beneficial, an additional pheromone constant, $p_b$, will be added to the edges walked by the $FA$. The amount of $p_b$ is selected after excessive testing. It is worth mentioning that in the very first iteration, there are no ants to be followed, and there will therefore neither be any $FA$.  
 
-\item \textbf{Crazy Ants}: By a given probability a normal ant is declared ``crazy''. A ``crazy ant'' chooses the next node at random, given the possible edges connected to the current node. 
+\item \textbf{Crazy ants}: By a given probability a normal ant is declared ``crazy''. A ``crazy ant'' chooses the next node at random, given the possible edges connected to the current node. 
 
 The probability that a generated ant is declared crazy is partly determined by a predefined value, $CA$, achieved by the parameter testing, and partly determined by the inertia weight, $IW$. This probability, $p$, is calculated as follows:
 $$p = CA*IW$$
