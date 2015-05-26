@@ -10,7 +10,7 @@ To determine \vref{itm:RQ3}, the proposed system will be tested on larger networ
 \subsection{Experimental setup}
 \label{subsec:scalabilityExperiments_setup}
 
-To test whether the proposed system supports larger networks, the generated networks added as supplementary material to \citet{mumford13} will be used for the experiments regarding network expansion. Coordinates for each node, travel time between connected nodes, and demand values between each two nodes are all provided in this supplementary material. In addition are the maximum number of nodes ($Max(n)$), minimum number of nodes ($Min(n)$), along with the size of the route set ($RS_{size}$) all specified. The experiments will be run with the same parameter values as the selected parameter values described in Section \vref{sec:parametersettings}.
+To test whether the proposed system supports larger networks, the generated networks added as supplementary material to \citet{mumford13} will be used for these experiments. Coordinates for each node, travel time between connected nodes, and demand values between each two nodes are all provided in this supplementary material. In addition, the maximum number of nodes ($Max(n)$), minimum number of nodes ($Min(n)$), along with the size of the route set ($RS_{size}$) are all specified. The experiments will be run with the same parameter values as the selected parameter values described in Section \vref{sec:parametersettings}.
 
 \begin{table}[H]
 	\centering
@@ -28,7 +28,7 @@ To test whether the proposed system supports larger networks, the generated netw
     \label{table:dataSet_mumford}
 \end{table}
 
-\textit{Method 1} will be used to generate routes on these networks, and not \textit{Method 2}, which is used when testing on Mandl's network. As mentioned in Section \vref{sec:f1}, Method 1 selects the path with the shortest traveling time, not considering any transitions, and the transfer penalties are added after the route is selected. In Method 2, the transitions are considered, and the path with the shortest traveling time, including transfer penalties, is chosen. As Table \vref{table:results_mumford0runtime} shows, Method 2 performs better. However, these experiments will be run in order to determine whether the proposed system supports larger input, and due to the excessive difference in run time, Method 1 is chosen for these experiments. The proposed system will only be run 10 times for each network, and the produced results concerning the performance criteria must, therefore, be considered as indicative. 
+\textit{Method 1} will be used to generate routes on these networks, and not \textit{Method 2}, which is used when testing on Mandl's network. As mentioned in Section \vref{sec:f1}, Method 1 selects the path with the shortest traveling time, not considering any transitions, and the transfer penalties are added after the route is selected. In Method 2, the transitions are considered, and the path with the shortest traveling time, including transfer penalties, is chosen. As Table \vref{table:results_mumford0runtime} shows, Method 2 performs better. However, these experiments will be run in order to determine \textit{whether} the proposed system supports larger input, and due to the excessive difference in run time, Method 1 is chosen for these experiments. The proposed system will only be run 10 times for each network, and the produced results concerning the performance criteria must, therefore, be considered as indicative. 
 
 \begin{table}[H]
     \centering
